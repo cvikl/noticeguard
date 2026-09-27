@@ -2,7 +2,7 @@
 
 **Track:** Digital Rights & Policy Tech
 
-**Live demo:** https://noticeguard.primafacie.eu (click Load Maya / Load Leo; runs from the committed extraction cache)
+**Live demo:** https://noticeguard.ruleandrecord.com (click Load Maya / Load Leo; runs from the committed extraction cache)
 
 ## Inspiration
 
@@ -14,15 +14,15 @@ NoticeGuard reads the creator's own documents and reports whether they back the 
 
 ## How we built it
 
-The model highlights, it never types: it returns each document with XML-style tags around spans, and the tag-stripped output must equal the original text or the whole extraction is rejected and retried with the diff. Values and categorical labels are derived in code. Wording that needs interpretation (does "monetised video on social platforms" cover a monetised ClipStream channel?) is asked three times; anything short of 3/3 agreement sends the case to an adviser. A deterministic, versioned rules engine (R0–R10, `rules.yaml`) decides; FastAPI serves the API and a vanilla-JS front end; the demo runs from a committed LLM cache. Built with Claude Code, with the Impeccable design skill for the interface.
+The model highlights, it never types: it returns each document with XML-style tags around spans, and the tag-stripped output must equal the original text or the whole extraction is rejected and retried with the diff. Values and categorical labels are derived in code. Wording that needs interpretation (does "monetised video on social platforms" cover a monetised ClipStream channel?) is asked three times; anything short of 3/3 agreement sends the case to an adviser. Gemini 3.8 Flash performs the tagging and repeated interpretation calls. A deterministic, versioned rules engine (R0–R10, `rules.yaml`) decides; FastAPI serves the API and a vanilla-JS front end; the demo runs from a committed LLM cache. Built with Claude Code, with the Impeccable design skill for the interface.
 
 ## Challenges we ran into
 
-The first real run sent Maya, who should be ready, to an adviser: the model had tagged "Pro licence additionally permits broadcast…" as a restriction, and one of three runs called it unclear. That forced us to state a precedence rule we now stand behind: a clear permission is only defeated by a clear exclusion, and the disagreement is shown in the chain rather than smoothed over. We also had no API key in the build environment, so we added a provider that shells out to the Claude CLI and disclosed that its sampling temperature cannot be set.
+The first real run sent Maya, who should be ready, to an adviser: the model had tagged "Pro licence additionally permits broadcast…" as a restriction, and one of three runs called it unclear. That forced us to state a precedence rule we now stand behind: a clear permission is only defeated by a clear exclusion, and the disagreement is shown in the chain rather than smoothed over. The initial build used a sandboxed Claude CLI provider while no API key was configured. We subsequently migrated the deployed runtime to Gemini 3.8 Flash and rebuilt the demo response cache; the historical benchmark below remains labelled as Claude.
 
 ## Accomplishments we're proud of
 
-Every fact on screen is a highlighted span in the creator's own document, located by character offset, and the golden tests assert that. The post-check caught a real defect during the build (a quote shortener cut a word in half and the draft was withheld rather than shown). The demo moment works end to end: Leo's counter-notice is an evidence gap until the 2 September email is added live, and the diff panel names the email as the fact that flipped R4. On the 8 generated benchmark cases (3 runs each, cache off), NoticeGuard matched the rubric in 47 of 48 runs and never drafted for a gap or adviser case; the same model as a plain chatbot matched in 41.7% of neutral runs and 20.8% of leading runs, and produced a draft for a case it should not have in 14 of 48 runs. Its one miss was the round-trip guard rejecting an email the model had altered, which we count as the guard working.
+Every fact on screen is a highlighted span in the creator's own document, located by character offset, and the golden tests assert that. The post-check caught a real defect during the build (a quote shortener cut a word in half and the draft was withheld rather than shown). The demo moment works end to end: Leo's counter-notice is an evidence gap until the 2 September email is added live, and the diff panel names the email as the fact that flipped R4. In the historical Claude benchmark on 8 generated cases (3 runs each, cache off), NoticeGuard matched the rubric in 47 of 48 runs and never drafted for a gap or adviser case; the same model as a plain chatbot matched in 41.7% of neutral runs and 20.8% of leading runs, and produced a draft for a case it should not have in 14 of 48 runs. Its one miss was the round-trip guard rejecting an email the model had altered, which we count as the guard working.
 
 ## What we learned
 
@@ -38,4 +38,4 @@ All documents, companies and names are synthetic. The rubric was written by us; 
 
 ## Built with
 
-Python 3.12, FastAPI, Pydantic v2, pypdf, python-dateutil, PyYAML, pytest, SQLite; Claude (Sonnet) via the Claude CLI for extraction, mapping and the baseline; vanilla HTML/CSS/JavaScript with Source Serif 4; Docker + Caddy on a shared Hetzner box.
+Python 3.12, FastAPI, Pydantic v2, pypdf, python-dateutil, PyYAML, pytest, SQLite; Gemini 3.8 Flash via google-genai for runtime extraction and mapping (historical benchmark: Claude Sonnet); vanilla HTML/CSS/JavaScript with Source Serif 4; Docker + Caddy on a shared Hetzner box.

@@ -1,7 +1,7 @@
 """Provider-agnostic LLM access with a content-addressed on-disk cache.
 
 Providers (env LLM_PROVIDER):
-  gemini      google-genai SDK, model LLM_MODEL (default gemini-2.5-flash)
+  gemini      google-genai SDK, model LLM_MODEL (default gemini-3.8-flash)
   anthropic   anthropic SDK, model LLM_MODEL (default claude-sonnet-5)
   claude_cli  shells out to the local `claude -p` CLI (Claude Code login; no API key).
               Temperature cannot be set through the CLI, so it uses the CLI's default sampling.
@@ -18,6 +18,7 @@ import re
 import shutil
 import subprocess
 import tempfile
+import threading
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -34,7 +35,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CACHE_DIR = ROOT / "cache" / "llm"
 
 DEFAULT_MODELS = {
-    "gemini": "gemini-2.5-flash",
+    "gemini": "gemini-3.8-flash",
     "anthropic": "claude-sonnet-5",
     "claude_cli": "sonnet",
 }
@@ -44,12 +45,7 @@ def detect_provider() -> str:
     p = os.environ.get("LLM_PROVIDER", "").strip().lower()
     if p:
         return p
-    if os.environ.get("GEMINI_API_KEY"):
-        return "gemini"
-    if os.environ.get("ANTHROPIC_API_KEY"):
-        return "anthropic"
-    if shutil.which("claude"):
-        return "claude_cli"
+    # Production defaults to Gemini; never silently fall back to a local Claude login.
     return "gemini"
 
 
@@ -95,7 +91,7 @@ class LLM:
         self.provider = (provider or detect_provider()).lower()
         env_model = os.environ.get("LLM_MODEL", "").strip()
         # LLM_MODEL from .env is meant for the configured provider; only use it if it matches
-        self.model = model or (env_model if (env_model and self._model_fits(env_model)) else DEFAULT_MODELS.get(self.provider, "gemini-2.5-flash"))
+        self.model = model or (env_model if (env_model and self._model_fits(env_model)) else DEFAULT_MODELS.get(self.provider, "gemini-3.8-flash"))
         if use_cache is None:
             use_cache = os.environ.get("NOTICEGUARD_CACHE", "1") not in ("0", "false", "no")
         self.use_cache = use_cache
@@ -103,6 +99,7 @@ class LLM:
         self.calls = 0
         self.cache_hits = 0
         self._client: Any = None
+        self._client_lock = threading.Lock()
 
     def _model_fits(self, m: str) -> bool:
         m = m.lower()
@@ -174,15 +171,34 @@ class LLM:
         from google import genai
         from google.genai import types
 
-        if self._client is None:
-            self._client = genai.Client(api_key=key)
-        cfg: dict[str, Any] = {"temperature": temperature, "max_output_tokens": max_tokens}
+        # Extraction runs in parallel. Initialise once so competing clients are
+        # not discarded (and their HTTP transports closed) during active calls.
+        with self._client_lock:
+            if self._client is None:
+                self._client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=90000))
+        cfg: dict[str, Any] = {"temperature": temperature, "max_output_tokens": max_tokens,
+                               "automatic_function_calling": types.AutomaticFunctionCallingConfig(disable=True)}
+        # These are constrained tagging/classification calls. Do not consume the
+        # 512-token mapping output allowance with Gemini 2.5 Flash thought tokens.
+        if self.model == "gemini-2.5-flash":
+            cfg["thinking_config"] = types.ThinkingConfig(thinking_budget=0)
+        elif self.model.startswith("gemini-3"):
+            cfg["thinking_config"] = types.ThinkingConfig(thinking_level="low")
+            # Gemini counts thoughts within the total output allowance. Reserve
+            # room for reasoning without truncating the required JSON/tagged text.
+            cfg["max_output_tokens"] = max_tokens + 4096
         if system:
             cfg["system_instruction"] = system
         if json_schema is not None:
             cfg["response_mime_type"] = "application/json"
-        resp = self._client.models.generate_content(model=self.model, contents=prompt, config=types.GenerateContentConfig(**cfg))
-        return resp.text or ""
+        try:
+            resp = self._client.models.generate_content(model=self.model, contents=prompt, config=types.GenerateContentConfig(**cfg))
+        except genai.errors.APIError as exc:
+            # Do not put provider payloads or credential-bearing request details in the UI.
+            raise LLMUnavailable(f"Gemini request failed (HTTP {exc.code}). Check the API key, quota and model availability.") from None
+        if not resp.text:
+            raise LLMUnavailable("Gemini returned no text. Please retry the check.")
+        return resp.text
 
     def _call_anthropic(self, prompt, system, temperature, json_schema, max_tokens) -> str:
         key = os.environ.get("ANTHROPIC_API_KEY")

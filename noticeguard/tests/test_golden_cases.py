@@ -20,9 +20,10 @@ class OfflineLLM(LLM):
         raise AssertionError("golden tests must run entirely from cache/llm; an uncached LLM call was attempted")
 
 
-@pytest.fixture(scope="module")
-def llm():
-    return OfflineLLM(use_cache=True)
+@pytest.fixture(scope="module", params=[("gemini", "gemini-3.8-flash"), ("claude_cli", "sonnet")], ids=["gemini", "historical-claude"])
+def llm(request):
+    provider, model = request.param
+    return OfflineLLM(provider=provider, model=model, use_cache=True)
 
 
 def _run(name: str, llm: LLM, extra_folder: str | None = None):

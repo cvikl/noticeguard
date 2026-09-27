@@ -1,0 +1,130 @@
+/* Source artifacts deliberately retain conventions different from the app shell.
+   Text remains the normalized original; paper effects are presentation only. */
+@font-face { font-family:'Document Serif'; src:url('/static/fonts/documents/LiberationSerif-Regular.ttf') format('truetype'); font-style:normal; font-weight:400; font-display:swap; }
+@font-face { font-family:'Document Serif'; src:url('/static/fonts/documents/LiberationSerif-Bold.ttf') format('truetype'); font-style:normal; font-weight:700; font-display:swap; }
+@font-face { font-family:'Receipt Mono'; src:url('/static/fonts/documents/LiberationMono-Regular.ttf') format('truetype'); font-style:normal; font-weight:400; font-display:swap; }
+.document-view-controls { display:flex; gap:14px; align-items:center; flex:none; }
+#toggle-source-style { border:0; border-bottom:1px solid #b7b9af; padding:3px 0; background:none; font-size:11px; cursor:pointer; color:var(--ink-2); }
+.source-paper:not(.source-plain) { position:relative; isolation:isolate; min-height:0; margin:14px auto 28px; }
+.source-paper:not(.source-plain) .source-line { display:block; }
+.source-paper:not(.source-plain) .line-number { display:none; }
+.source-paper:not(.source-plain) .line-text { display:block; }
+.source-paper:not(.source-plain) .is-blank { height:12px; line-height:0; }
+.source-paper:not(.source-plain) .is-blank .line-text { line-height:0; }
+.source-paper:not(.source-plain) .document-section { margin-top:12px; margin-bottom:4px; }
+.source-paper .source-highlight:focus-visible { outline:2px solid var(--ink); outline-offset:3px; }
+.source-paper .source-brand,.source-paper .source-subtitle { display:block; }
+.source-paper .field-label { font-weight:600; }
+.source-paper .field-value { min-width:0; }
+.source-paper:not(.source-plain) .document-meta .line-text { display:grid; grid-template-columns:140px minmax(0,1fr); gap:4px 12px; }
+.source-paper .document-title { margin-bottom:18px; }
+.source-paper .document-title .line-text { font-weight:400; }
+.source-paper .source-brand { font-size:12px; letter-spacing:.025em; margin-bottom:14px; }
+.source-paper .source-subtitle { font-size:28px; line-height:1.2; font-weight:600; }
+.source-paper .source-lines { position:relative; z-index:1; }
+.scan-paper::before { content:''; position:absolute; inset:0; background:url('/static/scan-paper.svg') repeat; background-size:500px 700px; pointer-events:none; z-index:0; }
+
+/* An office scan: printed Times-style serif, grey stock, fold and scanner edge. */
+.source-paper.source-certificate,.source-paper.source-letter { max-width:710px; padding:52px 52px 64px; border:1px solid #c7c5ba; border-radius:0; background:#eeeee6; box-shadow:inset 5px 0 14px #514d4018,2px 5px 12px #37362e18; }
+.source-certificate .source-lines,.source-letter .source-lines { font:16px/1.55 'Document Serif','Times New Roman',serif; color:#343630; }
+.source-certificate .source-lines { transform:rotate(-.22deg); transform-origin:50% 0; }
+.source-certificate .document-title { text-align:center; padding-bottom:22px; border-bottom:3px double #8e9286; margin-bottom:16px; }
+.source-certificate .source-brand { font-size:16px; letter-spacing:.09em; }
+.source-certificate .source-subtitle { font-size:29px; font-weight:400; letter-spacing:.015em; }
+.source-paper.source-certificate .document-meta .line-text { grid-template-columns:150px minmax(0,1fr); font-size:13px; line-height:1.65; }
+.source-certificate .document-section .line-text { text-transform:uppercase; font-size:13px; font-weight:700; letter-spacing:.035em; }
+.source-certificate .signature-line { font-style:italic; }
+.source-certificate .signature-line:last-of-type { width:max-content; max-width:100%; border-top:1px solid #a3a595; padding-top:5px; }
+.source-paper.source-letter { background:#f0efeb; border-left:3px solid #c3c2b9; }
+.source-letter .source-brand { font:700 18px/1.4 Arial,sans-serif; padding-bottom:12px; border-bottom:1px solid #858b8a; }
+.source-letter .source-subtitle { font:700 22px/1.25 'Document Serif',serif; text-transform:uppercase; }
+.source-letter .document-meta .line-text { font-size:13px; }
+
+/* A narrow thermal receipt. Compact type and a perforated end, not a PDF page. */
+.source-paper.source-receipt { max-width:410px; padding:36px 30px 40px; background:#f6f2e6; border:0; border-radius:0; box-shadow:2px 5px 12px #39362620; }
+.source-receipt::after { content:''; position:absolute; bottom:-9px; left:0; right:0; height:10px; background:#f6f2e6; clip-path:polygon(0 0,100% 0,100% 80%,97% 0,94% 80%,91% 0,88% 80%,85% 0,82% 80%,79% 0,76% 80%,73% 0,70% 80%,67% 0,64% 80%,61% 0,58% 80%,55% 0,52% 80%,49% 0,46% 80%,43% 0,40% 80%,37% 0,34% 80%,31% 0,28% 80%,25% 0,22% 80%,19% 0,16% 80%,13% 0,10% 80%,7% 0,4% 80%,0 0); }
+.source-receipt .source-lines { font:12px/1.6 'Receipt Mono','Courier New',monospace; color:#3a3a33; }
+.source-receipt .document-title { text-align:center; border-bottom:1px dashed #858677; padding-bottom:18px; margin-bottom:10px; }
+.source-receipt .source-brand { font:400 18px/1.3 'Receipt Mono',monospace; text-transform:uppercase; margin-bottom:6px; }
+.source-receipt .source-subtitle { font:400 12px/1.4 'Receipt Mono',monospace; text-transform:uppercase; }
+.source-paper.source-receipt .document-meta .line-text { grid-template-columns:1fr 1fr; gap:0 5px; font-size:11px; }
+.source-receipt .field-label { font-weight:400; }
+.source-receipt .field-value { text-align:right; }
+.source-receipt .document-section { border-top:1px dashed #a1a292; padding-top:10px; text-transform:uppercase; }
+.source-receipt .receipt-total { margin:10px 0; padding:10px 0; border-top:1px dashed #858677; border-bottom:3px double #858677; }
+.source-paper.source-receipt .receipt-total .line-text { display:block; font-size:15px; }
+.source-receipt .is-blank { height:9px !important; }
+
+/* A browser-rendered platform notice: sans type and aligned metadata. */
+.source-paper.source-platform { padding:0 36px 40px; border:1px solid #e0e1e3; border-radius:8px; background:#fff; }
+.source-platform .source-lines { font:14px/1.7 Arial,Helvetica,sans-serif; color:#30343a; }
+.source-platform .document-title { margin:0 -36px 22px; padding:24px 36px; background:#f4f5f7; border-bottom:1px solid #dde0e4; border-top:4px solid #b83d32; border-radius:7px 7px 0 0; }
+.source-platform .source-brand { font-size:19px; font-weight:700; letter-spacing:-.025em; margin-bottom:20px; }
+.source-platform .source-subtitle { font-size:25px; letter-spacing:-.025em; }
+.source-platform .document-meta { background:#fafbfc; border-bottom:1px solid #e6e8eb; padding:7px 12px; }
+.source-platform .document-meta .line-text { font-size:12px; }
+.source-platform .field-label { color:#59616a; font-weight:400; }
+.source-platform .document-section { font-size:17px; padding-top:10px; }
+
+/* A legal terms page printed from the web: crisp Baskerville-like book type. */
+.source-paper.source-terms { padding:36px 46px 48px; border:1px solid #dde2dd; border-radius:0; background:#fff; }
+.source-terms .source-lines { font:14px/1.7 var(--serif); color:#283a32; }
+.source-terms .document-title { padding-bottom:20px; border-bottom:1px solid #789181; }
+.source-terms .source-brand { font:600 12px/1.4 Arial,sans-serif; text-transform:uppercase; }
+.source-terms .source-subtitle { font:500 34px/1.2 var(--serif); }
+.source-terms .document-section { font:600 14px/1.6 Arial,sans-serif; }
+.source-terms .is-blank { height:8px !important; }
+
+/* An email: sender envelope, large subject, ordinary Arial and quoted thread. */
+.source-paper.source-email { padding:24px 32px 36px; border:1px solid #dce1e6; border-radius:6px; box-shadow:0 3px 12px #34495a09; background:#fff; }
+.source-email .source-lines { font:14px/1.75 Arial,Helvetica,sans-serif; color:#292d32; }
+.source-email .document-title { margin:0; }
+.source-email .email-envelope { background:#f4f6f8; margin:0 -12px; padding:5px 12px; }
+.source-paper.source-email .email-envelope .line-text { grid-template-columns:66px minmax(0,1fr); font-size:12px; }
+.source-paper.source-email .document-meta:not(.email-envelope) .line-text { display:block; }
+.source-email .field-label { color:#5c6570; font-weight:400; }
+.source-email .email-subject { background:white; padding:22px 12px 14px; }
+.source-paper.source-email .email-subject .line-text { display:block; font-size:22px; font-weight:600; line-height:1.35; }
+.source-email .email-subject .field-label { display:block; font-size:11px; margin-bottom:5px; }
+.source-email .email-message-id { background:white; border-bottom:1px solid #e0e4e8; padding-bottom:16px; margin-bottom:12px; }
+.source-paper.source-email .email-message-id .line-text { display:block; font-size:10px; color:#656d77; }
+.source-email .email-reply { margin-left:16px; padding:8px 16px; border-left:1px solid #b7c1cb; background:#f7f8fa; color:#5a626a; font-size:12px; }
+
+/* A music catalogue web capture and a dense Studio export are digital sources. */
+.source-paper.source-catalogue { padding:24px 30px 38px; border:1px solid #d7dfd8; border-radius:0; background:#f9fcf7; }
+.source-catalogue .source-lines { font:13px/1.8 Arial,sans-serif; color:#273e33; }
+.source-catalogue .document-url { margin:-24px -30px 20px; padding:12px 20px; background:#e9efe6; border-bottom:1px solid #d5dfd1; font-size:11px; }
+.source-catalogue .track-title { margin:0 -30px; padding:26px 30px; background:#213e32; color:#fff; font:500 44px/1.2 var(--serif); }
+.source-catalogue .track-artist { margin:0 -30px 20px; padding:0 30px 28px; background:#213e32; color:#dce7d5; font:14px/1.6 Arial,sans-serif; }
+.source-catalogue .document-section { font:500 23px/1.4 var(--serif); padding-top:12px; }
+.source-paper.source-studio { padding:28px 30px; background:#fff; border:1px solid #d9e0e9; border-radius:2px; }
+.source-studio .source-lines { font:12px/1.7 Arial,sans-serif; color:#253547; }
+.source-studio .source-brand { font:600 18px/1.4 Arial,sans-serif; margin-bottom:8px; }
+.source-studio .source-subtitle { font:400 25px/1.3 Arial,sans-serif; }
+.source-studio .document-title { padding-bottom:20px; border-bottom:2px solid #526c89; }
+.source-studio .document-meta { padding:8px 12px; background:#f0f4f8; border-bottom:1px solid #dbe2eb; }
+.source-studio .document-meta:nth-child(even) { background:#fafbfc; }
+.source-studio .document-section { font:600 14px/1.5 Arial,sans-serif; padding:12px 0 4px; }
+.source-plain .line-text { display:block; }
+.source-plain .field-label,.source-plain .field-value,.source-plain .source-brand,.source-plain .source-subtitle { display:inline; font:inherit; letter-spacing:inherit; margin:0; }
+@media(max-width:1100px) {
+  .source-paper.source-certificate,.source-paper.source-letter { padding:34px 24px 42px; }
+  .source-paper.source-terms { padding:30px 24px; }
+  .source-paper:not(.source-plain) .document-meta .line-text { grid-template-columns:minmax(80px,36%) minmax(0,1fr); }
+  .source-paper.source-platform,.source-paper.source-email { padding-left:22px; padding-right:22px; }
+  .source-platform .document-title { margin-left:-22px; margin-right:-22px; padding-left:22px; padding-right:22px; }
+  .source-paper.source-receipt { padding-left:20px; padding-right:20px; }
+  .document-view-controls { gap:8px; }
+}
+@media(max-width:760px) {
+  .document-toolbar { padding:0 12px; gap:8px; }
+  .document-toolbar>span { flex:1; }
+  .document-view-controls { gap:12px; }
+  .source-paper:not(.source-plain) { margin-top:8px; }
+  .source-certificate .source-lines,.source-letter .source-lines { font-size:15px; }
+  .source-email .source-lines,.source-platform .source-lines { font-size:13px; }
+  .source-paper.source-receipt { max-width:330px; }
+  .source-paper.source-studio { padding:24px 18px; }
+  .source-paper.source-email .email-subject .line-text,.source-paper.source-email .email-message-id .line-text { display:block; }
+  .source-bottom { font-size:10px; }
+}

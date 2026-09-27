@@ -1,5 +1,5 @@
 # NoticeGuard — drop-in for the shared Caddy (/opt/caddy-sites). Published by deploy/publish.sh.
-noticeguard.primafacie.eu {
+noticeguard.ruleandrecord.com, noticeguard.primafacie.eu {
 	encode zstd gzip
 	reverse_proxy noticeguard:8790
 }

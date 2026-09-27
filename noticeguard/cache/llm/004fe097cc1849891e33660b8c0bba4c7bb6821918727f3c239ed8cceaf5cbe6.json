@@ -1,0 +1,12 @@
+{
+ "provider": "gemini",
+ "model": "gemini-3.8-flash",
+ "temperature": 0.7,
+ "run": 2,
+ "system": "You answer one narrow interpretation question about a licence clause. Output JSON only.",
+ "prompt": "Given this clause from a music licence document (quoted verbatim):\n\n\"Standard licence permits use of the Work as background music in video content, including monetised video on social platforms, on channels operated by the Licensee.\"\n\nand this actual use of the music by the licence holder:\n- medium: background music in a video\n- platform: ClipStream\n- channel: Maya Draws\n- monetised: yes (ads on, the creator earns revenue)\n- licence tier held: Standard\n- work: Glasslight\n\nQuestion: does the clause, on its own wording, cover (permit) this actual use for a holder of the stated licence tier?\nAnswer \"yes\" only if the clause's wording clearly permits this use for that tier. Answer \"no\" if the clause clearly does not permit it for that tier (for example it permits a different tier, or only non-commercial use when the actual use is monetised). Answer \"unclear\" if the wording could reasonably be read either way.\n\nOutput JSON only: {\"covers\": \"yes\" | \"no\" | \"unclear\", \"reason\": \"<one sentence>\"}",
+ "docs": "",
+ "text": "```json\n{\"covers\": \"yes\", \"reason\": \"The clause explicitly allows holders of the Standard licence to use the music as background audio in monetised videos on their own social channels.\"}\n```",
+ "elapsed_ms": 1477,
+ "created": "2026-09-27T18:59:52Z"
+}

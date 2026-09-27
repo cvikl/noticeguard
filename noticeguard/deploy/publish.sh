@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Publish NoticeGuard to the shared Hetzner box → https://noticeguard.primafacie.eu
+# Publish NoticeGuard to the shared Hetzner box → https://noticeguard.ruleandrecord.com
 #   bash deploy/publish.sh
 # Conventions (same as the other services on the box): app in /opt/noticeguard, container on the existing Caddy
 # network, Caddy drop-in in /opt/caddy-sites, zero-downtime `caddy reload`. Touches nothing else on the box.
@@ -29,4 +29,4 @@ ssh "$HOST" "cd /opt/compass/deploy && docker compose exec -T caddy caddy reload
 echo "==> health"
 sleep 3
 ssh "$HOST" "curl -sf http://127.0.0.1:8790/api/health && echo"
-curl -sS -o /dev/null -w "https://noticeguard.primafacie.eu  HTTP %{http_code}\n" --max-time 30 https://noticeguard.primafacie.eu/ || echo "  (first HTTPS hit may lag while Let's Encrypt issues the cert)"
+curl -sS -o /dev/null -w "https://noticeguard.ruleandrecord.com  HTTP %{http_code}\n" --max-time 30 https://noticeguard.ruleandrecord.com/ || echo "  (first HTTPS hit may lag while Let's Encrypt issues the cert)"

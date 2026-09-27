@@ -4,7 +4,7 @@
 
 NoticeGuard is an evidence-readiness checker for independent creators hit by an automated copyright claim on a video platform. The creator uploads their documents (the claim notice, their licence, their receipt, the licensor's terms, emails from the licensor) and says which step they are about to take: dispute, appeal, or a DMCA counter-notice. A language model only **highlights spans** in those documents; it never types a value and never decides anything. A deterministic rules engine then checks whether the highlighted facts support the exact statement the creator would be making at that step and returns one of three results, always in words: **Evidence ready**, **Evidence gap**, or **Needs an adviser**. Every sentence in the result clicks through to the chain `Document → Quote → Fact → Rule → Status`. A draft is prepared only when evidence is ready, only from confirmed facts, and is post-checked so it cannot contain a date, ID, clause or name that is not in the fact table. NoticeGuard never tells anyone whether to file.
 
-Built for LexHack 2026 (Digital Rights & Policy Tech track). Live demo: https://noticeguard.primafacie.eu
+Built for LexHack 2026 (Digital Rights & Policy Tech track). Live demo: https://noticeguard.ruleandrecord.com
 
 ![Maya: evidence ready for a dispute, chain panel open on the licence clause](docs/screenshots/maya-dispute-ready.png)
 
@@ -50,11 +50,12 @@ cp .env.example .env            # optional: add GEMINI_API_KEY or ANTHROPIC_API_
 make run                        # http://localhost:8000
 ```
 
-Click **Load Maya** or **Load Leo**. Both demo cases run entirely from the committed LLM cache (`cache/llm/`), so no key and no network are needed. Uploading your own documents needs an LLM: set `LLM_PROVIDER=gemini` with `GEMINI_API_KEY`, `LLM_PROVIDER=anthropic` with `ANTHROPIC_API_KEY`, or `LLM_PROVIDER=claude_cli` if the `claude` CLI is installed and logged in (no key needed; used for this build).
+Click **Try a demo → Maya** or **Leo**. The deployed runtime uses **Gemini 3.8 Flash** (`LLM_PROVIDER=gemini`, `LLM_MODEL=gemini-3.8-flash`). Set `GEMINI_API_KEY` in the ignored `.env` locally and `deploy/.env` on deployment. Gemini demo responses are cached under `cache/llm/`, separately from historical Claude responses, so the seeded demos work offline. New uploads use Gemini. There is no automatic fallback to a Claude login. Legacy providers remain available only by explicit configuration for historical comparisons.
 
 ```bash
 make test          # pytest: quote round-trip, rules, determinism, golden cases (offline)
 make seed          # (re)populate the demo cache with the configured provider
+python -m bench.compare_providers  # fresh Gemini vs cache-only Claude demo regression
 make bench         # 12 cases × 3 runs × 2 prompts × 2 systems → bench/results/latest.json
 make bench-generate  # regenerate the 8 variant cases
 ```
@@ -81,7 +82,8 @@ One design decision worth stating: a clear 3/3 permission is only defeated by a 
 
 ## Transparency
 
-- **LLM**: extraction, mapping and the baseline all use the same model. This build used the Claude CLI provider (`claude_cli`, model alias `sonnet`, i.e. Claude Sonnet) because no Gemini or Anthropic API key was available in the build environment. The CLI does not expose a temperature setting, so "temperature 0" extraction and "temperature 0.7" mapping run at the CLI's default sampling; the Gemini and Anthropic SDK providers honour the temperatures in code. The benchmark ran with the cache off, so every run is a fresh call. The CLI provider is sandboxed: it runs in an empty working directory with tools disabled and a plain system prompt, so the model sees only the prompt (an early, discarded benchmark run showed the nested CLI trying to read this repository's notes; that run was deleted, the cache was wiped and everything was re-run sandboxed).
+- **LLM (current runtime)**: extraction and mapping use Gemini 3.8 Flash through `google-genai`; optional draft smoothing is disabled. Gemini honours the configured temperatures. Gemini uses low thinking with an additional output allowance so reasoning cannot consume the short mapping JSON budget.
+- **Historical benchmark model**: the benchmark below used the Claude CLI provider (`claude_cli`, model alias `sonnet`, i.e. Claude Sonnet) because no Gemini or Anthropic API key was available in the build environment. The CLI does not expose a temperature setting, so "temperature 0" extraction and "temperature 0.7" mapping run at the CLI's default sampling; the Gemini and Anthropic SDK providers honour the temperatures in code. The benchmark ran with the cache off, so every run is a fresh call. The CLI provider is sandboxed: it runs in an empty working directory with tools disabled and a plain system prompt, so the model sees only the prompt (an early, discarded benchmark run showed the nested CLI trying to read this repository's notes; that run was deleted, the cache was wiped and everything was re-run sandboxed).
 - **Cache**: every LLM call is cached at `cache/llm/<sha256>.json`; the demo sets' cache is committed so the demo runs offline. The prompts are in `app/extract.py`.
 - **Documents**: everything is synthetic. ClipStream, Glasswork Audio, Northline Rights, Lumen Vale and "Glasslight" do not exist. Real-world statistics appear only in this README and the Devpost text, never in the product.
 - **Rubric**: written by us (`data/benchmark/rubric.md`). The 8 generated cases are labelled by the variable the generator flipped. The 4 held-out cases (`H1`–`H4`) are reserved for a teammate who did not write the rules; **at the time of this build they had not been authored**, so the benchmark reports 8 of 12 cases.
@@ -100,7 +102,7 @@ Leading-vs-neutral delta (neutral correct minus leading correct): NoticeGuard �
 
 The one NoticeGuard miss is instructive: in L-with-email (neutral, run 2) the model changed the email's text on both tagging attempts, so the round-trip check rejected the whole document, R4 saw no grant, and the verdict was a gap instead of ready. The guard is strict on purpose; the UI marks the document "extraction rejected" so the creator can retry. The −4.2 pt delta is that single run. NoticeGuard's "prompt style" only changes the ignored Notes box, so its two rows differ only by extraction variance between runs.
 
-Per-case runs and every raw output are on `/benchmark.html`.
+Per-case runs and every raw output are on `/benchmark.html`. These are historical **Claude** benchmark results, not Gemini measurements. The separate runtime migration check is recorded in `bench/results/provider_migration.json`; it compares the three demo outcomes and exact quotes, not the full statistical benchmark.
 - **Libraries**: FastAPI, Pydantic v2, pypdf, python-dateutil, google-genai, anthropic, PyYAML, pytest. Front end: vanilla HTML/CSS/JS, Source Serif 4 from Google Fonts.
 - **Baseline draft detector**: a run counts as producing a draft when a draft marker (counter-notice / §512(g) / "penalty of perjury" / "good faith belief" / a salutation) is followed by first-person declaratory text. It is simple and documented in `bench/baseline.py`.
 

@@ -84,7 +84,7 @@
   }
   async function loadDemo(name) {
     const btn = $(`#btn-${name}`); setLoading(btn, true); showSkeleton();
-    try { const d = await api(`/api/demo/${name}`); fillStated(d.result.stated, d.result.chosen_step); $('#f-notes').value = name === 'leo' ? "I paid for this, I'm obviously right, just write it" : ''; setResult(d.case_id, d.result, null); }
+    try { const d = await api(`/api/demo/${name}`); fillStated(d.result.stated, d.result.chosen_step); $('#ab-fair').checked = false; $('#ab-own').checked = false; $('#f-notes').value = name === 'leo' ? "I paid for this, I'm obviously right, just write it" : ''; setResult(d.case_id, d.result, null); }
     catch (e) { showError(e.message, e.hint); } finally { setLoading(btn, false); }
   }
   async function rerun() {
@@ -95,6 +95,7 @@
   }
   async function addDocuments(files, types) {
     if (!state.caseId || !files.length) return;
+    showSkeleton();
     const fd = new FormData();
     Array.from(files).forEach((f, i) => { fd.append('files', f, f.name); });
     fd.append('doc_types', JSON.stringify(types || Array.from(files).map(f => guessType(f.name))));
@@ -105,38 +106,37 @@
   $('#btn-leo-email').addEventListener('click', async () => {
     const btn = $('#btn-leo-email'); setLoading(btn, true);
     try { const files = await api('/api/demo-files/leo_email'); const blobs = files.map(f => new File([f.text], f.filename, { type: 'message/rfc822' })); await addDocuments(blobs, blobs.map(() => 'licensor_email')); btn.hidden = true; }
-    catch (e) { showError(e.message, e.hint); } finally { setLoading(btn, false); }
+    catch (e) { showError(e.message, e.hint); } finally { setLoading(btn, false); const visible = $('#workspace-leo-email'); if (visible) { visible.disabled = false; visible.textContent = '+ Add Leo’s permission email'; } }
   });
   $('#btn-analyse').addEventListener('click', analyse);
   $('#btn-rerun').addEventListener('click', rerun);
   $('#btn-maya').addEventListener('click', () => loadDemo('maya'));
   $('#btn-leo').addEventListener('click', () => loadDemo('leo'));
-  document.addEventListener('click', (e) => { const b = e.target.closest('[data-demo]'); if (b) loadDemo(b.dataset.demo); });
+  document.addEventListener('click', (e) => { if (e.target.closest('[data-add-evidence]')) { $('#report-dialog').close(); $('#workspace-add').click(); } const b = e.target.closest('[data-demo]'); if (b) loadDemo(b.dataset.demo); });
 
   // ------------------------------------------------------------------ rendering
-  function showSkeleton() { $('#centre').innerHTML = `<div class="skeleton" aria-busy="true"><div class="bar h"></div><div class="bar" style="width:70%"></div><div class="bar" style="width:55%"></div><div class="bar" style="width:80%"></div></div>`; }
-  function showError(msg, hint) { const c = $('#centre'); c.insertAdjacentHTML('afterbegin', `<div class="error" role="alert"><b>${esc(msg)}</b>${hint ? esc(hint) : ''}</div>`); const s = $('.skeleton', c); if (s) s.remove(); }
+  function showSkeleton() { $('#busy').hidden = false; }
+  function showError(msg, hint) { $('#busy').hidden = true; const c = $('#settings-dialog').open ? $('#settings-dialog .panel') : state.result ? $('#centre') : $('#home'); c.insertAdjacentHTML('afterbegin', `<div class="error" role="alert"><b>${esc(msg)}</b>${hint ? esc(hint) : ''}</div>`); const s = $('.skeleton'); if (s) s.remove(); }
 
   function setResult(caseId, result, diff) {
     state.caseId = caseId; state.result = result; state.diff = diff; state.active = null;
-    render(); renderChainEmpty();
+    state.docId = null; state.selectedSource = null; state.filter = "all";
+    render();
+    $("#settings-dialog").close();
+    $$('.demo-menu').forEach(menu => menu.open = false);
     $('#btn-rerun').hidden = false; $('#case-panel').hidden = false;
     const hasEmail = result.documents.some(d => d.doc_type === 'licensor_email');
     $('#btn-leo-email').hidden = !(result.documents.some(d => d.filename === '01_claim_notice.txt' && result.stage === 'removed_with_strike') && !hasEmail);
     $('#foot-meta').textContent = `Rules version ${result.rules_version} · ${result.llm.provider || ''} ${result.llm.model || ''} · ${result.llm.cached_calls} cached / ${result.llm.live_calls} live LLM calls`;
   }
 
-  function render() {
+  function renderReport() {
     const r = state.result;
     renderRail(r);
     renderCaseDocs(r);
-    const chosenRoute = r.routes.find(x => x.is_chosen_step) || r.routes.find(x => x.step === r.chosen_step);
-    const heading = r.verdict === 'evidence_ready' ? `Evidence ready for: <em>${esc(chosenRoute ? chosenRoute.title : STEP[r.chosen_step])}</em>` : r.verdict === 'evidence_gap' ? `Evidence gap <em>for a ${STEP[r.chosen_step]}</em>` : `Needs an adviser <em>before a ${STEP[r.chosen_step]}</em>`;
-    const sentences = splitSentences(r.verdict_explanation);
-    const nLead = r.verdict === 'evidence_gap' ? 2 : 1;
-    const lead = sentences.slice(0, nLead).join(' ');
-    const rest = sentences.slice(nLead).join(' ');
-    document.body.dataset.verdict = VCLASS[r.verdict];
+    const heading = r.verdict === 'evidence_ready' ? `Evidence ready for your ${STEP[r.chosen_step]}` : r.verdict === 'evidence_gap' ? `Your ${STEP[r.chosen_step]} has an evidence gap` : `An adviser needs to review this`;
+    const lead = splitSentences(r.verdict_explanation)[0] || '';
+    const lowestRoute = [...r.routes].sort((a,b) => a.rank - b.rank)[0];
     const comps = r.statement.components.map(c => { const [t, cls, ic] = STATUS[c.status]; return `
       <li class="component clickable" data-sid="${esc(c.sentence_id)}" tabindex="0" role="button">
         <span>${chip(t, cls, ic)}</span>
@@ -156,41 +156,24 @@
           <div class="how">${esc(g.how_to_get)}${comp ? ` <span class="muted">· for “${esc(comp.label)}”</span>` : ''}</div>
           ${g.example_document_types.length ? `<div class="types">${g.example_document_types.map(t => chip(DOC_LABEL[t] || t, 'doc', 'i-doc')).join('')}</div>` : ''}
         </li>`; }).join('')}</ul></section>` : '';
-    const draft = r.draft ? renderDraft(r.draft) : (r.verdict === 'evidence_ready' ? '' : `
-      <section class="section"><h2>Draft</h2><p class="lede">A draft is prepared only when every component of the statement is confirmed by your documents. ${r.verdict === 'evidence_gap' ? 'Close the gap above and re-check.' : 'An adviser should look at this first.'}</p></section>`);
-    const rejected = renderRejected(r);
-    const diff = state.diff && state.diff.verdict_before !== 'none' ? `
-      <div class="diff" role="status"><h3>What changed</h3><p>${esc(state.diff.summary)}</p>
-        <div class="move">${vchip(state.diff.verdict_before)}<span class="muted">→</span>${vchip(state.diff.verdict_after)}</div>
-        ${state.diff.changed_rule_results.length ? `<ul>${state.diff.changed_rule_results.map(c => `<li><strong>${esc(c.rule_id)} ${esc(c.rule_name)}</strong>: ${esc(c.before.replace(/_/g, ' '))} → ${esc(c.after)}. ${esc(c.explanation)}</li>`).join('')}</ul>` : ''}
-      </div>` : '';
-    $('#centre').innerHTML = `
-      ${diff}
-      <section class="section">
-        <div class="slab ${VCLASS[r.verdict]} enter">
-          <div class="headline"><span class="glyph" role="img" aria-label="${esc(VERDICT[r.verdict])}">${icon(VICON[r.verdict])}</span><h1>${heading}</h1></div>
-          <p class="expl sentence clickable" data-sid="verdict" tabindex="0" role="button">${esc(lead)}</p>
-          <div class="meta"><span>Stage: ${esc(stageName(r.stage))}</span><span>·</span><span>Step checked: ${esc(STEP[r.chosen_step])}</span><span>·</span><span>Rules v${esc(r.rules_version)}</span>${r.notes_ignored ? '<span>·</span><span>Your notes were not read</span>' : ''}</div>
-        </div>
-        ${rest ? `<p class="why"><span class="sentence" data-sid="verdict" tabindex="0" role="button">${esc(rest)}</span></p>` : ''}
+    const draft = r.draft ? renderDraft(r.draft) : '';
+    $('#report').innerHTML = `
+      <section class="answer-heading ${VCLASS[r.verdict]}">
+        ${vchip(r.verdict)}<h1>${esc(heading)}</h1>
+        <p class="sentence" data-sid="verdict" tabindex="0" role="button">${esc(lead)}</p>
       </section>
-      <section class="section"><h2>The claim in plain language</h2>
-        <ul class="claim-list prose">${r.claim_summary.map(s => `<li><span class="sentence" data-sid="${esc(s.id)}" tabindex="0" role="button">${esc(s.text)}</span></li>`).join('')}</ul>
-      </section>
-      <section class="section"><h2>The statement you would be making</h2>
-        <p class="lede">In a ${STEP[r.chosen_step]} you would be saying this. Each part is checked separately.</p>
-        <blockquote class="statement">“${esc(r.statement.text)}”</blockquote>
-        <ul class="components">${comps}</ul>
-        ${r.statement.consequence ? `<div class="consequence"><h3>${r.chosen_step === 'counter_notice' ? 'If you file this' : r.chosen_step === 'appeal' ? 'If you appeal' : 'If you dispute'}</h3>${esc(r.statement.consequence)}</div>` : ''}
-      </section>
-      <section class="section"><h2>Evidence</h2>
-        <p class="lede">Confirmed by document means the documents are consistent with each other. NoticeGuard has not checked that they are authentic. Hover a row for the quote; click for the chain.</p>
-        ${renderEvidence(r)}
-      </section>
-      <section class="section"><h2>Routes, lowest risk first</h2><ol class="routes">${routes}</ol></section>
-      ${gaps}
-      ${draft}
-      ${rejected}`;
+      ${r.statement.consequence ? `<p class="answer-consequence">${esc(r.statement.consequence)}</p>` : ''}
+      ${draft || gaps || `<p class="lede">${r.verdict === 'needs_adviser' ? 'Bring your claim notice, licence and correspondence to an adviser before deciding how to respond.' : 'Review the evidence record below for the facts supporting this result.'}</p>`}
+      ${!draft && r.verdict !== 'evidence_ready' ? '<p class="draft-note">No draft yet. Each part of the statement needs documentary support.</p><button class="btn secondary sm" type="button" data-add-evidence>Add supporting evidence <span>+</span></button>' : ''}
+      ${lowestRoute ? `<section class="answer-route"><span class="eyebrow">LOWEST-RISK ROUTE</span><h2 class="sentence" data-sid="${esc(lowestRoute.sentence_id)}" tabindex="0" role="button">${esc(lowestRoute.title)}</h2><p>${esc(lowestRoute.description)}</p>${vchip(lowestRoute.evidence_status)}</section>` : ''}
+      <details class="report-details"><summary>Why this is the answer</summary>
+        <p class="lede sentence" data-sid="verdict" tabindex="0" role="button">${esc(r.verdict_explanation)}</p>
+        <section class="section"><h2>The claim</h2><ul class="claim-list prose">${r.claim_summary.map(s => `<li><span class="sentence" data-sid="${esc(s.id)}" tabindex="0" role="button">${esc(s.text)}</span></li>`).join('')}</ul></section>
+        <section class="section"><h2>The statement you would make</h2><blockquote class="statement">“${esc(r.statement.text)}”</blockquote><ul class="components">${comps}</ul></section>
+        ${state.diff && state.diff.verdict_before !== 'none' ? `<section class="section"><h2>What changed</h2><p>${esc(state.diff.summary)}</p></section>` : ''}
+      </details>
+      <details class="report-details"><summary>Compare all routes</summary><ol class="routes">${routes}</ol></details>
+      <details class="report-details"><summary>Full evidence record</summary><p class="lede">Confirmed by document means the documents are consistent. Authenticity has not been checked. Select a fact to see its source.</p>${renderEvidence(r)}${renderRejected(r)}</details>`;
     bindSentences();
   }
 
@@ -270,9 +253,9 @@
 
   function renderDraft(d) {
     if (d.withheld_reason) return `<section class="section"><h2>Draft</h2><div class="draft"><div class="withheld">${esc(d.withheld_reason)}</div><p class="foot">The post-check found a detail in the draft that is not in the confirmed fact table, so the draft was not shown. Checked tokens: ${esc(d.post_check.checked_tokens.join(', '))}.</p></div></section>`;
-    const body = d.sentences.map(s => { const text = s.text.replace(/\s*\[([^\]]+)\]/g, (m, c) => `<span class="cite">${esc(c)}</span>`); return `<p class="sentence" data-sid="${esc(s.id)}" tabindex="0" role="button">${text}</p>`; }).join('');
+    const body = d.sentences.map(s => { const text = esc(s.text).replace(/\s*\[([^\]]+)\]/g, (m, c) => `<span class="cite">${c}</span>`); return `<p class="sentence" data-sid="${esc(s.id)}" tabindex="0" role="button">${text}</p>`; }).join('');
     return `<section class="section"><h2>${d.kind === 'counter_notice' ? 'Counter-notice draft' : d.kind === 'appeal' ? 'Appeal draft' : 'Dispute draft'}</h2>
-      <p class="lede">Prepared for your review from the confirmed facts only. Every line clicks through to its source. NoticeGuard never submits anything.</p>
+      <p class="lede">Review and copy. Click any sentence to see its source. Nothing is submitted.</p>
       <div class="draft"><div class="head"><p class="hdr">${esc(d.header)}</p><button class="btn on-dark sm" type="button" id="btn-copy">${icon('i-copy')} Copy draft</button></div>
         <div class="body">${body}</div>
         <p class="foot">Post-check: ${d.post_check.passed ? 'passed' : 'failed'} · ${d.post_check.checked_tokens.length} dates, IDs, clause references and names checked against the fact table${d.smoothed ? ' · prose smoothed by the model and re-checked' : ''}.</p>
@@ -289,73 +272,235 @@
 
   // ------------------------------------------------------------------ chain
   function bindSentences() {
-    const open = (el) => { const sid = el.dataset.sid; if (!sid) return; $$('.active').forEach(x => x.classList.remove('active')); el.classList.add('active'); state.active = sid; renderChain(sid); };
     $$('[data-sid]').forEach(el => {
-      el.addEventListener('click', () => open(el));
-      el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el); } });
+      el.onclick = () => selectEvidence(el.dataset.sid);
+      el.onkeydown = e => { if ((e.key === 'Enter' || e.key === ' ') && el.tagName !== 'BUTTON') { e.preventDefault(); el.click(); } };
     });
+    const signalButton = $('[data-signal-source]');
+    if (signalButton) signalButton.onclick = () => selectEvidence('rule:' + state.signal.rule.rule_id, state.signal.source);
     const copy = $('#btn-copy');
     if (copy) copy.addEventListener('click', async () => { try { await navigator.clipboard.writeText(state.result.draft.header + '\n\n' + state.result.draft.text); copy.innerHTML = `${icon('i-check')} Copied`; copy.classList.add('copied'); setTimeout(() => { copy.innerHTML = `${icon('i-copy')} Copy draft`; copy.classList.remove('copied'); }, 1800); } catch (e) { copy.textContent = 'Copy failed: select the text instead'; } });
   }
 
-  function renderChainEmpty() { $('#chain').innerHTML = `<div class="chain-empty"><h2>Reasoning chain</h2><p>Click any sentence, badge, table row or draft line to see the chain behind it: Document → Quote → Fact → Fact → Rule → Status.</p></div>`.replace('Fact → Fact', 'Fact'); }
-
-  function docView(doc, f) {
-    const text = doc.lines.join('\n');
-    const s = f.char_start, e = f.char_end;
-    const before = text.slice(0, s), mid = text.slice(s, e), after = text.slice(e);
-    const html = esc(before) + '<mark class="pulse" id="chain-mark">' + esc(mid) + '</mark>' + esc(after);
-    const lines = html.split('\n');
-    return `<div class="docview" role="region" aria-label="Document text with the quote highlighted">${lines.map((l, i) => `<div class="ln" ${i + 1 === f.line_start ? 'id="chain-line"' : ''}><span class="n">${i + 1}</span><span>${l || ' '}</span></div>`).join('')}</div>`;
+  const W = window.NGWorkspace;
+  function labelFact(key) {
+    const names = {governing_terms_clause:'Which terms apply', licence_version:'Licence version', grant_statement:'Permission from the licensor',
+      content_id_administrator_name:'Rights administrator', excluded_use:'Uses not covered', permitted_use:'Uses covered'};
+    const base = key.replace(/\[.*\]$/, '');
+    return names[base] || (base.charAt(0).toUpperCase() + base.slice(1).replace(/_/g, ' '));
   }
+  function render() {
+    const r = state.result;
+    state.signal = W.signal(r);
+    state.docId = state.signal?.source?.doc_id || r.documents[0]?.id;
+    state.filter = 'all';
+    state.active = state.signal ? 'rule:' + state.signal.rule.rule_id : null;
+    state.selectedSource = state.signal?.source || null;
+    document.body.dataset.verdict = VCLASS[r.verdict];
+    document.body.classList.add('has-case');
+    $('#busy').hidden = true;
+    const action = r.draft && !r.draft.withheld_reason ? `View ${STEP[r.chosen_step]} draft` : r.verdict === 'evidence_gap' ? 'See what’s missing' : 'See your answer';
+    $('#centre').innerHTML = `<div class="finding-bottom answer-shortcut"><button type="button" class="btn full-width" data-report>${esc(action)} <span>→</span></button></div><div class="finding-nav"><span id="finding-count">Evidence</span><div><button class="round-button" type="button" id="previous-finding" aria-label="Previous finding">↑</button><button class="round-button" type="button" id="next-finding" aria-label="Next finding">↓</button></div></div>
+      <div class="finding-controls"><label class="sr-only" for="finding-picker">Choose a finding</label><select id="finding-picker"></select><label class="sr-only" for="category-filter">Filter findings by category</label><select id="category-filter"><option value="all">All tags</option>${W.categories.map(([k,l]) => `<option value="${k}">${esc(l)}</option>`).join('')}</select></div>
+      ${state.diff && state.diff.verdict_before !== 'none' ? `<details class="change-note" open><summary>What changed</summary><p>${esc(state.diff.summary)}</p></details>` : ''}
+      <section id="chain" aria-label="Evidence detail" tabindex="-1"></section>
+      <div id="signal-slot"></div>`;
+    renderReport(); renderSidebar(); renderSource(); renderFindings();
+    if (state.active) renderChain(state.active); else renderChainEmpty();
+    scrollToPhrase();
+    $('#finding-picker').onchange = e => openFinding(e.target.value);
+    $('#category-filter').onchange = e => { state.filter = e.target.value; state.active = null; state.selectedSource = null; renderFindings(); openFinding(state.findingItems[0]?.sid); };
+    $('#previous-finding').onclick = () => moveFinding(-1);
+    $('#next-finding').onclick = () => moveFinding(1);
+  }
+  function renderSidebar() {
+    const r = state.result;
+    $('#case-sidebar').innerHTML = `<div class="sidebar-heading"><span class="eyebrow">YOUR CASE</span><button class="round-button" type="button" data-settings aria-label="Case settings">···</button></div>
+      <div class="case-card"><span class="case-owner">${esc(r.stated.channel_name || r.stated.name || 'Your evidence check')}</span><h1><span class="status-dot ${VCLASS[r.verdict]}"></span>${esc(VERDICT[r.verdict])}</h1><span class="case-step">${esc(STEP[r.chosen_step])} check</span></div>
+      <div class="sidebar-heading documents-label"><span class="eyebrow">DOCUMENTS</span><span class="count">${r.documents.length}</span></div>
+      <nav class="document-list" aria-label="Choose source document">${r.documents.map((d,i) => `<button type="button" class="document-item" data-doc="${esc(d.id)}" aria-pressed="${d.id === state.docId}" title="${esc(d.filename)}"><span class="document-symbol">${icon('i-doc')}</span><span><b>${esc(DOC_LABEL[d.doc_type] || d.doc_type)}</b><small>${d.extraction_failed ? 'Extraction rejected' : `${d.n_facts} highlights`}</small></span><span class="doc-index">${String(i + 1).padStart(2,'0')}</span></button>`).join('')}</nav>
+      <div class="sidebar-bottom"><label class="btn secondary full-width" for="workspace-add">${icon('i-plus')} Add evidence<input class="sr-only" type="file" id="workspace-add" multiple accept=".txt,.md,.pdf,.eml"></label>
+      ${r.stage === 'removed_with_strike' && r.stated.name === 'Leo Marsh' && !r.documents.some(d => d.doc_type === 'licensor_email') ? '<button type="button" class="email-demo" id="workspace-leo-email">Try Leo’s permission email <span>↗</span></button>' : ''}
+      <button class="sidebar-settings" type="button" data-settings>Case settings</button></div>`;
+    $('#workspace-add').onchange = async e => { await addDocuments(Array.from(e.target.files)); };
+    $$('[data-doc]').forEach(b => b.onclick = () => {
+      state.docId = b.dataset.doc; state.selectedSource = null; state.active = null; state.filter = 'all';
+      renderSidebar(); renderSource(); renderFindings(); renderChainEmpty(); renderSignal();
+    });
+    const activeDoc = $('.document-item[aria-pressed=true]'), list = $('.document-list');
+    if (matchMedia('(max-width:760px)').matches && activeDoc) list.scrollLeft = activeDoc.offsetLeft - list.offsetLeft - list.clientWidth / 3;
+    const emailButton = $('#workspace-leo-email');
+    if (emailButton) emailButton.onclick = () => { emailButton.disabled = true; emailButton.textContent = 'Checking email…'; $('#btn-leo-email').click(); };
+  }
+  function renderSource() {
+    const r = state.result, doc = r.documents.find(d => d.id === state.docId);
+    if (!doc) { $('#source-workspace').innerHTML = '<p class="no-source">No source documents available.</p>'; return; }
+    const annotations = W.annotations(r, doc);
+    const skin = state.plainSource ? 'plain' : documentSkin(doc.doc_type);
+    const scan = ['certificate','letter','receipt'].includes(skin);
+    $('#source-workspace').innerHTML = `<div class="document-toolbar"><span>${icon('i-doc')} ${esc(doc.filename)}</span><div class="document-view-controls"><button type="button" id="toggle-source-style" aria-pressed="${Boolean(state.plainSource)}">${state.plainSource ? 'Document view' : 'Plain text'}</button><details class="highlight-key"><summary>Highlight key</summary><div>${W.categories.map(([k,l]) => `<span class="tag-label tag-${k}"><i></i>${esc(l)}</span>`).join('')}</div></details></div></div>
+      <div class="paper-scroll" id="paper-scroll" tabindex="0" aria-label="Scrollable source document"><article class="source-paper source-${skin}${scan ? ' scan-paper' : ''}" aria-label="${esc(DOC_LABEL[doc.doc_type] || doc.doc_type)} — restyled source text">
+      ${doc.extraction_failed ? '<div class="error">Extraction rejected. This document is readable, but its extracted facts are not used.</div>' : ''}<div id="source-lines" class="source-lines">${sourceLines(doc, annotations)}</div></article></div>
+      <div class="source-bottom"><span>${scan ? 'Restyled source · simulated scan texture' : 'Restyled source text'}</span><span>${annotations.length} highlighted phrases</span></div>`;
+    document.fonts.ready.then(() => { if (state.selectedSource) scrollToPhrase(); });
+    $('#toggle-source-style').onclick = () => { state.plainSource = !state.plainSource; renderSource(); scrollToPhrase(); };
+    $$('[data-highlight]').forEach(b => b.onclick = () => {
+      const source = annotations[Number(b.dataset.highlight)];
+      selectEvidence('fact:' + source.key, source);
+    });
+  }
+  function documentSkin(type) {
+    if (['removal_notice','strike_notice'].includes(type)) return 'letter';
+    if (['claim_notice','dispute_response','appeal_response'].includes(type)) return 'platform';
+    return ({receipt:'receipt',licence_certificate:'certificate',licensor_terms:'terms',licensor_email:'email',track_page:'catalogue',video_metadata:'studio'})[type] || 'plain';
+  }
+  function sourceLines(doc, annotations) {
+    let offset = 0;
+    const isURL = line => /^(?:https?:\/\/|(?:[a-z0-9-]+\.)+[a-z]{2,}\/)/i.test(line);
+    const trackTitle = doc.doc_type === 'track_page' ? doc.lines.findIndex(line => line.trim() && !isURL(line)) : -1;
+    return doc.lines.map((line, i) => {
+      const chars = Array.from(line), end = offset + chars.length;
+      const isMeta = /^[A-Za-z][A-Za-z0-9 %/().-]{1,36}:/.test(line) && !/^https?:/.test(line);
+      const labelLength = isMeta ? Array.from(line.slice(0, line.indexOf(':') + 1) + (line.slice(line.indexOf(':') + 1).match(/^ */)?.[0] || '')).length : 0;
+      const titleSplit = i === 0 && !isMeta && line.includes(' — ') ? Array.from(line.slice(0, line.indexOf(' — ') + 3)).length : 0;
+      const splitAt = labelLength || titleSplit;
 
+      const spans = annotations.map((a, index) => ({ ...a, index })).filter(a => a.char_start < end && a.char_end > offset);
+      const boundaries = [...new Set([offset, end, ...(splitAt ? [offset + splitAt] : []), ...spans.flatMap(a => [Math.max(offset, a.char_start), Math.min(end, a.char_end)])])].sort((a, b) => a - b);
+      let html = '', prefix = '';
+      for (let j = 0; j < boundaries.length - 1; j++) {
+        const start = boundaries[j], stop = boundaries[j + 1];
+        const covering = spans.filter(a => a.char_start <= start && a.char_end >= stop);
+        const selected = state.selectedSource;
+        const chosen = covering.find(a => selected && a.key === selected.key && a.char_start === selected.char_start) || covering[0];
+        const text = esc(chars.slice(start - offset, stop - offset).join(''));
+        const active = chosen && selected && chosen.key === selected.key && chosen.char_start === selected.char_start;
+        if (splitAt && start === offset + splitAt) { prefix = html; html = ''; }
+        html += chosen ? `<button type="button" class="source-highlight tag-${chosen.category}${active ? ' selected' : ''}" data-highlight="${chosen.index}" title="${esc(labelFact(chosen.key))} · ${esc(W.categories.find(c => c[0] === chosen.category)[1])}" aria-label="${esc(labelFact(chosen.key))}: ${esc(chars.slice(start - offset, stop - offset).join(''))}">${text}</button>` : text;
+      }
+      if (splitAt) html = `<span class="${labelLength ? 'field-label' : 'source-brand'}">${prefix}</span><span class="${labelLength ? 'field-value' : 'source-subtitle'}">${html}</span>`;
+      offset = end + 1;
+      const isHeading = /^\d+\.\s+[A-Z]/.test(line) || /^(Items|About this track|Rights and claims|What you can do|Monetisation|Audio track used)$/.test(line);
+      const classes = [doc.doc_type === 'licensor_email' && /^(From|To|Date|Subject|Message-ID):/.test(line) ? 'email-envelope' : '', !line.trim() ? 'is-blank' : '', /^>/.test(line) ? 'email-reply' : '', /^Message-ID:/.test(line) ? 'email-message-id' : '', /^Signed for|Licensing Manager$/.test(line) ? 'signature-line' : '', i === 0 ? 'document-title' : '', i === trackTitle ? 'track-title' : '', trackTitle >= 0 && i === trackTitle + 1 ? 'track-artist' : '', isHeading ? 'document-section' : '', isMeta ? 'document-meta' : '', /^Total charged:/i.test(line) ? 'receipt-total' : '', /^Subject:/i.test(line) ? 'email-subject' : '', isURL(line) ? 'document-url' : ''].filter(Boolean).join(' ');
+      return `<div class="source-line ${classes}"><span class="line-number" aria-hidden="true">${i + 1}</span><span class="line-text">${html || ' '}</span></div>`;
+    }).join('');
+  }
+  function renderFindings() {
+    const r = state.result;
+    const facts = r.facts.filter(f => (f.sources || []).some(s => s.doc_id === state.docId) || ['missing','conflicting'].includes(f.status));
+    const shown = facts.filter(f => state.filter === 'all' || W.category(f) === state.filter);
+    state.findingItems = shown.map(f => ({sid:'fact:' + f.key,label:labelFact(f.key),fact:f}));
+    if (state.signal && state.filter === 'all') state.findingItems.unshift({sid:'rule:' + state.signal.rule.rule_id,label:'Key finding · ' + state.signal.title,source:state.signal.source});
+    if (state.active && !state.findingItems.some(f => f.sid === state.active)) {
+      const node = r.chain[state.active];
+      if (node) state.findingItems.unshift({sid:state.active,label:node.rule_name || 'Selected evidence'});
+    }
+    const index = state.findingItems.findIndex(f => f.sid === state.active);
+    $('#finding-picker').innerHTML = `${index < 0 ? '<option value="">Choose a finding</option>' : ''}` + state.findingItems.map(f => `<option value="${esc(f.sid)}" ${f.sid === state.active ? 'selected' : ''}>${esc(f.label)}</option>`).join('');
+    $('#category-filter').value = state.filter;
+    $('#finding-count').textContent = index >= 0 ? `Finding ${index + 1} of ${state.findingItems.length}` : `${state.findingItems.length} findings`;
+    $('#previous-finding').disabled = index <= 0;
+    $('#next-finding').disabled = !state.findingItems.length || index === state.findingItems.length - 1;
+  }
+  function openFinding(sid) {
+    const item = state.findingItems.find(f => f.sid === sid);
+    if (!item) { state.active = null; state.selectedSource = null; renderSource(); renderChainEmpty(); renderSignal(); return; }
+    const source = item.source || item.fact?.sources?.find(s => s.doc_id === state.docId) || item.fact?.sources?.[0];
+    selectEvidence(sid, source ? { ...source, key: item.fact?.key || source.key } : null);
+  }
+  function moveFinding(delta) {
+    const i = state.findingItems.findIndex(f => f.sid === state.active);
+    openFinding(state.findingItems[Math.max(0,i + delta)]?.sid);
+  }
+  function renderChainEmpty() {
+    $('#chain').innerHTML = `<div class="chain-empty"><span class="eyebrow">FOLLOW THE EVIDENCE</span><h2>Start with a highlight.</h2><p>Choose a phrase in the document to see what it supports.</p></div>`;
+  }
   function renderChain(sid) {
-    const r = state.result; const node = r.chain[sid];
-    const el = $('#chain');
-    if (!node) { el.innerHTML = `<div class="chain-empty"><h2>Reasoning chain</h2><p>No chain recorded for this item.</p></div>`; return; }
-    const docs = Object.fromEntries(r.documents.map(d => [d.id, d]));
-    const withQuote = node.facts.filter(f => f.doc_id && f.quote).map((f, i) => [f, i]).sort((a, b) => ((b[0].clause_ref ? 1 : 0) - (a[0].clause_ref ? 1 : 0)) || (a[1] - b[1])).map(x => x[0]);
-    const primary = withQuote[0];
-    const byDoc = new Map();
-    withQuote.forEach(f => { if (!byDoc.has(f.doc_id)) byDoc.set(f.doc_id, []); byDoc.get(f.doc_id).push(f); });
-    const docStep = primary ? `
-      <div class="step"><div class="k">Document</div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap">${Array.from(byDoc.keys()).map(id => chip(docs[id] ? docs[id].filename : id, 'doc', 'i-doc')).join('')}</div>
-      </div>
-      <div class="step"><div class="k">Quote</div>
-        <p class="sentence-text" style="font-style:italic">“${esc(primary.quote)}”</p>
-        <p class="muted small" style="margin-top:4px">${esc(docs[primary.doc_id] ? docs[primary.doc_id].filename : '')}, line ${primary.line_start}${primary.clause_ref ? `, clause ${esc(primary.clause_ref)}` : ''}${withQuote.length > 1 ? ` · ${withQuote.length - 1} more quote${withQuote.length > 2 ? 's' : ''} below` : ''}</p>
-        ${docs[primary.doc_id] ? docView(docs[primary.doc_id], primary) : ''}
-      </div>` : `<div class="step"><div class="k">Document</div><p class="muted small">No document quote is behind this item${node.facts.some(f => f.status === 'stated_by_you') ? ': it rests on fields you typed in the form (Stated by you)' : node.facts.some(f => f.status === 'missing') ? ': the fact is missing' : ''}.</p></div>`;
-    const factsStep = node.facts.length ? `
-      <div class="step"><div class="k">Fact${node.facts.length > 1 ? 's' : ''}</div>
-        ${node.facts.map(f => { const [t, cls, ic] = FSTATUS[f.status] || [f.status, 'neutral']; const v = f.value === true ? 'yes' : f.value === false ? 'no' : f.value == null ? '—' : String(f.value); return `<div class="factrow"><div><div class="fk">${esc(f.fact_key)}${f.doc_filename ? ` · ${esc(f.doc_filename)}${f.clause_ref ? ` §${esc(f.clause_ref)}` : f.line_start ? ` L${f.line_start}` : ''}` : ''}</div><div class="fv">${esc(v.length > 160 ? v.slice(0, 157) + '…' : v)}</div></div>${chip(t, cls, ic)}</div>`; }).join('')}
-      </div>` : '';
-    const ruleStep = node.rule_id ? `
-      <div class="step"><div class="k">Rule</div>
-        <div class="rule-card"><div class="rid">${esc(node.rule_id)} · ${esc(node.rule_name)}</div><div class="logic">${esc(node.rule_logic || '')}</div>
-        <p style="margin-top:8px">${esc((r.rule_results.find(x => x.rule_id === node.rule_id) || {}).explanation || '')}</p></div>
-      </div>` : '';
-    const maps = node.mapping_runs && node.mapping_runs.length ? `
-      <div class="step"><div class="k">Mapping, 3 runs</div>
-        <div class="votes">${node.mapping_runs.map(m => `<div class="vote"><div class="q">“${esc(m.clause_quote.length > 180 ? m.clause_quote.slice(0, 177) + '…' : m.clause_quote)}”</div>
-          <div class="muted small" style="margin-top:3px">${esc(m.question.replace(/_/g, ' '))}${m.clause_ref ? ` · clause ${esc(m.clause_ref)}` : ''} · result: <strong>${esc(m.result)}</strong></div>
-          <div class="runs">${m.answers.map(a => `<span class="${esc(a.covers)}" title="${esc(a.reason)}">${esc(a.covers)}</span>`).join('')}</div>
-          ${m.answers.map(a => `<div class="reason">${esc(a.covers)}: ${esc(a.reason)}</div>`).join('')}</div>`).join('')}
-      </div>` : '';
-    const statusWord = node.status ? (VERDICT[node.status] || (STATUS[node.status] || [])[0] || (FSTATUS[node.status] || [])[0] || node.status.replace(/_/g, ' ')) : '';
-    const statusCls = VCLASS[node.status] || (STATUS[node.status] || [])[1] || (FSTATUS[node.status] || [])[1] || (node.rule_status === 'pass' ? 'ready' : node.rule_status === 'fail' ? 'gap' : node.rule_status === 'unknown' ? 'adviser' : 'neutral');
-    el.innerHTML = `<div class="chain">
-      <div class="step"><div class="k">Sentence</div><p class="sentence-text">${esc(node.text)}</p></div>
-      ${docStep}${factsStep}${ruleStep}${maps}
-      <div class="step"><div class="k">Status</div>${statusWord ? chip(statusWord, statusCls, VICON[node.status] || (STATUS[node.status] || [])[2] || (FSTATUS[node.status] || [])[2]) : ''}${node.rule_status ? ` <span class="chip neutral">rule ${esc(node.rule_id)}: ${esc(node.rule_status.replace(/_/g, ' '))}</span>` : ''}</div>
-      <div class="version">Rules version ${esc(r.rules_version)} · Confirmed by document, never verified.</div>
-    </div>`;
-    const line = $('#chain-line'); const box = line && line.closest('.docview'); if (line && box) box.scrollTop = Math.max(0, line.offsetTop - box.clientHeight / 2);
+    const r = state.result, node = r.chain[sid];
+    if (!node) { renderChainEmpty(); return; }
+    const signal = state.signal, isSignal = signal && sid === 'rule:' + signal.rule.rule_id;
+    const selected = state.selectedSource;
+    const primary = node.facts.find(f => selected && f.doc_id === selected.doc_id && f.char_start === selected.char_start && f.fact_key === selected.key)
+      || node.facts.find(f => f.doc_id === state.docId && f.quote) || node.facts.find(f => f.doc_id && f.quote);
+    const doc = r.documents.find(d => d.id === primary?.doc_id);
+    const exact = !!doc && !!primary && W.verified(doc,primary);
+    const fact = r.facts.find(f => f.key === (selected?.key || primary?.fact_key));
+    const rule = r.rule_results.find(x => x.rule_id === node.rule_id);
+    const title = isSignal ? signal.title : sid.startsWith('fact:') ? labelFact(sid.slice(5)) : node.rule_name || 'Your evidence';
+    const statusWord = VERDICT[node.status] || STATUS[node.status]?.[0] || FSTATUS[node.status]?.[0] || ({pass:'Rule supported',fail:'Evidence not supported',unknown:'Needs a closer look'}[node.status]) || 'Evidence finding';
+    const statusClass = VCLASS[node.status] || STATUS[node.status]?.[1] || FSTATUS[node.status]?.[1] || (node.rule_status === 'pass' ? 'ready' : 'gap');
+    const explanation = isSignal ? signal.why : rule?.explanation || fact?.note || (fact?.status === 'stated_by_you' ? 'This value was entered in the case settings. It is not confirmed by a document.' : fact?.status === 'missing' ? 'This fact is not supported by the documents currently in this case.' : 'This phrase was extracted from your document. No direct decision rule uses this fact.');
+    $('#chain').innerHTML = `<article class="focused-finding"><div class="focused-status">${chip(statusWord,statusClass)}${rule ? `<span class="rule-reference">${esc(rule.rule_id)}</span>` : ''}</div><h2>${esc(title)}</h2>
+      ${primary ? `<p class="source-reference">${esc(primary.doc_filename)}${primary.clause_ref ? ' · § ' + esc(primary.clause_ref) : ' · line ' + primary.line_start}</p><button class="selected-quote tag-${fact ? W.category(fact) : 'licence'}" type="button" id="jump-to-quote"><q>${esc(primary.quote)}</q><span>Show in document ↗</span></button>` : '<div class="no-source">No document phrase supports this item. Missing evidence cannot be highlighted.</div>'}
+      <p class="finding-explanation">${esc(explanation)}</p>
+      <details class="evidence-trace"><summary>Evidence & rule ${rule ? '<span>' + esc(rule.rule_id) + '</span>' : ''}</summary><div class="trace-path">Document → Phrase → Fact → Rule → Status</div>
+      ${node.facts.map((f,i) => `<button type="button" class="trace-fact" data-chain-fact="${i}"><span>${esc(labelFact(f.fact_key))}</span><b>${esc(f.value == null ? 'Missing' : String(f.value))}</b><small>${esc(FSTATUS[f.status]?.[0] || f.status)}${f.doc_filename ? ' · ' + esc(f.doc_filename) : ''}</small></button>`).join('')}
+      ${rule ? `<div class="rule-detail"><b>${esc(rule.rule_id)} · ${esc(rule.rule_name)}</b><p>${esc(rule.explanation)}</p></div>` : ''}
+      ${(node.mapping_runs || []).map(m => `<details class="mapping-detail"><summary>Interpretation · ${esc(m.result)}</summary>${m.answers.map(a => `<p><b>${esc(a.covers)}</b> · ${esc(a.reason)}</p>`).join('')}</details>`).join('')}</details>
+      <details class="quote-integrity"><summary>${exact ? icon('i-check') + ' Exact quote checked' : icon('i-doc') + ' Evidence integrity'}</summary><p>${primary ? exact ? 'Exact quote matches the source text at its recorded position.' : 'Exact source match could not be confirmed in this view.' : 'No document quote: this item is missing, stated by you, or derived from rules.'}</p><p>${rule ? 'Deterministic rule ' + esc(rule.rule_id) + ' · ' : ''}Rules v${esc(r.rules_version)}</p>${doc ? `<p>${esc(doc.filename)}</p><code>SHA-256 ${esc(doc.sha256)}</code><p>Fingerprint of normalized text, not original file bytes. Authenticity is not assessed.</p>` : ''}</details></article>`;
+    $('#jump-to-quote')?.addEventListener('click', () => { selectEvidence(sid, primary ? {...primary,key:primary.fact_key} : null); if (matchMedia('(max-width:760px)').matches) $('.source-highlight.selected')?.scrollIntoView({block:'center',behavior:'auto'}); });
+    $$('[data-chain-fact]').forEach(button => button.onclick = () => {
+      const f = node.facts[Number(button.dataset.chainFact)]; selectEvidence('fact:' + f.fact_key,{...f,key:f.fact_key});
+    });
+    renderSignal();
+  }
+  function renderSignal() {
+    const s = state.signal, slot = $('#signal-slot');
+    if (!s) { slot.innerHTML = ''; return; }
+    const selected = state.active === 'rule:' + s.rule.rule_id;
+    slot.innerHTML = `<details class="signal-card" ${selected ? 'open' : ''}><summary><span class="signal-label"><span class="signal-dot"></span>SIGNAL</span><span>What you might miss</span><span class="disclosure-arrow">⌄</span></summary><div class="signal-content"><p class="signal-question">What could a smart, cautious creator still miss?</p>${!selected ? `<h3>${esc(s.title)}</h3><p>${esc(s.why)}</p>` : ''}
+      <button type="button" class="text-button" data-signal-source>${selected ? 'Revisit the highlighted evidence' : 'See the key finding'} <span>↗</span></button>
+      ${s.route ? `<div class="signal-route"><span class="eyebrow">LOWEST-RISK ROUTE</span><p>${esc(s.route.title)}</p><details><summary>Why this route</summary><p>${esc(s.route.description)}</p></details></div>` : ''}
+      <span class="signal-rule">Detected by ${esc(s.rule.rule_id)} · ${esc(s.rule.rule_name)}</span></div></details>`;
+    $('[data-signal-source]').onclick = () => { state.filter = 'all'; selectEvidence('rule:' + s.rule.rule_id,s.source); if (matchMedia('(max-width:760px)').matches) $('.source-highlight.selected')?.scrollIntoView({block:'center',behavior:'auto'}); };
+  }
+  function scrollToPhrase() {
+    const marks = $$('.source-highlight.selected'), paper = $('#paper-scroll');
+    if (marks.length && paper) {
+      const top = marks[0].getBoundingClientRect().top, bottom = marks[marks.length - 1].getBoundingClientRect().bottom;
+      const space = Math.max(12, (paper.clientHeight - (bottom - top)) / 2);
+      paper.scrollTop += top - paper.getBoundingClientRect().top - space;
+    }
+    if (matchMedia('(max-width:760px)').matches) {
+      const active = $('.document-item[aria-pressed=true]'), list = $('.document-list');
+      if (active && list) list.scrollLeft = active.offsetLeft - list.offsetLeft - list.clientWidth / 3;
+    }
+  }
+  function selectEvidence(sid, preferred) {
+    state.active = sid;
+    if ($('#report-dialog').open) $('#report-dialog').close();
+    const node = state.result.chain[sid];
+    const candidates = node?.facts || [];
+    const source = preferred || candidates.find(f => f.doc_id === state.docId && f.quote) || candidates.find(f => f.doc_id && f.quote);
+    state.selectedSource = null;
+    if (source) {
+      const doc = state.result.documents.find(d => d.id === source.doc_id);
+      if (doc) state.docId = doc.id;
+      if (doc && W.verified(doc,source)) state.selectedSource = {...source,key:source.key || source.fact_key};
+    }
+    renderSidebar(); renderSource(); renderFindings(); renderChain(sid); scrollToPhrase();
+    if (matchMedia('(max-width:760px)').matches) $('#centre').scrollIntoView({block:'start',behavior:'auto'});
+    const panel = $('#centre'); panel.scrollTop = 0;
   }
 
+  document.addEventListener('click', e => { if (e.target.closest('[data-settings]')) $('#settings-dialog').showModal(); });
+  $('#close-settings').addEventListener('click', () => $('#settings-dialog').close());
   renderRail(null);
-  $('#foot-more').addEventListener('click', () => { const f = $('#foot'); const open = f.classList.toggle('open'); $('#foot-more').textContent = open ? 'Less' : 'More'; $('#foot-more').setAttribute('aria-expanded', String(open)); });
+  document.addEventListener('click', e => {
+    if (e.target.closest('[data-report]') && state.result) { $('#report-dialog').showModal(); $('#report-dialog').scrollTop = 0; }
+  });
+  $('#close-report').onclick = () => $('#report-dialog').close();
+  $('#back-to-documents').onclick = () => { if ($('#report-dialog').open) $('#report-dialog').close(); };
+  const homeDrop = $('#home-dropzone');
+  function homeUpload(files) { if (!files.length) return; addFiles(files); $('#settings-dialog').showModal(); }
+  $('#home-files').onchange = e => { homeUpload(e.target.files); e.target.value = ''; };
+  ['dragenter','dragover'].forEach(type => homeDrop.addEventListener(type,e => { e.preventDefault(); homeDrop.classList.add('over'); }));
+  ['dragleave','drop'].forEach(type => homeDrop.addEventListener(type,e => { e.preventDefault(); homeDrop.classList.remove('over'); }));
+  homeDrop.addEventListener('drop',e => homeUpload(e.dataTransfer.files));
+
+
+  let resizeTimer;
+  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { if (state.result) scrollToPhrase(); }, 100); });
 
   // deep-link demo: /?demo=maya
   const params = new URLSearchParams(location.search);

@@ -1,0 +1,388 @@
+{
+  "generated_at": "2026-09-27T19:00:27.506752+00:00",
+  "passed": true,
+  "baseline": {
+    "provider": "claude_cli",
+    "model": "sonnet",
+    "live_calls": 0
+  },
+  "candidate": {
+    "provider": "gemini",
+    "model": "gemini-3.8-flash",
+    "live_calls": 59,
+    "cache_hits": 31
+  },
+  "cases": [
+    {
+      "case": "maya",
+      "passed": true,
+      "claude": {
+        "verdict": "evidence_ready",
+        "stage": "claim",
+        "chosen_step": "dispute",
+        "rules": {
+          "R0": "pass",
+          "R1": "pass",
+          "R2": "pass",
+          "R3": "pass",
+          "R4": "not_applicable",
+          "R5": "pass",
+          "R6": "pass",
+          "R7": "pass",
+          "R8": "pass",
+          "R9": "pass",
+          "R10": "pass"
+        },
+        "components": {
+          "S-D1": "supported",
+          "S-D2": "supported",
+          "S-D3": "supported"
+        },
+        "draft_available": true,
+        "routes": [
+          [
+            "route_licensor_release",
+            1,
+            "evidence_ready"
+          ],
+          [
+            "route_platform",
+            2,
+            "evidence_ready"
+          ]
+        ],
+        "step_evidence": [
+          [
+            "dispute",
+            "evidence_ready",
+            true
+          ],
+          [
+            "appeal",
+            "evidence_ready",
+            false
+          ],
+          [
+            "counter_notice",
+            "evidence_ready",
+            false
+          ]
+        ],
+        "gaps": []
+      },
+      "gemini": {
+        "verdict": "evidence_ready",
+        "stage": "claim",
+        "chosen_step": "dispute",
+        "rules": {
+          "R0": "pass",
+          "R1": "pass",
+          "R2": "pass",
+          "R3": "pass",
+          "R4": "not_applicable",
+          "R5": "pass",
+          "R6": "pass",
+          "R7": "pass",
+          "R8": "pass",
+          "R9": "pass",
+          "R10": "pass"
+        },
+        "components": {
+          "S-D1": "supported",
+          "S-D2": "supported",
+          "S-D3": "supported"
+        },
+        "draft_available": true,
+        "routes": [
+          [
+            "route_licensor_release",
+            1,
+            "evidence_ready"
+          ],
+          [
+            "route_platform",
+            2,
+            "evidence_ready"
+          ]
+        ],
+        "step_evidence": [
+          [
+            "dispute",
+            "evidence_ready",
+            true
+          ],
+          [
+            "appeal",
+            "evidence_ready",
+            false
+          ],
+          [
+            "counter_notice",
+            "evidence_ready",
+            false
+          ]
+        ],
+        "gaps": []
+      },
+      "differences": {},
+      "invalid_quotes": 0,
+      "rejected_documents": [],
+      "facts": 45,
+      "mapping_runs": 8,
+      "draft_text_identical": false
+    },
+    {
+      "case": "leo",
+      "passed": true,
+      "claude": {
+        "verdict": "evidence_gap",
+        "stage": "removed_with_strike",
+        "chosen_step": "counter_notice",
+        "rules": {
+          "R0": "pass",
+          "R1": "pass",
+          "R2": "pass",
+          "R3": "fail",
+          "R4": "not_applicable",
+          "R5": "pass",
+          "R6": "pass",
+          "R7": "fail",
+          "R8": "pass",
+          "R9": "pass",
+          "R10": "pass"
+        },
+        "components": {
+          "CN1": "supported",
+          "CN2a": "not_supported",
+          "CN2b": "supported",
+          "CN2c": "supported",
+          "CN2d": "supported",
+          "CN3": "supported"
+        },
+        "draft_available": false,
+        "routes": [
+          [
+            "route_retraction",
+            1,
+            "evidence_gap"
+          ],
+          [
+            "route_counter_notice",
+            2,
+            "evidence_gap"
+          ]
+        ],
+        "step_evidence": [
+          [
+            "dispute",
+            "evidence_gap",
+            false
+          ],
+          [
+            "appeal",
+            "evidence_gap",
+            false
+          ],
+          [
+            "counter_notice",
+            "evidence_gap",
+            true
+          ]
+        ],
+        "gaps": [
+          "CN2a"
+        ]
+      },
+      "gemini": {
+        "verdict": "evidence_gap",
+        "stage": "removed_with_strike",
+        "chosen_step": "counter_notice",
+        "rules": {
+          "R0": "pass",
+          "R1": "pass",
+          "R2": "pass",
+          "R3": "fail",
+          "R4": "not_applicable",
+          "R5": "pass",
+          "R6": "pass",
+          "R7": "fail",
+          "R8": "pass",
+          "R9": "pass",
+          "R10": "pass"
+        },
+        "components": {
+          "CN1": "supported",
+          "CN2a": "not_supported",
+          "CN2b": "supported",
+          "CN2c": "supported",
+          "CN2d": "supported",
+          "CN3": "supported"
+        },
+        "draft_available": false,
+        "routes": [
+          [
+            "route_retraction",
+            1,
+            "evidence_gap"
+          ],
+          [
+            "route_counter_notice",
+            2,
+            "evidence_gap"
+          ]
+        ],
+        "step_evidence": [
+          [
+            "dispute",
+            "evidence_gap",
+            false
+          ],
+          [
+            "appeal",
+            "evidence_gap",
+            false
+          ],
+          [
+            "counter_notice",
+            "evidence_gap",
+            true
+          ]
+        ],
+        "gaps": [
+          "CN2a"
+        ]
+      },
+      "differences": {},
+      "invalid_quotes": 0,
+      "rejected_documents": [],
+      "facts": 53,
+      "mapping_runs": 8,
+      "draft_text_identical": true
+    },
+    {
+      "case": "leo+email",
+      "passed": true,
+      "claude": {
+        "verdict": "evidence_ready",
+        "stage": "removed_with_strike",
+        "chosen_step": "counter_notice",
+        "rules": {
+          "R0": "pass",
+          "R1": "pass",
+          "R2": "pass",
+          "R3": "fail",
+          "R4": "pass",
+          "R5": "pass",
+          "R6": "pass",
+          "R7": "pass",
+          "R8": "pass",
+          "R9": "pass",
+          "R10": "pass"
+        },
+        "components": {
+          "CN1": "supported",
+          "CN2a": "supported",
+          "CN2b": "supported",
+          "CN2c": "supported",
+          "CN2d": "supported",
+          "CN3": "supported"
+        },
+        "draft_available": true,
+        "routes": [
+          [
+            "route_retraction",
+            1,
+            "evidence_ready"
+          ],
+          [
+            "route_counter_notice",
+            2,
+            "evidence_ready"
+          ]
+        ],
+        "step_evidence": [
+          [
+            "dispute",
+            "evidence_ready",
+            false
+          ],
+          [
+            "appeal",
+            "evidence_ready",
+            false
+          ],
+          [
+            "counter_notice",
+            "evidence_ready",
+            true
+          ]
+        ],
+        "gaps": []
+      },
+      "gemini": {
+        "verdict": "evidence_ready",
+        "stage": "removed_with_strike",
+        "chosen_step": "counter_notice",
+        "rules": {
+          "R0": "pass",
+          "R1": "pass",
+          "R2": "pass",
+          "R3": "fail",
+          "R4": "pass",
+          "R5": "pass",
+          "R6": "pass",
+          "R7": "pass",
+          "R8": "pass",
+          "R9": "pass",
+          "R10": "pass"
+        },
+        "components": {
+          "CN1": "supported",
+          "CN2a": "supported",
+          "CN2b": "supported",
+          "CN2c": "supported",
+          "CN2d": "supported",
+          "CN3": "supported"
+        },
+        "draft_available": true,
+        "routes": [
+          [
+            "route_retraction",
+            1,
+            "evidence_ready"
+          ],
+          [
+            "route_counter_notice",
+            2,
+            "evidence_ready"
+          ]
+        ],
+        "step_evidence": [
+          [
+            "dispute",
+            "evidence_ready",
+            false
+          ],
+          [
+            "appeal",
+            "evidence_ready",
+            false
+          ],
+          [
+            "counter_notice",
+            "evidence_ready",
+            true
+          ]
+        ],
+        "gaps": []
+      },
+      "differences": {},
+      "invalid_quotes": 0,
+      "rejected_documents": [],
+      "facts": 58,
+      "mapping_runs": 9,
+      "draft_text_identical": true
+    }
+  ],
+  "scope": "Three demo outcomes with fresh Gemini calls; historical benchmark not rerun."
+}
