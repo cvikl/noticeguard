@@ -1,0 +1,63 @@
+{
+ "verdict": "needs_adviser",
+ "explanation": "Your documents raise a question NoticeGuard does not decide: the claimant cannot be connected to your licensor (possible ownership question). A person (for example a university IP clinic or a digital-rights adviser) should look at this before you take any step. Nothing here says you are wrong; it says the paperwork alone does not settle it.",
+ "rules": [
+  {
+   "id": "R0",
+   "status": "pass",
+   "explanation": "Your notices show the process is at the claim stage, where a dispute is the available step."
+  },
+  {
+   "id": "R1",
+   "status": "pass",
+   "explanation": "The claim names “Glasslight”, which is the work named in your licence certificate."
+  },
+  {
+   "id": "R2",
+   "status": "pass",
+   "explanation": "Your certificate is Licence Terms v2 (purchased 12 March 2025). The current terms are v3, but terms v3 clause 9.1 and your certificate clause 6.1 say the terms in force on the date of purchase govern, so v2 applies."
+  },
+  {
+   "id": "R3",
+   "status": "pass",
+   "explanation": "Your licence certificate clause 4.1 (v2) permits “Standard licence permits use of the Work as background music in video content, including monetised video on social platforms, on channels…”, which covers your monetised video on ClipStream under a Standard licence (3 of 3 mapping runs agreed)."
+  },
+  {
+   "id": "R4",
+   "status": "not_applicable",
+   "explanation": "No dated permission from the licensor (email) is among your documents."
+  },
+  {
+   "id": "R5",
+   "status": "unknown",
+   "explanation": "We can't connect the claimant, Copperfield Media, to your licensor Glasswork Audio Ltd: no document names it as the licensor's administrator. This may be an ownership question."
+  },
+  {
+   "id": "R6",
+   "status": "pass",
+   "explanation": "The matched segment 0:14–2:31 falls inside the video duration 11:48."
+  },
+  {
+   "id": "R7",
+   "status": "fail",
+   "explanation": "S-D1 supported; S-D2 supported; S-D3 unknown"
+  },
+  {
+   "id": "R8",
+   "status": "pass",
+   "explanation": "Verdict: needs adviser for a dispute."
+  },
+  {
+   "id": "R9",
+   "status": "pass",
+   "explanation": "Routes listed lowest-risk first: 1. Ask Glasswork Audio Ltd to have its administrator release the claim (needs adviser); 2. In-platform dispute (needs adviser)"
+  },
+  {
+   "id": "R10",
+   "status": "fail",
+   "explanation": "Needs an adviser because the claimant cannot be connected to your licensor (possible ownership question)."
+  }
+ ],
+ "draft": null,
+ "rejected": 0
+}

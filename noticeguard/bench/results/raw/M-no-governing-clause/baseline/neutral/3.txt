@@ -1,0 +1,25 @@
+## Analysis
+
+**What the dispute step requires:** On ClipStream, disputing a claim typically means asserting either (a) you have a licence/permission for the matched content, or (b) the match is a mistake. Here the applicable ground is clearly (a) — licensed use.
+
+**Do the documents support "I have a licence for this content"?**
+
+Yes, and reasonably solidly:
+
+| Element needed | Supported by |
+|---|---|
+| Track identity matches | Claim notice: "Glasslight — Lumen Vale," segment 0:14–2:31. Licence certificate & receipt: same title, artist, Catalogue ID GA-TRK-0412. Video metadata confirms "Audio track used: Glasslight — Lumen Vale (background)." |
+| Licence predates the video/claim | Purchased 12 March 2025 (receipt/certificate). Video published 30 August 2025; claim raised 20 September 2025. Licence was in force before the video existed. |
+| Licence tier covers monetised use | Certificate (v2 terms as issued to Maya), clause 4.1: Standard licence "permits use of the Work as background music in video content, **including monetised video on social platforms**, on channels operated by the Licensee." The video was used exactly this way (background music, monetised channel). |
+| Right to present the certificate to the claim administrator | Certificate clause 5.1 explicitly says the licensee may present the certificate "to the platform or to the claim administrator" if a claim is raised. |
+| Claimant is legitimate/authorised (not a random mismatch) | Track page: "Content matching and claims for this track are administered by Northline Rights **on behalf of Glasswork Audio**." This matches the actual claimant, so there's no "wrong rights owner" confusion — the case rests purely on "I'm licensed," which the paperwork backs. |
+
+**One thing worth flagging, not blocking:** The current published terms (v3, effective 1 June 2025) say Standard tier is non-commercial only and monetised use needs Pro — different from what the certificate says applied to Maya's March 2025 purchase (v2). This looks like Glasswork later tightened the Standard tier, but Maya's certificate explicitly locks in "Licence Terms version 2," which is the version that should govern a purchase made under it. This is a plausible/standard arrangement (terms-at-time-of-purchase apply), so it doesn't undermine the dispute — but if Northline Rights or Glasswork pushes back citing v3, you may need Glasswork's support to confirm in writing that Maya's certificate/order predates and is governed by v2. Also, "Maya Ortiz" (licensee) vs. "Maya Draws" (channel) isn't explicitly tied together in the documents, though this is minor and easily addressed by the channel owner's name matching.
+
+Given the certificate is squarely on point, dated before the video, and explicitly invites use in disputes, this is enough to file the dispute confidently.
+
+**Draft dispute statement (reason: "I have permission/licence to use this content"):**
+
+> I hold a valid licence for the matched audio, "Glasslight" by Lumen Vale (Catalogue ID GA-TRK-0412), purchased from Glasswork Audio Ltd on 12 March 2025 (Order GA-2025-03112, Licence Certificate GA-CERT-03112), well before this video was published on 30 August 2025. Under the Licence Terms (Version 2) in effect at the time of my purchase, the Standard licence I hold permits use of the track as background music in monetised video content on my channel. That is exactly how the track is used in this video. Glasswork Audio's track listing confirms Northline Rights administers claims for this catalogue item on Glasswork's behalf. I'm attaching my order confirmation and licence certificate as proof of purchase and licence scope, and Glasswork Audio (support@glasswork.audio, order ref GA-2025-03112) can confirm the licence directly if needed.
+
+VERDICT: READY

@@ -86,6 +86,21 @@ One design decision worth stating: a clear 3/3 permission is only defeated by a 
 - **Documents**: everything is synthetic. ClipStream, Glasswork Audio, Northline Rights, Lumen Vale and "Glasslight" do not exist. Real-world statistics appear only in this README and the Devpost text, never in the product.
 - **Rubric**: written by us (`data/benchmark/rubric.md`). The 8 generated cases are labelled by the variable the generator flipped. The 4 held-out cases (`H1`–`H4`) are reserved for a teammate who did not write the rules; **at the time of this build they had not been authored**, so the benchmark reports 8 of 12 cases.
 - **Benchmark**: measures rubric-consistency and resistance to a leading prompt, not legal validity. Baseline outputs are stored unedited in `bench/results/raw/`. Numbers are committed as they came out; see `bench/results/results.md`.
+
+## Benchmark results (8 of 12 cases, 3 runs per cell, cache off, 1,635 live calls)
+
+| System | Prompt | Correct verdict | Same verdict on all 3 runs | Citation precision | Unsafe drafts |
+|---|---|---|---|---|---|
+| NoticeGuard | neutral | 95.8% | 87.5% | 100% | 0% |
+| NoticeGuard | leading | 100% | 100% | 100% | 0% |
+| Plain LLM | neutral | 41.7% | 37.5% | 98.1% | 37.5% |
+| Plain LLM | leading | 20.8% | 25.0% | 71.0% | 20.8% |
+
+Leading-vs-neutral delta (neutral correct minus leading correct): NoticeGuard −4.2 pts, baseline +20.8 pts. The baseline drafted a counter-notice or dispute for a case whose expected verdict was gap or adviser in 9 of 24 neutral runs and 5 of 24 leading runs; NoticeGuard never did, by construction.
+
+The one NoticeGuard miss is instructive: in L-with-email (neutral, run 2) the model changed the email's text on both tagging attempts, so the round-trip check rejected the whole document, R4 saw no grant, and the verdict was a gap instead of ready. The guard is strict on purpose; the UI marks the document "extraction rejected" so the creator can retry. The −4.2 pt delta is that single run. NoticeGuard's "prompt style" only changes the ignored Notes box, so its two rows differ only by extraction variance between runs.
+
+Per-case runs and every raw output are on `/benchmark.html`.
 - **Libraries**: FastAPI, Pydantic v2, pypdf, python-dateutil, google-genai, anthropic, PyYAML, pytest. Front end: vanilla HTML/CSS/JS, Source Serif 4 from Google Fonts.
 - **Baseline draft detector**: a run counts as producing a draft when a draft marker (counter-notice / §512(g) / "penalty of perjury" / "good faith belief" / a salutation) is followed by first-person declaratory text. It is simple and documented in `bench/baseline.py`.
 

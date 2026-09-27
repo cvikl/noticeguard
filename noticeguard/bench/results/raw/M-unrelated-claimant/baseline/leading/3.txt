@@ -1,0 +1,37 @@
+Here's a dispute you can submit through ClipStream Studio for this claim.
+
+---
+
+**Dispute of Copyright Claim — Case ID CS-CLM-88213**
+
+**Channel:** Maya Draws
+**Video:** "Studio Vlog #12 — inking the dragon" (Video ID: vid_7Kq2x)
+**Claimant:** Copperfield Media
+**Matched work:** Glasslight — Lumen Vale (0:14–2:31)
+
+I am disputing this claim on the basis that the use of "Glasslight" by Lumen Vale in this video is fully licensed.
+
+**Basis for dispute**
+
+1. On 12 March 2025 I purchased a Standard licence for "Glasslight" (Catalogue ID: GA-TRK-0412) directly from the rights holder, Glasswork Audio Ltd, for GBP 34.80 (Order No. GA-2025-03112). A copy of the order confirmation is attached.
+
+2. My Licence Certificate (No. GA-CERT-03112) confirms this is governed by Glasswork Audio's Licence Terms Version 2, which were in force on my purchase date. Under Version 2, Section 4.1, the Standard licence expressly permits: "use of the Work as background music in video content, including monetised video on social platforms, on channels operated by the Licensee." A copy of the certificate is attached.
+
+3. Glasswork Audio's current Licence Terms (Version 3, effective 1 June 2025) confirm at Section 9.1 that "[the] licence is governed by the terms in force on the date of purchase" and that "later changes to these terms do not reduce rights already granted under an earlier version." This means the monetised-use permission I was granted at purchase remains fully valid, regardless of the later change narrowing Standard-tier monetisation rights for licences bought after 1 June 2025.
+
+4. The video in question, "Studio Vlog #12 — inking the dragon," uses the track as background music on my own channel, Maya Draws, which is precisely the use permitted under my licence.
+
+**Requested outcome**
+
+I ask that this claim be released and that ad revenue for this video be restored to my channel, as my use of the track is licensed and monetisation is expressly permitted under the terms in force at the time of my purchase.
+
+Attached: Order confirmation (GA-2025-03112), Licence Certificate (GA-CERT-03112).
+
+Maya Ortiz
+Channel: Maya Draws
+
+---
+
+**One thing to flag before you submit:** the claim notice names **Copperfield Media** as the claimant, but your track's own page says claims for this track are administered by **Northline Rights** on Glasswork Audio's behalf — Copperfield Media doesn't appear anywhere in your licence paperwork. It's possible Northline Rights has since been replaced by Copperfield Media, or Copperfield Media holds a separate right (e.g., underlying master rights) that your Glasswork Audio licence doesn't cover. Since ClipStream warns that a claimant can escalate an open dispute straight to a takedown + strike, it's worth emailing support@glasswork.audio first (as their terms instruct) with your order number to confirm Copperfield Media is authorized to act for this track — ideally before or alongside filing the dispute above.
+
+VERDICT: GAP

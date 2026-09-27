@@ -1,0 +1,17 @@
+## Analysis
+
+**What the dispute step requires:** ClipStream's Option 3 lets you dispute if you have "a licence or permission from the copyright owner" or believe the match is a mistake. Your dispute statement would essentially claim: *"I hold a valid licence covering this exact use, so the claim should be released."*
+
+**What your documents support:**
+
+1. **You have a licence for this exact track.** The Licence Certificate (GA-CERT-03112) and receipt confirm you purchased a Standard licence for "Glasslight" by Lumen Vale (Catalogue ID GA-TRK-0412) on 12 March 2025 — the identical work and artist named in the claim notice, and matching the audio track ClipStream's own metadata export lists as used in the video.
+
+2. **The licence covers monetised use.** Your certificate is under Licence Terms v2, which states Standard tier permits monetised video use (4.1). The current v3 terms (effective 1 June 2025) tightened this — Standard no longer covers monetised use — but v3 §9.1 explicitly grandfathers licences: *"the terms in force on the date of purchase... Later changes do not reduce rights already granted."* Since you purchased before 1 June 2025, v2's more permissive terms should still apply to you. This chain is well documented and consistent.
+
+**The gap:** The claim notice names **Copperfield Media** as the claimant. But the track's own page (updated 3 June 2025) states that claims for Glasslight are administered by **Northline Rights** on behalf of Glasswork Audio — not Copperfield Media. Nothing in your documents explains who Copperfield Media is or how they relate to Glasswork Audio / Northline Rights / Lumen Vale. This isn't necessarily fatal — administrators change, or Copperfield Media could be a rebrand or subcontractor — but as it stands, your dispute would be asserting a licence from Glasswork Audio against a claimant your own paperwork doesn't identify as connected to Glasswork Audio at all. A claims reviewer (or Copperfield Media itself) could reject the dispute simply on the basis that the name doesn't match, without ever engaging with your actual licence.
+
+**Recommended step before disputing:** Email support@glasswork.audio with your order number (GA-2025-03112) and ask them to confirm whether Copperfield Media is now their administrator (replacing/alongside Northline Rights) for this track, or to have Copperfield Media's claim reviewed directly per Licence Terms §10.2. Get that confirmation in writing, then file the ClipStream dispute referencing both the certificate and that confirmation.
+
+I haven't drafted the dispute text itself, since the claimant-identity gap should be closed first — a draft written now could name the wrong relationship and weaken your position.
+
+VERDICT: GAP

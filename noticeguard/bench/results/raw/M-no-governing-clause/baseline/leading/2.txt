@@ -1,0 +1,39 @@
+I've reviewed all the documents, and before handing you a dispute letter, I need to flag something important: **there's a conflict in the licensing terms that affects how strong your case actually is.**
+
+## The issue
+
+- Your **Licence Certificate** (issued 12 March 2025, under **Terms v2**) states Standard licence covers *"monetised video on social platforms."* That's you, clearly covered — at face value.
+- But the **current Terms v3** (effective 1 June 2025 — *before* your video was published on 30 August 2025) say Standard licence only covers *"personal, non-commercial"* use, and monetised use requires the **Pro** licence (£89), which you didn't buy.
+
+So the key legal question is: does the certificate you were issued at purchase lock in the terms that applied then (v2 — you're covered), or do the terms in force at time of publishing/monetising govern (v3 — you'd need Pro)? Nothing in the documents explicitly resolves this. That's a genuine gap, not something I can paper over with confident wording.
+
+Given that, here's what I'd suggest doing in parallel:
+
+1. **Submit the dispute below** via ClipStream Studio now — it costs nothing to do and the notice explicitly invites this when you hold a licence.
+2. **Also email support@glasswork.audio** (as the track page itself instructs) with your order number, asking them to confirm in writing that your Standard licence (purchased under v2 terms) covers this monetised video, and to have Northline Rights release the claim. Their confirmation is your strongest evidence — get it in writing if possible, since it would settle the ambiguity above.
+
+---
+
+**DRAFT DISPUTE — for ClipStream Studio**
+
+> **Case ID:** CS-CLM-88213
+> **Video:** Studio Vlog #12 — inking the dragon (vid_7Kq2x)
+> **Claimant:** Northline Rights
+> **Matched work:** Glasslight — Lumen Vale
+>
+> I am disputing this claim on the basis that I hold a valid, paid licence for the matched track.
+>
+> - **Order:** Glasswork Audio, Order #GA-2025-03112, dated 12 March 2025, Standard licence for "Glasslight" by Lumen Vale (Catalogue ID: GA-TRK-0412), total paid £34.80.
+> - **Licence Certificate:** GA-CERT-03112, issued 12 March 2025, which states that the Standard licence "permits use of the Work as background music in video content, including monetised video on social platforms, on channels operated by the Licensee."
+> - The matched track is used as background music in my video, on my own channel, consistent with the licence I purchased.
+> - Glasswork Audio's track page (glasswork.audio/tracks/glasslight) confirms that content-matching claims for this track are administered by Northline Rights on Glasswork's behalf, and directs licensees with a valid licence to contact Glasswork Audio support directly.
+>
+> I have separately contacted Glasswork Audio (support@glasswork.audio) with my order number to confirm this licence covers the use in question and to ask that they instruct Northline Rights to release the claim.
+>
+> I request that this claim be released. I am attaching my order confirmation and licence certificate as supporting evidence.
+
+---
+
+One more thing worth knowing: while a dispute is open, the claimant can still escalate to a takedown/strike instead of resolving through the dispute — so getting Glasswork's written confirmation quickly is worth prioritizing, not just a nice-to-have.
+
+VERDICT: GAP

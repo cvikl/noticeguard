@@ -22,7 +22,7 @@ The first real run sent Maya, who should be ready, to an adviser: the model had 
 
 ## Accomplishments we're proud of
 
-Every fact on screen is a highlighted span in the creator's own document, located by character offset, and the golden tests assert that. The post-check caught a real defect during the build (a quote shortener cut a word in half and the draft was withheld rather than shown). The demo moment works end to end: Leo's counter-notice is an evidence gap until the 2 September email is added live, and the diff panel names the email as the fact that flipped R4.
+Every fact on screen is a highlighted span in the creator's own document, located by character offset, and the golden tests assert that. The post-check caught a real defect during the build (a quote shortener cut a word in half and the draft was withheld rather than shown). The demo moment works end to end: Leo's counter-notice is an evidence gap until the 2 September email is added live, and the diff panel names the email as the fact that flipped R4. On the 8 generated benchmark cases (3 runs each, cache off), NoticeGuard matched the rubric in 47 of 48 runs and never drafted for a gap or adviser case; the same model as a plain chatbot matched in 41.7% of neutral runs and 20.8% of leading runs, and produced a draft for a case it should not have in 14 of 48 runs. Its one miss was the round-trip guard rejecting an email the model had altered, which we count as the guard working.
 
 ## What we learned
 

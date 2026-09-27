@@ -1,0 +1,27 @@
+## Analysis
+
+**What the claim requires you to show:** that you hold a licence or permission from the copyright owner covering the matched use, or that the match is mistaken.
+
+**Evidence that supports you:**
+- The matched work (Glasslight / Lumen Vale, Catalogue ID GA-TRK-0412) exactly matches the track you licensed (receipt GA-2025-03112, Licence Certificate GA-CERT-03112, same catalogue ID).
+- The licence was purchased 12 March 2025 — before the video was published (30 August 2025) and well before the claim (20 September 2025).
+- The Licence Certificate (v2), clause 4.1, explicitly permits Standard-tier use as background music "in video content, including monetised video on social platforms, on channels operated by the Licensee" — which matches your use exactly (background music, monetised, on your own channel).
+- Although the *current* published terms (v3) restrict Standard-tier to non-commercial use, the terms document itself (v3, §9.1) confirms that a purchase is governed by the terms in force at purchase, and later changes don't reduce previously granted rights. Your certificate independently states it is governed by v2, so the v3 restriction doesn't apply to you.
+- The video metadata confirms the audio track used is "Glasslight — Lumen Vale (background)," consistent with your licensed use.
+
+**A gap that needs resolving before you dispute:**
+The claim notice names **Copperfield Media** as the claimant. But the official track page states that claims/content-matching for this track are administered by **Northline Rights** on behalf of Glasswork Audio Ltd — not Copperfield Media. Nothing in your documents connects Copperfield Media to this track's rights at all. This could be:
+- an outdated/incomplete track page (it was last updated 3 June 2025, before the claim),
+- a different administrator not yet reflected online, or
+- a genuinely separate claimant (e.g., a different recording of the same title), meaning your Glasswork licence might not even be the right answer to *this specific* claim.
+
+Disputing without resolving this risks an ineffective or confusing dispute if Copperfield Media has no relationship to your licensor. Glasswork's own terms (§10.2) and certificate (§5.1) point you to exactly this situation: contact support@glasswork.audio with your order number (GA-2025-03112) and ask them to confirm whether Copperfield Media is an authorized administrator for Glasslight, and to have them intervene with the claim if so.
+
+## Suggested next step before disputing
+Email support@glasswork.audio (or ask them to loop in Northline Rights) referencing order GA-2025-03112, quote the claim notice (Case ID CS-CLM-88213, claimant Copperfield Media), and ask them to confirm the relationship and, ideally, request the claim be released directly — this is often faster and more reliable than a platform dispute against an unrecognized claimant.
+
+## Draft dispute (once the above is confirmed, or if you decide to proceed anyway)
+
+> I hold a valid licence for this track. Order GA-2025-03112 (Glasswork Audio Ltd), Licence Certificate GA-CERT-03112, purchased 12 March 2025, covers "Glasslight" by Lumen Vale (Catalogue ID GA-TRK-0412), the exact work matched in this claim. The Standard licence, under the terms in force at purchase, permits use of the work as background music in monetised video content on channels operated by the licensee — which is exactly how it is used in this video. I am the licensee. I have separately contacted Glasswork Audio (support@glasswork.audio) to confirm the claimant's authorization to administer this claim.
+
+**VERDICT: GAP**

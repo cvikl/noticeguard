@@ -1,0 +1,40 @@
+# Copyright Claim Dispute — Case CS-CLM-88213
+
+**To:** ClipStream Content Match / Northline Rights (claims@northlinerights.example)
+**From:** Maya Ortiz, Channel "Maya Draws"
+**Re: Dispute of Case ID CS-CLM-88213 — Video ID vid_7Kq2x, "Studio Vlog #12 — inking the dragon"**
+
+I am disputing the copyright claim placed on my video by Northline Rights on 20 September 2025 regarding the use of "Glasslight" by Lumen Vale (matched segment 0:14–2:31).
+
+**Basis for dispute: I hold a valid, paid licence covering this exact use.**
+
+1. **Purchase.** On 12 March 2025 I purchased a Standard licence for this track directly from Glasswork Audio Ltd (Order No. GA-2025-03112, Catalogue ID GA-TRK-0412, total paid GBP 34.80).
+
+2. **Licence Certificate.** I hold Licence Certificate No. GA-CERT-03112, issued the same day, expressly governed by "Licence Terms version 2." Section 4.1 of those terms states:
+
+   > "Standard licence permits use of the Work as background music in video content, **including monetised video on social platforms**, on channels operated by the Licensee."
+
+3. **This use is squarely covered.** "Glasslight" is used as background music in my video, on my own channel (Maya Draws), which I operate. This is precisely the use Section 4.1 (v2) authorises, including monetisation.
+
+4. **Why Version 2, not the current Version 3 terms, applies.** I'm aware Glasswork's published terms were later updated (Version 3, effective 1 June 2025) to require a Pro licence for monetised use. However:
+   - My licence was purchased and issued on 12 March 2025, before that change took effect.
+   - My Licence Certificate explicitly and permanently records "Licence Terms version 2" as the terms of my purchase — this is the specific document Glasswork's own terms (Section 5.1, v2 / Section 10, v3) direct me to present to a claim administrator in exactly this situation.
+   - The licence is stated to be "perpetual for content published while the licence is in force" — my licence has been continuously in force since 12 March 2025, and my video was published on 30 August 2025, while it was in force.
+   - A unilateral change to Glasswork's forward-facing terms cannot retroactively strip permissions already granted under a certificate I paid for and hold on file.
+
+5. **Correct administrator.** Glasswork's own track page confirms that "content matching and claims for this track are administered by Northline Rights on behalf of Glasswork Audio Ltd," which is consistent with this claim. I am also copying Glasswork Audio support (support@glasswork.audio) with my order number, per their instructions, so they can confirm my licence status directly with you if needed.
+
+**Evidence attached:**
+- Order confirmation (GA-2025-03112)
+- Licence Certificate (GA-CERT-03112, Terms v2)
+
+**Requested outcome:** Please release this claim and restore monetisation to my video, vid_7Kq2x, on the basis of the valid Standard licence detailed above.
+
+Please contact me if any further documentation is required.
+
+Maya Ortiz
+Channel: Maya Draws
+
+---
+
+VERDICT: READY

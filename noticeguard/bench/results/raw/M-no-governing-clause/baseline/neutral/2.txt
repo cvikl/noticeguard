@@ -1,0 +1,23 @@
+## Assessment
+
+**What the dispute step requires:** ClipStream's notice states you can dispute if "you have a licence or permission from the copyright owner." Your documents support exactly this.
+
+**Chain of evidence:**
+
+1. **Ownership/administration match** — The claim (doc 01) is from *Northline Rights* for *Glasslight* by *Lumen Vale*. The track's own product page (doc 05) confirms Glasswork Audio owns the track and that *"content matching and claims for this track are administered by Northline Rights on behalf of Glasswork Audio."* So the claimant and the licensor are properly linked — this isn't a mismatched-claim situation.
+
+2. **You hold a licence for this exact track** — Receipt (doc 02) and Certificate GA-CERT-03112 (doc 03) show a Standard licence for *Glasslight*, Catalogue ID GA-TRK-0412 — the identical catalogue ID matched in the claim (doc 01) and listed on the track page (doc 05).
+
+3. **The licence covers your use** — Your video (doc 06) uses Glasslight as a background audio track, is monetised, and is published on a social/video platform. Certificate v2, clause 4.1, expressly permits *"background music in video content, including monetised video on social platforms, on channels operated by the Licensee."* That is precisely your use case.
+
+4. **Version question, resolved** — The current published terms (v3, doc 04) restrict Standard-tier monetised use to Pro licences, which looks like a problem at first glance. But your certificate was explicitly issued under **"Licence Terms version 2"** (doc 03), and v3 itself (doc 04, intro) states it applies to licences *purchased* under v3, with earlier versions "archived" — implying purchases are governed by the version in force at time of purchase. Since your purchase (12 March 2025) predates v3 (effective 1 June 2025) and your certificate names v2 by number, v2's more permissive monetisation terms are what apply to you. This is a reasonable, well-supported reading, not a stretch.
+
+One soft gap: nothing in the documents explicitly states that "Maya Ortiz" (the licensee) is the same person who operates the "Maya Draws" channel. This is very likely true and not something ClipStream disputes typically probe deeply, but it's worth being ready to confirm if asked.
+
+## Draft dispute statement
+
+> **Reason for dispute:** I have a licence for this content.
+>
+> I hold a valid, paid Standard licence for "Glasslight" by Lumen Vale (Glasswork Audio Ltd, Catalogue ID GA-TRK-0412), purchased 12 March 2025, Order No. GA-2025-03112, Licence Certificate No. GA-CERT-03112. Under the Licence Terms (version 2) in force at the time of purchase, the Standard tier expressly permits use of the Work as background music in monetised video content on social platforms, on channels operated by the licensee — which matches the use in "Studio Vlog #12 — inking the dragon" (Video ID vid_7Kq2x). Northline Rights administers content-matching claims for this track on behalf of Glasswork Audio Ltd (per glasswork.audio/tracks/glasslight). I am attaching the order receipt and licence certificate as evidence and request the claim be released.
+
+VERDICT: READY

@@ -1,0 +1,26 @@
+## Analysis
+
+**What the dispute step requires:** ClipStream's process (doc 01) lets you dispute on the basis that you have "a licence or permission from the copyright owner" covering the matched use. Your documents establish several of the necessary facts, but also surface a conflict that undermines a clean claim.
+
+**What supports you:**
+- You purchased a Standard licence for *Glasslight* (Lumen Vale, GA-TRK-0412) on 12 March 2025 (docs 02–03) — before the video was published (30 Aug 2025, per doc 06) and before the claim was raised (20 Sep 2025, per doc 01).
+- The matched track in the claim notice (Glasslight — Lumen Vale) exactly matches the licensed work and catalogue ID.
+- The track page (doc 05) confirms Northline Rights administers claims for Glasswork Audio, which matches the claimant named in the notice — so this is very likely a licensed-track false positive, not a different recording.
+- Your Licence Certificate (doc 03, "Licence Terms version 2") states in 4.1 that the Standard tier explicitly permits "monetised video on social platforms, on channels operated by the Licensee" — which is exactly your use case (own channel, monetised).
+
+**The gap:**
+- The current, in-force Licence Terms (doc 04, version 3, effective 1 June 2025 — before your video was even published) state the opposite for the Standard tier: monetised use "requires a Pro licence" (4.1). Only Pro covers monetised video.
+- Your certificate doesn't state whether its "version 2" terms are locked in permanently for this purchase, or whether the licensor's current terms supersede it. Doc 04 doesn't clarify retroactivity either — it just says "these terms apply to licences purchased from glasswork.audio," without saying whether that includes licences bought under an earlier version.
+- If you file a dispute asserting "I have a licence covering this monetised use" and Northline Rights (or Glasswork) checks against the *current* published terms, they could reject/uphold the claim on the grounds that Standard doesn't cover monetised use — and per doc 01, an unfavourable outcome mid-dispute risk includes escalation to a takedown request and a strike.
+- Doc 05 itself tells you the recommended first step: contact support@glasswork.audio with your order number if you hold a licence and get a claim from Northline Rights — precisely to get this ambiguity resolved *before* you commit to a platform dispute.
+
+So the documents support that you likely have a legitimate licence, but they don't resolve whether Standard-tier monetised use was actually permitted for content published under the currently-effective terms. That's a factual/contractual gap only Glasswork Audio can close (e.g., confirmation that your March 2025 certificate's terms are grandfathered, or that Northline Rights has already been briefed on your order).
+
+## Recommended next step (before disputing)
+Email support@glasswork.audio with your order number (GA-2025-03112) and certificate number (GA-CERT-03112), reference the claim ID (CS-CLM-88213), and ask them to confirm to Northline Rights that your licence covers this monetised use — or to clarify in writing that a Standard licence purchased under v2 terms remains valid for monetised use on content published while that licence was current.
+
+## Draft (once you have that confirmation, or if you decide to proceed now)
+
+> I hold a valid licence for the matched work "Glasslight" by Lumen Vale (Glasswork Audio, catalogue ID GA-TRK-0412), purchased 12 March 2025, order GA-2025-03112, certificate GA-CERT-03112. This licence was in force before my video "Studio Vlog #12 — inking the dragon" was published on 30 August 2025. Northline Rights administers claims for Glasswork Audio on this catalogue. I am disputing this claim as covered by a valid, pre-existing licence. Supporting documents (receipt and licence certificate) are attached.
+
+VERDICT: GAP

@@ -1,0 +1,42 @@
+# Copyright Claim Dispute — Case CS‑CLM‑88213
+
+**To:** ClipStream Content Match / Northline Rights (claimant)
+**From:** Maya Ortiz, Channel "Maya Draws" (Channel ID: ch_MayaDraws)
+**Contact:** app@marcelino.si
+**Date:** 27 September 2025
+
+**Re: Dispute of copyright claim on Video ID vid_7Kq2x, "Studio Vlog #12 — inking the dragon"**
+
+I am disputing this claim on the grounds that I hold a valid, paid licence covering the exact use flagged in this notice, and the licence explicitly permits monetised use.
+
+## Summary of grounds
+
+1. **Licence held.** On 12 March 2025 I purchased a Standard licence for "Glasslight" by Lumen Vale (Catalogue ID GA‑TRK‑0412) from Glasswork Audio Ltd — Order GA‑2025‑03112, Licence Certificate GA‑CERT‑03112. This is the track used as background audio in the disputed video (confirmed by my own video metadata: "Audio track used: Glasslight — Lumen Vale (background)").
+
+2. **My licence expressly permits this exact use.** My licence was issued under Glasswork Audio's Licence Terms **Version 2**, in force at the time of purchase. Clause 4.1 of Version 2 states that the Standard licence "permits use of the Work as background music in video content, **including monetised video on social platforms**, on channels operated by the Licensee." My use — background music, monetised, on my own channel — falls squarely within this grant.
+
+3. **Later, stricter terms do not apply retroactively to my purchase.** I'm aware that Glasswork's current Licence Terms (Version 3, effective 1 June 2025) narrow the Standard tier to non‑commercial use only. However, Version 3 itself confirms this doesn't affect me: Clause 9.1 states "Your licence is governed by the terms in force on the date of purchase. **Later changes to these terms do not reduce rights already granted under an earlier version.**" My purchase (12 March 2025) predates the Version 3 change (1 June 2025) by nearly three months, so Version 2's broader monetisation permission continues to govern my licence.
+
+4. **The licence was in force before the video was published.** My licence was purchased 12 March 2025; the video was published 30 August 2025. Clause 1.2/6.1 confirms the licence "is perpetual for content published while the licence is in force," which is the case here.
+
+5. **Northline Rights is the correct party to resolve this.** Glasswork Audio's track page for this catalogue entry confirms: "Content matching and claims for this track are administered by Northline Rights on behalf of Glasswork Audio. If you hold a licence and receive a claim from Northline Rights, contact support@glasswork.audio with your order number." I am doing exactly that in parallel with this dispute.
+
+*(Note: the original claim notice lists the matched work as "Glasslines — Lumen Vale," while my licence and my video's metadata both identify the track as "Glasslight — Lumen Vale," Catalogue ID GA‑TRK‑0412. I believe this is a naming discrepancy in the automated notice rather than a different track, given the identical artist, matched segment, and content type. I'm flagging it here for clarity and can provide further confirmation if needed.)*
+
+## Requested outcome
+
+I ask that this claim be released and that ad revenue for vid_7Kq2x be restored to my channel, consistent with the licence rights described above.
+
+## Supporting documents attached
+
+- Order confirmation GA‑2025‑03112
+- Licence Certificate GA‑CERT‑03112 (Licence Terms v2)
+- Glasswork Audio Licence Terms v3 (for Clause 9.1, confirming my earlier terms still apply)
+
+Sincerely,
+Maya Ortiz
+Channel: Maya Draws
+
+---
+
+**VERDICT: READY**

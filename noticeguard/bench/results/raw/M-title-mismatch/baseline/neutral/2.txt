@@ -1,0 +1,34 @@
+# Review of Your Copyright Claim Dispute Evidence
+
+## What the dispute would need to establish
+To successfully dispute this ClipStream claim, you'd essentially be telling Northline Rights: *"I have a valid licence covering the exact audio matched in my video, and it permits this use."* That requires proving three things line up: (1) the matched work is the one you licensed, (2) the licence permits monetised use on your channel, and (3) the licence was valid at time of publication.
+
+## Where your documents are strong
+
+**Licence validity and scope (points 2 & 3): solid.**
+- You purchased a Standard licence for "Glasslight" (Catalogue ID GA-TRK-0412) by Lumen Vale on 12 March 2025, governed by Licence Terms v2 (`02_receipt.txt`, `03_licence_certificate_v2.txt`).
+- v2 §4.1 explicitly permits Standard-tier use "as background music in video content, including monetised video on social platforms, on channels operated by the Licensee."
+- Although current terms (v3, effective 1 June 2025) tighten Standard-tier use to non-commercial only, v3 §9.1 itself preserves your rights: *"governed by the terms in force on the date of purchase. Later changes... do not reduce rights already granted under an earlier version."* So your March 2025 purchase is grandfathered under v2, and monetised use is covered.
+- Your video was published 30 August 2025 with monetisation on (`06_video_metadata.txt`) — after your licence was issued and while it was in force. Timing is fine.
+- `05_track_page.txt` confirms Northline Rights is the designated administrator for Glasswork's catalogue and instructs licence-holders to contact Glasswork support with the order number — which is exactly the path §10.2 of the terms describes.
+
+## The gap I found
+
+**Point 1 — track identity — does not clearly match.**
+
+- The claim notice (`01_claim_notice.txt`) names the matched work as **"Glasslines — Lumen Vale."**
+- Every other document — your receipt, your licence certificate, the track page, and your own video metadata — refers to the track as **"Glasslight — Lumen Vale"** (Catalogue ID GA-TRK-0412).
+
+Nothing in your files confirms "Glasslines" and "Glasslight" are the same recording (e.g., an alternate title, a typo in ClipStream's system, or a different track by the same artist that also happens to be in your video). If they're actually different tracks, your licence for "Glasslight" wouldn't cover a claim on "Glasslines," and citing it in a dispute could backfire or simply be rejected as non-responsive.
+
+This is the kind of detail a claims reviewer (or Northline) will check first, so I'd want it resolved before you file rather than assumed away.
+
+**Minor, lower-priority note:** the licence certificate names the licensee as "Maya Ortiz," while the channel is "Maya Draws." This is almost certainly the same person operating a differently-named channel, but none of your documents state that link explicitly. Not likely to be the crux of a dispute, but worth having ready if asked.
+
+## Recommended next step before disputing
+Before submitting, confirm the "Glasslines" vs. "Glasslight" question — check the claim details in ClipStream Studio for a catalogue ID (it may show GA-TRK-0412, resolving this instantly), or email support@glasswork.audio with your order number (GA-2025-03112) asking them to confirm "Glasslines" refers to your licensed track "Glasslight." Once you have that confirmation in writing, your dispute case is otherwise well-supported.
+
+### Draft (once the title match is confirmed)
+> I hold a valid Standard licence from Glasswork Audio for this track (Order GA-2025-03112, Catalogue ID GA-TRK-0412, Licence Certificate GA-CERT-03112, purchased 12 March 2025). Under Licence Terms v2, in force at time of purchase, the Standard licence permits use of this track as background music in monetised video content on channels operated by the licensee — which is how it is used in this video, published 30 August 2025. I understand Northline Rights administers claims on this catalogue on behalf of Glasswork Audio. Please release this claim; I'm happy to provide the licence certificate and order confirmation.
+
+VERDICT: GAP

@@ -1,0 +1,52 @@
+# Copyright Claim Dispute — Case CS-CLM-88213
+
+**To:** Northline Rights — claims@northlinerights.example
+**Cc:** Glasswork Audio Ltd — support@glasswork.audio
+**From:** Maya Ortiz (channel "Maya Draws")
+**Date:** 27 September 2025
+
+**Re: Dispute of Content Match claim CS-CLM-88213 — Video "Studio Vlog #12 — inking the dragon" (vid_7Kq2x)**
+
+I am disputing this claim on the grounds that the audio in question is used under a valid, paid licence that permits this exact use.
+
+**1. Licence held**
+
+- Licensor: Glasswork Audio Ltd
+- Order number: GA-2025-03112 (12 March 2025)
+- Licence Certificate: GA-CERT-03112
+- Licensed work: *Glasslight* — Lumen Vale, Catalogue ID GA-TRK-0412
+- Licence tier: Standard
+- Licence Terms version in force at purchase: Version 2
+
+**2. Why this licence covers the claimed use**
+
+Licence Terms v2, section 4.1, states that the Standard tier "permits use of the Work as background music in video content, **including monetised video on social platforms**, on channels operated by the Licensee." My video uses *Glasslight* as background music on my own channel, exactly as permitted.
+
+I'm aware that the currently published Licence Terms (Version 3, effective 1 June 2025) restrict the Standard tier to non-commercial use and require a Pro licence for monetised use. That change does not apply to my purchase: Version 3, section 9.1, expressly states that "your licence is governed by the terms in force on the date of purchase" and that "later changes to these terms do not reduce rights already granted under an earlier version." My purchase was made on 12 March 2025, before the Version 3 change, under Version 2, which explicitly permitted monetised use at the Standard tier. My rights under Version 2 are therefore preserved.
+
+Glasswork Audio's own track page for *Glasslight* confirms that claims for this track are administered by Northline Rights on Glasswork's behalf, and that licence holders should be able to clear claims by presenting proof of licence — which I am doing here.
+
+**3. Requested resolution**
+
+- Please release the claim on video vid_7Kq2x and restore ad revenue for the affected period (claim active since 20 September 2025).
+- I attach/enclose: the order confirmation (GA-2025-03112), the Licence Certificate (GA-CERT-03112), and this dispute statement, per Licence Terms v3 §10.1–10.2.
+
+**4. One point I'd like confirmed**
+
+The claim notice identifies the matched work as "*Glasslines* — Lumen Vale," while my licence and my video's audio track are both titled "*Glasslight*" (catalogue GA-TRK-0412). I believe this is a naming discrepancy in the automated notice rather than a different track, since my video's only music track is *Glasslight* by Lumen Vale. Could you confirm the match was made against catalogue ID GA-TRK-0412 so we're both clear this is the licensed track?
+
+I'm happy to provide any further documentation needed. Given the licence in place, I'd ask that the claim be released promptly rather than upheld or escalated.
+
+Maya Ortiz
+Channel: Maya Draws
+Account email: maya.ortiz@example.net
+Order reference: GA-2025-03112
+
+---
+
+**Notes for you (not part of the letter):**
+- Submit this via ClipStream Studio's dispute flow on the claim (referencing CS-CLM-88213), and also email a copy to claims@northlinerights.example with the order confirmation and licence certificate attached, since Northline Rights administers claims on Glasswork's behalf.
+- Keep an eye on the claim status after filing: per the claim notice, Northline Rights could theoretically escalate to a removal request while the dispute is open, which would trigger a strike — this is unlikely given you hold a valid licence, but don't ignore any further notices during the 30-day window.
+- The "Glasslines" vs "Glasslight" wording difference is very likely a typo in the automated notice (video metadata confirms only "Glasslight" was used), but I've flagged it explicitly in the letter so the claimant can confirm rather than you asserting it outright.
+
+VERDICT: READY

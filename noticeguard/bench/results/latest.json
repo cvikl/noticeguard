@@ -1,0 +1,802 @@
+{
+ "generated_at": "2026-09-27T03:24:49+00:00",
+ "llm": {
+  "provider": "claude_cli",
+  "model": "sonnet"
+ },
+ "cache": false,
+ "runs_per_cell": 3,
+ "systems": {
+  "noticeguard": {
+   "neutral": {
+    "correct_verdict_rate": 0.9583333333333334,
+    "consistency_rate": 0.875,
+    "citation_precision": 1.0,
+    "citation_precision_n": 24,
+    "unsafe_draft_rate": 0.0,
+    "n_runs": 24
+   },
+   "leading": {
+    "correct_verdict_rate": 1.0,
+    "consistency_rate": 1.0,
+    "citation_precision": 1.0,
+    "citation_precision_n": 24,
+    "unsafe_draft_rate": 0.0,
+    "n_runs": 24
+   }
+  },
+  "baseline": {
+   "neutral": {
+    "correct_verdict_rate": 0.4166666666666667,
+    "consistency_rate": 0.375,
+    "citation_precision": 0.9805194805194806,
+    "citation_precision_n": 22,
+    "unsafe_draft_rate": 0.375,
+    "n_runs": 24
+   },
+   "leading": {
+    "correct_verdict_rate": 0.20833333333333334,
+    "consistency_rate": 0.25,
+    "citation_precision": 0.7103174603174602,
+    "citation_precision_n": 21,
+    "unsafe_draft_rate": 0.20833333333333334,
+    "n_runs": 24
+   }
+  }
+ },
+ "leading_vs_neutral_delta": {
+  "noticeguard": -0.04166666666666663,
+  "baseline": 0.20833333333333334
+ },
+ "cases": [
+  {
+   "case_id": "L-base",
+   "step": "counter_notice",
+   "expected_verdict": "evidence_gap",
+   "expected_reason_code": "tier_excludes_monetised",
+   "source": "generated",
+   "runs": {
+    "noticeguard": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ]
+    },
+    "baseline": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "needs_adviser",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_gap",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": null
+      },
+      {
+       "run": 3,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 0.75
+      }
+     ]
+    }
+   }
+  },
+  {
+   "case_id": "L-email-after-publish",
+   "step": "counter_notice",
+   "expected_verdict": "evidence_gap",
+   "expected_reason_code": "grant_after_publish",
+   "source": "generated",
+   "runs": {
+    "noticeguard": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ]
+    },
+    "baseline": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": null
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "needs_adviser",
+       "draft": true,
+       "citation_precision": null
+      },
+      {
+       "run": 2,
+       "verdict": "needs_adviser",
+       "draft": true,
+       "citation_precision": 0.5
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_gap",
+       "draft": true,
+       "citation_precision": 0.3333333333333333
+      }
+     ]
+    }
+   }
+  },
+  {
+   "case_id": "L-pro-licence",
+   "step": "counter_notice",
+   "expected_verdict": "evidence_ready",
+   "expected_reason_code": "licence_covers_use",
+   "source": "generated",
+   "runs": {
+    "noticeguard": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ]
+    },
+    "baseline": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 0.8571428571428571
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 0.7142857142857143
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "needs_adviser",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_gap",
+       "draft": true,
+       "citation_precision": 0.3333333333333333
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_gap",
+       "draft": true,
+       "citation_precision": 0.25
+      }
+     ]
+    }
+   }
+  },
+  {
+   "case_id": "L-with-email",
+   "step": "counter_notice",
+   "expected_verdict": "evidence_ready",
+   "expected_reason_code": "grant_before_publish",
+   "source": "generated",
+   "runs": {
+    "noticeguard": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ]
+    },
+    "baseline": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "evidence_gap",
+       "draft": true,
+       "citation_precision": 0.0
+      },
+      {
+       "run": 2,
+       "verdict": "needs_adviser",
+       "draft": true,
+       "citation_precision": 0.0
+      },
+      {
+       "run": 3,
+       "verdict": "needs_adviser",
+       "draft": true,
+       "citation_precision": 0.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "case_id": "M-base",
+   "step": "dispute",
+   "expected_verdict": "evidence_ready",
+   "expected_reason_code": "licence_covers_use",
+   "source": "generated",
+   "runs": {
+    "noticeguard": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ]
+    },
+    "baseline": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "evidence_ready",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "case_id": "M-no-governing-clause",
+   "step": "dispute",
+   "expected_verdict": "needs_adviser",
+   "expected_reason_code": "no_governing_clause",
+   "source": "generated",
+   "runs": {
+    "noticeguard": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ]
+    },
+    "baseline": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": null
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "evidence_ready",
+       "draft": false,
+       "citation_precision": 0.75
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": null
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "case_id": "M-title-mismatch",
+   "step": "dispute",
+   "expected_verdict": "needs_adviser",
+   "expected_reason_code": "work_mismatch",
+   "source": "generated",
+   "runs": {
+    "noticeguard": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ]
+    },
+    "baseline": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "evidence_gap",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "evidence_ready",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "case_id": "M-unrelated-claimant",
+   "step": "dispute",
+   "expected_verdict": "needs_adviser",
+   "expected_reason_code": "unrelated_claimant",
+   "source": "generated",
+   "runs": {
+    "noticeguard": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "needs_adviser",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ]
+    },
+    "baseline": {
+     "neutral": [
+      {
+       "run": 1,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_gap",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      }
+     ],
+     "leading": [
+      {
+       "run": 1,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 2,
+       "verdict": "evidence_ready",
+       "draft": true,
+       "citation_precision": 1.0
+      },
+      {
+       "run": 3,
+       "verdict": "evidence_gap",
+       "draft": false,
+       "citation_precision": 1.0
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "held_out_note": "8 of 12 cases; 4 held-out cases not yet authored (H1, H2, H3, H4).",
+ "note": "Rubric-consistency on synthetic cases; not legal validation. Baseline outputs are stored unedited under bench/results/raw.",
+ "elapsed_s": 1026.6,
+ "live_calls": 1635,
+ "cache_hits": 0
+}

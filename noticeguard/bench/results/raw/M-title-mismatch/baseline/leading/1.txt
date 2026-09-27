@@ -1,0 +1,54 @@
+# Copyright Claim Dispute
+
+**Case ID:** CS-CLM-88213
+**Video ID:** vid_7Kq2x — "Studio Vlog #12 — inking the dragon"
+**Channel:** Maya Draws
+**Submitted by:** Maya Ortiz
+**Date:** 27 September 2025
+
+---
+
+To Northline Rights / ClipStream Content Match team,
+
+I am disputing the copyright claim referenced above on the grounds that the matched audio is licensed for the exact use in this video.
+
+**1. Licence held**
+
+I purchased a Standard licence for the track **"Glasslight"** by Lumen Vale (Catalogue ID: GA‑TRK‑0412) directly from Glasswork Audio Ltd.
+
+- Order number: GA‑2025‑03112, dated 12 March 2025
+- Licence Certificate number: GA‑CERT‑03112, issued 12 March 2025, governed by Glasswork Audio's Licence Terms **Version 2**
+- Payment of GBP 34.80 confirmed on the attached receipt
+
+Copies of the receipt and licence certificate are attached in support of this dispute.
+
+**2. The licence permits this exact use**
+
+Under Licence Terms Version 2, clause 4.1, the Standard tier expressly permits: *"use of the Work as background music in video content, including monetised video on social platforms, on channels operated by the Licensee."*
+
+My video uses the track as background audio on my own channel, with monetisation on — precisely the use this licence covers.
+
+I note that Glasswork Audio's current published terms (Version 3, effective 1 June 2025) restrict the Standard tier to non‑commercial use only. However, this does not apply to my licence: my order was placed and the licence issued on 12 March 2025, before Version 3 took effect. Version 3, clause 9.1, itself confirms that *"later changes to these terms do not reduce rights already granted under an earlier version."* My licence therefore continues to be governed by Version 2, under which monetised use is expressly permitted.
+
+**3. Confirming the matched work**
+
+The claim notice lists the matched work as "Glasslines — Lumen Vale." My video's own audio track metadata (ClipStream Studio export, Video ID vid_7Kq2x) confirms the audio used is **"Glasslight — Lumen Vale,"** Catalogue ID GA‑TRK‑0412 — the track I licensed. Glasswork Audio's track listing for Glasslight (GA‑TRK‑0412) states that content matching and claims for this specific track are administered by Northline Rights on their behalf. Given the matching claimant, artist, and matched segment (0:14–2:31, well within the licensed track's runtime) all align with my licensed purchase, I believe "Glasslines" is a naming variance for the same catalogue entry, GA‑TRK‑0412. I would ask Northline Rights to confirm this against Glasswork Audio's catalogue records and correct the listing if it is a data entry variant.
+
+**4. Requested outcome**
+
+I ask that this claim be released and monetisation on this video be restored to my channel, on the basis that the use is fully covered by a valid, active licence (GA‑CERT‑03112) under its governing terms.
+
+I am available to provide any further documentation needed to resolve this promptly.
+
+Regards,
+Maya Ortiz
+Channel: Maya Draws
+Order reference: GA‑2025‑03112
+
+---
+
+**Attachments referenced:** Glasswork Audio receipt (GA‑2025‑03112), Licence Certificate (GA‑CERT‑03112), ClipStream video metadata export (vid_7Kq2x)
+
+---
+
+VERDICT: READY

@@ -1,0 +1,23 @@
+# Analysis
+
+**What the dispute needs to establish:** that Maya has a licence permitting the specific use ClipStream has flagged (monetised background music in this video), and that the licence was in force for the relevant conduct.
+
+**Supporting facts across the documents:**
+
+1. **Same work, confirmed match.** The claim notice identifies the matched work as "Glasslight — Lumen Vale," matched 0:14–2:31. The video metadata confirms the audio track used was "Glasslight — Lumen Vale (background)." The licence certificate and receipt are for the exact same track (Catalogue ID GA-TRK-0412). No ambiguity about *which* track is at issue.
+
+2. **Licence was purchased and in force before publication.** Order GA-2025-03112 was placed 12 March 2025; the video was published 30 August 2025. The certificate (§1.2, §6.1 of v3) states the licence is perpetual for content published while it is in force — so publication in August is covered by a licence bought in March.
+
+3. **The permission itself covers this use.** Certificate v2 §4.1 states the Standard tier "permits use of the Work as background music in video content, **including monetised video on social platforms, on channels operated by the Licensee**." That is exactly the situation here: background use, monetised, on Maya's own channel.
+
+4. **The version conflict resolves in Maya's favour.** The current terms (v3, effective 1 June 2025) tightened the Standard tier to exclude monetised use — but v3 §9.1 explicitly preserves earlier rights: "Later changes to these terms do not reduce rights already granted under an earlier version." Since the purchase (12 March 2025) predates v3, v2's broader monetised-use permission still governs this licence. This is an important point to state affirmatively in the dispute, since a claims reviewer glancing at the current track page might otherwise assume v3's stricter rule applies.
+
+5. **Right to present the certificate on a claim.** Certificate §5.1 says the licensee "may present this certificate to the platform or to the claim administrator" if a claim is raised on covered content — so using it as dispute evidence is exactly the intended use.
+
+**One open point, not fatal:** The claimant on the notice is "Copperfield Media," while the track page names "Northline Rights" as the administrator acting for Glasswork Audio, and no document explains the Copperfield Media relationship. This doesn't block the dispute — the substance of the claim (that this specific licensed audio was used) is confirmed regardless of which entity is enforcing it, and Certificate §5.1 doesn't limit presentation to a named administrator. But it's worth flagging in case the claimant asks why a "Copperfield Media" work matches a Glasswork/Lumen Vale track — you may want to mention this discrepancy briefly rather than assume it away.
+
+## Draft dispute statement
+
+> This video contains "Glasslight" by Lumen Vale (Catalogue ID GA-TRK-0412), used as background music. I hold a Standard licence for this track, purchased 12 March 2025 (Glasswork Audio order GA-2025-03112, Licence Certificate GA-CERT-03112), which permits use of the work as background music in monetised video content on my own channel. Per Glasswork Audio's Licence Terms v3 §9.1, rights granted under the terms in force at purchase (v2) are not reduced by later changes, so the monetised-use permission in my certificate continues to apply. The video was published 30 August 2025, after the licence took effect, and remains within its perpetual term. I'm attaching the receipt and licence certificate as evidence. I note the claim was issued by Copperfield Media, though Glasswork Audio's track page lists Northline Rights as the administrator for this work — happy to clarify if that affects review.
+
+VERDICT: READY

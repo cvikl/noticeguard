@@ -1,0 +1,29 @@
+# Assessment
+
+**The statement you'd be making in a dispute:** "This claim is a mistake / I have a licence — I hold a valid licence from the rights holder (via Glasswork Audio) covering the audio in this video, including monetised use, and it was purchased before this video was published."
+
+## What supports this
+
+1. **Timing**: Licence purchased 12 March 2025; video published 30 August 2025. The licence predates the use — good.
+2. **Rights chain**: The track page confirms Northline Rights (the claimant) administers claims for Glasswork Audio's catalogue, including this track. So the claimant is the right party to dispute with — not a case of a random third party.
+3. **Licence tier permits monetised use**: Your certificate is under **Licence Terms v2**, and v2 §4.1 explicitly says the *Standard* tier covers "monetised video on social platforms, on channels operated by the Licensee." The current terms (v3) tightened this — v3 §4.1 now requires a *Pro* licence for monetised use. **But v3 §9.1 has a savings clause**: "Your licence is governed by the terms in force on the date of purchase. Later changes... do not reduce rights already granted under an earlier version." So your Standard licence, purchased under v2, should still cover this monetised video. This is a real, documented basis for the dispute — not just an assumption.
+4. **No standalone redistribution issue**: The video uses the track as background audio in a vlog, not as a standalone audio file — consistent with permitted use under both v2 and v3.
+
+## The gap
+
+There's an unexplained naming discrepancy across your documents:
+
+- Claim notice: **"Glasslines — Lumen Vale"**
+- Your receipt, licence certificate, track page, and video metadata: **"Glasslight — Lumen Vale"** (Catalogue ID GA-TRK-0412)
+
+These may simply be the same track with a typo in the auto-generated claim notice — that's plausible. But nothing in your documents *confirms* "Glasslines" and "Glasslight" are the same recording (no catalogue ID appears on the claim notice to cross-check). If they are in fact two different tracks by the same artist, your licence wouldn't cover the actual matched work, and disputing on that basis would fail or backfire.
+
+**Before disputing, confirm with Glasswork Audio (support@glasswork.audio, citing order GA-2025-03112) that "Glasslines" is the same recording as "Glasslight" (GA-TRK-0412)**, or check ClipStream Studio for a catalogue ID on the match itself. This is a quick check, not a legal question.
+
+One more thing worth knowing (not a document gap, just a process risk): the notice states that while a dispute is open, the claimant could instead file a removal request, which would take down the video and issue a strike. That's their right regardless of how strong your licence is, so weigh that risk before filing.
+
+## Draft dispute statement (pending the track-name check above)
+
+> This video contains "Glasslight" by Lumen Vale (Catalogue ID GA-TRK-0412), used as background music. I hold a Standard licence for this track from Glasswork Audio Ltd, purchased 12 March 2025 (Order GA-2025-03112, Certificate GA-CERT-03112), under Licence Terms v2. Licence Terms v2 §4.1 permits use of the work as background music in monetised video content on channels operated by the licensee. This right is preserved under the current Licence Terms v3, §9.1, which states that later changes do not reduce rights already granted under an earlier version. I request that this claim be released. Glasswork Audio can confirm the licence on request: support@glasswork.audio.
+
+VERDICT: GAP

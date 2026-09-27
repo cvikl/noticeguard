@@ -1,0 +1,40 @@
+# Copyright Claim Dispute — Case ID CS-CLM-88213
+
+**To:** Copperfield Media (claims@copperfieldmedia.example)
+**Cc:** Glasswork Audio Support (support@glasswork.audio)
+**From:** Maya Ortiz — Channel "Maya Draws" (ch_MayaDraws)
+**Date:** 27 September 2025
+
+**Re: Dispute of Content Match claim CS-CLM-88213 on video vid_7Kq2x ("Studio Vlog #12 — inking the dragon")**
+
+To whom it may concern,
+
+I am disputing the copyright claim referenced above, raised on 20 September 2025 against my video *Studio Vlog #12 — inking the dragon* (Video ID: vid_7Kq2x, published 30 August 2025), for use of the sound recording "Glasslight" by Lumen Vale in the segment 0:14–2:31.
+
+**I hold a valid, paid licence for this exact use.**
+
+- On 12 March 2025 I purchased a Standard licence for "Glasslight" (Catalogue ID GA-TRK-0412) directly from Glasswork Audio Ltd, the rights owner. Order number GA-2025-03112, total paid GBP 34.80. Licence Certificate number GA-CERT-03112 is attached.
+- That certificate was issued under **Licence Terms version 2**, and clause 6.1 of the certificate confirms it "is governed by Licence Terms v2 as in force on the date of issue." Clause 4.1 of Licence Terms v2 states explicitly:
+
+  > "Standard licence permits use of the Work as background music in video content, **including monetised video on social platforms**, on channels operated by the Licensee."
+
+- My use falls squarely within this grant: the track is used as background music in a monetised video on my own channel — exactly the use the Standard licence describes.
+- I'm aware Glasswork's Licence Terms were later updated (version 3, effective 1 June 2025) to require a Pro licence for monetised use. That update does not affect my licence: version 3, clause 9.1 states, "Your licence is governed by the terms in force on the date of purchase. Later changes to these terms do not reduce rights already granted under an earlier version." My licence was purchased and issued in March 2025, under version 2, before this change took effect.
+
+**One point I ask you to clarify:** Glasswork Audio's own track page for "Glasslight" states that content matching for this track is administered by *Northline Rights* on behalf of Glasswork Audio, and directs licence holders with claims to contact support@glasswork.audio. This claim, however, has been raised by Copperfield Media, an entity I have no record of in connection with this track. I would appreciate confirmation of the relationship between Copperfield Media, Northline Rights, and Glasswork Audio, and confirmation that my licence is honoured regardless of which entity administers the match.
+
+**Requested action:** Please release this claim and restore monetisation to video vid_7Kq2x, effective from 20 September 2025.
+
+I have attached my Order Confirmation (GA-2025-03112) and Licence Certificate (GA-CERT-03112) as supporting evidence.
+
+Please contact me at maya.ortiz@example.net if you require any further information.
+
+Sincerely,
+Maya Ortiz
+Channel: Maya Draws
+
+---
+
+**Note for you before submitting:** This dispute rests on a genuinely strong point (v2 terms explicitly allowed monetised use, and v3 preserves rights granted under earlier terms) plus a real discrepancy worth raising (Copperfield Media vs. the Northline Rights/Glasswork administration chain named on the track page). Also, be aware that under ClipStream's policy, while this dispute is open the claimant could instead file a takedown, which would risk a strike — that's a platform-level risk inherent to disputing, not something the letter itself can prevent.
+
+VERDICT: READY
