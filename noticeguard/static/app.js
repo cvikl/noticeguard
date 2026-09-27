@@ -307,7 +307,7 @@
       <div class="finding-controls"><label class="sr-only" for="finding-picker">Choose a finding</label><select id="finding-picker"></select><label class="sr-only" for="category-filter">Filter findings by category</label><select id="category-filter"><option value="all">All tags</option>${W.categories.map(([k,l]) => `<option value="${k}">${esc(l)}</option>`).join('')}</select></div>
       ${state.diff && state.diff.verdict_before !== 'none' ? `<details class="change-note" open><summary>What changed</summary><p>${esc(state.diff.summary)}</p></details>` : ''}
       <section id="chain" aria-label="Evidence detail" tabindex="-1"></section>
-      <div id="signal-slot"></div></div><div class="findings-footer">${nextStepAction(r)}</div>`;
+      <div id="signal-slot"></div><div class="findings-action">${nextStepAction(r)}</div></div>`;
     renderReport(); renderSidebar(); renderSource(); renderFindings();
     if (state.active) renderChain(state.active); else renderChainEmpty();
     scrollToPhrase();

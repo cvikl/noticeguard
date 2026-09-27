@@ -203,13 +203,13 @@ body:not(.has-case) .workspace-journey { display:none; }
 .footer-about a { color:var(--ink); font-size:10px; }
 .error { font-size:12px; }
 .answer-shortcut { flex:none; margin-left:auto; text-align:right; }
-.findings-footer { flex:none; display:flex; justify-content:flex-end; padding-top:16px; border-top:1px solid var(--hair); background:var(--paper); }
+.findings-action { display:flex; justify-content:flex-end; margin-top:16px; padding-top:16px; border-top:1px solid var(--hair); }
 .answer-shortcut .btn { min-height:48px; min-width:168px; justify-content:space-between; font-size:14px; padding:12px 16px 12px 20px; background:#dcf5dc; color:#155c31; border:2px solid #237a42; }
 .answer-shortcut .btn:hover { background:#c8edcb; border-color:#155c31; }
 .answer-shortcut .btn>span { color:inherit; display:grid; place-items:center; width:26px; height:26px; border-radius:50%; background:#ffffff70; }
 .answer-shortcut>span { display:block; font-size:10px; margin-top:5px; color:var(--muted); }
 .home-intro h1 span { color:var(--red); }
-@media(max-width:760px) { .finding-scroll { flex:none; overflow:visible; } .findings-footer { position:sticky; bottom:0; z-index:2; padding-bottom:12px; } }
+@media(max-width:760px) { .finding-scroll { flex:none; overflow:visible; } }
 .answer-heading { margin-bottom:20px; }
 .answer-heading h1 { font-size:33px; line-height:1.12; margin:15px 0 12px; max-width:23ch; }
 .answer-heading p { font-size:13px; color:var(--ink-2); line-height:1.65; }
