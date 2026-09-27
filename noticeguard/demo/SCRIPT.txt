@@ -1,0 +1,57 @@
+NOTICEGUARD — MAYA DEMO, 90 SECONDS
+===================================
+
+SETUP (before recording)
+- Two tabs, hard-refresh both (Ctrl+Shift+R), let them load:
+  A: https://noticeguard.ruleandrecord.com/?demo=maya
+  B: https://noticeguard.ruleandrecord.com/?demo=maya-v3
+- In each tab click "Licence certificate" in the left list (PDF shows).
+- Tab A: arrow to the finding on clause 4.1 (monetised video). Leave it.
+- Tab B: arrow to the finding on clause 4.1 / 4.2 (Pro required). Leave it.
+- Full screen, bookmarks bar hidden, demo dropdown closed.
+
+SCRIPT
+------
+0-12s  Tab A. Show claim journey (left) and PDF certificate (middle).
+SAY: Maya is a synthetic creator. She licensed a track for a
+monetised video and still got a copyright claim. The licensor's
+website today says her licence doesn't cover monetised use.
+She's about to give up.
+
+12-30s Point at highlighted 4.1 on the PDF. Click next arrow to the
+       6.1 governing-terms finding. PDF scrolls to the marked clause.
+SAY: NoticeGuard reads her actual certificate. Clause 4.1 permits
+monetised video. Clause 6.1 says the terms on her purchase date
+govern, so today's change doesn't take her rights away.
+The AI only highlights. The rules decide.
+
+30-45s Click "Next step". Hold on EVIDENCE READY and the lowest-risk route.
+SAY: Her evidence is ready for a dispute. The first route is the
+low-risk one: ask the licensor to have its administrator release
+the claim. Nothing is filed for her.
+
+45-55s Scroll to the draft, click one sentence. Chain opens to the quote.
+SAY: The draft is built only from confirmed facts. Every sentence
+clicks back to the clause behind it.
+
+55-65s Switch to Tab B.
+SAY: Now the what-if. Same creator, same track, but she bought in
+July, after the terms changed.
+
+65-82s Point at highlighted 4.1 and 4.2 on the v3 PDF. Click "Next step".
+       Hold on EVIDENCE GAP and the "Not supported" component.
+SAY: Her v3 Standard licence covers non-monetised video only.
+Monetised use needs Pro. That part of her statement isn't
+supported, so no draft is produced, and she is told exactly
+what is missing.
+
+82-90s Stay on the gap screen.
+SAY: Same documents, different evidence, different answer.
+NoticeGuard tells her where she stands. Maya decides.
+
+RULES
+- Never say "verified" or "you will win". Say "evidence ready",
+  "supported", "confirmed by document".
+- Do not open Leo, Add evidence, or the benchmark page.
+- Blank PDF pane? Wait two seconds, it falls back automatically.
+- Fumble? Reload the same link. Both demos run from cache.
