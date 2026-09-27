@@ -286,14 +286,21 @@ def rule_permitted_use(c: _Ctx) -> RuleResult:
         f, m = excl_hit[0]
         return _res("R3", "fail", f"{_doc_label(f).capitalize()}{_clause(f)} ({version}) says “{_short(f.quote)}”, which excludes your {use_words} for a {tier or 'this'} licence (3 of 3 mapping runs agreed).",
                     used, mids, version=version, excluded_by=f.key, actual_use=c.actual_use)
-    if excl_amb or perm_amb:
-        f, m = (excl_amb + perm_amb)[0]
-        return _res("R3", "unknown", f"Permitted-use wording is ambiguous for your actual use; a person should read {_doc_label(f)}{_clause(f)} ({version}): “{_short(f.quote)}”. The three mapping runs did not agree.",
-                    used, mids, version=version, ambiguous=f.key, actual_use=c.actual_use)
     if perm_hit:
+        # A clear permission is only defeated by a clear exclusion. An exclusion clause on which the runs
+        # disagreed cannot override it, but it is recorded here and shown in the chain.
         f, m = perm_hit[0]
-        return _res("R3", "pass", f"{_doc_label(f).capitalize()}{_clause(f)} ({version}) permits “{_short(f.quote)}”, which covers your {use_words} under a {tier or 'this'} licence (3 of 3 mapping runs agreed).",
-                    used, mids, version=version, covered_by=f.key, actual_use=c.actual_use)
+        note = ""
+        if excl_amb:
+            fa, ma = excl_amb[0]
+            note = (f" Clause{_clause(fa) or ''} was also checked as a possible restriction; the runs did not agree that it applies "
+                    f"({', '.join(a.covers for a in ma.answers)}), so it does not override the explicit permission.")
+        return _res("R3", "pass", f"{_doc_label(f).capitalize()}{_clause(f)} ({version}) permits “{_short(f.quote)}”, which covers your {use_words} under a {tier or 'this'} licence (3 of 3 mapping runs agreed).{note}",
+                    used, mids, version=version, covered_by=f.key, actual_use=c.actual_use, ambiguous_exclusions=[fa.key for fa, _ in excl_amb])
+    if perm_amb:
+        f, m = perm_amb[0]
+        return _res("R3", "unknown", f"Permitted-use wording is ambiguous for your actual use; a person should read {_doc_label(f)}{_clause(f)} ({version}): “{_short(f.quote)}”. The three mapping runs did not agree ({', '.join(a.covers for a in m.answers)}).",
+                    used, mids, version=version, ambiguous=f.key, actual_use=c.actual_use)
     f = (permitted or excluded)[0]
     return _res("R3", "fail", f"No permitted-use clause of Licence Terms {version} covers your {use_words} for a {tier or 'this'} licence; {_doc_label(f)}{_clause(f)} says “{_short(f.quote)}” (3 of 3 mapping runs agreed).",
                 used, mids, version=version, not_covered=True, actual_use=c.actual_use)
@@ -301,7 +308,11 @@ def rule_permitted_use(c: _Ctx) -> RuleResult:
 
 def _short(q: str, n: int = 140) -> str:
     q = re.sub(r"\s+", " ", q).strip()
-    return q if len(q) <= n else q[: n - 1].rstrip() + "…"
+    if len(q) <= n:
+        return q
+    cut = q[: n - 1]
+    cut = cut[: cut.rfind(" ")] if " " in cut else cut
+    return cut.rstrip(",;:") + "…"
 
 
 def rule_grant_email(c: _Ctx) -> RuleResult:
@@ -359,7 +370,8 @@ def rule_claimant_chain(c: _Ctx) -> RuleResult:
         return _res("R5", "pass", f"The claimant, {claimant}, is your licensor, so this is a licensed-use conflict inside the licence chain.", ["claimant_name", "licensor_name"], classification="licensor_direct")
     if admin and names_match(claimant, admin):
         af = t.get(admin_key)
-        return _res("R5", "pass", f"{_doc_label(af).capitalize()} says “{_short(af.quote)}”, so the claimant {claimant} is the licensor's administrator: a licensed-use conflict inside the licence chain.",
+        line = (af.sources[0].context or af.quote) if af.sources else af.quote
+        return _res("R5", "pass", f"{_doc_label(af).capitalize()} says “{_short(line, 220)}”, so the claimant {claimant} is the licensor's administrator: a licensed-use conflict inside the licence chain.",
                     ["claimant_name", admin_key], classification="licensed_use_conflict")
     if not licensor and not admin:
         c.mark_missing("content_id_administrator_name", f"The licensor's track page or terms naming {claimant} as its administrator.")
@@ -615,7 +627,9 @@ def run_rules(inp: RulesInput) -> RulesOutput:
     for s in ("dispute", "appeal", "counter_notice"):
         cs = comps if s == step else build_components(c, s)
         per_step_comps[s] = cs
-        step_ev.append(StepEvidence(step=s, available=(s in c.available), evidence_status=components_status(c, cs, [t for t in c.adviser_triggers if "not available at your current stage" not in t])))
+        # the status strip asks what the DOCUMENTS would support at each step, so form-only components (CN3) are left out
+        doc_cs = [x for x in cs if x.id != "CN3"]
+        step_ev.append(StepEvidence(step=s, available=(s in c.available), evidence_status=components_status(c, doc_cs, [t for t in c.adviser_triggers if "not available at your current stage" not in t])))
 
     r5_pass = c.results["R5"].status == "pass"
     non_stage_triggers = [t for t in c.adviser_triggers if "not available at your current stage" not in t]

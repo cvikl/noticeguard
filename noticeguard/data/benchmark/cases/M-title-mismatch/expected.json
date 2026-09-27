@@ -1,0 +1,9 @@
+{
+  "case_id": "M-title-mismatch",
+  "step": "dispute",
+  "expected_verdict": "needs_adviser",
+  "expected_reason_code": "work_mismatch",
+  "source": "generated",
+  "author": "generate_variants.py (rules author)",
+  "note": "Matched work title differs from the licensed work."
+}

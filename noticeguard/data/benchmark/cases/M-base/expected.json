@@ -1,0 +1,9 @@
+{
+  "case_id": "M-base",
+  "step": "dispute",
+  "expected_verdict": "evidence_ready",
+  "expected_reason_code": "licence_covers_use",
+  "source": "generated",
+  "author": "generate_variants.py (rules author)",
+  "note": "Maya's set unchanged."
+}

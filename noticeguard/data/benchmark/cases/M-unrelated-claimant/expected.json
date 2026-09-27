@@ -1,0 +1,9 @@
+{
+  "case_id": "M-unrelated-claimant",
+  "step": "dispute",
+  "expected_verdict": "needs_adviser",
+  "expected_reason_code": "unrelated_claimant",
+  "source": "generated",
+  "author": "generate_variants.py (rules author)",
+  "note": "The claim notice names Copperfield Media; the track page still names Northline Rights as administrator."
+}

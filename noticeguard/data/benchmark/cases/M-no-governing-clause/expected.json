@@ -1,0 +1,9 @@
+{
+  "case_id": "M-no-governing-clause",
+  "step": "dispute",
+  "expected_verdict": "needs_adviser",
+  "expected_reason_code": "no_governing_clause",
+  "source": "generated",
+  "author": "generate_variants.py (rules author)",
+  "note": "Certificate is v2, current terms are v3, and no clause says which version governs."
+}

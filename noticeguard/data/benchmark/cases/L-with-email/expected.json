@@ -1,0 +1,9 @@
+{
+  "case_id": "L-with-email",
+  "step": "counter_notice",
+  "expected_verdict": "evidence_ready",
+  "expected_reason_code": "grant_before_publish",
+  "source": "generated",
+  "author": "generate_variants.py (rules author)",
+  "note": "Email dated 2025-09-02, video published 2025-09-10."
+}

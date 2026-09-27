@@ -227,3 +227,23 @@ def test_r10_fair_use_flag():
 def test_r10_ownership_flag():
     out = run(maya_facts(), maya_mappings(), "dispute", abstain=AbstainFlags(ownership=True))
     assert out.verdict == "needs_adviser"
+
+
+def test_r3_clear_permission_beats_ambiguous_exclusion():
+    # cert v2 4.2 "Pro licence additionally permits ..." tagged as an exclusion and mapped 2 no / 1 unclear
+    from tests.helpers import fact as _f, mapping as _m
+    facts = maya_facts() + [_f("excluded_use[cert:4.2]", "Pro additionally permits broadcast", "licence_certificate",
+                               "Pro licence additionally permits use in broadcast, advertising and client work.", "4.2", doc_id="doc_cert")]
+    maps = maya_mappings() + [_m("excluded_use_applies_to_actual_use", "excluded_use[cert:4.2]", ["no", "no", "unclear"], "doc_cert", "4.2")]
+    out = run(facts, maps, "dispute")
+    r3 = rule(out, "R3")
+    assert r3.status == "pass" and r3.data["ambiguous_exclusions"] == ["excluded_use[cert:4.2]"] and "did not agree" in r3.explanation
+    assert out.verdict == "evidence_ready"
+
+
+def test_r3_clear_exclusion_beats_clear_permission():
+    from tests.helpers import fact as _f, mapping as _m
+    facts = maya_facts() + [_f("excluded_use[cert:4.9]", "no monetised", "licence_certificate", "Monetised use is not permitted.", "4.9", doc_id="doc_cert")]
+    maps = maya_mappings() + [_m("excluded_use_applies_to_actual_use", "excluded_use[cert:4.9]", ["yes", "yes", "yes"], "doc_cert", "4.9")]
+    out = run(facts, maps, "dispute")
+    assert rule(out, "R3").status == "fail" and out.verdict == "evidence_gap"

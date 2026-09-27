@@ -1,1 +1,124 @@
-<!doctype html><title>NoticeGuard</title>placeholder
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoticeGuard</title>
+<meta name="description" content="NoticeGuard checks whether your documents back the step you are about to take against an automated copyright claim. Evidence ready, evidence gap, or needs an adviser, with every sentence traced to a quote.">
+<link rel="stylesheet" href="/static/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231A1917'/%3E%3Cpath d='M9 8h10l4 4v12H9z' fill='none' stroke='%23F3F0EA' stroke-width='2'/%3E%3Cpath d='M12 16h8M12 20h8' stroke='%23F3F0EA' stroke-width='2'/%3E%3C/svg%3E">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gap" viewBox="0 0 24 24"><path d="M4 12h6M14 12h6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M11 9l2 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M4.5 20c1-4 4-6 7.5-6s6.5 2 7.5 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="currentColor"/></symbol>
+  <symbol id="i-ring" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-dasharray="3 3"/></symbol>
+  <symbol id="i-q" viewBox="0 0 24 24"><path d="M9 9.5a3 3 0 1 1 4.2 2.8c-.8.4-1.2 1-1.2 1.9V15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="18.3" r="1.2" fill="currentColor"/></symbol>
+</svg>
+
+<header class="top">
+  <a class="wordmark" href="/" aria-label="NoticeGuard home">NoticeGuard <small>evidence-readiness check</small></a>
+  <div class="spacer"></div>
+  <nav aria-label="Demo and pages">
+    <button class="btn secondary sm" id="btn-maya" type="button">Load Maya</button>
+    <button class="btn secondary sm" id="btn-leo" type="button">Load Leo</button>
+    <a class="link" href="/benchmark.html">Benchmark</a>
+  </nav>
+</header>
+
+<section class="rail" aria-label="Process status">
+  <div class="rail-track" id="rail"></div>
+  <div class="deadlines" id="deadlines" hidden></div>
+</section>
+
+<main class="work">
+  <aside class="col-left panel" aria-label="Inputs">
+    <h2>Your documents</h2>
+    <p class="muted small">Upload the claim notice, your licence, receipt, the licensor's terms and track page, your video export, and any licensor emails.</p>
+    <label class="dropzone" id="dropzone" for="file-input">
+      <input id="file-input" type="file" multiple accept=".txt,.md,.pdf,.eml">
+      <span id="dropzone-text">Drop files here or click to choose (.txt, .md, .pdf, .eml)</span>
+    </label>
+    <ul class="files" id="file-list" aria-live="polite"></ul>
+
+    <h2 style="margin-top:22px">About you</h2>
+    <p class="muted small">Only these structured fields reach the check. Labelled "Stated by you".</p>
+    <div class="field"><label for="f-name">Name</label><input id="f-name" type="text" autocomplete="name"></div>
+    <div class="field"><label for="f-address">Postal address</label><input id="f-address" type="text" autocomplete="street-address"></div>
+    <div class="field"><label for="f-phone">Telephone</label><input id="f-phone" type="tel" autocomplete="tel"></div>
+    <div class="field"><label for="f-channel">Channel name</label><input id="f-channel" type="text"></div>
+    <div class="field">
+      <span class="lbl" id="lbl-monet">Was the video monetised when published?</span>
+      <div class="seg" role="radiogroup" aria-labelledby="lbl-monet">
+        <input type="radio" name="monetised" id="m-yes" value="yes"><label for="m-yes">Yes</label>
+        <input type="radio" name="monetised" id="m-no" value="no"><label for="m-no">No</label>
+        <input type="radio" name="monetised" id="m-unknown" value="unknown" checked><label for="m-unknown">Don't know</label>
+      </div>
+    </div>
+    <div class="field">
+      <span class="lbl" id="lbl-step">Which step are you about to take?</span>
+      <div role="radiogroup" aria-labelledby="lbl-step">
+        <label class="choice"><input type="radio" name="step" value="dispute" checked><span>Dispute<span class="sub">In-platform. Claimant has 30 days to respond.</span></span></label>
+        <label class="choice"><input type="radio" name="step" value="appeal"><span>Appeal<span class="sub">After a rejected dispute. Claimant has 7 days; a rejection means a removal request and a strike.</span></span></label>
+        <label class="choice"><input type="radio" name="step" value="counter_notice"><span>Counter-notice<span class="sub">After removal. A sworn legal statement under 17 U.S.C. §512(g).</span></span></label>
+      </div>
+    </div>
+    <div class="field">
+      <span class="lbl">If either of these applies, NoticeGuard will point you to an adviser</span>
+      <label class="choice"><input type="checkbox" id="ab-fair"><span>I'm relying on fair use, commentary or parody</span></label>
+      <label class="choice"><input type="checkbox" id="ab-own"><span>I made this work myself and the claimant is wrong about ownership</span></label>
+    </div>
+    <div class="field">
+      <label for="f-notes">Notes (not used in the check)</label>
+      <textarea id="f-notes" placeholder="Anything you want to note for yourself."></textarea>
+      <span class="caption">NoticeGuard reads your documents, not your question.</span>
+    </div>
+    <div class="actions">
+      <button class="btn" id="btn-analyse" type="button"><span class="spinner" aria-hidden="true"></span><span class="t">Analyse</span></button>
+      <button class="btn secondary" id="btn-rerun" type="button" hidden><span class="spinner" aria-hidden="true"></span><span class="t">Re-check with these settings</span></button>
+    </div>
+
+    <div id="case-panel" hidden>
+      <h2 style="margin-top:26px">Documents in this case</h2>
+      <div class="casedocs" id="case-docs"></div>
+      <div class="actions">
+        <label class="btn ghost sm" for="add-input"><svg width="14" height="14"><use href="#i-plus"/></svg> Add documents<input id="add-input" type="file" multiple accept=".txt,.md,.pdf,.eml" class="sr-only"></label>
+        <button class="btn ghost sm" id="btn-leo-email" type="button" hidden><span class="spinner" aria-hidden="true"></span><span class="t">Add Leo's licensor email</span></button>
+      </div>
+    </div>
+  </aside>
+
+  <section class="col-centre" id="centre" aria-live="polite">
+    <div class="empty">
+      <h1>NoticeGuard checks the statement you'd sign, not the question you ask.</h1>
+      <p>Upload your claim notice, licence, receipt and the licensor's terms, choose the step you are about to take, and NoticeGuard reports whether the paperwork backs it: <strong>Evidence ready</strong>, <strong>Evidence gap</strong>, or <strong>Needs an adviser</strong>. Every sentence in the result clicks through to the document and quote it rests on.</p>
+      <div class="actions">
+        <button class="btn" type="button" data-demo="maya">Load Maya's case</button>
+        <button class="btn secondary" type="button" data-demo="leo">Load Leo's case</button>
+      </div>
+    </div>
+  </section>
+
+  <aside class="col-right" id="chain" aria-label="Reasoning chain">
+    <div class="chain-empty">
+      <h2>Reasoning chain</h2>
+      <p>Click any sentence, badge, table row or draft line to see the chain behind it: Document → Quote → Fact → Rule → Status.</p>
+    </div>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span>NoticeGuard reports whether your documents are consistent with the step you're considering. It does not verify document authenticity, does not decide ownership or fair use, and is not legal advice. It never files anything.</span>
+  <span class="spacer"></span>
+  <span id="foot-meta">Rules version 0.1.0</span>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

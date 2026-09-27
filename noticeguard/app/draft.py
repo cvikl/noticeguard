@@ -31,7 +31,11 @@ def _fmt(iso: Any) -> str:
 
 def _short(q: str, n: int = 160) -> str:
     q = re.sub(r"\s+", " ", q).strip().rstrip(".")
-    return q if len(q) <= n else q[: n - 1].rstrip() + "…"
+    if len(q) <= n:
+        return q
+    cut = q[: n - 1]
+    cut = cut[: cut.rfind(" ")] if " " in cut else cut
+    return cut.rstrip(",;:") + "…"
 
 
 def _clause_cite(t: FactTable, key: str, label: str, version: Optional[str]) -> str:

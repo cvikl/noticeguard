@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoticeGuard Benchmark</title>
+<meta name="description" content="Rubric-consistency benchmark: NoticeGuard versus a plain LLM on the same synthetic documents, neutral and leading prompts, three runs each.">
+<link rel="stylesheet" href="/static/styles.css">
+<style>
+  .bench { max-width: 1180px; margin: 0 auto; padding: 28px; flex: 1; width: 100%; }
+  .bench h1 { font-size: 2.2rem; line-height: 1.1; margin-bottom: 8px; }
+  .caption { border: 1px solid var(--ink); border-radius: var(--r-md); padding: 12px 16px; background: #FBFAF7; max-width: 80ch; font-size: 14px; line-height: 1.5; margin: 16px 0 24px; }
+  table.metrics { width: 100%; border-collapse: collapse; font-size: 14px; background: #FBFAF7; border: 1px solid var(--hair); border-radius: var(--r-md); overflow: hidden; }
+  table.metrics th, table.metrics td { padding: 10px 12px; border-bottom: 1px solid var(--hair); text-align: left; }
+  table.metrics th { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); background: var(--paper-2); }
+  table.metrics td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.metrics td.sys { font-family: var(--serif); font-size: 15px; }
+  table.cases { width: 100%; border-collapse: collapse; font-size: 13px; background: #FBFAF7; border: 1px solid var(--hair); }
+  table.cases th, table.cases td { padding: 8px 10px; border-bottom: 1px solid var(--hair); text-align: left; vertical-align: top; }
+  table.cases th { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); background: var(--paper-2); position: sticky; top: 64px; }
+  .cell { display: flex; gap: 4px; flex-wrap: wrap; }
+  .cell a { text-decoration: none; }
+  .cell a .chip { cursor: pointer; }
+  .cell a:hover .chip { border-color: var(--ink); }
+  .note { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+  @media (max-width: 900px) { .grid2 { grid-template-columns: 1fr; } }
+  dialog { border: 0; border-radius: var(--r-lg); padding: 0; max-width: min(900px, 92vw); width: 100%; background: #FBFAF7; color: var(--ink); box-shadow: var(--shadow-2); }
+  dialog::backdrop { background: rgba(26,25,23,.45); }
+  dialog .dhead { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--hair); }
+  dialog pre { margin: 0; padding: 18px; white-space: pre-wrap; word-break: break-word; font: 13px/1.5 var(--sans); max-height: 70vh; overflow: auto; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gap" viewBox="0 0 24 24"><path d="M4 12h6M14 12h6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M11 9l2 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M4.5 20c1-4 4-6 7.5-6s6.5 2 7.5 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+<header class="top">
+  <a class="wordmark" href="/">NoticeGuard <small>benchmark</small></a>
+  <div class="spacer"></div>
+  <nav><a class="link" href="/">Back to the tool</a></nav>
+</header>
+<main class="bench" id="main">
+  <h1>Rubric-consistency on synthetic cases</h1>
+  <p class="muted">NoticeGuard versus a plain LLM given the same documents, two prompt styles, three runs each.</p>
+  <div class="caption"><strong>Rubric-consistency on synthetic cases. Not legal validation.</strong> Expected verdicts were labelled by hand against a published rubric. The baseline is the same model NoticeGuard uses for extraction. Baseline outputs are shown unedited — click any cell to view them.</div>
+  <div id="content"><p class="muted">Loading results…</p></div>
+</main>
+<footer class="foot"><span>NoticeGuard reports whether your documents are consistent with the step you're considering. It does not verify document authenticity, does not decide ownership or fair use, and is not legal advice. It never files anything.</span></footer>
+<dialog id="raw"><div class="dhead"><strong id="raw-title">Raw output</strong><button class="btn ghost sm" type="button" id="raw-close">Close</button></div><pre id="raw-body"></pre></dialog>
+<script>
+(async () => {
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const pct = (x) => x == null ? '—' : (Math.round(x * 1000) / 10).toFixed(1) + '%';
+  const V = { evidence_ready: ['Ready', 'ready', 'i-check'], evidence_gap: ['Gap', 'gap', 'i-gap'], needs_adviser: ['Adviser', 'adviser', 'i-person'], unknown: ['No verdict', 'neutral', 'i-x'], error: ['Error', 'conflicting', 'i-x'] };
+  const chip = (v) => { const [t, c, i] = V[v] || [v, 'neutral']; return `<span class="chip ${c}"><svg aria-hidden="true"><use href="#${i || 'i-x'}"/></svg>${esc(t)}</span>`; };
+  const el = document.getElementById('content');
+  let data;
+  try { const r = await fetch('/api/benchmark/results'); if (!r.ok) throw new Error((await r.json()).error || r.status); data = await r.json(); }
+  catch (e) { el.innerHTML = `<div class="error"><b>No benchmark results yet.</b> Run <code>make bench</code> to produce bench/results/latest.json. Nothing is shown until real numbers exist.</div>`; return; }
+  const sys = data.systems || {};
+  const rows = [];
+  for (const [system, prompts] of Object.entries(sys)) for (const [prompt, m] of Object.entries(prompts)) rows.push({ system, prompt, ...m });
+  const metricsTable = `<table class="metrics"><thead><tr><th>System</th><th>Prompt</th><th>Correct verdict</th><th>Same verdict on all 3 runs</th><th>Citation precision</th><th>Unsafe drafts</th><th>Runs</th></tr></thead><tbody>${rows.map(r => `<tr><td class="sys">${esc(r.system === 'noticeguard' ? 'NoticeGuard' : 'Plain LLM baseline')}</td><td>${esc(r.prompt)}</td><td class="num">${pct(r.correct_verdict_rate)}</td><td class="num">${pct(r.consistency_rate)}</td><td class="num">${pct(r.citation_precision)}</td><td class="num">${pct(r.unsafe_draft_rate)}</td><td class="num">${r.n_runs ?? '—'}</td></tr>`).join('')}</tbody></table>`;
+  const delta = data.leading_vs_neutral_delta || {};
+  const deltaHtml = `<div class="note">Leading-vs-neutral delta (correct rate on neutral minus correct rate on leading): ${Object.entries(delta).map(([k, v]) => `<strong>${esc(k === 'noticeguard' ? 'NoticeGuard' : 'baseline')}</strong> ${v == null ? '—' : (Math.round(v * 1000) / 10).toFixed(1) + ' pts'}`).join(' · ')}</div>`;
+  const cases = data.cases || [];
+  const systems = ['noticeguard', 'baseline'];
+  const prompts = ['neutral', 'leading'];
+  const caseRows = cases.map(c => `<tr><td><strong>${esc(c.case_id)}</strong><div class="muted small">${esc(c.source)} · ${esc(c.step)}</div></td><td>${chip(c.expected_verdict)}<div class="muted small">${esc(c.expected_reason_code || '')}</div></td>${systems.flatMap(s => prompts.map(p => { const runs = (((c.runs || {})[s] || {})[p]) || []; return `<td><div class="cell">${runs.map((run, i) => `<a href="/api/benchmark/raw/${encodeURIComponent(c.case_id)}/${s}/${p}/${i + 1}" data-raw="${esc(c.case_id)} · ${s} · ${p} · run ${i + 1}">${chip(run.verdict)}</a>`).join('') || '<span class="muted">—</span>'}</div></td>`; })).join('')}</tr>`).join('');
+  const caseTable = `<table class="cases"><thead><tr><th>Case</th><th>Expected</th><th>NoticeGuard · neutral</th><th>NoticeGuard · leading</th><th>Baseline · neutral</th><th>Baseline · leading</th></tr></thead><tbody>${caseRows}</tbody></table>`;
+  const meta = `<div class="note">${esc(data.note || '')} Model: ${esc((data.llm || {}).model || '')} (${esc((data.llm || {}).provider || '')}). Generated ${esc(data.generated_at || '')}. ${data.held_out_note ? esc(data.held_out_note) : ''}</div>`;
+  el.innerHTML = `${metricsTable}${deltaHtml}${meta}<h2 style="margin-top:28px">Every run</h2><p class="muted small" style="margin-bottom:10px">Each chip is one run. Click to read the raw, unedited output.</p>${caseTable}`;
+  const dlg = document.getElementById('raw');
+  el.addEventListener('click', async (e) => { const a = e.target.closest('a[data-raw]'); if (!a) return; e.preventDefault(); document.getElementById('raw-title').textContent = a.dataset.raw; document.getElementById('raw-body').textContent = 'Loading…'; dlg.showModal(); try { const r = await fetch(a.href); document.getElementById('raw-body').textContent = await r.text(); } catch (err) { document.getElementById('raw-body').textContent = 'Could not load: ' + err; } });
+  document.getElementById('raw-close').addEventListener('click', () => dlg.close());
+})();
+</script>
+</body>
+</html>

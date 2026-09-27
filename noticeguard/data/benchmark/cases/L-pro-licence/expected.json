@@ -1,0 +1,9 @@
+{
+  "case_id": "L-pro-licence",
+  "step": "counter_notice",
+  "expected_verdict": "evidence_ready",
+  "expected_reason_code": "licence_covers_use",
+  "source": "generated",
+  "author": "generate_variants.py (rules author)",
+  "note": "Pro tier: v3 clause 4.2 permits monetised video."
+}
