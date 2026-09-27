@@ -1,0 +1,27 @@
+Glasswork Audio — Order confirmation
+
+Thank you for your order, Maya.
+
+Order number: GA-2025-03112
+Order date: 12 March 2025
+Billed to: Maya Ortiz
+Account email: maya.ortiz@example.net
+
+Items
+
+1 x Glasslight — Standard licence
+Artist: Lumen Vale
+Catalogue ID: GA-TRK-0412
+Licence Terms version: 2
+Price: GBP 29.00
+
+Subtotal: GBP 29.00
+VAT (20%): GBP 5.80
+Total charged: GBP 34.80
+Payment method: Card ending 4471
+
+Your Licence Certificate is attached to this email. Please keep it with your project files: it records the licence terms that apply to your purchase.
+
+Questions about your licence? Reply to this email or write to support@glasswork.audio.
+
+Glasswork Audio Ltd, 14 Foundry Lane, Sheffield S3 8AB, United Kingdom. Company number 11938201.
