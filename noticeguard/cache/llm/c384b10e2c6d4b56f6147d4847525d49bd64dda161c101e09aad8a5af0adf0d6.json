@@ -6,7 +6,7 @@
  "system": "You answer one narrow interpretation question about a licence clause. Output JSON only.",
  "prompt": "Given this restriction / exclusion clause from a music licence document (quoted verbatim):\n\n\"Monetised use requires a Pro licence.\"\n\nand this actual use of the music by the licence holder:\n- medium: background music in a video\n- platform: ClipStream\n- channel: Leo Marsh Music\n- monetised: yes (ads on, the creator earns revenue)\n- licence tier held: Standard\n- work: Glasslight\n\nQuestion: does this clause, on its own wording, exclude or forbid this actual use for a holder of the stated licence tier?\nAnswer \"yes\" only if the clause clearly applies to and excludes this use for that tier. Answer \"no\" if the clause is about something else or clearly does not restrict this use for that tier. Answer \"unclear\" if the wording could reasonably be read either way.\n\nOutput JSON only: {\"covers\": \"yes\" | \"no\" | \"unclear\", \"reason\": \"<one sentence>\"}",
  "docs": "",
- "text": "{\"covers\": \"yes\", \"reason\": \"The use is monetised but the holder only has a Standard licence, not the required Pro licence, so the clause excludes this use.\"}",
- "elapsed_ms": 3284,
- "created": "2026-09-27T02:32:49Z"
+ "text": "{\"covers\": \"yes\", \"reason\": \"The use is monetised but the holder only has a Standard licence, not the required Pro licence.\"}",
+ "elapsed_ms": 3849,
+ "created": "2026-09-27T03:05:50Z"
 }

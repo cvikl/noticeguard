@@ -337,7 +337,7 @@
       <div class="step"><div class="k">Status</div>${statusWord ? chip(statusWord, statusCls, VICON[node.status] || (STATUS[node.status] || [])[2] || (FSTATUS[node.status] || [])[2]) : ''}${node.rule_status ? ` <span class="chip neutral">rule ${esc(node.rule_id)}: ${esc(node.rule_status.replace(/_/g, ' '))}</span>` : ''}</div>
       <div class="version">Rules version ${esc(r.rules_version)} · Confirmed by document, never verified.</div>
     </div>`;
-    const line = $('#chain-line'); if (line) line.scrollIntoView({ block: 'center', behavior: 'instant' });
+    const line = $('#chain-line'); const box = line && line.closest('.docview'); if (line && box) box.scrollTop = Math.max(0, line.offsetTop - box.clientHeight / 2);
   }
 
   // deep-link demo: /?demo=maya

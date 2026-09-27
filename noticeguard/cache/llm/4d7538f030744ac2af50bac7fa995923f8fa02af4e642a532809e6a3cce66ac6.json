@@ -6,7 +6,7 @@
  "system": "You answer one narrow interpretation question about a licence clause. Output JSON only.",
  "prompt": "Given this statement from an email sent by the music licensor (quoted verbatim):\n\n\"We've extended your licence: you're cleared to use Glasslight in monetised ClipStream videos on your channel Leo Marsh Music.\"\n\nand this actual use of the music by the licence holder:\n- medium: background music in a video\n- platform: ClipStream\n- channel: Leo Marsh Music\n- monetised: yes (ads on, the creator earns revenue)\n- licence tier held: Standard\n- work: Glasslight\n\nQuestion: does the statement, on its own wording, grant or confirm permission that covers this actual use?\nAnswer \"yes\" only if it clearly does. Answer \"no\" if it clearly does not (different work, different channel, or explicitly excludes this use). Answer \"unclear\" if it could reasonably be read either way.\n\nOutput JSON only: {\"covers\": \"yes\" | \"no\" | \"unclear\", \"reason\": \"<one sentence>\"}",
  "docs": "",
- "text": "{\"covers\": \"yes\", \"reason\": \"The statement explicitly clears monetised use of Glasslight on ClipStream for the channel Leo Marsh Music, matching all elements of the actual use.\"}",
- "elapsed_ms": 3299,
- "created": "2026-09-27T02:33:13Z"
+ "text": "{\"covers\": \"yes\", \"reason\": \"The statement explicitly grants use of Glasslight in monetised ClipStream videos on the Leo Marsh Music channel, matching all details of the actual use.\"}",
+ "elapsed_ms": 2949,
+ "created": "2026-09-27T03:07:12Z"
 }

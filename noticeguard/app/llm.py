@@ -17,6 +17,7 @@ import os
 import re
 import shutil
 import subprocess
+import tempfile
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -202,12 +203,15 @@ class LLM:
         exe = shutil.which("claude")
         if not exe:
             raise LLMUnavailable("`claude` CLI not found on PATH and no cached response exists for this call")
+        # Sandboxed: an empty working directory (so no CLAUDE.md, project memory or repo files are visible),
+        # tools disabled, and a plain replacement system prompt. The model sees only the prompt we send.
         cmd = [exe, "-p", "--model", self.model, "--output-format", "json", "--no-session-persistence",
-               "--tools", "", "--exclude-dynamic-system-prompt-sections"]
-        if system:
-            cmd += ["--system-prompt", system]
+               "--tools", "", "--disallowedTools", "*", "--setting-sources", "", "--exclude-dynamic-system-prompt-sections",
+               "--system-prompt", system or "You are a helpful assistant. Answer the user's request directly."]
         env = {k: v for k, v in os.environ.items() if k not in ("CLAUDECODE", "CLAUDE_CODE_ENTRYPOINT")}
-        proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True, timeout=300, env=env, cwd=str(ROOT))
+        sandbox = Path(tempfile.gettempdir()) / "noticeguard-llm-sandbox"
+        sandbox.mkdir(parents=True, exist_ok=True)
+        proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True, timeout=300, env=env, cwd=str(sandbox))
         if proc.returncode != 0:
             raise LLMUnavailable(f"claude CLI failed ({proc.returncode}): {proc.stderr[-500:]}")
         try:
