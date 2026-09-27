@@ -1,0 +1,38 @@
+I looked closely at the documents before drafting anything, and I don't think a DMCA counter-notice is the right move here — or at least not yet. Here's why.
+
+## The core problem: your licence likely doesn't cover this use
+
+Your Glasswork Audio licence certificate (v3) is explicit:
+
+> **4.1** Standard licence permits use of the Work **as background music in personal, non-commercial video content. Monetised use requires a Pro licence.**
+> **4.2** Pro licence permits use... **including monetised video**...
+
+Your receipt shows you bought the **Standard** licence (£29), not Pro (£89).
+
+But your own video metadata export shows:
+
+> **Monetisation at publish: ON**
+> **Monetisation start date: 2025-09-10**
+
+So the video was monetised from the moment it went live, using a licence tier that explicitly excludes monetised use. That's not a "mistake or misidentification" by the claimant — on the face of your own paperwork, the claim (and the removal) tracks a real mismatch between what you licensed and how you used the track.
+
+## Why this matters for a counter-notice specifically
+
+A DMCA counter-notification isn't a dispute form — it's a sworn legal statement. You'd be certifying **under penalty of perjury** that you have a good-faith belief the material was removed as a result of mistake or misidentification, and consenting to be sued in federal court if Northline Rights/Glasswork disagrees. Filing that when your own licence terms and monetisation record point the other way would expose you to real legal risk (perjury exposure, statutory damages if a court action follows), not protect you.
+
+## What the evidence actually supports doing instead
+
+The track's own page tells you the intended remedy for exactly this situation:
+
+> "If you hold a licence and receive a claim from Northline Rights, **contact support@glasswork.audio with your order number**."
+
+And Glasswork's terms (10.2) confirm this is the designated channel — Northline Rights administers claims *on Glasswork's behalf*, and Glasswork will "ask the administrator to review it." You never actually used this path — you went straight to ClipStream's dispute → appeal → removal cycle, which is the wrong track for a licensing question and is why it escalated to a strike.
+
+Practical options, roughly in order:
+1. **Contact support@glasswork.audio now** with order number GA-2025-08231, explain the video was monetised, and ask whether they'll (a) treat this as covered, (b) let you upgrade to a Pro licence retroactively, or (c) direct Northline Rights to release the claim/retract the removal.
+2. If Glasswork confirms the use is/was fine (e.g., they take a different view of "monetised," or retroactively cover it), *then* a counter-notice or a request to retract becomes solidly supportable.
+3. Given there's a copyright strike on your channel and a real question of licence scope, it's worth a quick consult with an actual lawyer (or at least Glasswork's licensing team in writing) before swearing a legal statement — this isn't a case where "I paid for it" cleanly resolves the monetisation gap.
+
+I'm glad to draft the email to Glasswork support, or draft a counter-notice later if you get confirmation the licence did cover this use — just let me know.
+
+VERDICT: ADVISER

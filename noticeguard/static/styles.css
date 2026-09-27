@@ -51,6 +51,7 @@ p { margin: 0; }
 .small { font-size: 13px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 mark { background: transparent; }
+[hidden] { display: none !important; }
 svg[aria-hidden] { width: 14px; height: 14px; vertical-align: -2px; flex: none; }
 
 /* scrollbars from the palette */
@@ -283,7 +284,7 @@ details.rejected li { margin: 4px 0; }
 .chain .step .k { font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
 .chain .step .k::after { content: ""; flex: 1; height: 1px; background: var(--hair); }
 .chain .sentence-text { font-family: var(--serif); font-size: 15.5px; line-height: 1.45; }
-.docview { border: 1px solid var(--hair); border-radius: var(--r-md); background: #FBFAF7; max-height: 300px; overflow: auto; font-size: 12.5px; line-height: 1.5; padding: 8px 0; margin-top: 8px; }
+.docview { position: relative; border: 1px solid var(--hair); border-radius: var(--r-md); background: #FBFAF7; max-height: 300px; overflow: auto; font-size: 12.5px; line-height: 1.5; padding: 8px 0; margin-top: 8px; }
 .docview .ln { display: grid; grid-template-columns: 34px 1fr; gap: 8px; padding: 0 10px; white-space: pre-wrap; word-break: break-word; }
 .docview .ln .n { color: #B9B3A8; text-align: right; font-size: 11px; user-select: none; padding-top: 2px; }
 .docview mark { background: #F1E4B9; color: var(--ink); padding: 0 2px; border-radius: 2px; box-decoration-break: clone; }
@@ -325,7 +326,8 @@ details.rejected li { margin: 4px 0; }
 /* ---------- responsive ---------- */
 @media (max-width: 1400px) { :root { --left-w: 290px; --right-w: 360px; } .slab h1 { font-size: 2.2rem; } }
 @media (max-width: 1100px) {
-  .work { grid-template-columns: 1fr; }
+  .work { grid-template-columns: minmax(0, 1fr); }
+  .col-left, .col-centre, .col-right { min-width: 0; }
   .col-left, .col-right { position: static; max-height: none; border-left: 0; padding-left: 0; }
   .col-right { border-top: 1px solid var(--hair); padding-top: 18px; }
   .rail-track { grid-template-columns: repeat(2, 1fr); row-gap: 22px; }

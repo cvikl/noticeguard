@@ -1,0 +1,30 @@
+## Analysis
+
+A DMCA counter-notification requires you to state, under penalty of perjury, that you have a **good faith belief the material was removed as a result of mistake or misidentification**, and you must **consent to the jurisdiction of a federal court**. That's a real legal statement with real legal exposure — it's not just a platform form.
+
+Here's what your documents show:
+
+**Supports a licence defense:**
+- You hold a Glasswork Audio Standard licence (Cert. GA-CERT-08231) for exactly the matched work, "Glasslight" by Lumen Vale, purchased 19 August 2025 — before the video was published (10 September 2025).
+- The track page confirms Northline Rights is Glasswork's authorised claims administrator for this track, so the claimant is the right party to have been contacted.
+- The licence certificate explicitly says it can be presented "to the platform or to the claim administrator" for exactly this situation.
+
+**Undermines the "mistake" claim — this is the problem:**
+- The Standard licence you purchased (§4.1, both in your certificate and the current terms) permits use only as background music in **personal, non-commercial** video content, and states plainly: **"Monetised use requires a Pro licence."**
+- Your video metadata shows **Monetisation at publish: ON**, and the track was used as background music for the "full set" — i.e., across a monetised 42-minute video.
+- You purchased the Standard tier (£29), not the Pro tier (£89) that permits monetised use.
+
+This is a meaningful gap, not a paperwork technicality: on the facts in front of me, your actual use (monetised video) appears to fall outside what your licence tier permits. That directly conflicts with the "good faith belief that the material was removed as a result of mistake or misidentification" you'd be certifying. If the claimant's position is "you weren't licensed for monetised use," that isn't obviously a mistake or misidentification — it may be a correct application of your licence's own terms.
+
+There's also a live process step you haven't used: the licence terms (§10.2) and track page both point you to **support@glasswork.audio** with your order number to have Glasswork ask Northline to review — separate from the DMCA counter-notice track, and lower-risk. Nothing in your documents shows you've done this yet.
+
+Given:
+- a genuine, document-based conflict between your licence scope and your actual use,
+- the perjury/jurisdiction-consent stakes of a counter-notice,
+- and that you're already at 1 of 3 strikes with channel termination risk,
+
+this isn't something I can resolve by pointing at a missing receipt — it turns on how a licensing/monetisation dispute like this would actually be judged, and whether pursuing (a) Glasswork support, (b) retroactively upgrading to Pro, or (c) a counter-notice is the right sequence. I'd get this looked at by someone qualified (an IP attorney, or at minimum Glasswork's own support team) before you sign a counter-notice under penalty of perjury.
+
+I have not drafted a counter-notice, because I don't think the facts currently support the statement it requires.
+
+VERDICT: ADVISER

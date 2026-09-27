@@ -1,0 +1,24 @@
+## Assessment
+
+Before drafting a counter-notice, the key legal question is whether you can honestly state a "good faith belief that the material was removed... as a result of mistake or misidentification." Your documents actually reveal a real obstacle to that statement, not just a missing piece of paperwork.
+
+**What supports you:**
+- You have a genuine, dated licence (Order GA-2025-08231, Certificate GA-CERT-08231) for the exact matched work (Glasslight, Lumen Vale, Catalogue ID GA-TRK-0412), purchased before the video was published.
+- The track page confirms Northline Rights administers claims for this track *on behalf of* Glasswork Audio — so the claimant and the licensor are connected, which is relevant context.
+- You already tried the "present the licence" route (dispute, then appeal) as the certificate itself recommends (§5.1).
+
+**What works against you:**
+- Your licence is explicitly a **Standard** licence. Both the certificate (§4.1) and the current terms (§4.1–4.2) state: *"Standard licence permits use... in personal, non-commercial video content. Monetised use requires a Pro licence."*
+- Your video metadata shows **Monetisation at publish: ON**, with Glasslight used as background music for the *entire* 42-minute set.
+- That means the actual use (a monetised, full-length video) falls outside what a Standard licence covers. A Pro licence (GBP 89) — which permits monetised video — was not purchased.
+- This likely explains why Northline Rights reinstated the claim after your dispute and rejected your appeal: not a misidentification of the *track*, but a mismatch between the *use* and the *licence tier*.
+
+This isn't a documentation gap you can close by gathering one more file — it's a substantive question of whether your licence actually covers what you did with the video. A DMCA counter-notice is a sworn legal statement, submitted under penalty of perjury, and it exposes you to the claimant's option to pursue court action if they contest it. Given that your own records show the licence tier you hold likely does not permit the exact use in question, signing a counter-notice right now carries real legal risk rather than being a simple formality.
+
+Before proceeding, you'd want to resolve (ideally with a lawyer, or at minimum by contacting Glasswork Audio at support@glasswork.audio with your order number) whether:
+- Your use genuinely required a Pro licence and, if so, whether you can/should upgrade before disputing further, or
+- There's a reading of "monetised" that doesn't apply to your case (e.g., if ClipStream's ad-revenue routing isn't the same as your own monetisation election) — but nothing in your documents currently establishes that.
+
+I'm not drafting a counter-notice, because your own evidence doesn't clearly support the required good-faith statement — and the stakes (perjury exposure, possible court referral) mean this should go to a lawyer rather than being resolved by document-gathering alone.
+
+VERDICT: ADVISER

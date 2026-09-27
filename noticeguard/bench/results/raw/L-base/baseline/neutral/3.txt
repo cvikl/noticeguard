@@ -1,0 +1,25 @@
+Short answer: **No, your documents do not support making a counter-notice statement right now.**
+
+## Why this is a problem
+
+A DMCA counter-notice requires you to state, under penalty of perjury, that you have a **good-faith belief the material was removed as a result of mistake or misidentification**. Based on the documents you've provided, that statement appears to conflict with the facts:
+
+1. **Your licence tier doesn't match your actual use.**
+   - You purchased a **Standard licence** for "Glasslight" (Order GA-2025-08231, 19 Aug 2025).
+   - Both the Licence Certificate (§4.1) and the current Licence Terms (§4.1) state: *"Standard licence permits use of the Work as background music in personal, non-commercial video content. **Monetised use requires a Pro licence.**"*
+   - The video metadata (doc 08) shows **Monetisation at publish: ON**, starting 2025-09-10 — the same day the video was published, and before Northline's claim was even filed. The original claim notice also confirms ad revenue was being generated and redirected to the claimant, which only makes sense if the video was monetised.
+   - You did not purchase the Pro licence (GBP 89.00), which is what's required for monetised use.
+
+2. **This means the claim and removal may not actually be a "mistake."** Northline Rights (acting for Glasswork) matched monetised use of a track for which you hold a licence that explicitly excludes monetised use. That's arguably a correct enforcement action, not a misidentification — the opposite of what a counter-notice requires you to assert in good faith.
+
+3. Everything else lines up in your favor (correct track, correct catalogue ID, Northline is the authorized administrator per the track page, licence terms in force at purchase govern per §9.1) — but the monetisation gap is decisive, because it goes to the heart of whether you were actually authorized to use the track the way you did.
+
+## What I'd suggest instead of a counter-notice
+
+- Contact **support@glasswork.audio** (per Licence Terms §10.2 and the track page) with your order number, explain the situation, and ask whether they will (a) direct Northline to retract the removal, and/or (b) let you upgrade to a Pro licence retroactively to cover the monetised use.
+- If Glasswork confirms your use was authorized (e.g., they consider Standard sufficient in practice, or they retroactively cover you), *then* the counter-notice would be well-supported and I could help draft one.
+- Filing a counter-notice now, on these facts, risks an inaccurate perjury statement and doesn't address the underlying licensing gap.
+
+I have not drafted a counter-notice because the current record doesn't support the required good-faith statement.
+
+VERDICT: GAP

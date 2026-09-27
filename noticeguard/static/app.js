@@ -300,7 +300,7 @@
     const el = $('#chain');
     if (!node) { el.innerHTML = `<div class="chain-empty"><h2>Reasoning chain</h2><p>No chain recorded for this item.</p></div>`; return; }
     const docs = Object.fromEntries(r.documents.map(d => [d.id, d]));
-    const withQuote = node.facts.filter(f => f.doc_id && f.quote);
+    const withQuote = node.facts.filter(f => f.doc_id && f.quote).sort((a, b) => (b.clause_ref ? 1 : 0) - (a.clause_ref ? 1 : 0) || b.quote.length - a.quote.length);
     const primary = withQuote[0];
     const byDoc = new Map();
     withQuote.forEach(f => { if (!byDoc.has(f.doc_id)) byDoc.set(f.doc_id, []); byDoc.get(f.doc_id).push(f); });
