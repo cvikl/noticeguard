@@ -329,7 +329,7 @@
       <button class="sidebar-settings" type="button" data-settings>Case settings</button></div>`;
     $('#workspace-add').onchange = async e => { await addDocuments(Array.from(e.target.files)); };
     $$('[data-doc]').forEach(b => b.onclick = () => {
-      state.docId = b.dataset.doc; state.selectedSource = null; state.active = null; state.filter = 'all';
+      state.docId = b.dataset.doc; state.selectedSource = null; state.active = null; state.filter = 'all'; state.showOriginal = true;
       renderSidebar(); renderSource(); renderFindings(); renderChainEmpty(); renderSignal();
     });
     const activeDoc = $('.document-item[aria-pressed=true]'), list = $('.document-list');
@@ -341,17 +341,28 @@
     const action = r.draft && !r.draft.withheld_reason ? `View ${STEP[r.chosen_step]} draft` : r.verdict === 'evidence_gap' ? 'See what’s missing' : 'See your answer';
     return `<div class="answer-shortcut"><button type="button" class="btn" data-report aria-describedby="next-step-detail">Next step <span aria-hidden="true">→</span></button><span id="next-step-detail">${esc(action)}</span></div>`;
   }
+  function isPdf(doc) { return /\.pdf$/i.test(doc.filename); }
   function renderSource() {
     const r = state.result, doc = r.documents.find(d => d.id === state.docId);
     if (!doc) { $('#source-workspace').innerHTML = `<p class="no-source">No source documents available.</p><div class="source-bottom">${nextStepAction(r)}</div>`; return; }
     const annotations = W.annotations(r, doc);
+    const original = isPdf(doc) && state.showOriginal !== false;
+    if (original) {
+      const url = `/api/files/${encodeURIComponent(doc.id)}`;
+      $('#source-workspace').innerHTML = `<div class="document-toolbar"><span>${icon('i-doc')} ${esc(doc.filename)}</span><div class="document-view-controls"><button type="button" id="toggle-original" aria-pressed="true">Highlighted text</button><a class="open-original" href="${url}" target="_blank" rel="noopener">Open PDF ↗</a></div></div>
+        <div class="paper-scroll pdf-scroll" id="paper-scroll" tabindex="0" aria-label="Original PDF as uploaded"><iframe class="pdf-frame" src="${url}#toolbar=0&navpanes=0&view=FitH" title="${esc(doc.filename)}"></iframe></div>
+        <div class="source-bottom"><div class="source-info"><span>Original PDF · exactly as uploaded</span><span>${annotations.length} highlighted phrases in the text view</span></div>${nextStepAction(r)}</div>`;
+      $('#toggle-original').onclick = () => { state.showOriginal = false; renderSource(); scrollToPhrase(); };
+      return;
+    }
     const skin = state.plainSource ? 'plain' : documentSkin(doc.doc_type);
     const scan = ['certificate','letter','receipt'].includes(skin);
-    $('#source-workspace').innerHTML = `<div class="document-toolbar"><span>${icon('i-doc')} ${esc(doc.filename)}</span><div class="document-view-controls"><button type="button" id="toggle-source-style" aria-pressed="${Boolean(state.plainSource)}">${state.plainSource ? 'Document view' : 'Plain text'}</button><details class="highlight-key"><summary>Highlight key</summary><div>${W.categories.map(([k,l]) => `<span class="tag-label tag-${k}"><i></i>${esc(l)}</span>`).join('')}</div></details></div></div>
+    $('#source-workspace').innerHTML = `<div class="document-toolbar"><span>${icon('i-doc')} ${esc(doc.filename)}</span><div class="document-view-controls">${isPdf(doc) ? '<button type="button" id="toggle-original" aria-pressed="false">Original PDF</button>' : ''}<button type="button" id="toggle-source-style" aria-pressed="${Boolean(state.plainSource)}">${state.plainSource ? 'Document view' : 'Plain text'}</button><details class="highlight-key"><summary>Highlight key</summary><div>${W.categories.map(([k,l]) => `<span class="tag-label tag-${k}"><i></i>${esc(l)}</span>`).join('')}</div></details></div></div>
       <div class="paper-scroll" id="paper-scroll" tabindex="0" aria-label="Scrollable source document"><article class="source-paper source-${skin}${scan ? ' scan-paper' : ''}" aria-label="${esc(DOC_LABEL[doc.doc_type] || doc.doc_type)} — restyled source text">
       ${doc.extraction_failed ? '<div class="error">Extraction rejected. This document is readable, but its extracted facts are not used.</div>' : ''}<div id="source-lines" class="source-lines">${sourceLines(doc, annotations)}</div></article></div>
-      <div class="source-bottom"><div class="source-info"><span>${scan ? 'Restyled source · simulated scan texture' : 'Restyled source text'}</span><span>${annotations.length} highlighted phrases</span></div>${nextStepAction(r)}</div>`;
+      <div class="source-bottom"><div class="source-info"><span>${isPdf(doc) ? 'Text extracted from the PDF · highlights' : scan ? 'Restyled source · simulated scan texture' : 'Restyled source text'}</span><span>${annotations.length} highlighted phrases</span></div>${nextStepAction(r)}</div>`;
     document.fonts.ready.then(() => { if (state.selectedSource) scrollToPhrase(); });
+    $('#toggle-original')?.addEventListener('click', () => { state.showOriginal = true; renderSource(); });
     $('#toggle-source-style').onclick = () => { state.plainSource = !state.plainSource; renderSource(); scrollToPhrase(); };
     $$('[data-highlight]').forEach(b => b.onclick = () => {
       const source = annotations[Number(b.dataset.highlight)];
@@ -486,6 +497,7 @@
       const doc = state.result.documents.find(d => d.id === source.doc_id);
       if (doc) state.docId = doc.id;
       if (doc && W.verified(doc,source)) state.selectedSource = {...source,key:source.key || source.fact_key};
+      if (state.selectedSource && preferred) state.showOriginal = false;
     }
     renderSidebar(); renderSource(); renderFindings(); renderChain(sid); scrollToPhrase();
     if (matchMedia('(max-width:760px)').matches) $('#centre').scrollIntoView({block:'start',behavior:'auto'});

@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Optional
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from . import store
@@ -27,6 +27,11 @@ DEMO_SETS = {
     "maya-v3": {"folders": ["maya_bernard_v3"], "step": "dispute", "stated": StatedFields(name="Maya Ortiz", monetised="yes", channel_name="Maya Draws")},
     "leo": {"folders": ["leo"], "step": "counter_notice", "stated": StatedFields(name="Leo Marsh", address="22 Harbourside Walk, Bristol BS1 5UH, United Kingdom", phone="+44 117 496 0812", monetised="yes", channel_name="Leo Marsh Music")},
 }
+
+
+def _keep_original(doc: Document, filename: str, data: bytes) -> None:
+    if filename.lower().endswith(".pdf"):
+        store.save_file(doc.id, Path(filename).name, "application/pdf", data)
 
 
 def _parse_json(s: Optional[str], model, default):
@@ -62,7 +67,9 @@ async def create_case(files: list[UploadFile] = File(...), doc_types: str = Form
     for i, f in enumerate(files):
         data = await f.read()
         dt = types[i] if i < len(types) and types[i] in DOC_TYPES else "other"
-        docs.append(make_document(f.filename or f"upload_{i}", data, dt))
+        d = make_document(f.filename or f"upload_{i}", data, dt)
+        _keep_original(d, d.filename, data)
+        docs.append(d)
     st = _parse_json(stated, StatedFields, StatedFields())
     ab = _parse_json(abstain_flags, AbstainFlags, AbstainFlags())
     state = new_state(docs, step, st, ab, notes)
@@ -97,6 +104,7 @@ async def add_documents(case_id: str, files: list[UploadFile] = File(...), doc_t
         d = make_document(f.filename or f"upload_{i}", data, dt)
         if d.id in existing:
             continue
+        _keep_original(d, d.filename, data)
         added.append(d)
         state["documents"].append(d.model_dump())
     before = state.get("result")
@@ -146,6 +154,12 @@ def demo(name: str, step: Optional[str] = None):
         raise HTTPException(404, "unknown demo; use maya or leo")
     spec = DEMO_SETS[name]
     docs = [d for f in spec["folders"] for d in load_folder(DATA / f)]
+    for f in spec["folders"]:
+        for p in sorted((DATA / f).iterdir()):
+            if p.suffix.lower() == ".pdf":
+                doc = next((d for d in docs if d.filename == p.name), None)
+                if doc:
+                    _keep_original(doc, p.name, p.read_bytes())
     state = new_state(docs, step or spec["step"], spec["stated"], AbstainFlags(), "")
     try:
         run_extraction(state)
@@ -154,6 +168,16 @@ def demo(name: str, step: Optional[str] = None):
         return _llm_error(e)
     store.save_case(state["case_id"], state)
     return {"case_id": state["case_id"], "result": result.model_dump()}
+
+
+@app.get("/api/files/{doc_id}")
+def original_file(doc_id: str):
+    """The original bytes of an uploaded PDF, shown in the viewer exactly as uploaded."""
+    row = store.load_file(doc_id)
+    if not row:
+        raise HTTPException(404, "no original file kept for this document")
+    filename, mime, data = row
+    return Response(content=data, media_type=mime, headers={"Content-Disposition": f'inline; filename="{filename}"'})
 
 
 @app.get("/api/demo-files/{name}")

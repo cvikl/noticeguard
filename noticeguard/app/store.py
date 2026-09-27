@@ -18,7 +18,25 @@ def _conn() -> sqlite3.Connection:
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     c = sqlite3.connect(DB_PATH, check_same_thread=False)
     c.execute("CREATE TABLE IF NOT EXISTS cases (id TEXT PRIMARY KEY, created REAL, updated REAL, state TEXT)")
+    c.execute("CREATE TABLE IF NOT EXISTS files (doc_id TEXT PRIMARY KEY, filename TEXT, mime TEXT, data BLOB)")
     return c
+
+
+def save_file(doc_id: str, filename: str, mime: str, data: bytes) -> None:
+    """Keep the original bytes of an uploaded PDF so the viewer can show the document exactly as uploaded."""
+    with _lock:
+        c = _conn()
+        c.execute("INSERT OR REPLACE INTO files(doc_id, filename, mime, data) VALUES(?,?,?,?)", (doc_id, filename, mime, data))
+        c.commit()
+        c.close()
+
+
+def load_file(doc_id: str) -> Optional[tuple[str, str, bytes]]:
+    with _lock:
+        c = _conn()
+        row = c.execute("SELECT filename, mime, data FROM files WHERE doc_id=?", (doc_id,)).fetchone()
+        c.close()
+    return (row[0], row[1], row[2]) if row else None
 
 
 def save_case(case_id: str, state: dict[str, Any]) -> None:

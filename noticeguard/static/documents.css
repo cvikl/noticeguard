@@ -4,7 +4,7 @@
 @font-face { font-family:'Document Serif'; src:url('/static/fonts/documents/LiberationSerif-Bold.ttf') format('truetype'); font-style:normal; font-weight:700; font-display:swap; }
 @font-face { font-family:'Receipt Mono'; src:url('/static/fonts/documents/LiberationMono-Regular.ttf') format('truetype'); font-style:normal; font-weight:400; font-display:swap; }
 .document-view-controls { display:flex; gap:14px; align-items:center; flex:none; }
-#toggle-source-style { border:0; border-bottom:1px solid #b7b9af; padding:3px 0; background:none; font-size:11px; cursor:pointer; color:var(--ink-2); }
+#toggle-source-style, #toggle-original { border:0; border-bottom:1px solid #b7b9af; padding:3px 0; background:none; font-size:11px; cursor:pointer; color:var(--ink-2); }
 .source-paper:not(.source-plain) { position:relative; isolation:isolate; min-height:0; margin:14px auto 28px; }
 .source-paper:not(.source-plain) .source-line { display:block; }
 .source-paper:not(.source-plain) .line-number { display:none; }
