@@ -36,7 +36,7 @@ Desktop-first, used at a desk with a folder of PDFs/TXT/EML files, typically onc
 
 ## Brand Commitments
 
-Name: NoticeGuard. Voice: plain English, calm, on the creator's side, never advisory about filing ("your evidence is ready for X", "a draft prepared for your review"). Binding visual constraints volunteered by the user: editorial serif display type with a sans for UI, warm off-white ground, charcoal rounded cards, pill buttons; the reference the user likes is /home/timotej/Documents/bcco/LexHack/inspo/486d0ba63ca589b46127836faf84f818.jpg (a legal-research tool with serif headings, dark rounded cards, document chips). Verdict colour: ink plus one accent per verdict (green / amber / oxblood), everything else monochrome. No gradients.
+Name: NoticeGuard. Voice: plain English, calm, on the creator's side, never advisory about filing ("your evidence is ready for X", "a draft prepared for your review"). Binding visual constraints volunteered by the user: editorial serif display type with a sans for UI, warm off-white ground, charcoal rounded cards, pill buttons; the reference the user likes is design/inspo/486d0ba63ca589b46127836faf84f818.jpg (a legal-research tool with serif headings, dark rounded cards, document chips). Verdict colour: ink plus one accent per verdict (green / amber / oxblood), everything else monochrome. No gradients.
 
 ## Evidence on Hand
 

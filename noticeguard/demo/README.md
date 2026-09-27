@@ -50,7 +50,7 @@ Label the alternate scene **What if: purchased after the terms changed**. These 
 
 ## Verification — 27 September 2026
 
-Both Bernard scenarios passed the full Gemini gemini-3.8-flash pipeline and the deployed public demo endpoints, with zero live model calls on the final public rehearsal. V2: R2/R3/R5 pass, supported draft. V3: R2/R5 pass, R3 fails, unsupported use component, no draft. Both expose the exact PDF certificate quote. 74 Python tests and 10 JavaScript tests passed.
+Both Bernard scenarios passed the full Gemini gemini-3.8-flash pipeline and the deployed public demo endpoints, with zero live model calls on the final public rehearsal. V2: R2/R3/R5 pass, supported draft. V3: R2/R5 pass, R3 fails, unsupported use component, no draft. Both expose the exact PDF certificate quote. 69 Python tests and 10 JavaScript tests passed.
 
 The full local check (including the optional email) is:
 
