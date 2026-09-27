@@ -1,0 +1,12 @@
+{
+ "provider": "gemini",
+ "model": "gemini-3.8-flash",
+ "temperature": 0.7,
+ "run": 0,
+ "system": "You answer one narrow interpretation question about a licence clause. Output JSON only.",
+ "prompt": "Given this restriction / exclusion clause from a music licence document (quoted verbatim):\n\n\"The Licensee may not distribute the Work as a standalone audio file, register the Work with any content\nidentification system, or use the Work in broadcast television or paid advertising.\"\n\nand this actual use of the music by the licence holder:\n- medium: background music in a video\n- platform: ClipStream\n- channel: Maya Draws\n- monetised: yes (ads on, the creator earns revenue)\n- licence tier held: Standard\n- work: Glasslight\n\nQuestion: does this clause, on its own wording, exclude or forbid this actual use for a holder of the stated licence tier?\nAnswer \"yes\" only if the clause clearly applies to and excludes this use for that tier. Answer \"no\" if the clause is about something else or clearly does not restrict this use for that tier. Answer \"unclear\" if the wording could reasonably be read either way.\n\nOutput JSON only: {\"covers\": \"yes\" | \"no\" | \"unclear\", \"reason\": \"<one sentence>\"}",
+ "docs": "",
+ "text": "```json\n{\"covers\": \"no\", \"reason\": \"The clause restricts standalone distribution, content ID registration, broadcast television, and paid advertising, none of which encompass earning ad revenue from background music in an online video.\"}\n```",
+ "elapsed_ms": 1636,
+ "created": "2026-09-27T19:41:09Z"
+}

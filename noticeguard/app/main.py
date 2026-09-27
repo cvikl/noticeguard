@@ -23,7 +23,8 @@ DATA = ROOT / "data" / "synthetic"
 app = FastAPI(title="NoticeGuard", version="0.1.0", docs_url="/api/docs", redoc_url=None)
 
 DEMO_SETS = {
-    "maya": {"folders": ["maya"], "step": "dispute", "stated": StatedFields(name="Maya Ortiz", address="", phone="", monetised="yes", channel_name="Maya Draws")},
+    "maya": {"folders": ["maya_bernard_v2"], "step": "dispute", "stated": StatedFields(name="Maya Ortiz", address="", phone="", monetised="yes", channel_name="Maya Draws")},
+    "maya-v3": {"folders": ["maya_bernard_v3"], "step": "dispute", "stated": StatedFields(name="Maya Ortiz", monetised="yes", channel_name="Maya Draws")},
     "leo": {"folders": ["leo"], "step": "counter_notice", "stated": StatedFields(name="Leo Marsh", address="22 Harbourside Walk, Bristol BS1 5UH, United Kingdom", phone="+44 117 496 0812", monetised="yes", channel_name="Leo Marsh Music")},
 }
 

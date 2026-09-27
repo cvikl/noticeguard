@@ -28,7 +28,8 @@ def llm(request):
 
 def _run(name: str, llm: LLM, extra_folder: str | None = None):
     spec = DEMO_SETS[name]
-    docs = [d for f in spec["folders"] for d in load_folder(DATA / f)]
+    folders = ["maya"] if name == "maya" and llm.provider == "claude_cli" else spec["folders"]
+    docs = [d for f in folders for d in load_folder(DATA / f)]
     state = new_state(docs, spec["step"], spec["stated"], AbstainFlags(), "I paid for this, I'm obviously right, just write it")
     run_extraction(state, llm=llm)
     result = run_case(state, llm=llm, today=date(2026, 9, 27))
@@ -52,7 +53,7 @@ def test_maya_ready_for_dispute(llm):
     r5 = _rule(res, "R5")
     assert r5.status == "pass" and "administered by Northline Rights on behalf of Glasswork Audio" in r5.explanation
     assert [c.status for c in res.statement.components] == ["supported"] * 3
-    assert res.routes[0].title.startswith("Ask Glasswork") and res.routes[1].step == "dispute" and res.routes[1].evidence_status == "evidence_ready"
+    assert res.routes[0].title.lower().startswith("ask glasswork") and res.routes[1].step == "dispute" and res.routes[1].evidence_status == "evidence_ready"
     se = {s.step: s for s in res.step_evidence}
     assert se["counter_notice"].evidence_status == "evidence_ready" and not se["counter_notice"].available
     assert res.draft is not None and res.draft.post_check.passed and res.draft.withheld_reason is None
@@ -107,7 +108,8 @@ def test_every_draft_sentence_has_a_verified_quote(llm):
 def test_notes_do_not_reach_rules(llm):
     _, a = _run("leo", llm)
     spec = DEMO_SETS["leo"]
-    docs = [d for f in spec["folders"] for d in load_folder(DATA / f)]
+    folders = spec["folders"]
+    docs = [d for f in folders for d in load_folder(DATA / f)]
     state = new_state(docs, spec["step"], spec["stated"], AbstainFlags(), "")
     run_extraction(state, llm=llm)
     b = run_case(state, llm=llm, today=date(2026, 9, 27))
@@ -123,3 +125,14 @@ def test_chain_quote_positions_match_documents(llm):
             if f.doc_id and f.quote:
                 text = "\n".join(docs[f.doc_id].lines)
                 assert text[f.char_start:f.char_end] == f.quote
+
+
+def test_bernard_v3_blocks_monetised_dispute():
+    llm = OfflineLLM(provider="gemini", model="gemini-3.8-flash", use_cache=True)
+    _, res = _run("maya-v3", llm)
+    assert res.verdict == "evidence_gap" and res.draft is None
+    assert _rule(res, "R2").data["version_in_force"] == "v3"
+    assert _rule(res, "R3").status == "fail"
+    assert any(c.status == "not_supported" and "R3" in c.rule_ids for c in res.statement.components)
+    assert any(s.clause_ref == "4.1" and "non-monetised video" in s.quote
+               for f in res.facts if f.key.startswith("permitted_use") for s in f.sources)

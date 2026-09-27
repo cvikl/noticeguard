@@ -268,3 +268,7 @@ body:not(.has-case) .workspace-journey { display:none; }
 }
 
 .case-sidebar .document-item small { display:none; }
+
+/* Source quotation beside the statement component for review. */
+.component-source { margin: 12px 0 0; padding: 12px 16px; border-left: 2px solid currentColor; font-size: 15px; line-height: 1.5; }
+.component-source small { display: block; margin-top: 6px; font: 11px/1.4 monospace; overflow-wrap: anywhere; }

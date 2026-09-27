@@ -136,10 +136,12 @@
     const heading = r.verdict === 'evidence_ready' ? `Evidence ready for your ${STEP[r.chosen_step]}` : r.verdict === 'evidence_gap' ? `Your ${STEP[r.chosen_step]} has an evidence gap` : `An adviser needs to review this`;
     const lead = splitSentences(r.verdict_explanation)[0] || '';
     const lowestRoute = [...r.routes].sort((a,b) => a.rank - b.rank)[0];
-    const comps = r.statement.components.map(c => { const [t, cls, ic] = STATUS[c.status]; return `
+    const comps = r.statement.components.map(c => { const [t, cls, ic] = STATUS[c.status];
+      const permission = c.rule_ids.includes('R3') ? r.facts.filter(f => f.key.startsWith('permitted_use')).flatMap(f => f.sources || []).find(source => source.clause_ref === '4.1' && r.documents.some(d => d.id === source.doc_id && d.doc_type === 'licence_certificate')) : null;
+      return `
       <li class="component clickable" data-sid="${esc(c.sentence_id)}" tabindex="0" role="button">
         <span>${chip(t, cls, ic)}</span>
-        <div><div class="lbl">${esc(c.label)}</div><div class="why">${esc(c.explanation)}</div></div>
+        <div><div class="lbl">${esc(c.label)}</div><div class="why">${esc(c.explanation)}</div>${permission ? `<blockquote class="component-source">“${esc(permission.quote)}”<small>${esc(permission.doc_filename)} · §${esc(permission.clause_ref)}</small></blockquote>` : ''}</div>
       </li>`; }).join('');
     const routes = r.routes.map(x => `
       <li class="route clickable" data-sid="${esc(x.sentence_id)}" tabindex="0" role="button">
@@ -162,13 +164,15 @@
         <p class="sentence" data-sid="verdict" tabindex="0" role="button">${esc(lead)}</p>
       </section>
       ${r.statement.consequence ? `<p class="answer-consequence">${esc(r.statement.consequence)}</p>` : ''}
+      ${lowestRoute ? `<section class="answer-route"><span class="eyebrow">LOWEST-RISK ROUTE</span><h2 class="sentence" data-sid="${esc(lowestRoute.sentence_id)}" tabindex="0" role="button">${esc(lowestRoute.title)}</h2><p>${esc(lowestRoute.description)}</p>${vchip(lowestRoute.evidence_status)}</section>` : ''}
+      <section class="section"><h2>The statement your evidence supports</h2><ul class="components">${comps}</ul></section>
       ${draft || gaps || `<p class="lede">${r.verdict === 'needs_adviser' ? 'Bring your claim notice, licence and correspondence to an adviser before deciding how to respond.' : 'Review the evidence record below for the facts supporting this result.'}</p>`}
       ${!draft && r.verdict !== 'evidence_ready' ? '<p class="draft-note">No draft yet. Each part of the statement needs documentary support.</p><button class="btn secondary sm" type="button" data-add-evidence>Add supporting evidence <span>+</span></button>' : ''}
-      ${lowestRoute ? `<section class="answer-route"><span class="eyebrow">LOWEST-RISK ROUTE</span><h2 class="sentence" data-sid="${esc(lowestRoute.sentence_id)}" tabindex="0" role="button">${esc(lowestRoute.title)}</h2><p>${esc(lowestRoute.description)}</p>${vchip(lowestRoute.evidence_status)}</section>` : ''}
+
       <details class="report-details"><summary>Why this is the answer</summary>
         <p class="lede sentence" data-sid="verdict" tabindex="0" role="button">${esc(r.verdict_explanation)}</p>
         <section class="section"><h2>The claim</h2><ul class="claim-list prose">${r.claim_summary.map(s => `<li><span class="sentence" data-sid="${esc(s.id)}" tabindex="0" role="button">${esc(s.text)}</span></li>`).join('')}</ul></section>
-        <section class="section"><h2>The statement you would make</h2><blockquote class="statement">“${esc(r.statement.text)}”</blockquote><ul class="components">${comps}</ul></section>
+        <section class="section"><h2>The statement you would make</h2><blockquote class="statement">“${esc(r.statement.text)}”</blockquote></section>
         ${state.diff && state.diff.verdict_before !== 'none' ? `<section class="section"><h2>What changed</h2><p>${esc(state.diff.summary)}</p></section>` : ''}
       </details>
       <details class="report-details"><summary>Compare all routes</summary><ol class="routes">${routes}</ol></details>

@@ -1,0 +1,12 @@
+{
+ "provider": "gemini",
+ "model": "gemini-3.8-flash",
+ "temperature": 0.7,
+ "run": 0,
+ "system": "You answer one narrow interpretation question about a licence clause. Output JSON only.",
+ "prompt": "Given this statement from an email sent by the music licensor (quoted verbatim):\n\n\"We've extended your licence: you're cleared to use Glasslight in monetised ClipStream videos on your channel Maya Draws.\"\n\nand this actual use of the music by the licence holder:\n- medium: background music in a video\n- platform: ClipStream\n- channel: Maya Draws\n- monetised: yes (ads on, the creator earns revenue)\n- licence tier held: Standard\n- work: Glasslight\n\nQuestion: does the statement, on its own wording, grant or confirm permission that covers this actual use?\nAnswer \"yes\" only if it clearly does. Answer \"no\" if it clearly does not (different work, different channel, or explicitly excludes this use). Answer \"unclear\" if it could reasonably be read either way.\n\nOutput JSON only: {\"covers\": \"yes\" | \"no\" | \"unclear\", \"reason\": \"<one sentence>\"}",
+ "docs": "",
+ "text": "```json\n{\"covers\": \"yes\", \"reason\": \"The statement explicitly clears the use of 'Glasslight' in monetised ClipStream videos on the 'Maya Draws' channel, which exactly matches all parameters of the actual use.\"}\n```",
+ "elapsed_ms": 1508,
+ "created": "2026-09-27T19:10:45Z"
+}
