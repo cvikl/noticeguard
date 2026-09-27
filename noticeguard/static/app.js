@@ -314,9 +314,7 @@
   }
   function renderSidebar() {
     const r = state.result;
-    $('#case-sidebar').innerHTML = `<div class="sidebar-heading"><span class="eyebrow">YOUR CASE</span><button class="round-button" type="button" data-settings aria-label="Case settings">···</button></div>
-      <div class="case-card"><span class="case-owner">${esc(r.stated.channel_name || r.stated.name || 'Your evidence check')}</span><h1><span class="status-dot ${VCLASS[r.verdict]}"></span>${esc(VERDICT[r.verdict])}</h1><span class="case-step">${esc(STEP[r.chosen_step])} check</span></div>
-      <section class="claim-journey" aria-labelledby="claim-journey-title"><div class="sidebar-heading"><span class="eyebrow" id="claim-journey-title">CLAIM JOURNEY</span></div>
+    $('#case-sidebar').innerHTML = `<section class="claim-journey" aria-labelledby="claim-journey-title"><div class="sidebar-heading"><span class="eyebrow" id="claim-journey-title">CLAIM JOURNEY</span></div>
       ${r.stage === 'unknown' ? '<p class="journey-unknown">Stage not established by the documents.</p>' : ''}
       <ol>${W.processJourney(r).map(n => `<li class="journey-node${n.current ? ' is-current' : ''}${n.recorded ? ' is-recorded' : ''}${n.reviewing ? ' is-reviewing' : ''}" data-stage="${n.id}"${n.current ? ' aria-current="step"' : ''}><span class="journey-marker" aria-hidden="true">${n.recorded && !n.current ? '✓' : ''}</span><div><b>${esc(n.label)}</b><small>${esc(n.detail)}</small>${n.reviewing ? `<span class="journey-review">${esc(n.reviewLabel)}</span>` : ''}</div></li>`).join('')}</ol>
       <button class="process-details-link" type="button" data-process>Process details <span aria-hidden="true">↗</span></button></section>
