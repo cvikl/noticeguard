@@ -1,0 +1,26 @@
+## Analysis
+
+A DMCA counter‑notice requires you to state, **under penalty of perjury**, that you have a **good‑faith belief the material was removed as a result of mistake or misidentification**, and to **consent to federal court jurisdiction**. That's a real legal declaration with real consequences (the claimant can sue you within the response window), so it's worth being precise about what your documents actually establish.
+
+**What supports your position:**
+- You purchased a Standard licence for *Glasslight* on 19 Aug 2025 (receipt + certificate, GA-2025-08231).
+- The Standard licence terms explicitly limit monetised use to a Pro tier (certificate §4.1, terms §4.1).
+- On 1–2 Sep 2025, *before* you published, you proactively asked Glasswork Support whether Standard covered your monetised full-set video. Support (Priya, ticket GW-SUP-55120) confirmed Standard alone wouldn't cover it, but **extended your licence in writing** to cover monetised use on your specific channel, "as a goodwill gesture," at no extra fee.
+- Your video was published 10 Sep 2025 with monetisation on — after that extension was granted.
+- The claim wasn't raised until 12 Sep 2025, so the extension predates everything ClipStream/Northline did.
+
+This is a coherent, dated paper trail that would plausibly support a good-faith belief that the takedown was a **mistake based on incomplete licensing information** — Northline Rights (the administrator) evidently based its dispute/appeal decisions on your Standard-tier licence record, without knowledge of Glasswork's separate goodwill extension.
+
+**Where this gets shaky — and why I wouldn't file yet:**
+
+1. **The extension is informal.** It's a support email, not a licence certificate or amendment, and the licensor terms (v3) never describe support emails as a valid mechanism for varying licence tiers. A claimant or court could argue Priya lacked authority to unilaterally upgrade a licence tier by email, or that it's unenforceable against Northline Rights, the actual rights administrator, who never countersigned or logged it.
+
+2. **You haven't used the channel the licensor told you to use.** Both the track page and the support email say: if a claim comes in, **contact support@glasswork.audio with the case reference so Glasswork can ask Northline Rights to release the claim.** Nothing in your documents shows you did this at any point — not at the claim, the dispute, or the appeal. That's likely *why* Northline rejected everything twice: they had no record of the goodwill extension. This is a live, low-risk option (per the removal notice's own "ask the claimant to retract" path) that hasn't been tried, and it doesn't carry the litigation exposure a counter-notice does.
+
+3. **Stakes are asymmetric.** You already have one strike. A counter-notice is the right tool if Northline still won't budge after Glasswork intervenes — but firing it now, on the strength of an informal email that the rights-holder's own administrator may not recognize, risks a dispute over whether your "good faith belief" was reasonable, and it invites the claimant to actually litigate rather than let the claim lapse.
+
+Given that this hinges on the legal weight of an informal licence variation and a legal declaration with litigation consequences, I'd get this reviewed by someone with legal training (or at minimum, get Glasswork to confirm the extension in a form addressed to Northline Rights, referencing case CS-CLM-91077) before submitting a sworn counter-notice.
+
+**Suggested immediate step, not a counter-notice:** email support@glasswork.audio, reference ticket GW-SUP-55120 and case CS-CLM-91077, and ask them to instruct Northline Rights to retract the removal per their own stated process. Keep the counter-notice in reserve if that fails or stalls.
+
+VERDICT: ADVISER

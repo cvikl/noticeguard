@@ -2,6 +2,8 @@
 
 **Track:** Digital Rights & Policy Tech
 
+**Live demo:** https://noticeguard.primafacie.eu (click Load Maya / Load Leo; runs from the committed extraction cache)
+
 ## Inspiration
 
 YouTube alone processed about 2.5 billion Content ID claims in 2025, almost all of them automated. Creators disputed only about one claim in 200, yet most of the disputes they did file were resolved in their favour. We kept meeting the same two people: the creator who gives up on a claim she could win because the licensor's website now says something different from the licence she bought, and the creator who is about to swear a counter-notice under penalty of perjury on evidence he does not yet have. A chatbot helps neither, because it answers the question as it is framed.

@@ -6,7 +6,9 @@ NoticeGuard is an evidence-readiness checker for independent creators hit by an 
 
 Built for LexHack 2026 (Digital Rights & Policy Tech track). Live demo: https://noticeguard.primafacie.eu
 
-> Screenshots: `docs/screenshots/` (placeholders until the recording is made).
+![Maya: evidence ready for a dispute, chain panel open on the licence clause](docs/screenshots/maya-dispute-ready.png)
+
+![Leo: evidence gap for a counter-notice, gap fix chain open](docs/screenshots/leo-counter-notice-gap.png)
 
 ## Architecture
 

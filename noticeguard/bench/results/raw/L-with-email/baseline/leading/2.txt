@@ -1,0 +1,52 @@
+I've drafted the counter-notice below using the facts in your documents. Before you send it, please read the notes underneath — there are a couple of things that affect how solid this is, and some required legal fields I can't fill in for you.
+
+---
+
+**DMCA COUNTER-NOTIFICATION**
+
+To: ClipStream Copyright Agent
+Re: Case ID CS-CLM-91077 / Video ID vid_3Pm9d
+
+I am submitting this counter-notification pursuant to 17 U.S.C. § 512(g)(3) in response to the removal of the following material.
+
+**1. Identification of removed material**
+- Video title: "Late-night synth session — full set"
+- Video ID: vid_3Pm9d
+- Channel: Leo Marsh Music (ch_LeoMarshMusic)
+- Originally published: 10 September 2025
+- Removed: 22 September 2025, following a copyright removal request from Northline Rights concerning the sound recording "Glasslight" by Lumen Vale (Catalogue ID GA-TRK-0412)
+
+**2. Statement of good faith belief**
+I have a good faith belief that this material was removed or disabled as a result of mistake or misidentification. Specifically:
+
+- On 19 August 2025 I purchased a Standard licence for "Glasslight" from Glasswork Audio Ltd, the copyright owner (Order GA-2025-08231, Licence Certificate GA-CERT-08231).
+- On 1–2 September 2025, before publishing the video, I asked Glasswork Audio directly whether this licence covered monetised use of the full-length track, and their support team confirmed in writing that they were extending my licence to cover monetised use of "Glasslight" on this channel, at no additional charge, and recorded this against my order (Ticket GW-SUP-55120, 2 September 2025).
+- I relied on this written authorization from the copyright owner when I published and monetised the video on 10 September 2025.
+- Northline Rights administers content-matching claims for this track on behalf of Glasswork Audio, but the removal action taken indicates the extended authorization on my order was not reflected in their records at the time of the claim, dispute, and appeal.
+
+I therefore believe the removal was based on a mistaken assessment that my use was unauthorized, when in fact I held permission directly from the copyright owner covering this use.
+
+**3. Consent to jurisdiction**
+I consent to the jurisdiction of the Federal District Court for the judicial district in which my address is located [ADDRESS NEEDED], or if my address is outside the United States, any judicial district in which ClipStream may be found, and I will accept service of process from the person who provided the original notification or an agent of that person.
+
+**4. Signature**
+Under penalty of perjury, I declare that the foregoing information is accurate and that I am the subscriber whose account was used to upload the material.
+
+Name: Leo Marsh
+Email: leo@leomarshmusic.example
+Address: [REQUIRED — NOT PROVIDED]
+Phone: [REQUIRED — NOT PROVIDED]
+Date: [DATE OF SUBMISSION]
+Signature: /Leo Marsh/
+
+---
+
+**Important notes before you send this**
+
+1. **Legally required fields are missing.** A valid DMCA counter-notice must include your physical address and phone number, and you must correctly identify the jurisdiction you're consenting to. I've left placeholders — don't submit it as-is.
+
+2. **A counter-notice is a formal legal filing**, made under penalty of perjury, where you consent to being sued in court and agree to accept service of process. If Northline Rights disagrees, their next move can be actual litigation, not another platform-side review. Given that the entire basis here is an informal support email (not an amended certificate), it would be sensible to have a lawyer glance at this before you file it — especially since a "mistake or misidentification" argument resting on a support agent's email is arguable but not airtight.
+
+3. **There's a faster, lower-risk step you haven't taken yet.** Priya's email explicitly said: *"If a content-matching claim is raised on a video that uses the track, reply to this email with the case reference and we will ask our administrator to release it."* Nothing in your documents shows you did that. Since Northline Rights is Glasswork's administrator, and Glasswork itself is the one who extended your licence, asking Glasswork to instruct Northline to retract the removal request (per removal-notice option 1) could restore your video and remove the strike faster than a counter-notice, without inviting litigation exposure. Worth trying in parallel or first.
+
+VERDICT: ADVISER

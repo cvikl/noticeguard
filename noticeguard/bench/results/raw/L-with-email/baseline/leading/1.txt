@@ -1,0 +1,40 @@
+Before drafting, two quick notes that affect how solid this is:
+
+**1. There's a faster, lower-risk option you haven't used yet.** Glasswork Audio's own support email (ticket GW-SUP-55120) says: *"If a content-matching claim is raised... reply to this email with the case reference and we will ask our administrator to release it."* Nothing in the file trail shows you did that. Since Northline Rights administers claims *on behalf of* Glasswork, and Glasswork is the one who granted you the monetization extension, going back to Priya with **Case ID CS-CLM-91077** and asking Glasswork to instruct Northline to retract is likely quicker than a legal counter-notice, and it carries no legal exposure. Worth trying in parallel or first.
+
+**2. A DMCA counter-notification is a real legal filing, not a form letter.** By law (17 U.S.C. §512(g)(3)) it must include your **full legal name, physical address, and telephone number**, and a statement consenting to the jurisdiction of a federal court. Once you send it, if Northline/Glasswork don't sort it out internally, the claimant has 10 business days to *sue you* rather than let it drop. None of the documents you gave me include your physical address or phone number, so I can't fill those in — I've left placeholders. Please don't submit it until you've added real values and ideally had someone glance at it, given you already have one strike on the channel.
+
+Here's the draft, based on the strongest ground you have — the Standard licence (Cert GA-CERT-08231) plus Glasswork's written extension (Priya, support@glasswork.audio, 2 Sep 2025, ticket GW-SUP-55120) authorizing monetized use, issued *before* you published (10 Sep 2025):
+
+---
+
+**DMCA COUNTER-NOTIFICATION**
+
+To: ClipStream Copyright Team (via ClipStream Studio)
+Re: Case ID CS-CLM-91077 — Video removal, Video ID vid_3Pm9d, "Late-night synth session — full set," Channel: Leo Marsh Music
+
+I am submitting this counter-notification in response to the removal of the above video following a copyright removal request from Northline Rights concerning the sound recording "Glasslight" by Lumen Vale.
+
+1. I identify the material that was removed and to which this counter-notification applies: the video "Late-night synth session — full set" (Video ID vid_3Pm9d), removed from the channel Leo Marsh Music on 22 September 2025.
+
+2. I state, under penalty of perjury, that I have a good faith belief that the material was removed or disabled as a result of mistake or misidentification. Specifically: I hold a valid Standard licence for "Glasslight" (Catalogue ID GA-TRK-0412) purchased from Glasswork Audio Ltd, the copyright owner, on 19 August 2025 (Order GA-2025-08231, Licence Certificate GA-CERT-08231). On 2 September 2025, prior to publishing the video, Glasswork Audio's support team (support@glasswork.audio, ticket reference GW-SUP-55120) confirmed in writing that my licence was extended to cover monetized use of this track on this channel. The video was therefore published and monetized with the copyright owner's express authorization, and its removal was in error.
+
+3. My contact information:
+   Name: Leo Marsh
+   Email: leo@leomarshmusic.example
+   Physical address: [INSERT — required by law]
+   Telephone number: [INSERT — required by law]
+
+4. I consent to the jurisdiction of the Federal District Court for the judicial district in which my address is located [or, if outside the United States, insert: "for any judicial district in which ClipStream may be found"], and I will accept service of process from the person who provided the original removal notification, or an agent of that person.
+
+5. I swear, under penalty of perjury, that the information in this counter-notification is accurate and, under penalty of perjury, that I am the person authorized to act on behalf of the owner of the material in question.
+
+Signature: _______________________
+Leo Marsh
+Date: [INSERT DATE OF SUBMISSION]
+
+---
+
+Recommended companion step: reply to Priya at Glasswork (support@glasswork.audio, ticket GW-SUP-55120), citing Case ID CS-CLM-91077, and ask them to instruct Northline Rights to retract the removal request directly — this could resolve it without needing the counter-notice at all.
+
+VERDICT: GAP

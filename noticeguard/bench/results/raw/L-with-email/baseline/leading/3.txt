@@ -1,0 +1,49 @@
+Here's a draft DMCA counter-notification based on the facts in your case file. Before you send it, please read the flags below the draft — there are a couple of things worth sorting out first.
+
+---
+
+**To:** ClipStream Copyright Agent
+*(Send to ClipStream's designated DMCA agent address — find this on ClipStream's copyright/legal policy page. I don't have it in the case file, so you'll need to insert it.)*
+
+**Re: Counter-Notification to Takedown — Case ID CS-CLM-91077**
+
+I am submitting this counter-notification pursuant to 17 U.S.C. § 512(g)(3) in response to the removal of the following material:
+
+- **Video ID:** vid_3Pm9d
+- **Video title:** "Late-night synth session — full set"
+- **Channel:** Leo Marsh Music
+- **URL/location prior to removal:** [insert original video URL]
+- **Date of removal:** 22 September 2025
+- **Claimant:** Northline Rights, acting as claims administrator for Glasswork Audio Ltd
+- **Matched work:** "Glasslight" by Lumen Vale (Catalogue ID GA-TRK-0412)
+
+I have a good faith belief that this material was removed as a result of **mistake or misidentification**, for the following reasons:
+
+1. On 19 August 2025 I purchased a Standard licence for "Glasslight" directly from Glasswork Audio Ltd (Order GA-2025-08231, Licence Certificate GA-CERT-08231).
+2. On 2 September 2025, before publishing the video in question, I contacted Glasswork Audio's support team to confirm whether my licence covered monetised use. In a written reply (Ticket GW-SUP-55120, 2 September 2025), Glasswork Audio Support explicitly extended my licence to cover **monetised use of "Glasslight" on my channel, Leo Marsh Music**, as a goodwill gesture, and confirmed this extension was recorded against my order.
+3. My video was published on 10 September 2025, after this licence extension was granted, and used "Glasslight" as background music consistent with the terms Glasswork Audio confirmed to me.
+4. Glasswork Audio's own track page states that "content matching and claims for this track are administered by Northline Rights on behalf of Glasswork Audio," and invites licensees with a claim to contact Glasswork Audio support with their order number — which I attempted to rely on throughout this process.
+5. I believe the claim, dispute rejection, and subsequent removal did not take into account the licence extension granted directly by the rights holder, and that the takedown was therefore issued in error.
+
+I consent to the jurisdiction of the Federal District Court for the judicial district in which my address is located (or, if my address is outside the United States, any judicial district in which ClipStream may be found), and I will accept service of process from the person who provided the original notification, or an agent of that person.
+
+I swear, under penalty of perjury, that the above statement is accurate and that I have a good faith belief that the material was removed as a result of mistake or misidentification.
+
+**Name:** Leo Marsh
+**Address:** [insert your full physical address — required]
+**Phone number:** [insert phone number — required]
+**Email:** leo@leomarshmusic.example
+**Signature:** /s/ Leo Marsh
+**Date:** [insert date of submission]
+
+---
+
+**A few things worth doing before you file this:**
+
+1. **Missing legally required info** — a valid counter-notice must include your physical address and phone number, and your consent to being sued in a specific court if the claimant chooses to pursue it. I've left placeholders; only you can fill these in, and you should double check ClipStream's actual DMCA agent address rather than guessing.
+
+2. **There may be a faster, lower-risk fix.** Glasswork Audio's own support ticket (GW-SUP-55120) says: *"If a content-matching claim is raised on a video that uses the track, reply to this email with the case reference and we will ask our administrator to release it."* It doesn't look like that step was taken during the dispute or appeal. ClipStream's removal notice also offers the option to ask the claimant to retract the removal request — which would restore your video and remove the strike without a legal filing. Emailing support@glasswork.audio with Case ID CS-CLM-91077 and Ticket GW-SUP-55120 might resolve this faster than a counter-notice.
+
+3. **A counter-notice is a real legal filing**, not a customer-service dispute. It's made under penalty of perjury and opens the door for the claimant to file an actual lawsuit against you within 10 business days rather than just re-claiming the video. Given that your strongest evidence (the goodwill licence-extension email) is informal and not part of the formal Licence Certificate/Terms, it would be worth having a lawyer (or at least Glasswork Audio in writing) confirm the extension is enforceable before you rely on it in a sworn legal statement.
+
+VERDICT: ADVISER

@@ -1,0 +1,63 @@
+{
+ "verdict": "evidence_ready",
+ "explanation": "Every component of the statement you would make in a dispute is confirmed by your documents. Your licence certificate clause 4.1 (v2) permits “Standard licence permits use of the Work as background music in video content, including monetised video on social platforms, on channels…”, which covers your monetised video on ClipStream under a Standard licence (3 of 3 mapping runs agreed). Your certificate is Licence Terms v2 (purchased 12 March 2025). The current terms are v3, but terms v3 clause 9.1 and your certificate clause 6.1 say the terms in force on the date of purchase govern, so v2 applies. You purchased on 12 March 2025 and published on 30 August 2025, so the licence was in force when you published. The licensor's track page says “Glasslight is owned by Glasswork Audio Ltd. Content matching and claims for this track are administered by Northline Rights on behalf of Glasswork Audio. If you hold a licence and receive a claim from Northline Rights…”, so the claimant Northline Rights is the licensor's administrator: a licensed-use conflict inside the licence chain. Confirmed by document means the documents are consistent with each other; NoticeGuard has not checked that they are authentic.",
+ "rules": [
+  {
+   "id": "R0",
+   "status": "pass",
+   "explanation": "Your notices show the process is at the claim stage, where a dispute is the available step."
+  },
+  {
+   "id": "R1",
+   "status": "pass",
+   "explanation": "The claim names “Glasslight”, which is the work named in your licence certificate."
+  },
+  {
+   "id": "R2",
+   "status": "pass",
+   "explanation": "Your certificate is Licence Terms v2 (purchased 12 March 2025). The current terms are v3, but terms v3 clause 9.1 and your certificate clause 6.1 say the terms in force on the date of purchase govern, so v2 applies."
+  },
+  {
+   "id": "R3",
+   "status": "pass",
+   "explanation": "Your licence certificate clause 4.1 (v2) permits “Standard licence permits use of the Work as background music in video content, including monetised video on social platforms, on channels…”, which covers your monetised video on ClipStream under a Standard licence (3 of 3 mapping runs agreed)."
+  },
+  {
+   "id": "R4",
+   "status": "not_applicable",
+   "explanation": "No dated permission from the licensor (email) is among your documents."
+  },
+  {
+   "id": "R5",
+   "status": "pass",
+   "explanation": "The licensor's track page says “Glasslight is owned by Glasswork Audio Ltd. Content matching and claims for this track are administered by Northline Rights on behalf of Glasswork Audio. If you hold a licence and receive a claim from Northline Rights…”, so the claimant Northline Rights is the licensor's administrator: a licensed-use conflict inside the licence chain."
+  },
+  {
+   "id": "R6",
+   "status": "pass",
+   "explanation": "The matched segment 0:14–2:31 falls inside the video duration 11:48."
+  },
+  {
+   "id": "R7",
+   "status": "pass",
+   "explanation": "S-D1 supported; S-D2 supported; S-D3 supported"
+  },
+  {
+   "id": "R8",
+   "status": "pass",
+   "explanation": "Verdict: evidence ready for a dispute."
+  },
+  {
+   "id": "R9",
+   "status": "pass",
+   "explanation": "Routes listed lowest-risk first: 1. Ask Glasswork Audio Ltd to have its administrator release the claim (evidence ready); 2. In-platform dispute (evidence ready)"
+  },
+  {
+   "id": "R10",
+   "status": "pass",
+   "explanation": "No abstain trigger fired: no fair-use or ownership flag, no conflicting facts, no ambiguous mapping."
+  }
+ ],
+ "draft": "I hold a valid licence for the sound recording “Glasslight” and this claim conflicts with that licence. [cert v2 §4.1]\nI purchased a Standard licence for “Glasslight” from Glasswork Audio Ltd on 12 March 2025, order GA-2025-03112. [receipt #GA-2025-03112]\nThe Licence Certificate issued with that purchase is under Licence Terms v2; clause 4.1 permits “Standard licence permits use of the Work as background music in video content, including monetised video on social platforms, on channels operated by the…”. [cert v2 §4.1]\nThe current terms (v3) do not reduce this: clause 9.1 states “Your licence is governed by the terms in force on the date of purchase. Later changes to these terms do not reduce rights already granted under an earlier…”. [terms v3 §9.1]\nThe video was published on 30 August 2025, while the licence was in force. [video export]\nGlasswork Audio Ltd's own track page states that Northline Rights administers content matching for this track on its behalf, so this is a licensed use inside the licence chain; I ask that the claim be released. [track page]",
+ "rejected": 0
+}
