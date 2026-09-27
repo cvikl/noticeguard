@@ -9,9 +9,12 @@ from __future__ import annotations
 import json
 import re
 import shutil
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from app.ingest import bytes_to_text  # noqa: E402
 SYN = ROOT / "data" / "synthetic"
 OUT = Path(__file__).resolve().parent / "cases"
 AUTHOR = "generate_variants.py (rules author)"
@@ -30,6 +33,10 @@ def copy_set(src_folders: list[Path], dst: Path) -> dict[str, Path]:
             if p.suffix in (".txt", ".eml"):
                 shutil.copy(p, docs / p.name)
                 out[p.name] = docs / p.name
+            elif p.suffix == ".pdf":  # Bernard's PDF certificates: variants edit the extracted text
+                dst_txt = docs / (p.stem + ".txt")
+                dst_txt.write_text(bytes_to_text(p.name, p.read_bytes()))
+                out[dst_txt.name] = dst_txt
     return out
 
 
@@ -45,7 +52,7 @@ def write_expected(dst: Path, case_id: str, step: str, verdict: str, code: str, 
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    maya, leo, leo_email = SYN / "maya", SYN / "leo", SYN / "leo_email"
+    maya, leo, leo_email = SYN / "maya_bernard_v2", SYN / "leo", SYN / "leo_email"
 
     # M-base: Maya as shipped -> ready (v2 4.1 covers monetised; v3 §9.1 governs by purchase date)
     d = OUT / "M-base"; copy_set([maya], d)
@@ -54,7 +61,7 @@ def main() -> None:
     # M-no-governing-clause: remove clause 9 from the current terms AND the cert's 6.1 -> adviser
     d = OUT / "M-no-governing-clause"; files = copy_set([maya], d)
     edit(files["04_licensor_terms_v3_current.txt"], lambda t: re.sub(r"9\. Governing terms\n9\.1 [^\n]+\n\n", "", t))
-    edit(files["03_licence_certificate_v2.txt"], lambda t: re.sub(r"6\. Governing terms\n6\.1 [^\n]+\n\n", "", t))
+    edit(files["03_licence_certificate_v2.txt"], lambda t: re.sub(r"6\.\s+Governing terms\n6\.1\n?(?:[^\n]+\n)+?\n?(?=7\.)", "", t))
     write_expected(d, "M-no-governing-clause", "dispute", "needs_adviser", "no_governing_clause",
                    "Certificate is v2, current terms are v3, and no clause says which version governs.")
 

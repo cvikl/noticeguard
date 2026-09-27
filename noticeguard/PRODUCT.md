@@ -40,7 +40,7 @@ Name: NoticeGuard. Voice: plain English, calm, on the creator's side, never advi
 
 ## Evidence on Hand
 
-- Two full synthetic document sets and a licensor email: data/synthetic/maya, data/synthetic/leo, data/synthetic/leo_email.
+- Synthetic document sets: data/synthetic/maya_bernard_v2 and maya_bernard_v3 (Bernard's PDF certificates plus supporting documents), data/synthetic/leo, and the licensor email in data/synthetic/leo_email.
 - Committed LLM extraction cache so the demo runs offline: cache/llm.
 - Golden expectations: Maya → evidence_ready (dispute); Leo → evidence_gap (counter-notice); Leo + email → evidence_ready.
 - Benchmark results will be whatever they are (bench/results/latest.json); none exist yet and must not be invented.
