@@ -203,7 +203,6 @@ body:not(.has-case) .workspace-journey { display:none; }
 .footer-about a { color:var(--ink); font-size:10px; }
 .error { font-size:12px; }
 .answer-shortcut { flex:none; margin-left:auto; text-align:right; }
-.findings-action { display:flex; justify-content:flex-end; margin-top:16px; padding-top:16px; border-top:1px solid var(--hair); }
 .answer-shortcut .btn { min-height:48px; min-width:168px; justify-content:space-between; font-size:14px; padding:12px 16px 12px 20px; background:#dcf5dc; color:#155c31; border:2px solid #237a42; }
 .answer-shortcut .btn:hover { background:#c8edcb; border-color:#155c31; }
 .answer-shortcut .btn>span { color:inherit; display:grid; place-items:center; width:26px; height:26px; border-radius:50%; background:#ffffff70; }
