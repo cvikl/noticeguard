@@ -41,3 +41,29 @@ test('permission email is singled out only when it supplies otherwise unsupporte
   assert.equal(W.signal(r).rule.rule_id,'R4');
   r.rule_results[0].status='pass';assert.equal(W.signal(r),null);
 });
+
+test('claim journey separates a recorded claim from an unsubmitted dispute review', () => {
+  const nodes=W.processJourney({stage:'claim',chosen_step:'dispute',available_steps:['dispute'],facts:[{key:'notice_kind',value:'claim',status:'confirmed_by_document'}]});
+  assert.equal(nodes.find(n=>n.current).id,'claim');
+  assert.equal(nodes[1].recorded,false);
+  assert.equal(nodes[1].reviewLabel,'Reviewing · not submitted');
+  assert.equal(nodes[2].available,false);
+});
+test('removal does not invent a prior dispute or appeal, and review cannot advance the stage', () => {
+  const nodes=W.processJourney({stage:'removed_with_strike',chosen_step:'counter_notice',available_steps:['counter_notice'],facts:[{key:'notice_kind',value:'removal',status:'confirmed_by_document'}]});
+  assert.deepEqual(nodes.filter(n=>n.recorded).map(n=>n.id),['removed_with_strike']);
+  assert.equal(nodes.find(n=>n.current).id,'removed_with_strike');
+  assert.equal(nodes[4].recorded,false);
+  assert.equal(nodes[4].reviewLabel,'Reviewing · not submitted');
+});
+test('unknown stage and unavailable reviews do not appear as process progress', () => {
+  const nodes=W.processJourney({stage:'unknown',chosen_step:'appeal',available_steps:[],facts:[{key:'notice_kind',value:'claim',status:'conflicting'}]});
+  assert.equal(nodes.some(n=>n.current||n.recorded||n.available),false);
+  assert.equal(nodes[2].reviewLabel,'Reviewing · unavailable here');
+});
+test('a documented rejected dispute makes appeal available without claiming it was submitted', () => {
+  const nodes=W.processJourney({stage:'dispute',chosen_step:'appeal',available_steps:['appeal'],facts:[{key:'notice_kind',value:'dispute_rejected',status:'confirmed_by_document'}]});
+  assert.equal(nodes[1].detail,'Rejected · current stage');
+  assert.equal(nodes[2].detail,'Available next');
+  assert.equal(nodes[2].recorded,false);
+});

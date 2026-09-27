@@ -19,7 +19,6 @@
     { id: 'removed_with_strike', name: 'Removal + strike', risk: 'Three strikes in 90 days can end the channel' },
     { id: 'counter_notice', name: 'Counter-notice', risk: 'Sworn statement; claimant may sue', step: 'counter_notice' },
   ];
-  const STAGE_INDEX = { claim: 0, dispute: 1, appeal: 2, removed_with_strike: 3, unknown: -1 };
 
   const state = { caseId: null, result: null, files: [], active: null, diff: null };
 
@@ -185,17 +184,18 @@
       $('#rail').innerHTML = RAIL.map(n => `<div class="stage idle"><span class="dot"></span><div class="name">${esc(n.name)}</div>${n.risk ? `<div class="risk">${esc(n.risk)}</div>` : ''}</div>`).join('');
       return;
     }
-    const cur = STAGE_INDEX[r.stage];
+    const journey = W.processJourney(r);
     const se = Object.fromEntries((r.step_evidence || []).map(s => [s.step, s]));
     $('#rail').innerHTML = RAIL.map((n, i) => {
-      const cls = i < cur ? 'past' : i === cur ? 'current' : 'future';
+      const node = journey[i];
+      const cls = node.current ? 'current' : node.recorded ? 'past' : 'future';
       const ev = n.step && se[n.step];
       let chips = '';
       if (ev) {
-        const suffix = ev.available ? '' : i > cur ? ' when reached' : ' (stage passed)';
+        const suffix = ev.available ? '' : ' · unavailable here';
         chips = `<div class="chips">${chip(VERDICT[ev.evidence_status] + suffix, VCLASS[ev.evidence_status] + (ev.available ? '' : ' unavail'), VICON[ev.evidence_status])}</div>`;
       }
-      return `<div class="stage ${cls}"><span class="dot"></span><div class="name">${esc(n.name)}</div>${i === cur ? '<span class="here">You are here</span>' : ''}${(i > cur && n.risk) ? `<div class="risk">${esc(n.risk)}</div>` : ''}${chips}</div>`;
+      return `<div class="stage ${cls}"><span class="dot"></span><div class="name">${esc(n.name)}</div><span class="here">${esc(node.detail)}</span>${node.reviewing ? `<div class="risk">${esc(node.reviewLabel)}</div>` : ''}${!node.recorded && !node.current && n.risk ? `<div class="risk">${esc(n.risk)}</div>` : ''}${chips}</div>`;
     }).join('');
     const dl = $('#deadlines');
     if (r.deadlines && r.deadlines.length) {
@@ -316,6 +316,10 @@
     const r = state.result;
     $('#case-sidebar').innerHTML = `<div class="sidebar-heading"><span class="eyebrow">YOUR CASE</span><button class="round-button" type="button" data-settings aria-label="Case settings">···</button></div>
       <div class="case-card"><span class="case-owner">${esc(r.stated.channel_name || r.stated.name || 'Your evidence check')}</span><h1><span class="status-dot ${VCLASS[r.verdict]}"></span>${esc(VERDICT[r.verdict])}</h1><span class="case-step">${esc(STEP[r.chosen_step])} check</span></div>
+      <section class="claim-journey" aria-labelledby="claim-journey-title"><div class="sidebar-heading"><span class="eyebrow" id="claim-journey-title">CLAIM JOURNEY</span></div>
+      ${r.stage === 'unknown' ? '<p class="journey-unknown">Stage not established by the documents.</p>' : ''}
+      <ol>${W.processJourney(r).map(n => `<li class="journey-node${n.current ? ' is-current' : ''}${n.recorded ? ' is-recorded' : ''}${n.reviewing ? ' is-reviewing' : ''}" data-stage="${n.id}"${n.current ? ' aria-current="step"' : ''}><span class="journey-marker" aria-hidden="true">${n.recorded && !n.current ? '✓' : ''}</span><div><b>${esc(n.label)}</b><small>${esc(n.detail)}</small>${n.reviewing ? `<span class="journey-review">${esc(n.reviewLabel)}</span>` : ''}</div></li>`).join('')}</ol>
+      <button class="process-details-link" type="button" data-process>Process details <span aria-hidden="true">↗</span></button></section>
       <div class="sidebar-heading documents-label"><span class="eyebrow">DOCUMENTS</span><span class="count">${r.documents.length}</span></div>
       <nav class="document-list" aria-label="Choose source document">${r.documents.map((d,i) => `<button type="button" class="document-item" data-doc="${esc(d.id)}" aria-pressed="${d.id === state.docId}" title="${esc(d.filename)}"><span class="document-symbol">${icon('i-doc')}</span><span><b>${esc(DOC_LABEL[d.doc_type] || d.doc_type)}</b><small>${d.extraction_failed ? 'Extraction rejected' : `${d.n_facts} highlights`}</small></span><span class="doc-index">${String(i + 1).padStart(2,'0')}</span></button>`).join('')}</nav>
       <div class="sidebar-bottom"><label class="btn secondary full-width" for="workspace-add">${icon('i-plus')} Add evidence<input class="sr-only" type="file" id="workspace-add" multiple accept=".txt,.md,.pdf,.eml"></label>
@@ -491,6 +495,7 @@
   renderRail(null);
   document.addEventListener('click', e => {
     if (e.target.closest('[data-report]') && state.result) { $('#report-dialog').showModal(); $('#report-dialog').scrollTop = 0; }
+    if (e.target.closest('[data-process]') && state.result) { $('#report-dialog').showModal(); const details = $('#process-details'); details.open = true; details.scrollIntoView({block:'start'}); }
   });
   $('#close-report').onclick = () => $('#report-dialog').close();
   $('#back-to-documents').onclick = () => { if ($('#report-dialog').open) $('#report-dialog').close(); };

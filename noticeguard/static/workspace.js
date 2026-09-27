@@ -60,6 +60,24 @@
     selected.route = [...result.routes].sort((a, b) => a.rank - b.rank)[0];
     return selected;
   }
-  root.NGWorkspace = { categories, category, sourceText, verified, annotations, signal };
+  function processJourney(result) {
+    const notices = new Set((result.facts || []).filter(f => f.key === 'notice_kind' && f.status === 'confirmed_by_document').map(f => f.value));
+    const nodes = [
+      {id:'claim', label:'Claim', detail:'Not recorded', recorded:notices.has('claim'), recordedLabel:'Received'},
+      {id:'dispute', label:'Dispute', detail:'After a claim', recorded:notices.has('dispute_rejected'), recordedLabel:'Rejected'},
+      {id:'appeal', label:'Appeal', detail:'If dispute rejected', recorded:notices.has('appeal_rejected'), recordedLabel:'Rejected'},
+      {id:'removed_with_strike', label:'Removal & strike', detail:'If removal is requested', recorded:['removal','strike','appeal_rejected'].some(k => notices.has(k)), recordedLabel:'Recorded'},
+      {id:'counter_notice', label:'Counter-notice', detail:'After removal', recorded:false},
+    ];
+    return nodes.map(n => {
+      const current = n.id === result.stage;
+      const available = (result.available_steps || []).includes(n.id);
+      const reviewing = n.id === result.chosen_step;
+      return {...n, current, available, reviewing,
+        detail:current ? `${n.id === 'appeal' ? 'In progress' : n.recordedLabel || 'Recorded'} · current stage` : n.recorded ? n.recordedLabel : available ? 'Available next' : n.detail,
+        reviewLabel:reviewing ? (available ? 'Reviewing · not submitted' : 'Reviewing · unavailable here') : ''};
+    });
+  }
+  root.NGWorkspace = { categories, category, sourceText, verified, annotations, signal, processJourney };
   if (typeof module !== 'undefined') module.exports = root.NGWorkspace;
 })(typeof window !== 'undefined' ? window : globalThis);
