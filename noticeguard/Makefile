@@ -1,4 +1,6 @@
 PY ?= python
+export PYTHONPATH :=
+export PYTEST_DISABLE_PLUGIN_AUTOLOAD := 1
 PORT ?= 8000
 
 .PHONY: run test bench seed install

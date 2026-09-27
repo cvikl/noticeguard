@@ -79,8 +79,8 @@ def load_document(path: Path, doc_type: str, doc_id: Optional[str] = None) -> Do
 
 # Guess a doc_type from a filename for the demo loaders
 _FILENAME_HINTS = [
-    (r"claim", "claim_notice"), (r"dispute", "dispute_response"), (r"appeal", "appeal_response"),
-    (r"removal", "removal_notice"), (r"strike", "strike_notice"), (r"receipt|order", "receipt"),
+    (r"removal|removed", "removal_notice"), (r"strike", "strike_notice"), (r"appeal", "appeal_response"),
+    (r"dispute", "dispute_response"), (r"claim", "claim_notice"), (r"receipt|order", "receipt"),
     (r"certificate", "licence_certificate"), (r"terms", "licensor_terms"), (r"track_page|track-page", "track_page"),
     (r"email|\.eml$", "licensor_email"), (r"metadata|studio", "video_metadata"),
 ]

@@ -55,6 +55,7 @@ class RejectedFact(BaseModel):
     value: Any = None
     quote: str = ""
     reason: str
+    kind: str = "dropped_tag"  # dropped_tag | extraction_failed | unparseable
 
 
 class Source(BaseModel):
@@ -230,6 +231,9 @@ class DocumentSummary(BaseModel):
     doc_type: str
     lines: list[str]
     sha256: str
+    extraction_failed: bool = False
+    extraction_error: Optional[str] = None
+    n_facts: int = 0
 
 
 class StepEvidence(BaseModel):
