@@ -1,0 +1,41 @@
+# Copyright Claim Dispute
+
+**Case ID:** CS-CLM-88213
+**Video:** "Studio Vlog #12 — inking the dragon" (Video ID: vid_7Kq2x)
+**Channel:** Maya Draws
+**Claimant:** Northline Rights
+**Matched work:** Glasslight — Lumen Vale (Catalogue ID: GA-TRK-0412)
+**Matched segment:** 0:14–2:31
+
+---
+
+**Basis for dispute: Valid licence held for this content**
+
+I am disputing this claim because I hold a paid, valid licence for the exact track that has been claimed, and my use of it falls squarely within what that licence permits.
+
+**Details of the licence:**
+
+- **Order:** GA-2025-03112, placed 12 March 2025, for a Standard licence to "Glasslight" by Lumen Vale (Catalogue ID: GA-TRK-0412) — the same track and catalogue ID identified in this claim.
+- **Licence Certificate:** GA-CERT-03112, issued 12 March 2025, governed by Glasswork Audio's Licence Terms Version 2 (the version in force on the date of issue).
+- **Certificate clause 4.1 (Licence Terms v2):** "Standard licence permits use of the Work as background music in video content, **including monetised video on social platforms**, on channels operated by the Licensee." This is exactly how the track was used — as background music in a monetised video on my own channel.
+- **Certificate clause 1.2:** The licence is perpetual for content published while the licence is in force. My licence was purchased in March 2025 and remains in force; the disputed video was published on 30 August 2025, while the licence was active.
+
+I am aware that Glasswork Audio's current Licence Terms (Version 3, effective 1 June 2025) restrict the Standard tier to non-commercial use and require a Pro licence for monetised content. However, this does not apply retroactively to my purchase. Version 3, clause 9.1, states explicitly: **"Your licence is governed by the terms in force on the date of purchase. Later changes to these terms do not reduce rights already granted under an earlier version."** My purchase was made under Version 2, which unambiguously permitted the monetised use in question.
+
+**Rights administration note:** Glasswork Audio's own track page confirms that "content matching and claims for this track are administered by Northline Rights on behalf of Glasswork Audio," and instructs licensees who receive a claim to contact support@glasswork.audio with their order number. This claim appears to be an automated match that did not account for the terms version applicable to my specific purchase date.
+
+**Supporting documents attached:**
+1. Order confirmation (GA-2025-03112, 12 March 2025)
+2. Licence Certificate (GA-CERT-03112, Licence Terms v2)
+
+**Requested outcome:** I ask that this claim be released and that ad revenue and full monetisation be restored to this video, as my use of the licensed track is fully authorised under the Licence Terms in force at the time of my purchase.
+
+Please contact me if any further documentation is needed to confirm this licence.
+
+Maya Ortiz
+Channel: Maya Draws
+Order reference: GA-2025-03112
+
+---
+
+VERDICT: READY

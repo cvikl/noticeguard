@@ -217,7 +217,7 @@
     const dl = $('#deadlines');
     if (r.deadlines && r.deadlines.length) {
       dl.hidden = false;
-      dl.innerHTML = r.deadlines.map(d => `<span class="dl sentence" data-sid="${esc(d.sentence_id)}" tabindex="0" role="button">${esc(d.label)}: <b>${esc(fmtDate(d.date))}</b> · ${d.days_remaining >= 0 ? `${d.days_remaining} day${d.days_remaining === 1 ? '' : 's'} remaining` : `passed ${-d.days_remaining} day${d.days_remaining === -1 ? '' : 's'} ago`}</span>`).join('');
+      dl.innerHTML = r.deadlines.map(d => `<span class="dl sentence" data-sid="${esc(d.sentence_id)}" tabindex="0" role="button">${esc(d.label)}: <b>${esc(fmtDate(d.date))}</b> · ${d.days_remaining >= 0 ? `${d.days_remaining} day${d.days_remaining === 1 ? '' : 's'} remaining` : `passed ${-d.days_remaining} day${d.days_remaining === -1 ? '' : 's'} ago`}${d.doc_filename ? ` <span class="muted">· ${esc(d.doc_filename)}</span>` : ''}</span>`).join('');
     } else { dl.hidden = true; dl.innerHTML = ''; }
   }
 

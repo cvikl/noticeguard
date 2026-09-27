@@ -1,0 +1,23 @@
+## Analysis
+
+**What the dispute needs to show:** per the claim notice, a valid dispute ground is "you have a licence or permission from the copyright owner" covering the matched use.
+
+**What your documents establish:**
+
+1. **Same track, same catalogue ID.** The claim (doc 01) matches "Glasslight — Lumen Vale." Your licence certificate (doc 03) and the track page (doc 05) both identify the identical work by Catalogue ID **GA-TRK-0412**. This isn't a soundalike/mistaken-match situation — it's the exact registered track.
+
+2. **You purchased a licence before the video existed.** Order GA-2025-03112, dated **12 March 2025** (doc 02), well before the video was published (30 Aug 2025, doc 06) and long before the claim was issued (20 Sep 2025, doc 01).
+
+3. **The licence, as issued, permits this exact use.** Your Licence Certificate (doc 03, §4.1) states the Standard licence permits use "as background music in video content, **including monetised video on social platforms**, on channels operated by the Licensee." Your video metadata (doc 06) confirms the track is used as background audio and the video was monetised from publish — a direct match to the permitted use.
+
+4. **The later, stricter terms don't undercut you.** Glasswork's current Licence Terms v3 (doc 04, effective 1 June 2025) narrowed the Standard tier to non-commercial use only — but v3 §9.1 explicitly preserves earlier rights: "Your licence is governed by the terms in force on the date of purchase. Later changes to these terms do not reduce rights already granted under an earlier version." Your certificate (doc 03, §6.1) also locks itself to "Licence Terms v2 as in force on the date of issue." So the monetised-use permission you bought under v2 survives the June 2025 change.
+
+5. **The claimant is the licensor's own administrator.** The track page (doc 05) confirms Northline Rights administers claims for this track "on behalf of Glasswork Audio Ltd" — i.e., the very claimant is acting for the company that licensed you the track, which strengthens (not complicates) a dispute based on your licence.
+
+**Gap check:** I don't have the full text of "Licence Terms v2" itself (only the certificate's summary of it and v3's archive reference), but the certificate is signed by Glasswork's Licensing Manager and states the operative permission directly — that should be sufficient documentary support for a dispute submission. No contradicting document exists in your set.
+
+## Draft dispute statement
+
+> I hold a valid licence for this track. Order GA-2025-03112 / Certificate GA-CERT-03112, purchased 12 March 2025 from Glasswork Audio Ltd, covers "Glasslight" by Lumen Vale (Catalogue ID GA-TRK-0412) — the exact work matched in this claim. My certificate is governed by Licence Terms v2 (in force at time of issue), clause 4.1 of which permits use of the Work "as background music in video content, including monetised video on social platforms, on channels operated by the Licensee." That is precisely how the track is used in this video: background music, matched segment 0:14–2:31, monetised, on my channel Maya Draws. Glasswork's current Licence Terms v3 (effective 1 June 2025) restrict the Standard tier to non-commercial use, but v3 §9.1 confirms that "later changes to these terms do not reduce rights already granted under an earlier version" — so my monetised use remains fully covered. Northline Rights administers claims for this track on behalf of Glasswork Audio Ltd, per the official track page. I am attaching my order confirmation and licence certificate as proof. Please release this claim.
+
+VERDICT: READY

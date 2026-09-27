@@ -1,0 +1,23 @@
+## Assessment
+
+**The core question:** If Maya disputes this claim on the grounds that she holds a licence for the track, do the documents support that claim?
+
+**What the documents establish:**
+
+1. **The claimed track matches the licensed track.** The claim notice (Northline Rights, "Glasslight — Lumen Vale," matched segment 0:14–2:31) matches exactly the track in Maya's licence certificate (Catalogue ID GA-TRK-0412, "Glasslight," Lumen Vale) and the video metadata (audio track used: "Glasslight — Lumen Vale, background").
+
+2. **Northline Rights is the correct administrator for this track.** The track page confirms: "Content matching and claims for this track are administered by Northline Rights on behalf of Glasswork Audio." So this isn't a random third-party mismatch — it's the expected rights administrator acting on a licensed catalogue.
+
+3. **The licence, as issued, permits this exact use.** Certificate v2 (issued 12 March 2025, matching the receipt/order) states at 4.1: "Standard licence permits use of the Work as background music in video content, **including monetised video on social platforms**, on channels operated by the Licensee." The video is monetised, on Maya's own channel, using the track as background — a direct match.
+
+4. **The later tightening of terms (v3, effective 1 June 2025) doesn't apply retroactively.** V3 now requires a Pro licence for monetised use, but v3 §9.1 explicitly states: "Later changes to these terms do not reduce rights already granted under an earlier version," and the certificate itself is governed by "Licence Terms v2 as in force on the date of issue" (§6.1). Since Maya purchased and was issued the certificate on 12 March 2025 — before the v3 change — her broader v2 permissions stand.
+
+**Minor gap (not blocking):** The documents don't contain an explicit statement linking "Maya Ortiz" (the named licensee) to the "Maya Draws" channel — it's assumed from context that you are both. If challenged, you should be prepared to confirm this, but it's not something the claimant is likely to dispute, and it doesn't require rewriting your factual claim.
+
+**Draft dispute statement:**
+
+> I hold a valid licence for this track. I purchased a Standard licence for "Glasslight" by Lumen Vale from Glasswork Audio (Order GA-2025-03112, Certificate GA-CERT-03112, issued 12 March 2025). Under the Licence Terms (v2) in force at the time of issue, the Standard tier explicitly permits use of the track as background music in monetised video content on channels operated by the licensee — which is exactly how it is used in this video. I understand Northline Rights administers claims on Glasswork Audio's catalogue on their behalf. I'm attaching the receipt and licence certificate as proof of purchase and request that this claim be released.
+
+This is well-supported by the documents and doesn't require outside legal interpretation — it's a straightforward "I have a licence that covers this" case.
+
+VERDICT: READY

@@ -1,0 +1,63 @@
+{
+ "verdict": "needs_adviser",
+ "explanation": "Your documents raise a question NoticeGuard does not decide: Licence version in force: Your certificate is Licence Terms v2 but the current terms are v3, and no clause in your documents says which version governs. A person should check the licensor's terms; Permitted use covers actual use: The licence version in force is unresolved (see R2), so the permitted-use wording cannot be chosen. A person (for example a university IP clinic or a digital-rights adviser) should look at this before you take any step. Nothing here says you are wrong; it says the paperwork alone does not settle it.",
+ "rules": [
+  {
+   "id": "R0",
+   "status": "pass",
+   "explanation": "Your notices show the process is at the claim stage, where a dispute is the available step."
+  },
+  {
+   "id": "R1",
+   "status": "pass",
+   "explanation": "The claim names “Glasslight”, which is the work named in your licence certificate."
+  },
+  {
+   "id": "R2",
+   "status": "unknown",
+   "explanation": "Your certificate is Licence Terms v2 but the current terms are v3, and no clause in your documents says which version governs. A person should check the licensor's terms."
+  },
+  {
+   "id": "R3",
+   "status": "unknown",
+   "explanation": "The licence version in force is unresolved (see R2), so the permitted-use wording cannot be chosen."
+  },
+  {
+   "id": "R4",
+   "status": "not_applicable",
+   "explanation": "No dated permission from the licensor (email) is among your documents."
+  },
+  {
+   "id": "R5",
+   "status": "pass",
+   "explanation": "The licensor's track page says “Glasslight is owned by Glasswork Audio Ltd. Content matching and claims for this track are administered by Northline Rights on behalf of Glasswork Audio. If you hold a licence and receive a claim from Northline Rights…”, so the claimant Northline Rights is the licensor's administrator: a licensed-use conflict inside the licence chain."
+  },
+  {
+   "id": "R6",
+   "status": "pass",
+   "explanation": "The matched segment 0:14–2:31 falls inside the video duration 11:48."
+  },
+  {
+   "id": "R7",
+   "status": "fail",
+   "explanation": "S-D1 unknown; S-D2 unknown; S-D3 supported"
+  },
+  {
+   "id": "R8",
+   "status": "pass",
+   "explanation": "Verdict: needs adviser for a dispute."
+  },
+  {
+   "id": "R9",
+   "status": "pass",
+   "explanation": "Routes listed lowest-risk first: 1. Ask Glasswork Audio Ltd to have its administrator release the claim (needs adviser); 2. In-platform dispute (needs adviser)"
+  },
+  {
+   "id": "R10",
+   "status": "fail",
+   "explanation": "Needs an adviser because Licence version in force: Your certificate is Licence Terms v2 but the current terms are v3, and no clause in your documents says which version governs. A person should check the licensor's terms; Permitted use covers actual use: The licence version in force is unresolved (see R2), so the permitted-use wording cannot be chosen."
+  }
+ ],
+ "draft": null,
+ "rejected": 0
+}

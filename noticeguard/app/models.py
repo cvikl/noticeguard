@@ -213,6 +213,7 @@ class Deadline(BaseModel):
     days_remaining: int
     source_fact_key: str
     sentence_id: str
+    doc_filename: str = ""
 
 
 class StatedFields(BaseModel):

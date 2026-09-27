@@ -603,8 +603,10 @@ def build_deadlines(c: _Ctx) -> list[Deadline]:
         if not d:
             continue
         src = f.sources[0]
-        label = _short(src.context, 90) if src.context else f"Date stated in {src.doc_filename}"
-        out.append(Deadline(label=f"{label} ({src.doc_filename})", date=d.isoformat(), days_remaining=(d - c.today).days,
+        # the notice's own words, cut at the first clause boundary, with the date itself removed (the UI prints it once)
+        label = re.split(r",|;|\bprovided\b|\bunless\b|\bif\b", src.context or "")[0].replace(src.quote, "").strip(" :-–—.")
+        label = label or "Date stated in the notice"
+        out.append(Deadline(label=label, doc_filename=src.doc_filename, date=d.isoformat(), days_remaining=(d - c.today).days,
                             source_fact_key="deadline_date", sentence_id=f"deadline:{i + 1}"))
     return out
 

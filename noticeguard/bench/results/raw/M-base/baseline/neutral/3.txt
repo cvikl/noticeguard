@@ -1,0 +1,23 @@
+## Analysis
+
+**What the dispute step requires:** Per the claim notice, disputing on the "licence/permission" ground requires you to show you had rights from the copyright owner to use the matched audio in the way you used it.
+
+**Do the documents support this?**
+
+1. **Same work, same rights chain:** The claimed audio (Glasslight — Lumen Vale, matched 0:14–2:31) matches the track you licensed (Catalogue ID GA-TRK-0412) and the audio track logged in your video metadata. The track's own page confirms Northline Rights is Glasswork Audio's designated claim administrator for this track — so the claimant in your notice is exactly who you'd expect to see, not a stranger or a mismatch.
+
+2. **You hold a licence that covers monetised use:** Your Licence Certificate (v2, issued 12 March 2025) explicitly states the Standard tier "permits use of the Work as background music in video content, **including monetised video on social platforms**, on channels operated by the Licensee." Your video was monetised background use of exactly this track — squarely within that grant.
+
+3. **The current (v3) terms restricting Standard-tier monetised use don't apply to you:** Glasswork's current terms (v3, effective 1 June 2025) tightened Standard-tier rights to non-commercial use only. But those same v3 terms (§9.1) state licences are "governed by the terms in force on the date of purchase" and that later changes "do not reduce rights already granted under an earlier version." Your purchase (12 March 2025) predates v3, so v2 governs, and v2 grants you monetised use. This closes off the most obvious counter-argument a claimant might raise.
+
+4. **Publication timing is consistent:** Your licence was purchased in March 2025; the video was published in August 2025, while the licence was in force (and the certificate states the licence is perpetual for content published while in force).
+
+**Minor point, not a blocker:** The order/certificate are in the name "Maya Ortiz," while the channel is "Maya Draws." Nothing in the documents explicitly states these are the same person, though this is a normal and common creator/channel-name situation and would typically be self-evident to you as the filer. I wouldn't treat this as a gap requiring you to gather more evidence before disputing — just be ready to confirm you are Maya Ortiz if asked.
+
+**Risk to flag (informational, not a document gap):** The notice states that while a dispute is open, the claimant could instead file a copyright removal request, which would take the video down and issue a strike. Your licence evidence is strong, but this procedural risk exists regardless of the strength of your case — worth knowing going in.
+
+## Draft dispute statement
+
+> I hold a valid licence for this track. Glasswork Audio Ltd, Order GA-2025-03112 (12 March 2025), Licence Certificate GA-CERT-03112, Standard tier, for "Glasslight" by Lumen Vale (Catalogue ID GA-TRK-0412). Under the Licence Terms in force at the time of purchase (Version 2), the Standard licence expressly permits use of the Work as background music in monetised video content on my channel. This licence remains valid under Glasswork's current Terms (Version 3, §9.1), which confirm that later changes do not reduce rights already granted under an earlier version. The claimed video (vid_7Kq2x, "Studio Vlog #12 — inking the dragon") uses this track as background audio only, consistent with my licence. I request the claim be released. I can provide my order confirmation and licence certificate on request; Glasswork Audio (support@glasswork.audio) can confirm the licence directly.
+
+VERDICT: READY

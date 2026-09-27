@@ -1,0 +1,63 @@
+{
+ "verdict": "needs_adviser",
+ "explanation": "Your documents raise a question NoticeGuard does not decide: No platform notice was found among your documents, so the current stage cannot be determined. Upload the claim notice; Licence version in force: Your certificate is Licence Terms v2 but the current terms are v3, and no clause in your documents says which version governs. A person should check the licensor's terms; Permitted use covers actual use: The licence version in force is unresolved (see R2), so the permitted-use wording cannot be chosen. A person (for example a university IP clinic or a digital-rights adviser) should look at this before you take any step. Nothing here says you are wrong; it says the paperwork alone does not settle it.",
+ "rules": [
+  {
+   "id": "R0",
+   "status": "fail",
+   "explanation": "No platform notice was found among your documents, so the current stage cannot be determined. Upload the claim notice."
+  },
+  {
+   "id": "R1",
+   "status": "fail",
+   "explanation": "None of the notices names the matched work, so it cannot be compared with your licence."
+  },
+  {
+   "id": "R2",
+   "status": "unknown",
+   "explanation": "Your certificate is Licence Terms v2 but the current terms are v3, and no clause in your documents says which version governs. A person should check the licensor's terms."
+  },
+  {
+   "id": "R3",
+   "status": "unknown",
+   "explanation": "The licence version in force is unresolved (see R2), so the permitted-use wording cannot be chosen."
+  },
+  {
+   "id": "R4",
+   "status": "not_applicable",
+   "explanation": "No dated permission from the licensor (email) is among your documents."
+  },
+  {
+   "id": "R5",
+   "status": "fail",
+   "explanation": "No notice names the claimant."
+  },
+  {
+   "id": "R6",
+   "status": "not_applicable",
+   "explanation": "Segment check skipped: matched segment or video duration not available."
+  },
+  {
+   "id": "R7",
+   "status": "fail",
+   "explanation": "S-D1 unknown; S-D2 unknown; S-D3 not supported"
+  },
+  {
+   "id": "R8",
+   "status": "pass",
+   "explanation": "Verdict: needs adviser for a dispute."
+  },
+  {
+   "id": "R9",
+   "status": "pass",
+   "explanation": "Routes listed lowest-risk first: "
+  },
+  {
+   "id": "R10",
+   "status": "fail",
+   "explanation": "Needs an adviser because No platform notice was found among your documents, so the current stage cannot be determined. Upload the claim notice; Licence version in force: Your certificate is Licence Terms v2 but the current terms are v3, and no clause in your documents says which version governs. A person should check the licensor's terms; Permitted use covers actual use: The licence version in force is unresolved (see R2), so the permitted-use wording cannot be chosen."
+  }
+ ],
+ "draft": null,
+ "rejected": 1
+}

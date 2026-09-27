@@ -1,0 +1,52 @@
+Here's a dispute you can submit through ClipStream Studio (or send directly to the claimant contact on file). I've grounded every factual claim in your order records and licence terms so it holds up to scrutiny.
+
+---
+
+**Subject:** Dispute of Copyright Claim — Case ID CS-CLM-88213 — Licensed use of "Glasslight" (Lumen Vale)
+
+**To:** Northline Rights (claims@northlinerights.example) / ClipStream Content Match
+**From:** Maya Ortiz — Channel: Maya Draws
+**Date:** 27 September 2025
+
+**Re: Video ID vid_7Kq2x — "Studio Vlog #12 — inking the dragon"**
+
+I am disputing the copyright claim referenced above. I hold a valid, paid licence for the matched work and the use in question is expressly permitted under the licence terms that govern my purchase.
+
+**Details of the claim being disputed**
+
+- Case ID: CS-CLM-88213
+- Matched work: *Glasslight* — Lumen Vale (Catalogue ID GA-TRK-0412)
+- Matched segment: 0:14–2:31
+- Video: "Studio Vlog #12 — inking the dragon" (vid_7Kq2x), published 30 August 2025
+- Effect: Ad revenue has been redirected to the claimant since 20 September 2025
+
+**Basis for dispute**
+
+1. **I hold a paid Standard licence for this exact track**, purchased on 12 March 2025 (Order GA-2025-03112, Licence Certificate GA-CERT-03112) from Glasswork Audio Ltd, the rights holder for whom Northline Rights administers content matching on this catalogue.
+
+2. **My licence expressly permits this use.** Licence Certificate GA-CERT-03112, clause 4.1, states that the Standard licence "permits use of the Work as background music in video content, including monetised video on social platforms, on channels operated by the Licensee." My video uses *Glasslight* as background music on my own channel, Maya Draws, on ClipStream — precisely the use this licence covers.
+
+3. **The licence is governed by the terms in force at the time of purchase, not later versions.** My certificate was issued under Licence Terms v2. Glasswork Audio's current terms (v3, effective 1 June 2025) restrict Standard-tier use to non-commercial content — but v3 §9.1 explicitly confirms that "later changes to these terms do not reduce rights already granted under an earlier version." My licence was purchased on 12 March 2025, nearly three months before v3 took effect, so the v2 terms recorded on my certificate control this licence and permit the monetised use at issue.
+
+4. **The claim appears to be a content-matching error, not a rights dispute.** I am not challenging Glasswork Audio's or Lumen Vale's ownership of the recording — only the automated determination that my use is unauthorised, when in fact it is licensed.
+
+**Requested action**
+
+I ask that this claim be released and that ad revenue collected on this video since 20 September 2025 be restored to my channel.
+
+**Supporting documents attached**
+
+- Order confirmation GA-2025-03112 (12 March 2025)
+- Licence Certificate GA-CERT-03112 (Licence Terms v2)
+
+Please contact me if any further verification is needed. I'm also copying Glasswork Audio support (support@glasswork.audio) with my order number, per their instructions on the *Glasslight* track page, in case they can confirm licence status directly with your team.
+
+Maya Ortiz
+Channel: Maya Draws
+Order reference: GA-2025-03112
+
+---
+
+**One thing to keep in mind while this is open:** the original notice warns that if the claimant files a formal copyright *removal* request (instead of responding to the dispute), your video could be taken down and the channel could receive a strike, even mid-dispute. That's a platform-level risk, not something the dispute text itself changes — worth watching your email/ClipStream Studio notifications closely over the next 30 days.
+
+VERDICT: READY
