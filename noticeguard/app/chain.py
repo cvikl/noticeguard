@@ -61,7 +61,7 @@ def build_chain(out: RulesOutput, draft: Optional[Draft], mappings: list[Mapping
     for r in out.rule_results:
         node(f"rule:{r.rule_id}", r.explanation, [r.rule_id], r.facts_used, r.status)
     for rt in out.routes:
-        node(rt.sentence_id, f"{rt.title}. {rt.description}", ["R9", "R5"], ["claimant_name", "licensor_name", "content_id_administrator_name"], rt.evidence_status)
+        node(rt.sentence_id, f"{rt.title}. {rt.description}", ["R9", "R5"], ["content_id_administrator_name", "administrator_name", "claimant_name", "licensor_name"], rt.evidence_status)
     for g in out.gap_fixes:
         comp = next((c for c in out.statement.components if c.id == g.component), None)
         node(g.sentence_id, g.needed + " " + g.how_to_get, comp.rule_ids if comp else [], comp.fact_keys if comp else [], "evidence_gap")

@@ -1,0 +1,61 @@
+Here's a draft counter-notification based on the case file, along with some important flags before you send it.
+
+---
+
+**Why I'm flagging this before you file:** A DMCA-style counter-notification is a sworn legal statement, not a routine form. By submitting it you (1) declare, under penalty of perjury, that the removal was a mistake or misidentification, and (2) consent to being sued in court by Northline Rights, who then get 10 business days to actually file suit against you if they disagree. Your channel already has one strike (of three) tied to this same claim. Given the escalation path already failed twice (dispute → rejected, appeal → rejected) even though you appear to hold a valid licence, it's worth getting a second opinion — either from a lawyer or at minimum from Glasswork Audio's support team (support@glasswork.audio), since their own terms (§10.2) say they will personally intervene with the administrator (Northline Rights) if you send them your order number. That may resolve this without you having to accept the legal exposure of a formal counter-notice.
+
+I also can't verify from the file whether your licence certificate was actually shown to Northline Rights during the dispute/appeal stages — the notices don't say what evidence was reviewed. If it wasn't shown, that's worth doing directly first (or making sure it's attached now).
+
+There are also some pieces of information required for a *legally valid* counter-notification that I don't have and can't invent: your full legal name/signature, your physical address, and a phone number (needed for the required "consent to jurisdiction" clause). I've left these as placeholders.
+
+---
+
+### DRAFT COUNTER-NOTIFICATION
+
+**To:** ClipStream Copyright/Legal Team (submit via your designated DMCA counter-notice channel in ClipStream Studio, or the agent address listed in ClipStream's copyright policy)
+
+**Re: Counter-Notification to Copyright Removal — Case ID CS-CLM-91077**
+
+I am submitting this counter-notification in response to the removal of the following material:
+
+- **Channel:** Leo Marsh Music (Channel ID: ch_LeoMarshMusic)
+- **Video ID:** vid_3Pm9d
+- **Video title:** "Late-night synth session — full set"
+- **Removal/Strike date:** 22 September 2025
+- **Claimant:** Northline Rights
+- **Matched work:** "Glasslight" by Lumen Vale
+
+**Statement of good faith belief:**
+I have a good faith belief that this material was removed as a result of mistake or misidentification. Specifically:
+
+1. On 19 August 2025, I purchased a Pro licence for "Glasslight" (Catalogue ID GA-TRK-0412) by Lumen Vale from Glasswork Audio Ltd (Order No. GA-2025-08231; Licence Certificate No. GA-CERT-08231), prior to publishing the video in question on 10 September 2025.
+2. That licence, under Glasswork Audio's Licence Terms v3 (§4.2), expressly permits use of the work "as background music in video content, including monetised video." The video at issue used "Glasslight" as background music throughout a monetised full-length performance video, which falls squarely within this permitted use.
+3. Glasswork Audio's own published track page states that content-matching claims for this work are administered by Northline Rights "on behalf of Glasswork Audio." The claimant is therefore the licensor's own administrator, and the claim does not appear to account for the licence I hold.
+4. I do not believe the material infringes any copyright, and I believe the claim and subsequent removal resulted from the claimant's failure to recognise a licence that was already in effect for this use.
+
+**Consent to jurisdiction:**
+I consent to the jurisdiction of the Federal District Court for the judicial district in which my address is located (or, if I am located outside the United States, any judicial district in which ClipStream may be found), and I will accept service of process from the person who provided the original notification or an agent of such person.
+
+**Signature and contact details:**
+
+- Full legal name: **[Leo Marsh — confirm legal name for signature]**
+- Physical address: **[required — not on file, please provide]**
+- Phone number: **[required — not on file, please provide]**
+- Email: leo@leomarshmusic.example
+- Reference: CS-CLM-91077
+
+I declare under penalty of perjury that the foregoing information is accurate.
+
+Signature: ______________________
+Date: ______________________
+
+**Attachments to include:** Licence Certificate GA-CERT-08231, Order Confirmation GA-2025-08231, Licence Terms v3.
+
+---
+
+**Before you send it, I'd suggest:**
+1. Fill in your real name, address, and phone number — these are legally required, not optional.
+2. Consider first emailing support@glasswork.audio (per their own escalation process) with your order number, asking them to intervene with Northline Rights directly — this is lower-risk than a legal filing and may resolve it faster.
+3. If Northline Rights still won't back down, or if you're unsure about the consent-to-jurisdiction clause, have a lawyer (or a service familiar with DMCA counter-notices) glance at this before you submit it — especially since you're one strike away from real risk to your channel.
+
+VERDICT: ADVISER

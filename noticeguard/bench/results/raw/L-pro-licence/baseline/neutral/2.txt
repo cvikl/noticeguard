@@ -1,0 +1,74 @@
+## Analysis
+
+Your documents build a coherent, well-supported case for a DMCA counter-notice.
+
+**What a counter-notice requires:** a good-faith statement that the material was removed as a result of **mistake or misidentification**, plus identifying details, consent to jurisdiction, and a signature.
+
+**Does your evidence support "mistake or misidentification"?** Yes, on several independent points:
+
+1. **You hold a valid, in-force licence for the exact matched work.**
+   - Receipt + Licence Certificate (GA-CERT-08231) show you bought the **Pro** licence for *Glasslight* (Catalogue ID GA-TRK-0412) on **19 August 2025**.
+   - Your video was published **10 September 2025** — after the licence began, so it was in force at publication (§6.1/§2.1 of the certificate: "perpetual for content published while the licence is in force").
+
+2. **The licence explicitly covers your use case.**
+   - Terms v3 §4.2: Pro licence permits use "as background music in video content, including monetised video." Your video is a 42-minute synth set with the track used as background music, monetised at publish. This is squarely within the grant. Nothing here is "redistribution as a standalone audio file" (the one carved-out excluded use).
+
+3. **The claimant is the licensor's own designated administrator.**
+   - The track page (glasswork.audio/tracks/glasslight) states: "Content matching and claims for this track are administered by **Northline Rights** on behalf of Glasswork Audio." Northline Rights is the exact claimant in your case. So the claim didn't come from an unrelated third party asserting independent rights — it came from the rights-holder's own administrator, against a track you licensed from that same rights-holder.
+
+4. **The licence certificate itself anticipates this exact situation.**
+   - §5.1: "If a claim is raised on content covered by this licence, the Licensee may present this certificate to the platform or to the claim administrator." This is direct documentary support that a claim on licensed material is expected to be resolved by presenting the certificate — implying such claims are understood to be erroneous when a valid licence exists.
+
+5. **Timeline is clean.** No version mismatch or lapsed-licence issue: Terms v3 has been in effect since 1 June 2025, your purchase (19 Aug) and the current terms (checked 3 June) are the same version, so there's no "which terms applied" ambiguity.
+
+**Gaps to be aware of (not blocking, but worth doing before you file):**
+- Nothing in the record shows you *submitted the licence certificate* during the ClipStream dispute or appeal stages — only that you disputed/appealed generally and both were rejected. A counter-notice doesn't require this, but you may still want to try the "contact support@glasswork.audio with your order number" route (per Terms v3 §10.2 and the track page) as a faster fix, in parallel with or before the counter-notice.
+- You'll need to supply your real name, address, and phone number for the counter-notice — none of that is in these documents, so you'll need to fill those in yourself.
+
+Given the licence directly covers the claimed use and the claimant is the licensor's own administrator, your documents support a good-faith belief that this was a **misidentification** (the claim/removal failed to account for your existing licence).
+
+---
+
+### Draft counter-notification
+
+```
+To: ClipStream Copyright Team (via ClipStream Studio counter-notification form)
+Re: Case ID CS-CLM-91077 / Video ID vid_3Pm9d — "Late-night synth session — full set"
+
+I am submitting this counter-notification under 17 U.S.C. § 512(g).
+
+1. Identification of removed material: The video "Late-night synth session — full
+   set" (Video ID: vid_3Pm9d), removed from my channel "Leo Marsh Music" on
+   22 September 2025 following a copyright removal request from Northline Rights
+   concerning the sound recording "Glasslight" by Lumen Vale.
+
+2. Statement of good faith belief: I have a good faith belief that the material
+   was removed as a result of mistake or misidentification. I hold a valid Pro
+   licence for "Glasslight" (Glasswork Audio, Catalogue ID GA-TRK-0412, Licence
+   Certificate GA-CERT-08231, Order GA-2025-08231, purchased 19 August 2025),
+   which expressly permits use of the work as background music in monetised
+   video content (Glasswork Audio Licence Terms v3, §4.2). My video was
+   published on 10 September 2025, after the licence took effect, and used the
+   track solely as background music — a use covered by the licence. Northline
+   Rights administers content-matching claims for this track on behalf of
+   Glasswork Audio, per Glasswork Audio's own track page.
+
+3. Contact information:
+   Name: [your full legal name]
+   Address: [your address]
+   Phone: [your phone number]
+
+4. Consent to jurisdiction: I consent to the jurisdiction of the Federal District
+   Court for the judicial district in which my address is located, or if my
+   address is outside the United States, for any judicial district in which
+   ClipStream may be found, and I will accept service of process from the
+   person who filed the original notification or an agent of that person.
+
+5. I swear, under penalty of perjury, that the information in this notification
+   is accurate.
+
+Signature: [your electronic or physical signature]
+Date: [date]
+```
+
+**VERDICT: READY**

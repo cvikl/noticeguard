@@ -1,0 +1,61 @@
+# DMCA Counter-Notification
+
+**To:** ClipStream Copyright/Legal Department
+**Re:** Copyright removal request — Case ID CS-CLM-91077
+
+---
+
+I am submitting this counter-notification pursuant to 17 U.S.C. § 512(g)(3) in response to a copyright removal request that resulted in the takedown of my video and a copyright strike on my channel.
+
+**1. Identification of material removed and its prior location**
+
+- Video title: *Late-night synth session — full set*
+- Video ID: vid_3Pm9d
+- Channel: Leo Marsh Music (Channel ID: ch_LeoMarshMusic)
+- Prior URL/location: [INSERT the ClipStream video URL, if available]
+- Date removed: 22 September 2025
+- Claim reference: CS-CLM-91077
+- Claimant: Northline Rights, acting as content-matching administrator for Glasswork Audio Ltd, re: "Glasslight" by Lumen Vale (Catalogue ID GA-TRK-0412)
+
+**2. Statement of good faith belief**
+
+I have a good faith belief that this material was removed or disabled as a result of mistake or misidentification, for the following reason:
+
+I hold a valid, paid **Pro licence** for the track "Glasslight" by Lumen Vale (Catalogue ID GA-TRK-0412), purchased directly from the rights holder, Glasswork Audio Ltd, on 19 August 2025 (Order No. GA-2025-08231, Licence Certificate No. GA-CERT-08231, Licence Terms v3). Under Section 4.2 of that licence, the Pro tier expressly permits use of the Work "as background music in video content, including monetised video, broadcast, advertising and client work." My video used the track precisely in this manner — as background music in a monetised long-form video — which is a use expressly authorised by the licence I purchased before publishing. The claim, dispute, and removal therefore appear to result from a failure to recognise a properly licensed use, i.e., a mistake or misidentification by the claiming party, Northline Rights, who — per the track's own listing page — administers claims for this work on behalf of Glasswork Audio.
+
+**3. Consent to jurisdiction**
+
+I consent to the jurisdiction of the Federal District Court for the judicial district in which my address is located [INSERT: "the address provided below" — see Gap note], or if my address is outside the United States, for any judicial district in which ClipStream may be found, and I will accept service of process from the person who provided the original removal notification (Northline Rights / Glasswork Audio Ltd) or an agent of such person.
+
+**4. Signature and contact details**
+
+Subscriber name: [INSERT your full legal name]
+Address: [INSERT your full physical address]
+Phone number: [INSERT phone number]
+Email: [INSERT the email address associated with your ClipStream/channel account]
+
+I declare, under penalty of perjury, that the above statements are accurate.
+
+Signature: ______________________
+Date: ______________________
+
+---
+
+**Supporting evidence to attach:**
+- Glasswork Audio order confirmation (GA-2025-08231)
+- Glasswork Audio Licence Certificate (GA-CERT-08231, Licence Terms v3)
+
+---
+
+### Gaps you need to fill before sending
+
+This is legally required to be signed under penalty of perjury, so a few things need to be nailed down before this is ready to submit — I can't fill these in for you:
+
+1. **Your legal name, physical address, and phone number** are mandatory under 17 U.S.C. § 512(g)(3)(D). I've left placeholders.
+2. **Account/identity match:** The licence, receipt, and channel records all point to "Leo Marsh" / leo@leomarshmusic.example. Your profile email on file with me is app@marcelino.si. If you are Leo Marsh, use the account email above as your contact detail on the notice, not app@marcelino.si — the counter-notice should go out under the identity that actually holds the ClipStream channel and the licence. If you are *not* Leo Marsh (e.g., you're acting on their behalf), the counter-notice legally must be signed by the channel owner/subscriber (Leo Marsh) personally, not by an agent, unless you clearly state you're their authorized representative and have their consent.
+3. **Prior video URL** — add it if you have it, ClipStream may ask for it.
+4. One point worth flagging honestly: the matched segment is 0:00–4:12, slightly longer than the track's own listed duration (3:48). That's very likely just fade-in/out or how the matching system times it, not a sign of a problem — but be aware ClipStream or Northline could raise it.
+
+Once you confirm your name/address/phone and which email is tied to the channel, I can finalize the notice for submission.
+
+VERDICT: GAP

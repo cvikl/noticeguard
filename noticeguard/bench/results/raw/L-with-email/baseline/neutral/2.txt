@@ -1,0 +1,43 @@
+## Do your documents support a counter‑notice?
+
+Yes — with one caveat worth acting on first. Here's the reasoning:
+
+**What the claim was based on:** Northline Rights matched the audio in your video against "Glasslight — Lumen Vale," and per `07_track_page.txt`, Northline Rights administers claims for this exact track *on behalf of* Glasswork Audio — i.e., they're acting as Glasswork's agent, not an independent rights holder.
+
+**What your licence said, on its face:** Your Standard licence (`05_licence_certificate_v3.txt`, `06_licensor_terms_v3_current.txt`) explicitly limits Standard-tier use to non-commercial video and requires a Pro licence for monetised use. Taken alone, this would *not* support a counter-notice — your video was published monetised (`08_video_metadata.txt`), which is outside Standard scope.
+
+**The decisive document:** `09_licensor_support_email.eml` shows that on 2 Sept 2025 — *before* you published on 10 Sept 2025 — you asked Glasswork directly whether Standard covered your monetised full-set video, and Glasswork's own support team confirmed Standard didn't cover it but affirmatively extended your licence at no charge to cover monetised use on your channel specifically, tied to your order number, with a ticket reference. This came from the rights holder itself (the entity Northline Rights administers claims *for*), predates publication, and directly authorizes the exact use that was claimed.
+
+Put together, you have a solid good-faith basis to state that the removal was the result of **mistake** — the claim/removal didn't account for a licence extension the rights holder itself had already granted before you published.
+
+**The one gap to close before (or alongside) filing:** Both `06_licensor_terms_v3_current.txt` (§10.2) and the support email itself invite you to send the case reference to `support@glasswork.audio` so they can instruct their administrator (Northline Rights) to release the claim/retraction — this is exactly Option 1 offered in `03_appeal_rejected_removal.txt` ("ask the claimant to retract"). Nothing in your documents shows you've done this yet. It's faster, avoids escalating into a legal process with court-jurisdiction consent, and if Glasswork instructs Northline to retract, the strike is removed automatically. I'd send that email *today*, in parallel with preparing the counter-notice, since the counter-notice process still takes 10+ business days and doesn't stop the claimant from suing in the meantime.
+
+Also note: a valid counter-notice needs your full name, physical address, and phone number, and a statement consenting to jurisdiction — none of that is in your documents, so you'll need to supply it yourself.
+
+---
+
+### Draft counter-notification (fill in bracketed fields)
+
+> To: ClipStream Copyright Agent
+> Re: Case ID CS-CLM-91077 / Video ID vid_3Pm9d, "Late-night synth session — full set"
+>
+> I am the uploader of the video identified above, which was removed on 22 September 2025 following a copyright removal request from Northline Rights concerning the sound recording "Glasslight" by Lumen Vale.
+>
+> I have a good faith belief that the material was removed as a result of mistake or misidentification. Specifically, on 19 August 2025 I purchased a Standard licence for "Glasslight" from Glasswork Audio Ltd (Order GA-2025-08231, Certificate GA-CERT-08231). On 2 September 2025, before publishing this video, I confirmed with Glasswork Audio's support team whether this licence covered monetised use of a full live set; Glasswork Audio extended my licence in writing (Ticket GW-55120) to cover monetised use of "Glasslight" on my channel, Leo Marsh Music, at no additional cost, recorded against my order. Northline Rights administers copyright claims for this track on behalf of Glasswork Audio. My use of the track was therefore licensed at the time of publication and removal.
+>
+> I consent to the jurisdiction of the Federal District Court for the judicial district in which my address is located [or, if outside the US: for any judicial district in which ClipStream may be found], and I will accept service of process from the person who filed the original notice or an agent of that person.
+>
+> My contact information:
+> Name: Leo Marsh
+> Address: [physical address]
+> Phone: [phone number]
+> Email: leo@leomarshmusic.example
+>
+> Under penalty of perjury, I declare that the foregoing is true and accurate.
+>
+> Signature: [electronic or physical signature]
+> Date: [date]
+
+I'm not a lawyer, and consenting to jurisdiction and swearing under penalty of perjury are real legal commitments — it's worth a quick review by counsel before you file, and worth trying the Glasswork retraction route first since it may resolve this without needing the counter-notice at all.
+
+VERDICT: READY

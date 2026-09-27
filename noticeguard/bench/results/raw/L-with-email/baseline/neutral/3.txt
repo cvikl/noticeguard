@@ -1,0 +1,71 @@
+# Analysis: Do Your Documents Support a DMCA Counter-Notice?
+
+A counter-notice requires you to state, **under penalty of perjury**, that you have a **good faith belief the material was removed as a result of mistake or misidentification**. Let's trace whether your paper trail supports that.
+
+## The chain of rights
+
+1. **Ownership/administration is confirmed by the licensor itself**: Doc 07 (track page) states Glasslight is owned by Glasswork Audio Ltd, and that Northline Rights administers claims *on behalf of* Glasswork. So the claimant on your case (Northline) is acting as Glasswork's agent — not an unrelated third party.
+
+2. **You hold a paid licence** (Docs 04/05) for exactly this track, purchased 19 Aug 2025, governed by Terms v3.
+
+3. **Standard tier alone would not cover this use.** Doc 05/06 §4.1–4.2 are explicit: Standard = non-commercial only; monetised use requires Pro. Your video was monetised at publish (Doc 08). So on the certificate alone, this claim would *not* be a mistake.
+
+4. **But you have a written extension from the licensor**, predating publication: Doc 09 (2 Sep 2025), from Glasswork's official support address, referencing your exact order number (GA-2025-08231), explicitly says: *"You're cleared to use Glasslight in monetised ClipStream videos on your channel Leo Marsh Music,"* and that this is *"recorded against your order on our side."* This was sent 8 days before you published (10 Sep) and 10 days before the claim was even raised (12 Sep) — so it isn't a document manufactured after the fact.
+
+5. This email also anticipated exactly this scenario: *"If a content-matching claim is raised on a video that uses the track, reply to this email with the case reference and we will ask our administrator to release it."*
+
+## What this means for "mistake"
+
+Your good-faith basis isn't that the audio was misidentified (it wasn't — it is Glasslight). It's that **the removal was a mistake because you were authorized by the rights owner's own representative to make this exact use**, and the claimant (Northline) administers claims *on behalf of* that same rights owner. That is a well-established basis for the "mistake" ground in a counter-notice.
+
+## Gaps worth flagging (not fatal, but you should know them)
+
+- **You don't appear to have forwarded the Sep 2 extension email to Glasswork support with the case reference during the dispute/appeal stages**, even though Doc 09 told you to do exactly that. Nothing in Docs 02/03 mentions you raising the licence extension. This doesn't block a counter-notice, but it may be worth trying **Option 1 in Doc 03 (asking the claimant to retract)** in parallel — routing through Glasswork support now, referencing GW-SUP-55120, could restore your video without the jurisdiction/litigation exposure a counter-notice carries.
+- The extension is an informal email, not a reissued certificate. It's dated, specific, and from an authoritative address, which is solid evidence — but it's still a support-agent email rather than a formal amended licence document.
+- A counter-notice requires you to **consent to jurisdiction of a court**, and the claimant then has 10 business days to file suit instead of letting the video be restored. That's a real legal exposure Priya's email doesn't affect — worth understanding before you file, even though your factual footing looks solid.
+
+## Draft counter-notice (if you proceed)
+
+```
+To: ClipStream Copyright Team
+Re: Counter-Notification — Case ID CS-CLM-91077 / Video ID vid_3Pm9d
+
+I am the uploader of the video "Late-night synth session — full set" 
+(Video ID: vid_3Pm9d), removed on 22 September 2025 following a 
+copyright removal request from Northline Rights regarding the sound 
+recording "Glasslight" by Lumen Vale.
+
+I have a good faith belief that the material was removed as a result 
+of mistake. I hold a paid licence for this recording from its owner, 
+Glasswork Audio Ltd (Order GA-2025-08231, Licence Certificate 
+GA-CERT-08231, 19 August 2025). On 2 September 2025, Glasswork Audio 
+Support (support@glasswork.audio, Ticket GW-SUP-55120) confirmed in 
+writing that my licence was extended, at no additional charge, to 
+cover monetised use of this track on my ClipStream channel, Leo Marsh 
+Music — the exact use made in this video. This extension predates 
+both the video's publication and the claim itself.
+
+Northline Rights administers copyright claims for Glasslight on 
+behalf of Glasswork Audio Ltd. I believe the removal request did not 
+account for the licence extension Glasswork's own support team had 
+already granted for this use.
+
+I consent to the jurisdiction of the Federal District Court for the 
+judicial district in which my address is located [or, if outside the 
+US, any judicial district in which ClipStream may be found], and I 
+will accept service of process from the person who provided the 
+original removal notification or an agent of such person.
+
+I swear, under penalty of perjury, that the above information is 
+accurate and that I have a good faith belief the material was removed 
+as a result of mistake.
+
+[Signature]
+Leo Marsh
+[Address]
+[Date]
+```
+
+Before sending, I'd suggest simultaneously emailing support@glasswork.audio with the case reference (per their own instruction) — it may resolve this faster and without the litigation-consent exposure a counter-notice carries.
+
+VERDICT: READY

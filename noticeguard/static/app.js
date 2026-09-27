@@ -132,6 +132,11 @@
     renderCaseDocs(r);
     const chosenRoute = r.routes.find(x => x.is_chosen_step) || r.routes.find(x => x.step === r.chosen_step);
     const heading = r.verdict === 'evidence_ready' ? `Evidence ready for: <em>${esc(chosenRoute ? chosenRoute.title : STEP[r.chosen_step])}</em>` : r.verdict === 'evidence_gap' ? `Evidence gap <em>for a ${STEP[r.chosen_step]}</em>` : `Needs an adviser <em>before a ${STEP[r.chosen_step]}</em>`;
+    const sentences = splitSentences(r.verdict_explanation);
+    const nLead = r.verdict === 'evidence_gap' ? 2 : 1;
+    const lead = sentences.slice(0, nLead).join(' ');
+    const rest = sentences.slice(nLead).join(' ');
+    document.body.dataset.verdict = VCLASS[r.verdict];
     const comps = r.statement.components.map(c => { const [t, cls, ic] = STATUS[c.status]; return `
       <li class="component clickable" data-sid="${esc(c.sentence_id)}" tabindex="0" role="button">
         <span>${chip(t, cls, ic)}</span>
@@ -163,11 +168,11 @@
       ${diff}
       <section class="section">
         <div class="slab ${VCLASS[r.verdict]} enter">
-          <div class="kind"><span class="glyph">${icon(VICON[r.verdict])}</span><span class="word">${esc(VERDICT[r.verdict])}</span></div>
-          <h1>${heading}</h1>
-          <p class="expl sentence clickable" data-sid="verdict" tabindex="0" role="button">${esc(r.verdict_explanation)}</p>
+          <div class="headline"><span class="glyph" role="img" aria-label="${esc(VERDICT[r.verdict])}">${icon(VICON[r.verdict])}</span><h1>${heading}</h1></div>
+          <p class="expl sentence clickable" data-sid="verdict" tabindex="0" role="button">${esc(lead)}</p>
           <div class="meta"><span>Stage: ${esc(stageName(r.stage))}</span><span>·</span><span>Step checked: ${esc(STEP[r.chosen_step])}</span><span>·</span><span>Rules v${esc(r.rules_version)}</span>${r.notes_ignored ? '<span>·</span><span>Your notes were not read</span>' : ''}</div>
         </div>
+        ${rest ? `<p class="why"><span class="sentence" data-sid="verdict" tabindex="0" role="button">${esc(rest)}</span></p>` : ''}
       </section>
       <section class="section"><h2>The claim in plain language</h2>
         <ul class="claim-list prose">${r.claim_summary.map(s => `<li><span class="sentence" data-sid="${esc(s.id)}" tabindex="0" role="button">${esc(s.text)}</span></li>`).join('')}</ul>
@@ -189,15 +194,24 @@
     bindSentences();
   }
 
+  const splitSentences = (text) => (text || '').split(/(?<=[.!?][”"’]?)\s+(?=[A-Z“("])/).map(x => x.trim()).filter(Boolean);
   const stageName = (s) => ({ claim: 'Claim', dispute: 'Dispute rejected', appeal: 'Appeal', removed_with_strike: 'Removed with strike', unknown: 'Unknown' }[s] || s);
 
   function renderRail(r) {
+    if (!r) {
+      $('#rail').innerHTML = RAIL.map(n => `<div class="stage idle"><span class="dot"></span><div class="name">${esc(n.name)}</div>${n.risk ? `<div class="risk">${esc(n.risk)}</div>` : ''}</div>`).join('');
+      return;
+    }
     const cur = STAGE_INDEX[r.stage];
     const se = Object.fromEntries((r.step_evidence || []).map(s => [s.step, s]));
     $('#rail').innerHTML = RAIL.map((n, i) => {
       const cls = i < cur ? 'past' : i === cur ? 'current' : 'future';
       const ev = n.step && se[n.step];
-      const chips = ev ? `<div class="chips">${chip(VERDICT[ev.evidence_status], VCLASS[ev.evidence_status] + (ev.available ? '' : ' unavail'), VICON[ev.evidence_status])}${ev.available ? '' : `<span class="chip neutral unavail">not available at this stage</span>`}</div>` : '';
+      let chips = '';
+      if (ev) {
+        const suffix = ev.available ? '' : i > cur ? ' when reached' : ' (stage passed)';
+        chips = `<div class="chips">${chip(VERDICT[ev.evidence_status] + suffix, VCLASS[ev.evidence_status] + (ev.available ? '' : ' unavail'), VICON[ev.evidence_status])}</div>`;
+      }
       return `<div class="stage ${cls}"><span class="dot"></span><div class="name">${esc(n.name)}</div>${i === cur ? '<span class="here">You are here</span>' : ''}${(i > cur && n.risk) ? `<div class="risk">${esc(n.risk)}</div>` : ''}${chips}</div>`;
     }).join('');
     const dl = $('#deadlines');
@@ -300,7 +314,7 @@
     const el = $('#chain');
     if (!node) { el.innerHTML = `<div class="chain-empty"><h2>Reasoning chain</h2><p>No chain recorded for this item.</p></div>`; return; }
     const docs = Object.fromEntries(r.documents.map(d => [d.id, d]));
-    const withQuote = node.facts.filter(f => f.doc_id && f.quote).sort((a, b) => (b.clause_ref ? 1 : 0) - (a.clause_ref ? 1 : 0) || b.quote.length - a.quote.length);
+    const withQuote = node.facts.filter(f => f.doc_id && f.quote).map((f, i) => [f, i]).sort((a, b) => ((b[0].clause_ref ? 1 : 0) - (a[0].clause_ref ? 1 : 0)) || (a[1] - b[1])).map(x => x[0]);
     const primary = withQuote[0];
     const byDoc = new Map();
     withQuote.forEach(f => { if (!byDoc.has(f.doc_id)) byDoc.set(f.doc_id, []); byDoc.get(f.doc_id).push(f); });
@@ -339,6 +353,9 @@
     </div>`;
     const line = $('#chain-line'); const box = line && line.closest('.docview'); if (line && box) box.scrollTop = Math.max(0, line.offsetTop - box.clientHeight / 2);
   }
+
+  renderRail(null);
+  $('#foot-more').addEventListener('click', () => { const f = $('#foot'); const open = f.classList.toggle('open'); $('#foot-more').textContent = open ? 'Less' : 'More'; $('#foot-more').setAttribute('aria-expanded', String(open)); });
 
   // deep-link demo: /?demo=maya
   const params = new URLSearchParams(location.search);

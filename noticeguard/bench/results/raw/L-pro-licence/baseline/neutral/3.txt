@@ -1,0 +1,48 @@
+## Analysis
+
+**What the counter-notice statement requires:** a good-faith belief that the material was removed as a result of **mistake or misidentification**, plus consent to jurisdiction and your contact details.
+
+**Does the evidence support that belief?**
+
+1. **You had a licence in force before publication.** You purchased a Pro licence for *Glasslight* (GA-2025-08231) on 19 Aug 2025. The video was published 10 Sep 2025 — after the licence began. Terms confirm the licence is "perpetual for content published while the licence is in force" (Cert §2, Terms §6).
+
+2. **The tier matches the use.** Your video was monetised at publish. The Pro tier explicitly permits "background music in video content, including monetised video" (Cert §4.2 / Terms §4.2) — which is exactly how the track was used (metadata: "Audio track used: Glasslight — Lumen Vale (background, full set)"). The Standard tier would not have sufficed for monetised use, but you bought Pro.
+
+3. **The claimant is the right party to hold the licence against.** The track's own page states that content-matching claims for *Glasslight* are "administered by Northline Rights on behalf of Glasswork Audio." Northline Rights is precisely the entity that filed the claim, dispute rejection, and removal request. This isn't a stranger's claim you're arguing against on a technicality — it's the licensor's own administrator failing to recognise a licence it should have on file.
+
+4. **No exclusion applies.** The only excluded use in the terms is redistributing the work as a standalone audio file (§4.3) — irrelevant here, since it was used as background audio in a video.
+
+5. **Governing terms are unaffected by later changes.** Terms §9.1 protects you even if Glasswork's terms have since changed, since rights are locked in at purchase.
+
+**Minor point, not a blocker:** the matched segment (0:00–4:12) is slightly longer than the track's stated duration (3:48) per the track page. This is almost certainly just how the Content Match system logged the segment (fades, silence, looping) — it doesn't change which work was matched or undermine the licence argument, but be prepared for it to come up.
+
+**Procedural note:** Nothing in your documents shows the Licence Certificate was ever actually shown to Northline Rights during the dispute or appeal (the certificate itself says you "may present this certificate to the platform or to the claim administrator" — §5.1). It's worth also emailing support@glasswork.audio with your order number now, in parallel with the counter-notice, since they may be able to get Northline to retract the removal request directly — often faster than the legal counter-notice timeline.
+
+Overall, your documents give solid, specific, dated support for the statement you'd need to make: a facially valid Pro licence, purchased before publication, for exactly this use, from the entity the claimant represents.
+
+---
+
+### Draft counter-notification
+
+> To: ClipStream Copyright Team / Northline Rights (via ClipStream Studio counter-notification form)
+> Re: Case ID CS-CLM-91077 — Video ID vid_3Pm9d, "Late-night synth session — full set"
+>
+> I am the uploader of the video identified above, which was removed following a copyright removal request from Northline Rights regarding the sound recording "Glasslight" by Lumen Vale.
+>
+> I have a good faith belief that the material was removed or disabled as a result of mistake or misidentification. On 19 August 2025 I purchased a Pro licence for "Glasslight" (Catalogue ID GA-TRK-0412) from Glasswork Audio Ltd, Order GA-2025-08231, Licence Certificate GA-CERT-08231. This licence, in force before my video was published on 10 September 2025, expressly permits use of the work as background music in monetised video content. My video used the track only in this licensed manner. Northline Rights is identified by Glasswork Audio as the administrator of copyright claims for this catalogue, and I believe the removal request was made without reference to my existing licence.
+>
+> I consent to the jurisdiction of the Federal District Court for the judicial district in which my address is located [or, if outside the US, "the judicial district in which the platform's designated agent may be found"], and I will accept service of process from the person who provided the original removal notification or an agent of that person.
+>
+> [Your full name]
+> [Your address]
+> [Your phone number]
+> [Your email address]
+>
+> I swear, under penalty of perjury, that the above information is accurate and that I have a good faith belief that the material was removed or disabled as a result of a mistake or misidentification of the material to be removed or disabled.
+>
+> [Physical or electronic signature]
+> [Date]
+
+Attach the licence certificate and order confirmation as supporting evidence when the platform allows it.
+
+VERDICT: READY

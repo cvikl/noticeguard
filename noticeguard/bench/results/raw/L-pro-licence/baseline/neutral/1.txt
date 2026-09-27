@@ -1,0 +1,39 @@
+## Does the evidence support a counter-notice?
+
+A DMCA counter-notice requires you to state, **under penalty of perjury**, that you have a **good-faith belief the material was removed as a result of mistake or misidentification**. Here's how your documents hold up against that specific claim:
+
+**Supports the claim:**
+- You hold a **Pro licence** (GA-CERT-08231) for the exact matched work — "Glasslight" by Lumen Vale, catalogue GA-TRK-0412 — the same work and catalogue ID cited in the claim notice.
+- The licence was **purchased 19 August 2025**, and your video was **published 10 September 2025** — the licence was in force before publication, satisfying the "content published while licence is in force" term.
+- The Pro tier (§4.2, both certificate and current terms) explicitly permits use "as background music in video content, including monetised video" — matching your metadata (background track in a 42-minute "full set" video, monetisation on).
+- Critically, the track page states that **Northline Rights** — the very claimant here — is the **official claims administrator for this track on behalf of Glasswork Audio**. That's strong circumstantial evidence this is a case of misidentification: an automated/administered match against a licence they should have on file, not a genuine infringement.
+
+**A gap worth closing first, not in the legal merits but in the process:**
+- Both the licence terms (§10.2) and the track page instruct you to contact **support@glasswork.audio** with your order number if you get a claim, so Glasswork can ask their administrator (Northline Rights) to review it directly. Nothing in your documents shows you did this, or that you ever submitted the licence certificate itself into the ClipStream dispute/appeal — only that disputes were filed and rejected. If Northline Rights reinstated the claim and rejected the appeal without ever seeing your certificate, a quick email to Glasswork's support (referencing order GA-2025-08231) could resolve this faster and without the legal exposure of a counter-notice. Worth trying in parallel, since it doesn't cost you the counter-notice window.
+- A counter-notice also requires you to disclose your name, address, and phone number to the claimant, and to consent to court jurisdiction — a real legal step. Your documentary support for "mistake/misidentification" is solid, but this isn't a substitute for independent legal advice if you're unsure about the consequences.
+
+Given all that, the substantive facts do support the statement you'd be making. Here's a draft you can adapt:
+
+---
+
+**COUNTER NOTIFICATION — DMCA**
+
+To: ClipStream Copyright Agent
+Re: Case ID CS-CLM-91077 / Video ID vid_3Pm9d ("Late-night synth session — full set")
+
+1. I identify the material that was removed: the video "Late-night synth session — full set" (Video ID vid_3Pm9d), previously located on the Leo Marsh Music channel, removed 22 September 2025 following a copyright removal request from Northline Rights concerning the sound recording "Glasslight" by Lumen Vale.
+
+2. I have a good faith belief that this material was removed as a result of mistake or misidentification. I hold a Pro licence for this exact work (Licence Certificate GA-CERT-08231, Order GA-2025-08231, Glasswork Audio Ltd, issued 19 August 2025), which expressly permits use of the work as background music in monetised video content. This licence was purchased and in force before my video was published on 10 September 2025. Northline Rights is identified by Glasswork Audio as the administrator of claims for this specific track on its behalf.
+
+3. My name, address, and telephone number: [insert — required]
+
+4. I consent to the jurisdiction of the Federal District Court for the judicial district in which [my address is located / ClipStream's service provider may be found, if I am outside the United States], and I will accept service of process from the person who provided the original takedown notification or an agent of such person.
+
+Signature: [electronic or physical signature]
+Date: [date]
+
+Attach: Licence Certificate GA-CERT-08231 and Order Confirmation GA-2025-08231.
+
+---
+
+VERDICT: READY

@@ -1,0 +1,53 @@
+Here's a draft DMCA counter-notification based on the case file. **Before sending, you need to fill in the bracketed fields** — a valid counter-notice legally requires your physical address and phone number, which aren't in any of the documents provided.
+
+---
+
+**COUNTER-NOTIFICATION UNDER 17 U.S.C. § 512(g)**
+
+To: ClipStream Copyright Agent / Legal Department
+Re: Case ID CS-CLM-91077 — Counter-notification regarding removed video
+
+I am submitting this counter-notification in response to the removal of the following material:
+
+**1. Identification of the removed material and its prior location**
+- Video ID: vid_3Pm9d
+- Title: "Late-night synth session — full set"
+- Channel: Leo Marsh Music (ch_LeoMarshMusic)
+- Removed: 22 September 2025, following a copyright removal request submitted by Northline Rights concerning the sound recording "Glasslight" by Lumen Vale
+
+**2. Statement of good faith belief**
+I have a good faith belief that the material was removed or disabled as a result of mistake or misidentification. Specifically:
+
+The sound recording "Glasslight" (Lumen Vale, Catalogue ID GA-TRK-0412) used as background music in the video referenced above was used under a valid, paid licence. I purchased a **Pro Licence** for this track from Glasswork Audio Ltd, the copyright owner, on 19 August 2025 (Order GA-2025-08231, Licence Certificate GA-CERT-08231). Licence Terms v3, section 4.2, expressly permits use of the work "as background music in video content, including monetised video, broadcast, advertising and client work." My use — background music throughout a monetised video — falls squarely within this grant.
+
+I further note that Glasswork Audio's own published terms (section 10) and track page state that content-matching claims for this track are administered by Northline Rights *on behalf of* Glasswork Audio, and that licensees who receive a claim may present their licence certificate for review. The removal of my video therefore appears to result from the claim-matching system failing to recognise a licence that the rights holder itself authorised.
+
+Supporting documentation available on request: Order confirmation GA-2025-08231, Licence Certificate GA-CERT-08231, Glasswork Audio Licence Terms v3.
+
+**3. My contact information**
+Name: [Your full legal name]
+Address: [Your complete mailing address]
+Phone number: [Your phone number]
+Email: [Your contact email]
+
+**4. Consent to jurisdiction**
+I consent to the jurisdiction of the Federal District Court for the judicial district in which my address is located, or, if my address is outside of the United States, the judicial district in which ClipStream may be found, and I will accept service of process from the person who provided the original notification of claimed infringement, or an agent of such person.
+
+**5. Statement under penalty of perjury**
+I swear, under penalty of perjury, that the information in this notification is accurate, and that I have a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled.
+
+Signature: [Your signature]
+Date: [Date]
+
+---
+
+**What's missing before you can submit this:**
+- Your physical mailing address
+- Your phone number
+- Your signature and date
+
+These four elements are legally required under § 512(g)(3) — without them, the counter-notice isn't valid, regardless of how strong your licence evidence is.
+
+**One faster alternative worth considering:** the removal notice also lets you ask Northline Rights (or Glasswork Audio directly, per their terms) to simply *retract* the removal request — that restores the video and removes the strike immediately, without the 10-business-day legal waiting period a counter-notice triggers. Since Glasswork's terms explicitly invite licensees with claims to email support@glasswork.audio with the order number, that may resolve this faster than the counter-notice route. I've drafted the counter-notice as you asked, but flagging this in case it saves you time.
+
+VERDICT: GAP

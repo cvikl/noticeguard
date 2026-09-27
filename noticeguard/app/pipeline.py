@@ -108,7 +108,8 @@ def diff_results(before: Optional[dict[str, Any]], after: CaseResult, added_docs
             changed_rules.append({"rule_id": r.rule_id, "rule_name": r.rule_name, "before": old["status"], "after": r.status, "explanation": r.explanation})
     vb, va = before["verdict"], after.verdict
     parts = []
-    key_fact = next((c for c in changed_facts if c.get("from_added_document") and c["key"] in ("grant_statement", "email_date", "governing_terms_clause", "content_id_administrator_name", "licence_version")), None)
+    priority = ["grant_statement", "governing_terms_clause", "content_id_administrator_name", "licence_version", "email_date", "publish_date", "monetised_on_publish"]
+    key_fact = next((c for k in priority for c in changed_facts if c.get("from_added_document") and c["key"] == k), None)
     if key_fact:
         parts.append(f"fact {key_fact['key']} (from {key_fact['doc_filename']}" + (f", {af['email_date'].value}" if key_fact['key'] == 'grant_statement' and 'email_date' in af else "") + ")")
     if changed_rules:
