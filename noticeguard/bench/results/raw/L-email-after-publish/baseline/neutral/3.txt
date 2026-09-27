@@ -1,0 +1,65 @@
+## Does the evidence support a counter‑notice?
+
+**The core legal statement in a DMCA counter‑notice** is that you have a *good‑faith belief the material was removed as a result of mistake or misidentification*, plus consent to jurisdiction and a perjury declaration. Here's how your documents map to that:
+
+**What's solid:**
+- You purchased a genuine **Standard licence** for *Glasslight* on 19 Aug 2025 (receipt + certificate, order GA-2025-08231).
+- The track page (07) and the licensor's own terms (06, §10.1) confirm that **Northline Rights — the claimant — administers claims for this track *on behalf of* Glasswork Audio**, the actual copyright owner. So Northline is Glasswork's agent, not an independent rights holder.
+- On 15 Sep 2025 — **before** the dispute was rejected (16 Sep) and well before the appeal was rejected and the video removed (22 Sep) — Glasswork Audio's own support team wrote to you, referencing your order number, and explicitly extended your licence to cover *monetised use of Glasslight on your channel*, which is exactly the use in question.
+- This means that by the time your video was actually removed and struck, you held authorisation from the copyright owner covering the monetised use — a solid basis for "this removal was a mistake."
+
+**Two things worth being aware of (not necessarily fatal, but worth strengthening):**
+1. The extension came from a general **support** inbox ("Priya, Glasswork Audio Support"), not from the Licensing Manager (R. Adeyemi) who signed your original certificate. It's plausible support staff can authorize this, but a short follow-up asking Glasswork to confirm this in writing as an amendment to your certificate would make the paper trail cleaner if this ever escalates.
+2. Glasswork's own instructions (06 §10.2 and the 15 Sep email) say that if you reply with the *case reference*, they'll ask their administrator (Northline) to release the claim. Nothing in your documents shows this step was taken — your email to them (14 Sep) doesn't mention Case ID CS-CLM-91077. It's worth doing this in parallel now (referencing case CS-CLM-91077), since it might resolve things faster and without needing Northline to respond to a court threat.
+
+Neither of these blocks you from filing — they're supplementary steps. The core facts (licensed use, rights-holder confirmation predating removal, administrator relationship) do support the "mistake or misidentification" statement.
+
+## Draft counter‑notification
+
+```
+To: ClipStream Copyright Agent
+Re: Counter Notification – Case ID CS-CLM-91077
+
+1. Identification of material removed:
+   Video "Late-night synth session — full set," Video ID vid_3Pm9d,
+   Leo Marsh Music channel, removed 22 September 2025 following a
+   copyright removal request from Northline Rights regarding the
+   sound recording "Glasslight" by Lumen Vale.
+
+2. Good faith statement:
+   I have a good faith belief that this material was removed as a
+   result of mistake or misidentification. I hold a licence from
+   Glasswork Audio Ltd, the copyright owner of "Glasslight"
+   (Licence Certificate GA-CERT-08231, Order GA-2025-08231). On
+   15 September 2025, Glasswork Audio confirmed in writing (ref.
+   GW-SUP-55120) that this licence covers monetised use of the
+   track on my channel, Leo Marsh Music — the exact use at issue.
+   Northline Rights administers copyright claims for this track on
+   Glasswork Audio's behalf. The removal does not appear to have
+   accounted for this authorisation.
+
+3. Consent to jurisdiction:
+   I consent to the jurisdiction of the Federal District Court for
+   the judicial district in which my address is located [or, if
+   outside the US, the district in which ClipStream may be found],
+   and I will accept service of process from the person who
+   provided the original notification or an agent of that person.
+
+4. Contact information:
+   [Your full legal name]
+   [Address]
+   [Phone number]
+
+5. Signature:
+   I swear, under penalty of perjury, that the foregoing is true
+   and correct.
+
+   _____________________
+   Leo Marsh — [date]
+```
+
+Attach as exhibits: the licence certificate (05), the licence terms (06), the track page excerpt showing the Northline/Glasswork relationship (07), and Priya's email (09).
+
+Before you sign and submit this — it's a real legal filing with jurisdictional consent and a perjury declaration — it would be sensible to have a lawyer glance over the final version, and to fill in your real name/address/phone rather than any placeholder.
+
+VERDICT: READY

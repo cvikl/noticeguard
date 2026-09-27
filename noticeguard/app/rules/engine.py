@@ -602,7 +602,9 @@ def build_deadlines(c: _Ctx) -> list[Deadline]:
         d = parse_date(f.value)
         if not d:
             continue
-        out.append(Deadline(label=f"Deadline stated in {f.sources[0].doc_filename}", date=d.isoformat(), days_remaining=(d - c.today).days,
+        src = f.sources[0]
+        label = _short(src.context, 90) if src.context else f"Date stated in {src.doc_filename}"
+        out.append(Deadline(label=f"{label} ({src.doc_filename})", date=d.isoformat(), days_remaining=(d - c.today).days,
                             source_fact_key="deadline_date", sentence_id=f"deadline:{i + 1}"))
     return out
 

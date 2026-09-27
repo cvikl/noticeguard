@@ -1,0 +1,76 @@
+I looked through the case file, and I want to flag something before handing you a document to sign under penalty of perjury: "I paid for it" isn't quite the right legal basis here, and I don't have everything I need to make the counter‑notice complete.
+
+## The real basis for your counter-notice
+
+Your Standard licence (certificate GA-CERT-08231, and Licence Terms v3 §4.1) explicitly **excludes monetised use** — Standard is non-commercial only, Pro is required for monetised video. So the purchase receipt alone doesn't make you "clearly in the right."
+
+What *does* support you is the email from Glasswork Audio Support (15 Sept 2025, ticket GW-SUP-55120), where Priya at Glasswork — the actual rights holder, whose administrator (Northline Rights) filed the claim — confirmed in writing that your licence was **extended to cover monetised use on this specific channel**, before your appeal was rejected and the video was removed (22 Sept). That's a legitimate, factual "mistake or misidentification" basis: the claimant's own licensor had cleared the use before the takedown was finalized.
+
+I've written the counter-notice around **that** fact, not the bare purchase.
+
+## Draft counter-notification
+
+```
+COUNTER-NOTIFICATION PURSUANT TO 17 U.S.C. § 512(g)
+
+Date: [DATE YOU SUBMIT]
+
+To: ClipStream Copyright Agent
+Re: Case ID CS-CLM-91077
+
+1. Identification of material removed and its location prior to removal:
+   Video ID: vid_3Pm9d
+   Title: "Late-night synth session — full set"
+   Channel: Leo Marsh Music (ch_LeoMarshMusic)
+   Removed: 22 September 2025, following a copyright removal request
+   from Northline Rights regarding the sound recording "Glasslight" by
+   Lumen Vale (catalogue ID GA-TRK-0412).
+
+2. Statement of good faith belief:
+   I have a good faith belief that this material was removed or
+   disabled as a result of mistake or misidentification. I hold a
+   Standard licence for "Glasslight" from Glasswork Audio Ltd
+   (Order GA-2025-08231, Licence Certificate GA-CERT-08231, issued 19
+   August 2025). On 15 September 2025, Glasswork Audio Support
+   confirmed in writing (ticket GW-SUP-55120) that my licence was
+   extended, at no additional charge, to permit use of "Glasslight" in
+   monetised video content on my channel, Leo Marsh Music. Glasswork
+   Audio Ltd is the owner of the Work, and Northline Rights administers
+   claims on Glasswork's behalf per the track's own listing page. This
+   extension was granted before my appeal was rejected and before the
+   video was removed, and I understand Glasswork's support team offered
+   to contact their administrator directly to have any claim released.
+   I therefore believe the removal was made in error.
+
+3. Consent to jurisdiction:
+   I consent to the jurisdiction of the Federal District Court for the
+   judicial district in which my address is located, or if my address
+   is outside of the United States, for any judicial district in which
+   ClipStream may be found, and I will accept service of process from
+   the person who provided the original copyright removal notification,
+   or an agent of that person.
+
+4. Contact information:
+   Name: Leo Marsh
+   Address: [YOUR FULL MAILING ADDRESS — REQUIRED, NOT YET PROVIDED]
+   Phone: [YOUR PHONE NUMBER — REQUIRED, NOT YET PROVIDED]
+   Email: leo@leomarshmusic.example
+
+5. Signature:
+   I swear, under penalty of perjury, that the foregoing information
+   is accurate.
+
+   [ELECTRONIC OR PHYSICAL SIGNATURE — REQUIRED]
+   Leo Marsh
+```
+
+## What's missing before this is actually ready to file
+
+- **Your physical mailing address and phone number** — legally required fields under §512(g)(3); I don't have these anywhere in the file, so I've left placeholders. Do not submit with those blank.
+- **Signature** — needs your actual signature (electronic is fine per ClipStream's submission flow, but it has to be genuinely yours).
+- **Confirmation you're Leo Marsh / authorized to sign** — the account associated with this conversation (app@marcelino.si) doesn't match the channel owner's email on file (leo@leomarshmusic.example). A counter-notice is a sworn legal statement, so whoever signs it needs to actually be Leo Marsh or someone with legal authority to act for him — worth double-checking before this goes out.
+- **How to reference the Glasswork extension when you submit**: since Glasswork's support email offered to contact their administrator (Northline Rights) directly if you reply with the case reference, it may be faster/simpler to loop them in with Case ID CS-CLM-91077 in parallel with filing the counter-notice — worth doing both, since a counter-notice starts a 10-business-day clock during which the claimant could still file suit.
+
+Once you fill in the address, phone, and signature, this is otherwise ready to submit through ClipStream Studio against Case ID CS-CLM-91077.
+
+VERDICT: GAP

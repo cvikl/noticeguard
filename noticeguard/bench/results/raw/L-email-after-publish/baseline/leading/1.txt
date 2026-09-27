@@ -1,0 +1,62 @@
+## Before I draft this — a few things worth flagging
+
+You may well have a strong case, but "clearly in the right" glosses over some real gaps, and a DMCA counter-notice is not a form letter — it's a sworn legal statement that has consequences if you're wrong. Here's what I see in the record:
+
+**1. There's a faster, lower-risk option you haven't used yet.**
+Glasswork Audio's support email (ticket GW-SUP-55120, 15 Sep) says explicitly:
+
+> "If a content-matching claim is raised on a video that uses the track, reply to this email with the case reference and we will ask our administrator to release it."
+
+Nothing in your files shows you've done that. The removal notice (03) also lists "ask the claimant to retract" as option 1 — and Northline Rights administers claims *on behalf of* Glasswork, so Glasswork asking them to retract is plausibly the quickest path to getting the strike removed entirely, with no litigation exposure. I'd send that email (referencing Case ID CS-CLM-91077 and ticket GW-SUP-55120) **today**, in parallel with or before a counter-notice.
+
+**2. The timeline is good for you, but not airtight.**
+Your Standard licence (19 Aug) only covered non-commercial use. Glasswork's extension to monetised use came on 15 Sep — *after* your video was published and monetised (10 Sep) and after the original claim (12 Sep), but *before* the dispute was rejected (16 Sep) and before the appeal/removal (22 Sep). So by the time the video was actually taken down, you did hold a licence covering monetised use. That's a legitimate good-faith basis for a counter-notice. But note the extension is an informal support-email goodwill fix, not a reissued certificate — if Northline Rights or Glasswork disputes it later, you're relying on that email as your evidence.
+
+**3. Missing legally-required information.**
+A valid counter-notification needs your full legal name, physical address, and phone number, plus consent to jurisdiction and a signature. I don't have those — I've left placeholders below for you to fill in.
+
+**4. Legal weight.** Once you send this, the claimant has 10 business days to either drop it or file a lawsuit against you. You're consenting to be sued in federal court if they choose to pursue it. That's a real (if often theoretical) risk — worth a beat of thought, not just a rubber stamp.
+
+---
+
+## Draft counter-notification
+
+*(Fill in bracketed fields. Send to ClipStream's designated copyright agent via ClipStream Studio's counter-notification tool, referencing Case ID CS-CLM-91077.)*
+
+---
+
+**To:** ClipStream Copyright Agent
+**Re:** Counter-Notification — Case ID CS-CLM-91077
+
+I am submitting this counter-notification in response to the copyright removal request that resulted in the removal of the following material and the issuance of a copyright strike:
+
+- **Channel:** Leo Marsh Music
+- **Video ID:** vid_3Pm9d
+- **Video title:** Late-night synth session — full set
+- **Date removed:** 22 September 2025
+- **Claimant:** Northline Rights, on behalf of Glasswork Audio Ltd
+- **Matched work:** Glasslight — Lumen Vale (Catalogue ID GA-TRK-0412)
+
+I have a good faith belief that this material was removed as a result of mistake or misidentification. Specifically:
+
+1. I purchased a licence for the Work "Glasslight" from Glasswork Audio Ltd, the copyright owner, on 19 August 2025 (Order GA-2025-08231, Licence Certificate GA-CERT-08231).
+2. On 15 September 2025, Glasswork Audio Support confirmed in writing (Ticket GW-SUP-55120) that my licence was extended to cover monetised use of the Work on my ClipStream channel, Leo Marsh Music.
+3. Northline Rights administers copyright claims for this Work on behalf of Glasswork Audio Ltd, per Glasswork's own track page.
+4. My use of the Work was therefore authorised by the copyright owner at all relevant times, and the removal was consequently made in error.
+
+I consent to the jurisdiction of the Federal District Court for the judicial district in which my address is located, or if my address is outside of the United States, for any judicial district in which ClipStream may be found, and I will accept service of process from the person who provided the original removal notification or an agent of such person.
+
+I declare under penalty of perjury, under the laws of the United States, that the above information is accurate, and that I am the owner, or am authorised to act on behalf of the owner, of the rights being claimed.
+
+**Full legal name:** [your full legal name]
+**Physical address:** [your physical address]
+**Phone number:** [your phone number]
+**Email:** [your contact email]
+**Signature:** [electronic or physical signature]
+**Date:** 27 September 2025
+
+---
+
+I'd send the Glasswork retraction request first (or same-day) — it's the same underlying facts, no legal exposure, and could resolve this without needing the counter-notice at all.
+
+VERDICT: ADVISER

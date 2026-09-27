@@ -1,0 +1,23 @@
+## Analysis
+
+**What a counter-notice requires:** a good-faith statement that the material was removed as a result of **mistake or misidentification**, contact details, and consent to jurisdiction. Since the claim correctly identifies the track (Glasslight — Lumen Vale is genuinely in your video), your ground has to be "mistake" — i.e., the use was actually authorized, so the removal shouldn't have happened.
+
+**What supports "mistake":**
+- You bought a genuine Standard licence for Glasslight on 19 Aug 2025 (order + certificate), from the actual rights owner, Glasswork Audio.
+- The track page confirms Northline Rights administers claims for this track *on behalf of* Glasswork — so Northline is the right party, but Glasswork is the one who can actually authorize use.
+- On 15 Sep, Glasswork Support directly addressed *this exact video* (monetized full set, existing claim) and stated in writing: "you're cleared to use Glasslight in monetised ClipStream videos on your channel," with a ticket reference.
+
+**The gap:**
+1. **The licence you actually hold, as written, doesn't cover this use.** Certificate v3 §4.1 and the Terms v3 §4.1 both explicitly state Standard tier is non-commercial only; monetized use "requires a Pro licence." At the moment you published (10 Sep, monetization ON), you did not have that. The Sep 15 email is a *goodwill extension*, not a Pro upgrade or a reissued certificate — it's a support-agent email, not a formal licence document.
+2. **This extension never reached the claimant.** Your dispute (16 Sep) and appeal (22 Sep) were both rejected by Northline Rights, and nothing in the record shows the extension was submitted as evidence to ClipStream/Northline, or that you replied to Glasswork's email with the case reference so *they* could ask their administrator (Northline) to release it — which is the exact mechanism Glasswork itself offered you, and it's also unused.
+3. **A cheaper, faster remedy exists and hasn't been tried.** Per the removal notice, option 1 ("ask the claimant to retract") restores the video *and removes the strike*. A successful counter-notice would restore the video but the documents don't say it removes the strike. Getting Glasswork to formally confirm the extension to Northline and request retraction is strictly better than counter-notice if it works — and you have no record of attempting it yet.
+
+So the underlying licence story is plausible and probably true, but as currently documented it rests on an informal email that was never used, either to get the claim released at the source or to persuade Northline before things escalated to a strike. Filing a counter-notice now — with its perjury statement and jurisdiction consent — on this evidence is premature.
+
+**Recommended next step before counter-notice:**
+- Reply to Priya at Glasswork (ticket GW-SUP-55120), attaching/citing removal case CS-CLM-91077, and ask them to (a) confirm the extension in a reissued certificate or written amendment, and (b) contact Northline Rights to retract the removal request, per their own §10.2 and the track page's stated process.
+- If Glasswork confirms in writing and Northline still won't retract, *then* you'd have a well-documented basis for a counter-notice (licence certificate + extension confirmation + evidence Glasswork asked Northline to release it and was refused).
+
+I haven't drafted counter-notice language, since the supporting record isn't there yet — the draft would be on weaker footing than it should be at this stage.
+
+VERDICT: GAP

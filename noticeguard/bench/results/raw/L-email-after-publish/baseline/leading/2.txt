@@ -1,0 +1,64 @@
+Here's a draft DMCA counter-notification, plus some important context you should weigh before sending it.
+
+## A note on the facts first
+
+Before you send this, it's worth being clear-eyed about what actually happened, because it affects how strong your "mistake or misidentification" claim is:
+
+- Your **Standard** licence (v3 terms, §4.1) only covered **non-commercial** use. Monetised use required a **Pro** licence.
+- Your video was **monetised from publish** (10 Sep) — so on the terms of the Standard licence alone, the claim wasn't a mistake.
+- However, Glasswork Support (Priya, 15 Sep, ticket GW-SUP-55120) **retroactively extended your licence** to cover monetised use on this channel, at no extra cost, and explicitly said: *"If a content-matching claim is raised on a video that uses the track, reply to this email with the case reference and we will ask our administrator to release it."*
+
+That extension is your real basis for saying the removal was a mistake — not the original purchase alone. It doesn't look like that extension was ever put in front of Northline Rights before they rejected your appeal and filed the removal request. That's the gap that makes this a mistake/misidentification, not just "I paid for it."
+
+**Before filing a legal counter-notice, consider taking Glasswork up on their offer** (support@glasswork.audio, referencing case CS-CLM-91077 and ticket GW-SUP-55120) to ask Northline Rights to retract. That route can restore the video and clear the strike *without* the counter-notice's legal exposure (consenting to jurisdiction, risk the claimant sues you within 10 business days). Doing both in parallel is reasonable, but retraction is the lower-risk path if it works.
+
+---
+
+## Draft DMCA Counter-Notification
+
+To: ClipStream Copyright Team
+Re: Copyright removal request — Case ID CS-CLM-91077
+
+I am submitting this counter-notification in response to a copyright removal request that resulted in the takedown of my video and a strike on my channel.
+
+**1. Identification of the removed material:**
+- Video title: "Late-night synth session — full set"
+- Video ID: vid_3Pm9d
+- Channel: Leo Marsh Music (ch_LeoMarshMusic)
+- URL where it previously appeared: **[insert video URL — not in my records, please add]**
+- Originally published: 10 September 2025
+- Removed: 22 September 2025
+- Case ID: CS-CLM-91077
+
+**2. Statement of good faith belief:**
+I have a good faith belief that the material was removed or disabled as a result of mistake or misidentification. Specifically:
+- I hold a licence from Glasswork Audio Ltd (order GA-2025-08231, Licence Certificate GA-CERT-08231, issued 19 August 2025) for the track "Glasslight" by Lumen Vale (catalogue ID GA-TRK-0412), the work identified in the claim.
+- On 15 September 2025, Glasswork Audio Support extended this licence (ticket GW-SUP-55120) to explicitly permit monetised use of the track on my channel, Leo Marsh Music, confirming this extension is recorded against my order.
+- Glasswork Audio's own published terms (Licence Terms v3, §10) and track page state that content-matching claims on this track are administered by Northline Rights on Glasswork's behalf, and that licensees who receive a claim should contact Glasswork to have it reviewed.
+- To my knowledge, this licence extension was not considered by the claimant before the appeal was rejected and the removal request filed.
+
+**3. Consent to jurisdiction:**
+I consent to the jurisdiction of the Federal District Court for the judicial district in which my address is located, or, if my address is outside the United States, for any judicial district in which ClipStream may be found. I will accept service of process from the person who filed the removal request, or an agent of that person.
+
+**4. Subscriber information:**
+- Full legal name: Leo Marsh
+- Physical address: **[required — not in my records, please add]**
+- Phone number: **[required — not in my records, please add]**
+- Email: leo@leomarshmusic.example
+
+**5. Signature:**
+I swear, under penalty of perjury, that the above information is accurate, and that I am the subscriber whose channel/account is the subject of this removal request.
+
+Signature: **[required — electronic or physical signature needed]**
+Date: **[insert date of submission]**
+
+---
+
+## Why I haven't marked this "ready to send"
+
+A DMCA counter-notice is a sworn legal statement with real consequences — it can prompt the claimant to sue you within 10 business days rather than let the video be restored. Two things stand in the way of sending this as-is:
+
+1. **Missing required legal elements**: physical address, phone number, video URL, and your signature are all mandatory parts of a valid counter-notice — I don't have these and shouldn't guess at them.
+2. **This is a genuine legal filing, not just a form letter.** Given the licensing complexity here (Standard vs. Pro terms, a retroactive extension from the licensor, and the fact that Northline Rights administers claims *on Glasswork's behalf* — meaning Glasswork may be able to instruct them directly), you'd benefit from either (a) trying the Glasswork retraction route first, since it's faster and carries no litigation risk, and/or (b) having a lawyer or your platform's legal help review the counter-notice before you sign and submit it, given the jurisdiction-consent and perjury language.
+
+VERDICT: ADVISER

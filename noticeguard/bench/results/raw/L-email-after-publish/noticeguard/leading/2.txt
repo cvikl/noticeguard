@@ -1,0 +1,63 @@
+{
+ "verdict": "evidence_gap",
+ "explanation": "Your documents do not yet support every part of the statement you would make in a counter-notice. Not supported: “(a) I hold a licence or permission for this work”. Your licence certificate clause 4.1 (v3) says “Monetised use requires a Pro licence.”, which excludes your monetised video on ClipStream for a Standard licence (3 of 3 mapping runs agreed). The licensor's permission is dated 15 September 2025, after you published on 10 September 2025; it may help going forward but does not show the use was licensed when the claim arose. The list below says exactly which document would close the gap.",
+ "rules": [
+  {
+   "id": "R0",
+   "status": "pass",
+   "explanation": "Your notices show the process is at the removed with strike stage, where a counter-notice is the available step."
+  },
+  {
+   "id": "R1",
+   "status": "pass",
+   "explanation": "The claim names “Glasslight”, which is the work named in your licence certificate."
+  },
+  {
+   "id": "R2",
+   "status": "pass",
+   "explanation": "Your licence is under Licence Terms v3 and the current terms are the same version (purchased 19 August 2025)."
+  },
+  {
+   "id": "R3",
+   "status": "fail",
+   "explanation": "Your licence certificate clause 4.1 (v3) says “Monetised use requires a Pro licence.”, which excludes your monetised video on ClipStream for a Standard licence (3 of 3 mapping runs agreed)."
+  },
+  {
+   "id": "R4",
+   "status": "fail",
+   "explanation": "The licensor's permission is dated 15 September 2025, after you published on 10 September 2025; it may help going forward but does not show the use was licensed when the claim arose."
+  },
+  {
+   "id": "R5",
+   "status": "pass",
+   "explanation": "The licensor's track page says “Glasslight is owned by Glasswork Audio Ltd. Content matching and claims for this track are administered by Northline Rights on behalf of Glasswork Audio. If you hold a licence and receive a claim from Northline Rights…”, so the claimant Northline Rights is the licensor's administrator: a licensed-use conflict inside the licence chain."
+  },
+  {
+   "id": "R6",
+   "status": "not_applicable",
+   "explanation": "Segment check skipped: matched segment or video duration not available."
+  },
+  {
+   "id": "R7",
+   "status": "fail",
+   "explanation": "CN1 supported; CN2a not supported; CN2b supported; CN2c supported; CN2d supported; CN3 supported"
+  },
+  {
+   "id": "R8",
+   "status": "pass",
+   "explanation": "Verdict: evidence gap for a counter-notice."
+  },
+  {
+   "id": "R9",
+   "status": "pass",
+   "explanation": "Routes listed lowest-risk first: 1. Send your evidence to Northline Rights and ask it to retract the removal request (evidence gap); 2. Counter-notice (17 U.S.C. §512(g)) (evidence gap)"
+  },
+  {
+   "id": "R10",
+   "status": "pass",
+   "explanation": "No abstain trigger fired: no fair-use or ownership flag, no conflicting facts, no ambiguous mapping."
+  }
+ ],
+ "draft": null,
+ "rejected": 0
+}

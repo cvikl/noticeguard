@@ -1,0 +1,44 @@
+# Analysis
+
+**What the counter-notice legally requires:** A statement, under penalty of perjury, that you have a good-faith belief the material was removed as a result of mistake or misidentification, plus identification of the material, consent to jurisdiction, and your contact details/signature.
+
+**What your documents show:**
+
+1. **The underlying licence existed before publication.** You bought a Standard licence for *Glasslight* on 19 Aug 2025 (receipt + certificate GA-CERT-08231), before you published the video on 10 Sep 2025.
+
+2. **Standard alone likely wouldn't have covered this.** Both the certificate (4.1) and the current Licence Terms v3 (4.1) say Standard only covers non-commercial use, and your video was monetised from publish (video_metadata). Taken alone, this would be a real gap.
+
+3. **But you closed that gap before the strike.** On 15 Sep, Glasswork Audio support (Priya, ticket GW-SUP-55120) confirmed in writing that they extended your licence specifically to cover monetised ClipStream videos on your channel, tied to your order number GA-2025-08231. This predates the dispute rejection (16 Sep), the appeal rejection (22 Sep), and the removal/strike (22 Sep).
+
+4. **The claimant is acting for the licensor, not against them.** The track page confirms Northline Rights administers claims *on behalf of* Glasswork Audio — the same company that issued and then extended your licence. So the entity that removed your video is supposed to be enforcing Glasswork's rights, and Glasswork itself says your use was authorised.
+
+Put together: you have a paper trail showing the copyright owner's own licensing agent told you, in writing, before the strike, that your specific monetised use of this specific track on this specific channel was permitted. That is solid, non-speculative grounds for a good-faith belief that the removal was a mistake — the classic fact pattern counter-notices exist for (authorised use that the claim/removal process didn't correctly account for).
+
+**One loose end worth flagging (not fatal, but worth doing before/alongside filing):** There's no document showing you actually sent Priya's ticket reference or the ClipStream case ID back to Glasswork so they could instruct Northline to release the claim, as she offered to do. Doing that in parallel — and attaching the licence certificate and the support email to your counter-notice — will make your position harder to contest and gives Glasswork one more chance to resolve it without court exposure on either side.
+
+---
+
+## Draft counter-notification
+
+> **DMCA Counter-Notification**
+>
+> To: ClipStream Copyright Legal Department
+> Re: Case ID CS-CLM-91077 / Video ID vid_3Pm9d, "Late-night synth session — full set"
+>
+> I am submitting this counter-notification in response to the removal of the above video from my channel, Leo Marsh Music, on 22 September 2025, following a copyright removal request from Northline Rights concerning the sound recording "Glasslight" by Lumen Vale.
+>
+> Identification of material: The video "Late-night synth session — full set" (Video ID: vid_3Pm9d), removed from ClipStream on 22 September 2025.
+>
+> I have a good-faith belief that the material was removed as a result of mistake. I hold a licence from Glasswork Audio Ltd, the owner of "Glasslight" (Order GA-2025-08231, Certificate GA-CERT-08231, 19 August 2025). On 15 September 2025, Glasswork Audio Support confirmed in writing (Ticket GW-SUP-55120) that my licence was extended to cover use of "Glasslight" in monetised ClipStream videos on my channel, Leo Marsh Music. This confirmation predates the removal of my video. Northline Rights administers copyright claims for this track on behalf of Glasswork Audio Ltd, per Glasswork's own published track information.
+>
+> I consent to the jurisdiction of the Federal District Court for the judicial district in which my address is located (or, if outside the United States, any judicial district in which ClipStream may be found), and I will accept service of process from the person who filed the original removal request or an agent of that person.
+>
+> [Physical or electronic signature]
+> Leo Marsh
+> [Address]
+> [Phone / email]
+> Date:
+
+Attach: the licence certificate (doc 05) and the 15 Sept Glasswork support email (doc 09) as supporting exhibits.
+
+VERDICT: READY
