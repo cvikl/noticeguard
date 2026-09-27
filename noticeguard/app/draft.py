@@ -142,15 +142,21 @@ CLAUSE_RE = re.compile(r"(?:§|clause )\s?(\d+(?:\.\d+)?)")
 PROPER_RE = re.compile(r"(?<![.!?:]\s)(?<!^)\b([A-Z][a-zA-Z]{2,})\b")
 
 
+def _words(s: str) -> set[str]:
+    out = set(re.findall(r"[A-Za-z][A-Za-z'’]*", s or ""))
+    out.update(re.findall(r"[A-Za-z][A-Za-z'’-]*", s or ""))
+    return out
+
+
 def _allowed_words(t: FactTable, stated: StatedFields) -> set[str]:
     words: set[str] = set(TEMPLATE_WORDS)
     for f in t.facts:
         if f.status not in ("confirmed_by_document", "stated_by_you"):
             continue
-        for s in [str(f.value)] + [src.quote for src in f.sources]:
-            words.update(re.findall(r"[A-Za-z][A-Za-z'’-]*", s))
+        for s in [str(f.value)] + [src.quote for src in f.sources] + [src.context for src in f.sources]:
+            words |= _words(s)
     for s in (stated.name, stated.address, stated.phone, stated.channel_name):
-        words.update(re.findall(r"[A-Za-z][A-Za-z'’-]*", s or ""))
+        words |= _words(s)
     return words
 
 
@@ -179,6 +185,7 @@ def post_check(text: str, t: FactTable, stated: StatedFields) -> PostCheck:
     allowed = _allowed_words(t, stated)
     for line in text.split("\n"):
         body = re.sub(r"\[[^\]]*\]", "", line)  # citation markers are not prose
+        body = ID_RE.sub(" ", DATE_RE.sub(" ", body))  # IDs and dates were checked above
         for m in PROPER_RE.findall(body):
             if m in allowed or m.lower() in ("the", "this", "on", "i"):
                 continue

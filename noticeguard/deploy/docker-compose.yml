@@ -1,0 +1,25 @@
+# NoticeGuard on the shared box. One container; joins the existing Caddy network (deploy_default) so the Caddy in
+# /opt/compass/deploy can reverse_proxy to it by name. Site config: /opt/caddy-sites/noticeguard.caddy (drop-in, see publish.sh).
+# Separate from every other service on the box: own app dir (/opt/noticeguard), own container, own volume, own port.
+name: noticeguard
+
+services:
+  noticeguard:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    container_name: noticeguard
+    env_file: .env
+    volumes:
+      - noticeguard_data:/data
+    ports:
+      - "127.0.0.1:8790:8790"
+    restart: unless-stopped
+
+volumes:
+  noticeguard_data:
+
+networks:
+  default:
+    name: deploy_default
+    external: true
