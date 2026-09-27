@@ -319,9 +319,9 @@ details.rejected li { margin: 4px 0; }
 .empty p { color: var(--ink-2); font-size: 15.5px; line-height: 1.55; }
 .empty .actions { margin-top: 20px; }
 .skeleton { display: flex; flex-direction: column; gap: 14px; }
-.skeleton .bar { height: 14px; border-radius: 6px; background: linear-gradient(90deg, var(--paper-2), #F6F3ED, var(--paper-2)); background-size: 200% 100%; animation: shimmer 1.2s linear infinite; }
+.skeleton .bar { height: 14px; border-radius: 6px; background: var(--paper-2); animation: breathe 1.2s ease-in-out infinite; }
 .skeleton .bar.h { height: 120px; border-radius: var(--r-lg); }
-@keyframes shimmer { to { background-position: -200% 0; } }
+@keyframes breathe { 50% { opacity: .55; } }
 .error { border: 1px solid var(--adviser); border-radius: var(--r-md); padding: 12px 14px; background: var(--adviser-soft); color: var(--adviser); font-size: 14px; margin-bottom: 14px; }
 .error b { display: block; }
 

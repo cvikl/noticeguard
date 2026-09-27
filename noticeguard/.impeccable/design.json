@@ -1,0 +1,697 @@
+{
+ "schemaVersion": 2,
+ "generatedAt": "2026-09-27T03:26:48+00:00",
+ "title": "Design System: NoticeGuard",
+ "source": {
+  "stylesheet": "static/styles.css",
+  "markup": [
+   "static/index.html",
+   "static/app.js",
+   "static/benchmark.html"
+  ],
+  "fonts": "static/fonts/ (Source Serif 4 variable, OFL 1.1; see static/fonts/LICENSE.txt)"
+ },
+ "extensions": {
+  "colorMeta": {
+   "paper": {
+    "role": "neutral",
+    "displayName": "Paper",
+    "hex": "#F3F0EA",
+    "canonical": "oklch(95.6% 0.009 85)",
+    "tonalRamp": [
+     "oklch(15% 0.009 85)",
+     "oklch(25% 0.009 85)",
+     "oklch(38% 0.009 85)",
+     "oklch(50% 0.009 85)",
+     "oklch(62% 0.009 85)",
+     "oklch(75% 0.009 85)",
+     "oklch(87% 0.009 85)",
+     "oklch(95% 0.009 85)"
+    ]
+   },
+   "paper-2": {
+    "role": "neutral",
+    "displayName": "Paper 2",
+    "hex": "#EBE7DF",
+    "canonical": "oklch(92.9% 0.012 85)",
+    "tonalRamp": [
+     "oklch(15% 0.012 85)",
+     "oklch(25% 0.012 85)",
+     "oklch(38% 0.012 85)",
+     "oklch(50% 0.012 85)",
+     "oklch(62% 0.012 85)",
+     "oklch(75% 0.012 85)",
+     "oklch(87% 0.012 85)",
+     "oklch(95% 0.012 85)"
+    ]
+   },
+   "paper-3": {
+    "role": "neutral",
+    "displayName": "Paper 3",
+    "hex": "#E2DDD3",
+    "canonical": "oklch(89.9% 0.015 85)",
+    "tonalRamp": [
+     "oklch(15% 0.015 85)",
+     "oklch(25% 0.015 85)",
+     "oklch(38% 0.015 85)",
+     "oklch(50% 0.015 85)",
+     "oklch(62% 0.015 85)",
+     "oklch(75% 0.015 85)",
+     "oklch(87% 0.015 85)",
+     "oklch(95% 0.015 85)"
+    ]
+   },
+   "card": {
+    "role": "neutral",
+    "displayName": "Card",
+    "hex": "#FBFAF7",
+    "canonical": "oklch(98.5% 0.004 91)",
+    "tonalRamp": [
+     "oklch(15% 0.004 91)",
+     "oklch(25% 0.004 91)",
+     "oklch(38% 0.004 91)",
+     "oklch(50% 0.004 91)",
+     "oklch(62% 0.004 91)",
+     "oklch(75% 0.004 91)",
+     "oklch(87% 0.004 91)",
+     "oklch(95% 0.004 91)"
+    ]
+   },
+   "hair": {
+    "role": "neutral",
+    "displayName": "Hairline",
+    "hex": "#DAD5CC",
+    "canonical": "oklch(87.4% 0.013 82)",
+    "tonalRamp": [
+     "oklch(15% 0.013 82)",
+     "oklch(25% 0.013 82)",
+     "oklch(38% 0.013 82)",
+     "oklch(50% 0.013 82)",
+     "oklch(62% 0.013 82)",
+     "oklch(75% 0.013 82)",
+     "oklch(87% 0.013 82)",
+     "oklch(95% 0.013 82)"
+    ]
+   },
+   "ink": {
+    "role": "primary",
+    "displayName": "Ink",
+    "hex": "#1A1917",
+    "canonical": "oklch(21.4% 0.004 85)",
+    "tonalRamp": [
+     "oklch(15% 0.004 85)",
+     "oklch(25% 0.004 85)",
+     "oklch(38% 0.004 85)",
+     "oklch(50% 0.004 85)",
+     "oklch(62% 0.004 85)",
+     "oklch(75% 0.004 85)",
+     "oklch(87% 0.004 85)",
+     "oklch(95% 0.004 85)"
+    ]
+   },
+   "ink-2": {
+    "role": "neutral",
+    "displayName": "Ink 2",
+    "hex": "#4A4740",
+    "canonical": "oklch(39.9% 0.012 88)",
+    "tonalRamp": [
+     "oklch(15% 0.012 88)",
+     "oklch(25% 0.012 88)",
+     "oklch(38% 0.012 88)",
+     "oklch(50% 0.012 88)",
+     "oklch(62% 0.012 88)",
+     "oklch(75% 0.012 88)",
+     "oklch(87% 0.012 88)",
+     "oklch(95% 0.012 88)"
+    ]
+   },
+   "muted": {
+    "role": "neutral",
+    "displayName": "Muted",
+    "hex": "#6B665E",
+    "canonical": "oklch(51.2% 0.014 80)",
+    "tonalRamp": [
+     "oklch(15% 0.014 80)",
+     "oklch(25% 0.014 80)",
+     "oklch(38% 0.014 80)",
+     "oklch(50% 0.014 80)",
+     "oklch(62% 0.014 80)",
+     "oklch(75% 0.014 80)",
+     "oklch(87% 0.014 80)",
+     "oklch(95% 0.014 80)"
+    ]
+   },
+   "slab": {
+    "role": "primary",
+    "displayName": "Charcoal Slab",
+    "hex": "#161513",
+    "canonical": "oklch(19.6% 0.004 85)",
+    "tonalRamp": [
+     "oklch(15% 0.004 85)",
+     "oklch(25% 0.004 85)",
+     "oklch(38% 0.004 85)",
+     "oklch(50% 0.004 85)",
+     "oklch(62% 0.004 85)",
+     "oklch(75% 0.004 85)",
+     "oklch(87% 0.004 85)",
+     "oklch(95% 0.004 85)"
+    ]
+   },
+   "slab-2": {
+    "role": "primary",
+    "displayName": "Slab Hover",
+    "hex": "#23211E",
+    "canonical": "oklch(24.9% 0.006 78)",
+    "tonalRamp": [
+     "oklch(15% 0.006 78)",
+     "oklch(25% 0.006 78)",
+     "oklch(38% 0.006 78)",
+     "oklch(50% 0.006 78)",
+     "oklch(62% 0.006 78)",
+     "oklch(75% 0.006 78)",
+     "oklch(87% 0.006 78)",
+     "oklch(95% 0.006 78)"
+    ]
+   },
+   "slab-hair": {
+    "role": "primary",
+    "displayName": "Slab Hairline",
+    "hex": "#4A463F",
+    "canonical": "oklch(39.6% 0.013 82)",
+    "tonalRamp": [
+     "oklch(15% 0.013 82)",
+     "oklch(25% 0.013 82)",
+     "oklch(38% 0.013 82)",
+     "oklch(50% 0.013 82)",
+     "oklch(62% 0.013 82)",
+     "oklch(75% 0.013 82)",
+     "oklch(87% 0.013 82)",
+     "oklch(95% 0.013 82)"
+    ]
+   },
+   "cream": {
+    "role": "neutral",
+    "displayName": "Cream",
+    "hex": "#F3F0EA",
+    "canonical": "oklch(95.6% 0.009 85)",
+    "tonalRamp": [
+     "oklch(15% 0.009 85)",
+     "oklch(25% 0.009 85)",
+     "oklch(38% 0.009 85)",
+     "oklch(50% 0.009 85)",
+     "oklch(62% 0.009 85)",
+     "oklch(75% 0.009 85)",
+     "oklch(87% 0.009 85)",
+     "oklch(95% 0.009 85)"
+    ]
+   },
+   "cream-2": {
+    "role": "neutral",
+    "displayName": "Cream 2",
+    "hex": "#B9B3A8",
+    "canonical": "oklch(76.9% 0.017 83)",
+    "tonalRamp": [
+     "oklch(15% 0.017 83)",
+     "oklch(25% 0.017 83)",
+     "oklch(38% 0.017 83)",
+     "oklch(50% 0.017 83)",
+     "oklch(62% 0.017 83)",
+     "oklch(75% 0.017 83)",
+     "oklch(87% 0.017 83)",
+     "oklch(95% 0.017 83)"
+    ]
+   },
+   "accent-soft-ink": {
+    "role": "neutral",
+    "displayName": "Accent Soft (ink)",
+    "hex": "#E8E1D2",
+    "canonical": "oklch(91.1% 0.021 86)",
+    "tonalRamp": [
+     "oklch(15% 0.021 86)",
+     "oklch(25% 0.021 86)",
+     "oklch(38% 0.021 86)",
+     "oklch(50% 0.021 86)",
+     "oklch(62% 0.021 86)",
+     "oklch(75% 0.021 86)",
+     "oklch(87% 0.021 86)",
+     "oklch(95% 0.021 86)"
+    ]
+   },
+   "ready": {
+    "role": "secondary",
+    "displayName": "Ready Green",
+    "hex": "#1F6B3A",
+    "canonical": "oklch(46.9% 0.108 151)",
+    "tonalRamp": [
+     "oklch(15% 0.108 151)",
+     "oklch(25% 0.108 151)",
+     "oklch(38% 0.108 151)",
+     "oklch(50% 0.108 151)",
+     "oklch(62% 0.108 151)",
+     "oklch(75% 0.108 151)",
+     "oklch(87% 0.108 151)",
+     "oklch(95% 0.108 151)"
+    ]
+   },
+   "ready-soft": {
+    "role": "secondary",
+    "displayName": "Ready Tint",
+    "hex": "#DCEBDF",
+    "canonical": "oklch(92.6% 0.023 152)",
+    "tonalRamp": [
+     "oklch(15% 0.023 152)",
+     "oklch(25% 0.023 152)",
+     "oklch(38% 0.023 152)",
+     "oklch(50% 0.023 152)",
+     "oklch(62% 0.023 152)",
+     "oklch(75% 0.023 152)",
+     "oklch(87% 0.023 152)",
+     "oklch(95% 0.023 152)"
+    ]
+   },
+   "gap": {
+    "role": "secondary",
+    "displayName": "Gap Amber",
+    "hex": "#9A6200",
+    "canonical": "oklch(54.4% 0.117 71)",
+    "tonalRamp": [
+     "oklch(15% 0.117 71)",
+     "oklch(25% 0.117 71)",
+     "oklch(38% 0.117 71)",
+     "oklch(50% 0.117 71)",
+     "oklch(62% 0.117 71)",
+     "oklch(75% 0.117 71)",
+     "oklch(87% 0.117 71)",
+     "oklch(95% 0.117 71)"
+    ]
+   },
+   "gap-soft": {
+    "role": "secondary",
+    "displayName": "Gap Tint",
+    "hex": "#F3E6C6",
+    "canonical": "oklch(92.7% 0.044 89)",
+    "tonalRamp": [
+     "oklch(15% 0.044 89)",
+     "oklch(25% 0.044 89)",
+     "oklch(38% 0.044 89)",
+     "oklch(50% 0.044 89)",
+     "oklch(62% 0.044 89)",
+     "oklch(75% 0.044 89)",
+     "oklch(87% 0.044 89)",
+     "oklch(95% 0.044 89)"
+    ]
+   },
+   "adviser": {
+    "role": "secondary",
+    "displayName": "Adviser Oxblood",
+    "hex": "#7A1F2B",
+    "canonical": "oklch(39.1% 0.125 18)",
+    "tonalRamp": [
+     "oklch(15% 0.125 18)",
+     "oklch(25% 0.125 18)",
+     "oklch(38% 0.125 18)",
+     "oklch(50% 0.125 18)",
+     "oklch(62% 0.125 18)",
+     "oklch(75% 0.125 18)",
+     "oklch(87% 0.125 18)",
+     "oklch(95% 0.125 18)"
+    ]
+   },
+   "adviser-soft": {
+    "role": "secondary",
+    "displayName": "Adviser Tint",
+    "hex": "#F0D9DC",
+    "canonical": "oklch(90.5% 0.026 9)",
+    "tonalRamp": [
+     "oklch(15% 0.026 9)",
+     "oklch(25% 0.026 9)",
+     "oklch(38% 0.026 9)",
+     "oklch(50% 0.026 9)",
+     "oklch(62% 0.026 9)",
+     "oklch(75% 0.026 9)",
+     "oklch(87% 0.026 9)",
+     "oklch(95% 0.026 9)"
+    ]
+   }
+  },
+  "accentMechanism": {
+   "selector": "body[data-verdict]",
+   "vars": [
+    "--accent",
+    "--accent-soft"
+   ],
+   "rest": {
+    "--accent": "var(--ink)",
+    "--accent-soft": "#E8E1D2"
+   },
+   "ready": {
+    "--accent": "var(--ready)",
+    "--accent-soft": "var(--ready-soft)"
+   },
+   "gap": {
+    "--accent": "var(--gap)",
+    "--accent-soft": "var(--gap-soft)"
+   },
+   "adviser": {
+    "--accent": "var(--adviser)",
+    "--accent-soft": "var(--adviser-soft)"
+   },
+   "consumers": [
+    ".docview mark background/inset underline",
+    ".docview mark.pulse ring",
+    ".chip.<verdict> (fixed tokens)",
+    ".slab.<verdict> .glyph (fixed tokens)",
+    ".gapfix left rule (fixed gap token)"
+   ]
+  },
+  "typographyMeta": {
+   "display": {
+    "displayName": "Display",
+    "purpose": "Verdict heading in the slab; second clause italic 400; 2.2rem under 1400px, 1.8rem under 640px."
+   },
+   "headline": {
+    "displayName": "Headline",
+    "purpose": "Section h2; panel h2 at 1.2rem; wordmark at 1.55rem."
+   },
+   "title": {
+    "displayName": "Title",
+    "purpose": "h3, rail stage names (1.15rem), route titles (1.1rem), rule ids."
+   },
+   "quote": {
+    "displayName": "Quote",
+    "purpose": "The statement block and any quoted clause; italic serif is the quotation register."
+   },
+   "body": {
+    "displayName": "Body",
+    "purpose": "Default UI text, forms, tables (13.5px), chips (12px)."
+   },
+   "body-prose": {
+    "displayName": "Result prose",
+    "purpose": "Clickable result sentences, max 72ch."
+   },
+   "label": {
+    "displayName": "Label",
+    "purpose": "Chain step labels (uppercase, .08em), table headers (12px, .04em), 'You are here' marker (.06em)."
+   },
+   "caption": {
+    "displayName": "Caption",
+    "purpose": "Ledes, captions, sources, slab meta, footer."
+   }
+  },
+  "fontFaces": [
+   {
+    "family": "Source Serif 4",
+    "axes": [
+     "opsz",
+     "wght 200-900",
+     "ital"
+    ],
+    "files": "static/fonts/source-serif-4-{normal,italic}-{latin,latin-ext}.woff2",
+    "display": "swap"
+   }
+  ],
+  "shadows": [
+   {
+    "name": "shadow-1",
+    "value": "0 1px 2px rgba(26,25,23,.06), 0 2px 8px rgba(26,25,23,.06)",
+    "purpose": "Rest: primary button on press."
+   },
+   {
+    "name": "shadow-2",
+    "value": "0 6px 18px -6px rgba(26,25,23,.28), 0 2px 6px rgba(26,25,23,.08)",
+    "purpose": "Lifted: verdict slab, draft slab, benchmark dialog, primary button hover (with translateY(-1px))."
+   },
+   {
+    "name": "btn-inset",
+    "value": "0 1px 0 rgba(255,255,255,.08) inset",
+    "purpose": "Top bevel on the primary button at rest."
+   },
+   {
+    "name": "sentence-halo",
+    "value": "0 0 0 4px <fill>",
+    "purpose": "Hover/active fill extended 4px around clickable inline sentences; Paper 2 hover, #E8E1D2 active, Slab 2 / #2E2B26 in the draft."
+   },
+   {
+    "name": "focus-ring",
+    "value": "outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 4px",
+    "purpose": "All :focus-visible."
+   },
+   {
+    "name": "input-focus",
+    "value": "border-color: var(--ink); box-shadow: 0 0 0 3px rgba(26,25,23,.08)",
+    "purpose": "Text inputs, selects, textareas on focus."
+   },
+   {
+    "name": "route-active",
+    "value": "0 0 0 3px var(--paper-2)",
+    "purpose": "Active route card, with a 1px ink border."
+   },
+   {
+    "name": "stage-current",
+    "value": "0 0 0 4px var(--paper), 0 0 0 5px var(--ink)",
+    "purpose": "Current stage dot on the process rail."
+   },
+   {
+    "name": "mark-pulse",
+    "value": "0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent) -> 0 0 0 10px transparent",
+    "purpose": "One-shot 900ms pulse on the highlighted quote."
+   }
+  ],
+  "motion": [
+   {
+    "name": "ease",
+    "value": "cubic-bezier(.16,1,.3,1)",
+    "purpose": "Exponential ease-out for every transition and keyframe."
+   },
+   {
+    "name": "fast",
+    "value": "160ms",
+    "purpose": "Buttons, inputs, sentence halos, row hovers, dropzone."
+   },
+   {
+    "name": "mid",
+    "value": "240ms",
+    "purpose": "Chain panel reveal (opacity 0->1, translateY 6px->0)."
+   },
+   {
+    "name": "slow",
+    "value": "320ms",
+    "purpose": "Verdict slab and diff banner settle (scale 1.015->1, blur 3px->0, opacity .6->1)."
+   },
+   {
+    "name": "pulse",
+    "value": "900ms, once",
+    "purpose": "Accent ring on the highlighted quote."
+   },
+   {
+    "name": "spin",
+    "value": "800ms linear infinite",
+    "purpose": "Button loading spinner."
+   },
+   {
+    "name": "breathe",
+    "value": "1.2s ease-in-out infinite (opacity to .55 at 50%)",
+    "purpose": "Skeleton bars while a result loads: a flat paper-2 bar that breathes; no gradient."
+   },
+   {
+    "name": "reduced-motion",
+    "value": "@media (prefers-reduced-motion: reduce) { .slab.enter { animation: none } * { transition-duration: 0ms !important } }",
+    "purpose": "Zero durations and drop the settle."
+   }
+  ],
+  "breakpoints": [
+   {
+    "name": "wide",
+    "value": "1400px",
+    "purpose": "Side columns narrow to 290 / 360px; display drops to 2.2rem."
+   },
+   {
+    "name": "stack",
+    "value": "1100px",
+    "purpose": "Single column; sticky columns release; rail becomes two columns without its track."
+   },
+   {
+    "name": "phone",
+    "value": "640px",
+    "purpose": "16px gutters; rail one column; slabs 14px radius; footer disclaimer clamps behind a 'more' pill."
+   }
+  ],
+  "layout": {
+   "grid": "var(--left-w) minmax(0, 1fr) var(--right-w)",
+   "leftWidth": "320px",
+   "rightWidth": "420px",
+   "gap": "28px",
+   "gutter": "28px",
+   "stickyTop": "64px",
+   "measures": {
+    "prose": "72ch",
+    "slabExplanation": "62ch",
+    "statement": "60ch",
+    "draft": "70ch",
+    "railRisk": "28ch"
+   }
+  },
+  "utilities": {
+   "hidden": "[hidden] { display: none !important; }",
+   "colorScheme": "light forced; dark preference ignored",
+   "selection": "#D8CDB8 on ink",
+   "scrollbar": "thin, #C9C2B6 thumb, 3px paper gutter",
+   "numerals": "tabular-nums on body"
+  }
+ },
+ "components": [
+  {
+   "name": "Primary Button",
+   "kind": "button",
+   "refersTo": "button-primary",
+   "description": "Ink pill with cream text; lifts 1px with the Lifted shadow on hover.",
+   "html": "<button class=\"ds-btn\">Check my documents</button>",
+   "css": ".ds-btn { appearance: none; border: 1px solid var(--ink, #1A1917); background: var(--ink, #1A1917); color: var(--cream, #F3F0EA); border-radius: 999px; padding: 9px 18px; font: 500 14px/1.2 system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; box-shadow: 0 1px 0 rgba(255,255,255,.08) inset; transition: transform 160ms cubic-bezier(.16,1,.3,1), box-shadow 160ms cubic-bezier(.16,1,.3,1), background 160ms, color 160ms, border-color 160ms; } .ds-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px -6px rgba(26,25,23,.28), 0 2px 6px rgba(26,25,23,.08); background: #000; } .ds-btn:active { transform: translateY(0); box-shadow: 0 1px 2px rgba(26,25,23,.06), 0 2px 8px rgba(26,25,23,.06); } .ds-btn:focus-visible { outline: 2px solid var(--ink, #1A1917); outline-offset: 2px; } .ds-btn:disabled { opacity: .55; cursor: progress; transform: none; box-shadow: none; }"
+  },
+  {
+   "name": "Secondary Button",
+   "kind": "button",
+   "refersTo": "button-secondary",
+   "description": "Outline pill; inverts to ink on hover. Used for Load Maya / Load Leo.",
+   "html": "<button class=\"ds-btn-secondary\">Load Maya</button>",
+   "css": ".ds-btn-secondary { appearance: none; border: 1px solid var(--ink, #1A1917); background: transparent; color: var(--ink, #1A1917); border-radius: 999px; padding: 6px 12px; font: 500 13px/1.2 system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: transform 160ms cubic-bezier(.16,1,.3,1), box-shadow 160ms cubic-bezier(.16,1,.3,1), background 160ms, color 160ms; } .ds-btn-secondary:hover { background: var(--ink, #1A1917); color: var(--cream, #F3F0EA); transform: translateY(-1px); box-shadow: 0 6px 18px -6px rgba(26,25,23,.28), 0 2px 6px rgba(26,25,23,.08); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--ink, #1A1917); outline-offset: 2px; }"
+  },
+  {
+   "name": "Ghost Button",
+   "kind": "button",
+   "refersTo": "button-ghost",
+   "description": "Hairline pill that firms to an ink border on Paper 2; no lift.",
+   "html": "<button class=\"ds-btn-ghost\">Add a document</button>",
+   "css": ".ds-btn-ghost { appearance: none; border: 1px solid var(--hair, #DAD5CC); background: transparent; color: var(--ink, #1A1917); border-radius: 999px; padding: 9px 18px; font: 500 14px/1.2 system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background 160ms, border-color 160ms; } .ds-btn-ghost:hover { border-color: var(--ink, #1A1917); background: var(--paper-2, #EBE7DF); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--ink, #1A1917); outline-offset: 2px; }"
+  },
+  {
+   "name": "Status Chip",
+   "kind": "chip",
+   "refersTo": "chip-ready",
+   "description": "Verdict chip: accent text on accent tint with a mixed border and a 12px drawn glyph. Variants gap / adviser swap the token pair; base chip is Paper / Ink 2 / hairline.",
+   "html": "<span class=\"ds-chip ds-chip-ready\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12.5l4.5 4.5L19 7.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>Evidence ready</span> <span class=\"ds-chip ds-chip-gap\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h6M14 12h6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"/><path d=\"M11 9l2 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"/></svg>Evidence gap</span> <span class=\"ds-chip ds-chip-adviser\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"8\" r=\"3.6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"/><path d=\"M4.5 20c1-4 4-6 7.5-6s6.5 2 7.5 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\"/></svg>Needs an adviser</span> <span class=\"ds-chip\">Stated by you</span>",
+   "css": ".ds-chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 8px; border-radius: 999px; font: 500 12px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; border: 1px solid var(--hair, #DAD5CC); background: var(--paper, #F3F0EA); color: var(--ink-2, #4A4740); white-space: nowrap; } .ds-chip svg { width: 12px; height: 12px; flex: none; } .ds-chip-ready { color: #1F6B3A; background: #DCEBDF; border-color: color-mix(in srgb, #1F6B3A 35%, #DAD5CC); } .ds-chip-gap { color: #9A6200; background: #F3E6C6; border-color: color-mix(in srgb, #9A6200 35%, #DAD5CC); } .ds-chip-adviser { color: #7A1F2B; background: #F0D9DC; border-color: color-mix(in srgb, #7A1F2B 35%, #DAD5CC); }"
+  },
+  {
+   "name": "Document Chip",
+   "kind": "chip",
+   "refersTo": "chip-doc",
+   "description": "Filename chip on Paper 2 with the document glyph; used in the chain panel and gap fixes.",
+   "html": "<span class=\"ds-chip-doc\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 3h8l4 4v14H6z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\"/><path d=\"M9 12h6M9 16h6\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg>03_licence_certificate_v2.txt</span>",
+   "css": ".ds-chip-doc { display: inline-flex; align-items: center; gap: 7px; padding: 3px 10px 3px 8px; border-radius: 999px; font: 500 12px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; border: 1px solid var(--hair, #DAD5CC); background: var(--paper-2, #EBE7DF); color: var(--ink, #1A1917); white-space: nowrap; } .ds-chip-doc svg { width: 12px; height: 12px; flex: none; }"
+  },
+  {
+   "name": "Text Input",
+   "kind": "input",
+   "refersTo": "input",
+   "description": "Hairline field on Card fill; hover darkens the border, focus turns it ink with a soft 3px ring.",
+   "html": "<label class=\"ds-field\"><span class=\"ds-label\">Channel name</span><input class=\"ds-input\" type=\"text\" value=\"Maya Draws\"><span class=\"ds-caption\">Labelled \"Stated by you\".</span></label>",
+   "css": ".ds-field { display: flex; flex-direction: column; gap: 5px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; } .ds-label { font-size: 12.5px; font-weight: 600; color: var(--ink-2, #4A4740); letter-spacing: .01em; } .ds-input { border: 1px solid var(--hair, #DAD5CC); background: #FBFAF7; color: var(--ink, #1A1917); border-radius: 8px; padding: 8px 10px; width: 100%; font: 15px/1.5 inherit; transition: border-color 160ms, box-shadow 160ms; } .ds-input:hover { border-color: #B9B3A8; } .ds-input:focus { outline: none; border-color: var(--ink, #1A1917); box-shadow: 0 0 0 3px rgba(26,25,23,.08); } .ds-caption { font-size: 12px; color: var(--muted, #6B665E); }"
+  },
+  {
+   "name": "Segmented Control",
+   "kind": "input",
+   "refersTo": "segmented",
+   "description": "Pill track on Card fill; the checked option becomes an ink pill.",
+   "html": "<div class=\"ds-seg\" role=\"radiogroup\"><input type=\"radio\" name=\"ds-m\" id=\"ds-m1\" checked><label for=\"ds-m1\">Yes</label><input type=\"radio\" name=\"ds-m\" id=\"ds-m2\"><label for=\"ds-m2\">No</label><input type=\"radio\" name=\"ds-m\" id=\"ds-m3\"><label for=\"ds-m3\">Don't know</label></div>",
+   "css": ".ds-seg { display: inline-flex; border: 1px solid var(--hair, #DAD5CC); border-radius: 999px; padding: 3px; background: #FBFAF7; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--ink, #1A1917); } .ds-seg label { padding: 5px 12px; border-radius: 999px; cursor: pointer; font-size: 13px; } .ds-seg input { position: absolute; opacity: 0; pointer-events: none; } .ds-seg input:checked + label { background: var(--ink, #1A1917); color: var(--cream, #F3F0EA); } .ds-seg input:focus-visible + label { outline: 2px solid var(--ink, #1A1917); outline-offset: 2px; }"
+  },
+  {
+   "name": "Top Bar",
+   "kind": "nav",
+   "refersTo": "footer",
+   "description": "Sticky paper bar with the serif wordmark, sans tagline, secondary pills and an underlined text link.",
+   "html": "<header class=\"ds-top\"><a class=\"ds-wordmark\" href=\"#\">NoticeGuard <small>evidence-readiness check</small></a><span class=\"ds-spacer\"></span><nav><button class=\"ds-top-btn\">Load Maya</button><button class=\"ds-top-btn\">Load Leo</button><a class=\"ds-link\" href=\"#\">Benchmark</a></nav></header>",
+   "css": ".ds-top { display: flex; align-items: center; gap: 18px; padding: 14px 28px; border-bottom: 1px solid var(--hair, #DAD5CC); background: var(--paper, #F3F0EA); color: var(--ink, #1A1917); font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; } .ds-wordmark { font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif; font-size: 1.55rem; font-weight: 500; letter-spacing: -0.01em; display: flex; align-items: baseline; gap: 10px; color: inherit; text-decoration: none; } .ds-wordmark small { font-family: system-ui, sans-serif; font-size: 12px; color: var(--muted, #6B665E); letter-spacing: 0; font-weight: 400; } .ds-spacer { flex: 1; } .ds-top nav { display: flex; gap: 10px; align-items: center; } .ds-top-btn { appearance: none; border: 1px solid var(--ink, #1A1917); background: transparent; color: inherit; border-radius: 999px; padding: 6px 12px; font: 500 13px/1.2 inherit; cursor: pointer; transition: background 160ms, color 160ms; } .ds-top-btn:hover { background: var(--ink, #1A1917); color: var(--cream, #F3F0EA); } .ds-link { font-size: 14px; color: var(--ink-2, #4A4740); padding: 8px 6px; text-decoration-thickness: 1px; text-underline-offset: .18em; } .ds-link:focus-visible, .ds-top-btn:focus-visible { outline: 2px solid var(--ink, #1A1917); outline-offset: 2px; }"
+  },
+  {
+   "name": "Route Card",
+   "kind": "card",
+   "refersTo": "card",
+   "description": "Sheet on the desk: Card fill, hairline, 14px radius, serif numeral; hover firms the border to ink, active adds a flat Paper 2 ring.",
+   "html": "<div class=\"ds-route\"><span class=\"ds-route-n\">1</span><div><h3 class=\"ds-route-h\">Ask the licensor for a written confirmation</h3><p class=\"ds-route-p\">A short email from the licensor confirming the licence covers this video would close the gap.</p><span class=\"ds-route-tag\">Closes: licence scope</span></div><span class=\"ds-route-chip\">Evidence gap</span></div>",
+   "css": ".ds-route { display: grid; grid-template-columns: 34px 1fr auto; gap: 14px; align-items: start; border: 1px solid var(--hair, #DAD5CC); border-radius: 14px; padding: 14px 16px; background: #FBFAF7; color: var(--ink, #1A1917); font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; transition: border-color 160ms, box-shadow 160ms; cursor: pointer; } .ds-route:hover { border-color: var(--ink, #1A1917); } .ds-route.active, .ds-route:focus-visible { border-color: var(--ink, #1A1917); box-shadow: 0 0 0 3px var(--paper-2, #EBE7DF); outline: none; } .ds-route-n { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.5rem; line-height: 1; color: var(--ink-2, #4A4740); } .ds-route-h { margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 500; font-size: 1.1rem; line-height: 1.25; letter-spacing: -0.005em; } .ds-route-p { margin: 4px 0 0; font-size: 13.5px; color: var(--ink-2, #4A4740); line-height: 1.45; max-width: 70ch; } .ds-route-tag { display: block; font-size: 11.5px; color: var(--muted, #6B665E); margin-top: 6px; } .ds-route-chip { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; color: #9A6200; background: #F3E6C6; border: 1px solid color-mix(in srgb, #9A6200 35%, #DAD5CC); white-space: nowrap; }"
+  },
+  {
+   "name": "Verdict Slab",
+   "kind": "custom",
+   "refersTo": "slab",
+   "description": "Charcoal bound cover: 40px accent disc with a white glyph, serif display heading with an italic second clause, cream explanation, Cream 2 meta line; settles in over 320ms.",
+   "html": "<div class=\"ds-slab ds-slab-ready\"><div class=\"ds-slab-head\"><span class=\"ds-glyph\" role=\"img\" aria-label=\"Evidence ready\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12.5l4.5 4.5L19 7.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><h1 class=\"ds-slab-h1\">Evidence ready for:<br><em>In-platform dispute</em></h1></div><p class=\"ds-slab-expl\">Every component of the statement you would make in a dispute is confirmed by your documents.</p><div class=\"ds-slab-meta\"><span>Stage: Claim</span><span>·</span><span>Step checked: dispute</span><span>·</span><span>Rules v0.1.0</span></div></div>",
+   "css": ".ds-slab { background: #161513; color: #F3F0EA; border-radius: 22px; padding: 30px 32px 28px; box-shadow: 0 6px 18px -6px rgba(26,25,23,.28), 0 2px 6px rgba(26,25,23,.08); position: relative; overflow: hidden; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; animation: ds-settle 320ms cubic-bezier(.16,1,.3,1) both; } .ds-slab-head { display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; } .ds-glyph { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; margin-top: 6px; color: #fff; } .ds-glyph svg { width: 22px; height: 22px; } .ds-slab-ready .ds-glyph { background: #1F6B3A; } .ds-slab-gap .ds-glyph { background: #9A6200; } .ds-slab-adviser .ds-glyph { background: #7A1F2B; } .ds-slab-h1 { margin: 0; font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif; font-size: 2.75rem; line-height: 1.08; font-weight: 500; letter-spacing: -0.015em; max-width: 24ch; text-wrap: balance; } .ds-slab-h1 em { font-style: italic; font-weight: 400; } .ds-slab-expl { margin: 18px 0 0; font-size: 17px; line-height: 1.5; color: #E4DFD5; max-width: 62ch; } .ds-slab-meta { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; font-size: 12.5px; color: #B9B3A8; } @keyframes ds-settle { from { transform: scale(1.015); filter: blur(3px); opacity: .6; } to { transform: none; filter: none; opacity: 1; } } @media (prefers-reduced-motion: reduce) { .ds-slab { animation: none; } }"
+  },
+  {
+   "name": "Chain Step with Highlighted Quote",
+   "kind": "custom",
+   "refersTo": "card",
+   "description": "Uppercase step label with a trailing hairline, then the document view with a line-numbered quote marked on the accent tint with an inset accent underline and a one-shot pulse.",
+   "html": "<div class=\"ds-chain\" style=\"--accent:#1F6B3A;--accent-soft:#DCEBDF\"><div class=\"ds-step\"><div class=\"ds-k\">Quote</div><p class=\"ds-quote\">“Standard licence permits use of the Work as background music in video content.”</p><div class=\"ds-docview\"><div class=\"ds-ln\"><span class=\"ds-n\">25</span><span>4. Permitted and excluded uses</span></div><div class=\"ds-ln\"><span class=\"ds-n\">26</span><span>4.1 <mark class=\"ds-mark\">Standard licence permits use of the Work as background music in video content.</mark></span></div><div class=\"ds-ln\"><span class=\"ds-n\">27</span><span>4.2 Pro licence additionally permits use in broadcast.</span></div></div></div><div class=\"ds-step\"><div class=\"ds-k\">Status</div><span class=\"ds-chip-r\">Confirmed by document</span></div></div>",
+   "css": ".ds-chain { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1A1917; font-size: 15px; animation: ds-reveal 240ms cubic-bezier(.16,1,.3,1) both; } .ds-step { padding: 14px 0; border-top: 1px solid #DAD5CC; } .ds-step:first-child { border-top: 0; padding-top: 0; } .ds-k { font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #6B665E; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; } .ds-k::after { content: ''; flex: 1; height: 1px; background: #DAD5CC; } .ds-quote { margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 15.5px; line-height: 1.45; } .ds-docview { border: 1px solid #DAD5CC; border-radius: 14px; background: #FBFAF7; font-size: 12.5px; line-height: 1.5; padding: 8px 0; margin-top: 8px; } .ds-ln { display: grid; grid-template-columns: 34px 1fr; gap: 8px; padding: 0 10px; } .ds-n { color: #B9B3A8; text-align: right; font-size: 11px; padding-top: 2px; } .ds-mark { background: var(--accent-soft, #E8E1D2); color: #1A1917; padding: 0 2px; border-radius: 2px; box-decoration-break: clone; box-shadow: inset 0 -1px 0 var(--accent, #1A1917); animation: ds-pulse 900ms cubic-bezier(.16,1,.3,1) 1; } .ds-chip-r { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; color: #1F6B3A; background: #DCEBDF; border: 1px solid color-mix(in srgb, #1F6B3A 35%, #DAD5CC); } @keyframes ds-reveal { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } } @keyframes ds-pulse { 0% { box-shadow: inset 0 -1px 0 var(--accent), 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent); } 100% { box-shadow: inset 0 -1px 0 var(--accent), 0 0 0 10px transparent; } }"
+  }
+ ],
+ "narrative": {
+  "northStar": "The Case File on a Desk",
+  "overview": "NoticeGuard reads like a legal case file laid open on warm paper: one continuous cream surface, a dark charcoal verdict slab sitting on it like a bound cover, and a chain panel to the right that fills in when a sentence is clicked. There are no modals, no same-size stat cards, no transcript. Structure comes from hairlines and type, not from boxes; the only heavy objects on the page are the two charcoal slabs (verdict and draft) and the footer bar that pins the disclaimer.\n\nColour is disciplined to a single question: what is the verdict? Everything is ink on paper until a verdict is known, at which point one accent (green for ready, amber for gap, oxblood for adviser) appears on the slab glyph, the status chips, and the highlighted quote. Words carry the verdict; colour underlines it. The cream ground (#F3F0EA) was pinned by the user's brief, as were the serif display, charcoal rounded cards, and pill buttons; the build honours all four.\n\nDensity is that of a working tool, not a marketing page: 15px sans body, 13.5px tables, 12px chips, hairline separators at 1px, and a three-column desk that stays sticky on desktop and stacks in reading order on narrow screens.",
+  "keyCharacteristics": [
+   "One warm paper surface (#F3F0EA) with 1px hairline dividers; no borders heavier than 1px anywhere.",
+   "Two charcoal slabs (verdict and draft) are the only high-contrast objects; they carry the only lifted shadow.",
+   "Exactly one accent per verdict; nothing else on the page is chromatic.",
+   "Source Serif 4 for headings, stage names, quotes, and drafted prose; system sans with tabular numerals for all UI.",
+   "Pill buttons and pill chips; rounded corners scale 8 / 14 / 22px by object weight.",
+   "Motion is short (160-320ms), exponential ease-out, and only ever responds to an action."
+  ],
+  "rules": [
+   {
+    "name": "The One Accent Rule",
+    "body": "`body[data-verdict]` sets `--accent` and `--accent-soft` once, page-wide, to the verdict's colour pair; before a verdict they resolve to ink and the neutral soft tint. Every chromatic element (slab glyph, status chips, document highlight, gap rule) draws from that pair or from the three fixed verdict tokens. No fourth hue exists.",
+    "section": "colors"
+   },
+   {
+    "name": "The Words First Rule",
+    "body": "A verdict is always a sentence plus a drawn glyph; the accent underlines it. Never signal status by colour alone (see PRODUCT.md accessibility commitment).",
+    "section": "colors"
+   },
+   {
+    "name": "The Oxblood Is Also Error Rule",
+    "body": "The adviser accent doubles as the error colour. Do not introduce a separate red.",
+    "section": "colors"
+   },
+   {
+    "name": "The Serif Speaks, Sans Works Rule",
+    "body": "Serif is reserved for what a reader would quote or read aloud: headings, stage names, clauses, the drafted statement, rule ids. Everything operational (labels, chips, tables, buttons, meta) is sans. A serif button or a sans headline is a defect.",
+    "section": "typography"
+   },
+   {
+    "name": "The Tabular Numerals Rule",
+    "body": "Dates, line numbers, run counts, and deadlines align because tabular numerals are set at the body level; do not override to proportional.",
+    "section": "typography"
+   },
+   {
+    "name": "The Slabs Float, Paper Lies Flat Rule",
+    "body": "Only charcoal objects and a hovered primary button carry a blurred shadow. Light containers get a hairline and a lighter fill, never a shadow.",
+    "section": "elevation"
+   }
+  ],
+  "dos": [
+   "Do keep every divider, border, and rule at 1px; use fill (Card, Paper 2) and ink-coloured borders for emphasis, not weight.",
+   "Do route every chromatic colour through the three verdict pairs; set `body[data-verdict]` and let `--accent` / `--accent-soft` cascade rather than hard-coding a verdict colour into a new element.",
+   "Do pair every status colour with a word and a drawn SVG glyph (the `i-check` / `i-gap` / `i-person` symbols) so the status survives without colour.",
+   "Do set headings, stage names, quotes, and drafted text in Source Serif 4 at weight 500 (400 italic for quotes) and everything operational in the system sans.",
+   "Do use the pill for buttons, chips, and segmented controls, 14px radius for sheets, 22px for charcoal slabs.",
+   "Do keep motion between 160ms and 320ms on `cubic-bezier(.16,1,.3,1)` and only in response to a user action; honour `prefers-reduced-motion` by zeroing durations.",
+   "Do honour `[hidden] { display: none !important }`: toggle the attribute, never fight it with a display rule.",
+   "Do hold the light colour scheme regardless of OS preference (`color-scheme: light` is forced); there is no dark theme."
+  ],
+  "donts": [
+   "Don't add a fourth accent hue, a separate error red, or any colour on a chip, glyph, or highlight that is not one of the three verdict pairs.",
+   "Don't put a blurred shadow on a light container; only charcoal slabs and a hovered primary button lift.",
+   "Don't use emoji or icon fonts; glyphs are inline SVG symbols with `currentColor` strokes.",
+   "Don't set the wordmark, headings, or quotes in the sans, or buttons, chips, and table text in the serif.",
+   "Don't introduce modals, same-size stat cards, or a chat transcript into the tool surface; the desk is one continuous page (the benchmark page's native `<dialog>` for raw JSON is the only overlay and stays there).",
+   "Don't use gradients anywhere; even the loading skeleton is a flat paper-2 bar with an opacity pulse."
+  ]
+ },
+ "notCanonized": [
+  "--cream duplicates --paper (#F3F0EA); kept as two tokens because they serve different grounds."
+ ]
+}

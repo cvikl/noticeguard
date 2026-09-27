@@ -236,7 +236,7 @@ A monochrome warm-grey ramp from paper to ink, with three verdict accents that a
 - **Display** (500, 2.75rem, 1.08, -0.015em): the verdict heading inside the slab, max 24ch, second clause in italic 400. Drops to 2.2rem below 1400px and 1.8rem below 640px. The empty-state heading uses 2.2rem / 1.12.
 - **Headline** (500, 1.35rem, 1.2): section h2 ("The claim in plain language"); panel h2 is 1.2rem. Wordmark is 1.55rem / -0.01em with a 12px sans tagline.
 - **Title** (500, 1.05-1.15rem, 1.15-1.25): h3, rail stage names (1.15rem), route titles (1.1rem), rule ids. Route numerals are 1.5rem serif in ink-2.
-- **Quote** (400 italic, 1.35rem, 1.35): the statement block with a 1px ink left rule; chain sentence-text is 15.5rem-equivalent (15.5px) upright serif; table quotes and vote quotes are 12.5px italic serif in muted.
+- **Quote** (400 italic, 1.35rem, 1.35): the statement block with a 1px ink left rule; chain sentence-text is 15.5px / 1.45 upright serif; table quotes and vote quotes are 12.5px italic serif in muted.
 - **Body** (400, 15px, 1.5): default UI text. Result prose is 15.5px / 1.6 at max 72ch; slab explanation is 17px / 1.5 in #E4DFD5 at max 62ch; draft body is 16.5px / 1.6 serif at max 70ch.
 - **Label** (600, 11.5-12.5px, uppercase where structural): chain step labels ("Document", "Quote", "Rule") at 11.5px / .08em uppercase with a trailing hairline; table headers at 12px / .04em uppercase; the "You are here" marker at 11.5px / .06em uppercase in an ink pill; field labels at 12.5px / .01em, sentence case.
 - **Caption** (400, 12-13.5px, 1.35-1.5): ledes (13.5px muted), captions and sources (12-12.5px muted), footer (12.5px).
@@ -346,4 +346,4 @@ Any traceable sentence, in prose or in the draft, is a `role="button"` span with
 - **Don't** use emoji or icon fonts; glyphs are inline SVG symbols with `currentColor` strokes.
 - **Don't** set the wordmark, headings, or quotes in the sans, or buttons, chips, and table text in the serif.
 - **Don't** introduce modals, same-size stat cards, or a chat transcript into the tool surface; the desk is one continuous page (the benchmark page's native `<dialog>` for raw JSON is the only overlay and stays there).
-- **Don't** use gradients as material; the only gradient in the build is the loading skeleton's shimmer, which is a transient state, not a surface.
+- **Don't** use gradients anywhere; even the loading skeleton is a flat paper-2 bar with an opacity pulse.
