@@ -349,10 +349,11 @@
     const original = isPdf(doc) && state.showOriginal !== false;
     if (original) {
       const url = `/api/files/${encodeURIComponent(doc.id)}`;
-      $('#source-workspace').innerHTML = `<div class="document-toolbar"><span>${icon('i-doc')} ${esc(doc.filename)}</span><div class="document-view-controls"><button type="button" id="toggle-original" aria-pressed="true">Highlighted text</button><a class="open-original" href="${url}" target="_blank" rel="noopener">Open PDF ↗</a></div></div>
-        <div class="paper-scroll pdf-scroll" id="paper-scroll" tabindex="0" aria-label="Original PDF as uploaded"><iframe class="pdf-frame" src="${url}#toolbar=0&navpanes=0&view=FitH" title="${esc(doc.filename)}"></iframe></div>
-        <div class="source-bottom"><div class="source-info"><span>Original PDF · exactly as uploaded</span><span>${annotations.length} highlighted phrases in the text view</span></div>${nextStepAction(r)}</div>`;
+      $('#source-workspace').innerHTML = `<div class="document-toolbar"><span>${icon('i-doc')} ${esc(doc.filename)}</span><div class="document-view-controls"><button type="button" id="toggle-original" aria-pressed="true">Highlighted text</button><a class="open-original" href="${url}" target="_blank" rel="noopener">Open PDF ↗</a><details class="highlight-key"><summary>Highlight key</summary><div>${W.categories.map(([k,l]) => `<span class="tag-label tag-${k}"><i></i>${esc(l)}</span>`).join('')}</div></details></div></div>
+        <div class="paper-scroll pdf-scroll" id="paper-scroll" tabindex="0" aria-label="Original PDF as uploaded, with highlights"><div class="pdf-pages" id="pdf-pages"></div></div>
+        <div class="source-bottom"><div class="source-info"><span>Original PDF · exactly as uploaded · highlights overlaid</span><span>${annotations.length} highlighted phrases</span></div>${nextStepAction(r)}</div>`;
       $('#toggle-original').onclick = () => { state.showOriginal = false; renderSource(); scrollToPhrase(); };
+      renderPdf(doc, url, annotations);
       return;
     }
     const skin = state.plainSource ? 'plain' : documentSkin(doc.doc_type);
@@ -368,6 +369,63 @@
       const source = annotations[Number(b.dataset.highlight)];
       selectEvidence('fact:' + source.key, source);
     });
+  }
+  const normQ = s => s.replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim();
+  let pdfRenderSeq = 0;
+  async function renderPdf(doc, url, annotations) {
+    const seq = ++pdfRenderSeq, host = $('#pdf-pages');
+    if (!window.pdfjsLib) { host.innerHTML = `<iframe class="pdf-frame" src="${url}#toolbar=0" title="${esc(doc.filename)}"></iframe>`; return; }
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '/static/vendor/pdf.worker.min.js';
+    const fallback = setTimeout(() => { if (seq === pdfRenderSeq && !host.querySelector('canvas')) host.innerHTML = `<iframe class="pdf-frame" src="${url}#toolbar=0" title="${esc(doc.filename)}"></iframe>`; }, 6000);
+    let pdf;
+    try { pdf = await pdfjsLib.getDocument(url).promise; } catch (e) { clearTimeout(fallback); host.innerHTML = `<iframe class="pdf-frame" src="${url}#toolbar=0" title="${esc(doc.filename)}"></iframe>`; return; }
+    if (seq !== pdfRenderSeq) return;
+    clearTimeout(fallback);
+    const width = Math.min(800, Math.max(320, host.clientWidth || 700));
+    const selected = state.selectedSource;
+    for (let n = 1; n <= pdf.numPages; n++) {
+      const page = await pdf.getPage(n);
+      if (seq !== pdfRenderSeq) return;
+      const base = page.getViewport({ scale: 1 }), scale = width / base.width, viewport = page.getViewport({ scale });
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      const wrap = document.createElement('div'); wrap.className = 'pdf-page'; wrap.style.width = `${viewport.width}px`; wrap.style.height = `${viewport.height}px`;
+      const canvas = document.createElement('canvas'); canvas.width = Math.round(viewport.width * dpr); canvas.height = Math.round(viewport.height * dpr);
+      canvas.style.width = `${viewport.width}px`; canvas.style.height = `${viewport.height}px`;
+      wrap.appendChild(canvas); host.appendChild(wrap);
+      const ctx = canvas.getContext('2d'); ctx.scale(dpr, dpr);
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      const tc = await page.getTextContent();
+      // Concatenate the text items with their page positions so quotes can be located.
+      const items = []; let joined = '';
+      for (const it of tc.items) {
+        if (!it.str) continue;
+        const tx = pdfjsLib.Util.transform(viewport.transform, it.transform);
+        const h = Math.hypot(tx[2], tx[3]) || (it.height * scale), w = it.width * scale;
+        const s = normQ(it.str); if (!s) continue;
+        items.push({ start: joined.length, end: joined.length + s.length, x: tx[4], y: tx[5] - h * 0.85, w, h: h * 1.1, len: s.length });
+        joined += s + ' ';
+      }
+      const marks = annotations.map(a => ({ a, q: normQ(a.quote) })).filter(m => m.q.length > 2);
+      for (const m of marks) {
+        const isSel = selected && selected.doc_id === doc.id && selected.key === m.a.key && normQ(selected.quote) === m.q;
+        let from = 0, idx;
+        while ((idx = joined.indexOf(m.q, from)) !== -1) {
+          const end = idx + m.q.length; from = end;
+          items.filter(it => it.end > idx && it.start < end).forEach(it => {
+            const s0 = Math.max(idx, it.start) - it.start, e0 = Math.min(end, it.end) - it.start;
+            const el = document.createElement('button'); el.type = 'button';
+            el.className = `pdf-highlight tag-${m.a.category}${isSel ? ' selected source-highlight' : ''}`;
+            el.style.left = `${it.x + it.w * (s0 / it.len)}px`; el.style.top = `${it.y}px`;
+            el.style.width = `${Math.max(4, it.w * ((e0 - s0) / it.len))}px`; el.style.height = `${it.h}px`;
+            el.title = m.a.quote; el.setAttribute('aria-label', `Highlighted: ${m.a.quote}`);
+            el.onclick = () => selectEvidence('fact:' + m.a.key, m.a);
+            wrap.appendChild(el);
+          });
+          if (isSel) break;
+        }
+      }
+    }
+    if (seq === pdfRenderSeq) scrollToPhrase();
   }
   function documentSkin(type) {
     if (['removal_notice','strike_notice'].includes(type)) return 'letter';
@@ -497,7 +555,6 @@
       const doc = state.result.documents.find(d => d.id === source.doc_id);
       if (doc) state.docId = doc.id;
       if (doc && W.verified(doc,source)) state.selectedSource = {...source,key:source.key || source.fact_key};
-      if (state.selectedSource && preferred) state.showOriginal = false;
     }
     renderSidebar(); renderSource(); renderFindings(); renderChain(sid); scrollToPhrase();
     if (matchMedia('(max-width:760px)').matches) $('#centre').scrollIntoView({block:'start',behavior:'auto'});

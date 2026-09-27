@@ -91,7 +91,13 @@ body:not(.has-case) .workspace-journey { display:none; }
 .tag-label { color:var(--tag-ink); display:flex; align-items:center; gap:7px; font-size:10px; }
 .tag-label i { width:9px; height:9px; border-radius:3px; background:var(--tag-bg); border:1px solid var(--tag-ink); }
 .paper-scroll { overflow:auto; min-height:0; flex:1; padding:0 28px 28px; scroll-behavior:auto; }
-.pdf-scroll { display:flex; overflow:hidden; }
+.pdf-scroll { display:block; overflow:auto; }
+.pdf-pages { display:flex; flex-direction:column; align-items:center; gap:18px; padding-bottom:20px; }
+.pdf-page { position:relative; background:#fff; border:1px solid #e9e8e1; border-radius:3px; box-shadow:0 2px 8px #24242110; }
+.pdf-page canvas { display:block; }
+.pdf-highlight { position:absolute; border:0; padding:0; border-radius:2px; background:var(--tag-bg); border-bottom:2px solid var(--tag-ink); opacity:.85; mix-blend-mode:multiply; cursor:pointer; }
+.pdf-highlight:hover { opacity:1; box-shadow:0 0 0 2px var(--tag-ink); }
+.pdf-highlight.selected { background:var(--tag-ink); opacity:.45; box-shadow:0 0 0 3px var(--tag-ink); mix-blend-mode:multiply; }
 .pdf-frame { flex:1; width:100%; min-height:100%; border:1px solid #e9e8e1; border-radius:3px; background:#fff; box-shadow:0 2px 8px #24242103; }
 .open-original { color:var(--muted); text-decoration:none; font-size:11px; margin-left:10px; }
 .open-original:hover { text-decoration:underline; }
