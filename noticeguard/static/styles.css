@@ -51,6 +51,7 @@ p { margin: 0; }
 .small { font-size: 13px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 mark { background: transparent; }
+svg[aria-hidden] { width: 14px; height: 14px; vertical-align: -2px; flex: none; }
 
 /* scrollbars from the palette */
 * { scrollbar-width: thin; scrollbar-color: #C9C2B6 transparent; }
@@ -156,6 +157,7 @@ mark { background: transparent; }
 .seg input:checked + label { background: var(--ink); color: var(--cream); }
 .seg input:focus-visible + label { outline: 2px solid var(--ink); outline-offset: 2px; }
 .dropzone {
+  display: block; margin-top: 10px;
   border: 1px dashed #B9B3A8; border-radius: var(--r-md); padding: 16px; text-align: center; color: var(--muted); font-size: 13.5px;
   background: #FBFAF7; transition: border-color var(--fast), background var(--fast); cursor: pointer;
 }
@@ -171,6 +173,8 @@ mark { background: transparent; }
 .actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
 .casedocs { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
 .casedoc { display: flex; justify-content: space-between; gap: 10px; align-items: center; font-size: 13px; padding: 6px 0; border-bottom: 1px solid var(--hair); }
+.casedoc > span:first-child { display: inline-flex; align-items: center; gap: 6px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.casedoc .t { flex: none; }
 .casedoc .t { color: var(--muted); font-size: 12px; }
 
 /* ---------- verdict slab ---------- */

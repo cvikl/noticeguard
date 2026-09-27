@@ -1,0 +1,3 @@
+I'll check the project memory for the NoticeGuard spec details relevant to this verdict/counter-notice task.
+
+**Tool: read**

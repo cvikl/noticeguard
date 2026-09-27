@@ -342,5 +342,5 @@
 
   // deep-link demo: /?demo=maya
   const params = new URLSearchParams(location.search);
-  if (params.get('demo')) loadDemo(params.get('demo'));
+  if (params.get('demo')) loadDemo(params.get('demo')).then(() => { const o = params.get('open'); if (o) { const el = document.querySelector(`[data-sid="${CSS.escape(o)}"]`); if (el) el.click(); } });
 })();
