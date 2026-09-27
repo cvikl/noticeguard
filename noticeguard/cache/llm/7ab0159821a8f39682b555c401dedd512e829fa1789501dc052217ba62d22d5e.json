@@ -1,0 +1,12 @@
+{
+ "provider": "claude_cli",
+ "model": "sonnet",
+ "temperature": 0.7,
+ "run": 0,
+ "system": "You answer one narrow interpretation question about a licence clause. Output JSON only.",
+ "prompt": "Given this restriction / exclusion clause from a music licence document (quoted verbatim):\n\n\"Pro licence additionally permits use in broadcast, advertising and client work.\"\n\nand this actual use of the music by the licence holder:\n- medium: background music in a video\n- platform: ClipStream\n- channel: Maya Draws\n- monetised: yes (ads on, the creator earns revenue)\n- licence tier held: Standard\n- work: Glasslight\n\nQuestion: does this clause, on its own wording, exclude or forbid this actual use for a holder of the stated licence tier?\nAnswer \"yes\" only if the clause clearly applies to and excludes this use for that tier. Answer \"no\" if the clause is about something else or clearly does not restrict this use for that tier. Answer \"unclear\" if the wording could reasonably be read either way.\n\nOutput JSON only: {\"covers\": \"yes\" | \"no\" | \"unclear\", \"reason\": \"<one sentence>\"}",
+ "docs": "",
+ "text": "{\"covers\": \"no\", \"reason\": \"This clause only describes what the Pro tier additionally permits (broadcast, advertising, client work) and does not state any exclusion for Standard tier or address background music use in a monetised video, which is not itself broadcast, advertising, or client work.\"}",
+ "elapsed_ms": 7397,
+ "created": "2026-09-27T02:32:21Z"
+}

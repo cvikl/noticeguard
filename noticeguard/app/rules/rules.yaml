@@ -1,0 +1,65 @@
+version: "0.1.0"
+description: >
+  NoticeGuard evidence-readiness rules. Every rule is a pure function over the fact table, the mapping
+  results, the chosen step and the structured stated-by-you fields. Free text never reaches these rules.
+rules:
+  - id: R0
+    name: Stage detection
+    logic: rule_stage
+    inputs: [notice_kind, claim_date]
+    explanation_template: "Detected process stage from the notices; checks whether the chosen step is available at this stage."
+    on_fail: needs_adviser
+  - id: R1
+    name: Work identity
+    logic: rule_work_identity
+    inputs: [matched_work_title, licensed_work_title, purchased_work_title, granted_work_title]
+    explanation_template: "The work named in the claim must be the work the licence covers."
+    on_fail: needs_adviser
+  - id: R2
+    name: Licence version in force
+    logic: rule_version_in_force
+    inputs: [licence_version, licence_version_on_receipt, terms_version, effective_date, purchase_date, governing_terms_clause]
+    explanation_template: "Determines which version of the licence terms governs, by purchase date and the governing-terms clause."
+    on_unknown: needs_adviser
+  - id: R3
+    name: Permitted use covers actual use
+    logic: rule_permitted_use
+    inputs: [permitted_use, excluded_use, monetised_on_publish, stated_monetised, licence_tier]
+    explanation_template: "Checks the permitted-use wording of the version in force against the actual use (3-run mapping agreement)."
+    on_unknown: needs_adviser
+  - id: R4
+    name: Permission date vs publish date
+    logic: rule_grant_email
+    inputs: [grant_statement, email_date, publish_date, monetisation_start_date, granted_work_title]
+    explanation_template: "A dated grant from the licisor can cover the use if it predates publication (or the start of monetisation)."
+  - id: R5
+    name: Claimant in licence chain
+    logic: rule_claimant_chain
+    inputs: [claimant_name, licensor_name, content_id_administrator_name, administrator_name]
+    explanation_template: "The claimant must be the licensor or the administrator the licensor names."
+    on_unknown: needs_adviser
+  - id: R6
+    name: Matched segment plausibility
+    logic: rule_segment
+    inputs: [matched_segment, duration]
+    explanation_template: "Optional sanity check: the matched segment should fall inside the video duration. Never blocks."
+  - id: R7
+    name: Step evidence requirements
+    logic: rule_components
+    inputs: [step]
+    explanation_template: "Maps each component of the statement the creator would make to the rule results."
+  - id: R8
+    name: Verdict
+    logic: rule_verdict
+    inputs: [components, conflicting_facts, abstain_flags]
+    explanation_template: "All components supported -> evidence_ready; any unknown/conflict/abstain -> needs_adviser; otherwise evidence_gap."
+  - id: R9
+    name: Route selection
+    logic: rule_routes
+    inputs: [stage, R5, components]
+    explanation_template: "Lists routes lowest-risk first, each with its own evidence status."
+  - id: R10
+    name: Abstain triggers
+    logic: rule_abstain
+    inputs: [abstain_flags, conflicting_facts, ambiguous_mappings]
+    explanation_template: "Fair use / ownership flags, conflicting facts and ambiguous mappings always route to an adviser."

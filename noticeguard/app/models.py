@@ -69,6 +69,7 @@ class Source(BaseModel):
     char_end: int = 0
     clause_ref: Optional[str] = None
     exact: bool = True
+    context: str = ""  # the sentence/line containing the span
 
 
 class Fact(BaseModel):
@@ -190,6 +191,8 @@ class ChainFact(BaseModel):
     char_start: Optional[int] = None
     char_end: Optional[int] = None
     clause_ref: Optional[str] = None
+    context: str = ""
+    doc_type: Optional[str] = None
 
 
 class ChainNode(BaseModel):

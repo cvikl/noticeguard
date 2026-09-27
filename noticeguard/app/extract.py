@@ -56,7 +56,7 @@ CERT_TAGS = {
     "issue_date": "the issue date",
     "order_id": "the order reference, if shown",
     "permitted_use": "each clause that describes a permitted use (one tag per clause, wrap the clause text after its number; add clause=\"4.1\")",
-    "excluded_use": "each clause that describes an excluded / not-permitted use or a restriction such as requiring another tier (one tag per clause; add clause=\"...\")",
+    "excluded_use": "each clause that says a use is NOT permitted, is excluded, or REQUIRES a different tier (wording like 'does not permit', 'requires a Pro licence', 'excluded'). Do not tag a clause that merely lists what another tier permits. One tag per clause; add clause=\"...\"",
     "governing_terms_clause": "the clause saying which version of the terms governs this licence (add clause=\"...\")",
 }
 TERMS_TAGS = {
@@ -64,7 +64,7 @@ TERMS_TAGS = {
     "effective_date": "the effective date of this version",
     "licensor_name": "the name of the licensor publishing the terms",
     "permitted_use": "each clause describing a permitted use for a licence tier (one tag per clause; add clause=\"4.1\")",
-    "excluded_use": "each clause describing an excluded / not-permitted use or a restriction such as requiring another tier (one tag per clause; add clause=\"...\")",
+    "excluded_use": "each clause that says a use is NOT permitted, is excluded, or REQUIRES a different tier (wording like 'does not permit', 'requires a Pro licence', 'excluded'). Do not tag a clause that merely lists what another tier permits. One tag per clause; add clause=\"...\"",
     "governing_terms_clause": "the clause saying which version of the terms governs a licence (add clause=\"...\")",
     "administrator_clause": "the clause saying claims may be administered by a third-party rights administrator (add clause=\"...\")",
     "administrator_name": "the name of the rights administrator, only if the terms name one",
@@ -187,7 +187,7 @@ def extract_document(doc: Document, llm: Optional[LLM] = None) -> tuple[list[tup
         for tag, text, reason in result.dropped:
             rejected.append(_rej(doc, tag, text, reason))
         meta.update(n_verified=len(result.spans), n_dropped=len(result.dropped))
-        return result.spans, rejected, meta
+        return [(doc, ex, sp) for ex, sp in result.spans], rejected, meta
     meta["extraction_failed"] = True
     meta["error"] = f"{last_err.reason}" if last_err else "unknown"
     meta["diff"] = last_err.diff if last_err else ""

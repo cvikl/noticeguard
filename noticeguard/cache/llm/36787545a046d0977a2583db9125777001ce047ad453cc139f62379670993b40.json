@@ -1,0 +1,12 @@
+{
+ "provider": "claude_cli",
+ "model": "sonnet",
+ "temperature": 0.7,
+ "run": 0,
+ "system": "You answer one narrow interpretation question about a licence clause. Output JSON only.",
+ "prompt": "Given this clause from a licence document (quoted verbatim):\n\n\"This certificate is governed by Licence Terms v3 as in force on the date of issue.\"\n\nQuestion: does this clause say that the version of the terms in force at the time of purchase (or issue) governs the licence, so that later changes to the terms do not reduce the rights already granted?\nAnswer \"yes\" only if the wording clearly says the purchase-time (or issue-time) version governs. Answer \"no\" if it clearly says the current or latest terms apply. Answer \"unclear\" otherwise.\n\nOutput JSON only: {\"covers\": \"yes\" | \"no\" | \"unclear\", \"reason\": \"<one sentence>\"}",
+ "docs": "",
+ "text": "{\"covers\": \"yes\", \"reason\": \"The clause fixes governance to the version of Licence Terms v3 'as in force on the date of issue,' explicitly anchoring it to issue-time terms rather than any later version.\"}",
+ "elapsed_ms": 3382,
+ "created": "2026-09-27T02:32:54Z"
+}

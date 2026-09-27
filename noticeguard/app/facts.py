@@ -9,7 +9,8 @@ from typing import Any, Iterable, Optional
 from .models import Document, Extraction, Fact, RejectedFact, Source, Span, StatedFields
 
 # Fact types that are kept per notice document (one fact per document, same key allowed multiple times).
-PER_DOCUMENT_KEYS = {"notice_kind", "claim_date", "claim_effect", "deadline_date", "strike_count", "strike_date"}
+PER_DOCUMENT_KEYS = {"notice_kind", "claim_date", "claim_effect", "deadline_date", "strike_count", "strike_date",
+                     "governing_terms_clause", "administrator_clause"}
 # List-valued types: each extracted clause becomes its own fact, keyed with the doc type and clause ref.
 LIST_KEYS = {"permitted_use", "excluded_use"}
 # Keys compared across documents; a mismatch marks the fact as conflicting.
@@ -187,10 +188,27 @@ def values_equal(key: str, a: Any, b: Any) -> bool:
     return str(a).strip().lower() == str(b).strip().lower()
 
 
+def _context(doc: Document, span: Span) -> str:
+    """The sentence(s) of the document line(s) that contain the span, for explanations and hover text."""
+    text = " ".join(doc.lines[span.line_start - 1 : span.line_end]).strip()
+    if len(text) <= 320:
+        return text
+    # trim to the sentence containing the span
+    local = span.matched_text
+    i = text.find(local)
+    if i == -1:
+        return text[:317] + "..."
+    start = max(text.rfind(". ", 0, i) + 2, 0)
+    end = text.find(". ", i + len(local))
+    end = len(text) if end == -1 else end + 1
+    out = text[start:end].strip()
+    return out if len(out) <= 320 else out[:317] + "..."
+
+
 def _source(doc: Document, ex: Extraction, span: Span) -> Source:
     return Source(doc_id=doc.id, doc_filename=doc.filename, doc_type=doc.doc_type, quote=span.matched_text,
                   line_start=span.line_start, line_end=span.line_end, char_start=span.char_start, char_end=span.char_end,
-                  clause_ref=ex.clause_ref, exact=span.exact)
+                  clause_ref=ex.clause_ref, exact=span.exact, context=_context(doc, span))
 
 
 def build_fact_table(verified: list[tuple[Document, Extraction, Span]], stated: StatedFields) -> list[Fact]:
@@ -253,9 +271,12 @@ def build_fact_table(verified: list[tuple[Document, Extraction, Span]], stated: 
                         f"{it[1].doc_filename} says {it[0]!r}" for it in items)
                     facts[key].alternatives = [{"value": it[0], "doc_id": it[1].doc_id, "doc_filename": it[1].doc_filename, "quote": it[1].quote} for it in items]
 
-    out = list(facts.values()) + per_doc
+    return list(facts.values()) + per_doc + stated_facts(stated)
 
-    # stated-by-you fields (never from free text)
+
+def stated_facts(stated: StatedFields) -> list[Fact]:
+    """Structured stated-by-you fields as facts. Never from free text."""
+    out: list[Fact] = []
     stated_map = {
         "stated_name": stated.name.strip(), "stated_address": stated.address.strip(), "stated_phone": stated.phone.strip(),
         "stated_channel_name": stated.channel_name.strip(),

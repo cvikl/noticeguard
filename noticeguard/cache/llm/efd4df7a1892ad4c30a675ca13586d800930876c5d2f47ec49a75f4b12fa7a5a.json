@@ -1,0 +1,12 @@
+{
+ "provider": "claude_cli",
+ "model": "sonnet",
+ "temperature": 0.7,
+ "run": 2,
+ "system": "You answer one narrow interpretation question about a licence clause. Output JSON only.",
+ "prompt": "Given this clause from a music licence document (quoted verbatim):\n\n\"Standard licence permits use of the Work as background music in personal, non-commercial video content.\"\n\nand this actual use of the music by the licence holder:\n- medium: background music in a video\n- platform: ClipStream\n- channel: Leo Marsh Music\n- monetised: yes (ads on, the creator earns revenue)\n- licence tier held: Standard\n- work: Glasslight\n\nQuestion: does the clause, on its own wording, cover (permit) this actual use for a holder of the stated licence tier?\nAnswer \"yes\" only if the clause's wording clearly permits this use for that tier. Answer \"no\" if the clause clearly does not permit it for that tier (for example it permits a different tier, or only non-commercial use when the actual use is monetised). Answer \"unclear\" if the wording could reasonably be read either way.\n\nOutput JSON only: {\"covers\": \"yes\" | \"no\" | \"unclear\", \"reason\": \"<one sentence>\"}",
+ "docs": "",
+ "text": "{\"covers\": \"no\", \"reason\": \"The clause only permits use in personal, non-commercial video content, but the actual use is monetised with ads generating revenue for the creator.\"}",
+ "elapsed_ms": 4986,
+ "created": "2026-09-27T02:32:52Z"
+}
