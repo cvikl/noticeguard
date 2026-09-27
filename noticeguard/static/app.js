@@ -303,7 +303,7 @@
       <div class="finding-controls"><label class="sr-only" for="finding-picker">Choose a finding</label><select id="finding-picker"></select><label class="sr-only" for="category-filter">Filter findings by category</label><select id="category-filter"><option value="all">All tags</option>${W.categories.map(([k,l]) => `<option value="${k}">${esc(l)}</option>`).join('')}</select></div>
       ${state.diff && state.diff.verdict_before !== 'none' ? `<details class="change-note" open><summary>What changed</summary><p>${esc(state.diff.summary)}</p></details>` : ''}
       <section id="chain" aria-label="Evidence detail" tabindex="-1"></section>
-      <div id="signal-slot"></div></div>`;
+      <div id="signal-slot"></div></div><div class="findings-footer">${nextStepAction(r)}</div>`;
     renderReport(); renderSidebar(); renderSource(); renderFindings();
     if (state.active) renderChain(state.active); else renderChainEmpty();
     scrollToPhrase();
@@ -339,14 +339,14 @@
   }
   function renderSource() {
     const r = state.result, doc = r.documents.find(d => d.id === state.docId);
-    if (!doc) { $('#source-workspace').innerHTML = `<p class="no-source">No source documents available.</p><div class="source-bottom">${nextStepAction(r)}</div>`; return; }
+    if (!doc) { $('#source-workspace').innerHTML = '<p class="no-source">No source documents available.</p>'; return; }
     const annotations = W.annotations(r, doc);
     const skin = state.plainSource ? 'plain' : documentSkin(doc.doc_type);
     const scan = ['certificate','letter','receipt'].includes(skin);
     $('#source-workspace').innerHTML = `<div class="document-toolbar"><span>${icon('i-doc')} ${esc(doc.filename)}</span><div class="document-view-controls"><button type="button" id="toggle-source-style" aria-pressed="${Boolean(state.plainSource)}">${state.plainSource ? 'Document view' : 'Plain text'}</button><details class="highlight-key"><summary>Highlight key</summary><div>${W.categories.map(([k,l]) => `<span class="tag-label tag-${k}"><i></i>${esc(l)}</span>`).join('')}</div></details></div></div>
       <div class="paper-scroll" id="paper-scroll" tabindex="0" aria-label="Scrollable source document"><article class="source-paper source-${skin}${scan ? ' scan-paper' : ''}" aria-label="${esc(DOC_LABEL[doc.doc_type] || doc.doc_type)} — restyled source text">
       ${doc.extraction_failed ? '<div class="error">Extraction rejected. This document is readable, but its extracted facts are not used.</div>' : ''}<div id="source-lines" class="source-lines">${sourceLines(doc, annotations)}</div></article></div>
-      <div class="source-bottom"><div class="source-info"><span>${scan ? 'Restyled source · simulated scan texture' : 'Restyled source text'}</span><span>${annotations.length} highlighted phrases</span></div>${nextStepAction(r)}</div>`;
+      <div class="source-bottom"><div class="source-info"><span>${scan ? 'Restyled source · simulated scan texture' : 'Restyled source text'}</span><span>${annotations.length} highlighted phrases</span></div></div>`;
     document.fonts.ready.then(() => { if (state.selectedSource) scrollToPhrase(); });
     $('#toggle-source-style').onclick = () => { state.plainSource = !state.plainSource; renderSource(); scrollToPhrase(); };
     $$('[data-highlight]').forEach(b => b.onclick = () => {
